@@ -1,0 +1,155 @@
+/* Estilos customizados para o site de venda do MentorAI */
+
+body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Ajustes no header */
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header .logo h1 a {
+    color: #42b983;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .header .btn-getstarted {
+    background-color: #42b983;
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  .header .btn-getstarted:hover {
+    background-color: #2D9C6A;
+  }
+  
+  /* Sessão de Hero */
+  #hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/hero-bg.jpg') center/cover no-repeat;
+    color: #fff;
+    padding: 100px 0;
+  }
+  #hero h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+  }
+  #hero .btn-getstarted {
+    margin-top: 30px;
+    background: #42b983;
+    border-radius: 4px;
+    padding: 12px 28px;
+    color: #fff;
+    transition: 0.3s;
+  }
+  #hero .btn-getstarted:hover {
+    background: #2f855a;
+  }
+  
+  /* Sessão de Services (recursos) */
+  .services {
+    padding: 60px 0;
+  }
+  .services .service-item {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    transition: transform 0.3s;
+  }
+  .services .service-item:hover {
+    transform: translateY(-5px);
+  }
+  .services .service-item .icon {
+    font-size: 2rem;
+    color: #42b983;
+  }
+  
+  /* Sessão de Preço (Planos) */
+  .pricing-item {
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 30px;
+    transition: transform 0.3s;
+  }
+  .pricing-item:hover {
+    transform: translateY(-5px);
+  }
+  .pricing-item.featured {
+    border: 2px solid #42b983;
+  }
+  .pricing-item h4 {
+    margin-bottom: 20px;
+  }
+  .pricing-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px 0;
+  }
+  .pricing-item ul li {
+    margin: 10px 0;
+  }
+  
+  /* Sessão CTA */
+  .call-to-action {
+    background: linear-gradient(135deg, #42b983 0%, #2f855a 100%);
+    padding: 60px 0;
+    color: #fff;
+    text-align: center;
+  }
+  .call-to-action p {
+    margin: 0 auto 20px auto;
+    max-width: 700px;
+    line-height: 1.6;
+  }
+  .call-to-action .cta-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 4px;
+    background: #fff;
+    color: #2f855a;
+  }
+  .call-to-action .cta-btn:hover {
+    background: #f4f4f4;
+  }
+  
+  /* Seção de Contato */
+  .contact .info-item {
+    background: #42b983;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+    color: #fff;
+  }
+  .contact form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Rodapé */
+  .footer {
+    background: #222;
+    color: #ddd;
+    padding: 30px 0;
+    text-align: center;
+  }
+  .footer p {
+    margin: 0;
+  }
+  .footer .social-links a {
+    color: #fff;
+    margin: 0 5px;
+    transition: color 0.3s;
+  }
+  .footer .social-links a:hover {
+    color: #42b983;
+  }

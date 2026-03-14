@@ -1,0 +1,340 @@
+/* Estilos adaptativos para texto em modo escuro */
+
+/* Regra global para texto adaptativo em todos os elementos */
+body.dark-mode * {
+  color-adjust: exact;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Adapta a cor do texto com base no fundo */
+body.dark-mode .bg-light,
+body.dark-mode .bg-white,
+body.dark-mode .white-bg,
+body.dark-mode [class*="bg-light"],
+body.dark-mode [class*="bg-white"],
+body.dark-mode [style*="background-color: #fff"],
+body.dark-mode [style*="background-color: white"],
+body.dark-mode [style*="background: #fff"],
+body.dark-mode [style*="background: white"] {
+  color: var(--contrast-text-dark) !important;
+}
+
+body.dark-mode .bg-dark,
+body.dark-mode .dark-bg,
+body.dark-mode [class*="bg-dark"],
+body.dark-mode [style*="background-color: #000"],
+body.dark-mode [style*="background-color: black"],
+body.dark-mode [style*="background: #000"],
+body.dark-mode [style*="background: black"] {
+  color: var(--contrast-text-light) !important;
+}
+
+/* Cards e elementos de UI adaptativos */
+body.dark-mode .card,
+body.dark-mode .pricing-card,
+body.dark-mode .feature-card,
+body.dark-mode .service-card {
+  background-color: var(--color-dark-card);
+  color: var(--contrast-text-light);
+  border-color: var(--dark-border-color);
+}
+
+/* Exceção para cards com fundo explicitamente claro */
+body.dark-mode .card.bg-light,
+body.dark-mode .card.bg-white,
+body.dark-mode .card.white-card,
+body.dark-mode .card[class*="bg-light"],
+body.dark-mode .card[class*="bg-white"],
+body.dark-mode .card[style*="background-color: #fff"],
+body.dark-mode .card[style*="background-color: white"],
+body.dark-mode .card[style*="background: #fff"],
+body.dark-mode .card[style*="background: white"] {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Tratamento especial para disciplinas */
+body.dark-mode .curriculum-section .card,
+body.dark-mode .disciplines-box .card,
+body.dark-mode .white-box .card,
+body.dark-mode .ciclo-basico .card,
+body.dark-mode .ciclo-clinico .card,
+body.dark-mode .preparation-box .card,
+body.dark-mode .subject-card,
+body.dark-mode .subject-box,
+body.dark-mode [class*="curriculum"] .card,
+body.dark-mode [class*="disciplines"] .card,
+body.dark-mode [class*="ciclo"] .card,
+body.dark-mode [class*="preparation"] .card {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.125) !important;
+  color: #333333 !important;
+}
+
+/* Adapta o texto dentro de contêineres claros */
+body.dark-mode .bg-light *,
+body.dark-mode .bg-white *,
+body.dark-mode .white-bg *,
+body.dark-mode [class*="bg-light"] *,
+body.dark-mode [class*="bg-white"] *,
+body.dark-mode [style*="background-color: #fff"] *,
+body.dark-mode [style*="background-color: white"] *,
+body.dark-mode [style*="background: #fff"] *,
+body.dark-mode [style*="background: white"] * {
+  color: var(--dark-text-color);
+}
+
+/* Correção específica para texto em fundos claros */
+body.dark-mode .bg-light h1,
+body.dark-mode .bg-white h1,
+body.dark-mode .white-bg h1,
+body.dark-mode [class*="bg-light"] h1,
+body.dark-mode [class*="bg-white"] h1,
+body.dark-mode .bg-light h2,
+body.dark-mode .bg-white h2,
+body.dark-mode .white-bg h2,
+body.dark-mode [class*="bg-light"] h2,
+body.dark-mode [class*="bg-white"] h2,
+body.dark-mode .bg-light h3,
+body.dark-mode .bg-white h3,
+body.dark-mode .white-bg h3,
+body.dark-mode [class*="bg-light"] h3,
+body.dark-mode [class*="bg-white"] h3,
+body.dark-mode .bg-light h4,
+body.dark-mode .bg-white h4,
+body.dark-mode .white-bg h4,
+body.dark-mode [class*="bg-light"] h4,
+body.dark-mode [class*="bg-white"] h4,
+body.dark-mode .bg-light h5,
+body.dark-mode .bg-white h5,
+body.dark-mode .white-bg h5,
+body.dark-mode [class*="bg-light"] h5,
+body.dark-mode [class*="bg-white"] h5,
+body.dark-mode .bg-light h6,
+body.dark-mode .bg-white h6,
+body.dark-mode .white-bg h6,
+body.dark-mode [class*="bg-light"] h6,
+body.dark-mode [class*="bg-white"] h6 {
+  color: var(--primary-light-color) !important;
+}
+
+/* Correção específica para textos em disciplinas e organização do currículo */
+body.dark-mode .curriculum-section p,
+body.dark-mode .curriculum-box p,
+body.dark-mode .disciplines-box p,
+body.dark-mode .white-box p,
+body.dark-mode .study-card p,
+body.dark-mode .disciplines-organization p,
+body.dark-mode .ciclo-basico p,
+body.dark-mode .ciclo-clinico p,
+body.dark-mode .preparation-box p,
+body.dark-mode [class*="disciplines"] p,
+body.dark-mode [class*="curriculum"] p,
+body.dark-mode [class*="ciclo"] p,
+body.dark-mode [class*="preparation"] p,
+body.dark-mode .subject-card p,
+body.dark-mode .subject-box p,
+body.dark-mode .subject-item p,
+body.dark-mode .curriculum-section li,
+body.dark-mode .curriculum-box li,
+body.dark-mode .disciplines-box li,
+body.dark-mode .white-box li,
+body.dark-mode .study-card li,
+body.dark-mode .disciplines-organization li,
+body.dark-mode .ciclo-basico li,
+body.dark-mode .ciclo-clinico li,
+body.dark-mode .preparation-box li,
+body.dark-mode [class*="disciplines"] li,
+body.dark-mode [class*="curriculum"] li,
+body.dark-mode [class*="ciclo"] li,
+body.dark-mode [class*="preparation"] li,
+body.dark-mode .subject-card li,
+body.dark-mode .subject-box li,
+body.dark-mode .subject-item li,
+body.dark-mode .curriculum-section span,
+body.dark-mode .curriculum-box span,
+body.dark-mode .disciplines-box span,
+body.dark-mode .white-box span,
+body.dark-mode .study-card span,
+body.dark-mode .disciplines-organization span,
+body.dark-mode .ciclo-basico span,
+body.dark-mode .ciclo-clinico span,
+body.dark-mode .preparation-box span,
+body.dark-mode [class*="disciplines"] span,
+body.dark-mode [class*="curriculum"] span,
+body.dark-mode [class*="ciclo"] span,
+body.dark-mode [class*="preparation"] span,
+body.dark-mode .subject-card span,
+body.dark-mode .subject-box span,
+body.dark-mode .subject-item span {
+  color: rgba(0, 0, 0, 0.85) !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+}
+
+/* Cabeçalhos e títulos em caixas de disciplinas */
+body.dark-mode .curriculum-section h3,
+body.dark-mode .curriculum-section h4,
+body.dark-mode .curriculum-section h5,
+body.dark-mode .curriculum-box h3,
+body.dark-mode .curriculum-box h4,
+body.dark-mode .curriculum-box h5,
+body.dark-mode .disciplines-box h3,
+body.dark-mode .disciplines-box h4,
+body.dark-mode .disciplines-box h5,
+body.dark-mode .white-box h3,
+body.dark-mode .white-box h4,
+body.dark-mode .white-box h5,
+body.dark-mode .ciclo-basico h3,
+body.dark-mode .ciclo-basico h4,
+body.dark-mode .ciclo-basico h5,
+body.dark-mode .ciclo-clinico h3,
+body.dark-mode .ciclo-clinico h4,
+body.dark-mode .ciclo-clinico h5,
+body.dark-mode .study-card h3,
+body.dark-mode .study-card h4,
+body.dark-mode .study-card h5,
+body.dark-mode .subject-card h3,
+body.dark-mode .subject-card h4,
+body.dark-mode .subject-card h5,
+body.dark-mode .subject-box h3,
+body.dark-mode .subject-box h4,
+body.dark-mode .subject-box h5,
+body.dark-mode [class*="disciplines"] h3,
+body.dark-mode [class*="disciplines"] h4,
+body.dark-mode [class*="disciplines"] h5,
+body.dark-mode [class*="curriculum"] h3,
+body.dark-mode [class*="curriculum"] h4,
+body.dark-mode [class*="curriculum"] h5,
+body.dark-mode [class*="ciclo"] h3,
+body.dark-mode [class*="ciclo"] h4,
+body.dark-mode [class*="ciclo"] h5,
+body.dark-mode [class*="preparation"] h3,
+body.dark-mode [class*="preparation"] h4,
+body.dark-mode [class*="preparation"] h5 {
+  color: rgba(0, 0, 0, 0.9) !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+/* Correção específica para texto em fundos escuros */
+body.dark-mode .bg-dark h1,
+body.dark-mode .dark-bg h1,
+body.dark-mode [class*="bg-dark"] h1,
+body.dark-mode .bg-dark h2,
+body.dark-mode .dark-bg h2,
+body.dark-mode [class*="bg-dark"] h2,
+body.dark-mode .bg-dark h3,
+body.dark-mode .dark-bg h3,
+body.dark-mode [class*="bg-dark"] h3,
+body.dark-mode .bg-dark h4,
+body.dark-mode .dark-bg h4,
+body.dark-mode [class*="bg-dark"] h4,
+body.dark-mode .bg-dark h5,
+body.dark-mode .dark-bg h5,
+body.dark-mode [class*="bg-dark"] h5,
+body.dark-mode .bg-dark h6,
+body.dark-mode .dark-bg h6,
+body.dark-mode [class*="bg-dark"] h6 {
+  color: var(--color-white) !important;
+}
+
+/* Planos de preço adaptativos */
+body.dark-mode .pricing-card,
+body.dark-mode .pricing-box,
+body.dark-mode .pricing-plan,
+body.dark-mode .price-card,
+body.dark-mode .price-box,
+body.dark-mode .plan-card {
+  background-color: rgba(40, 45, 50, 0.7) !important;
+  color: var(--contrast-text-light) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Plano em destaque */
+body.dark-mode .pricing-card.popular,
+body.dark-mode .pricing-box.highlight,
+body.dark-mode .pricing-plan.featured,
+body.dark-mode .price-card.recommended,
+body.dark-mode .price-box.best-value,
+body.dark-mode .plan-card.special {
+  background-color: rgba(35, 75, 90, 0.5) !important;
+  border: 1px solid var(--primary-light-color) !important;
+}
+
+/* Cores adaptativas para preços e valores */
+body.dark-mode .price-amount,
+body.dark-mode .price-value,
+body.dark-mode .pricing-value,
+body.dark-mode .plan-price {
+  color: var(--primary-light-color) !important;
+  font-weight: bold !important;
+}
+
+/* Cores para recursos dos planos */
+body.dark-mode .plan-feature,
+body.dark-mode .price-feature,
+body.dark-mode .pricing-feature {
+  color: var(--contrast-text-light) !important;
+}
+
+body.dark-mode .feature-included,
+body.dark-mode .feature-checked,
+body.dark-mode .feature-available {
+  color: var(--primary-light-color) !important;
+}
+
+body.dark-mode .feature-excluded,
+body.dark-mode .feature-unchecked,
+body.dark-mode .feature-unavailable {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Correção para elementos em tabelas */
+body.dark-mode table {
+  color: var(--contrast-text-light);
+}
+
+body.dark-mode table.table-light,
+body.dark-mode table.table-white {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--contrast-text-light);
+}
+
+body.dark-mode table.table-dark {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: var(--contrast-text-light);
+}
+
+/* Botões adaptados para contraste */
+body.dark-mode .btn-outline-light,
+body.dark-mode .btn-outline-white {
+  color: var(--contrast-text-light) !important;
+  border-color: var(--contrast-text-light) !important;
+}
+
+body.dark-mode .btn-light,
+body.dark-mode .btn-white {
+  color: var(--contrast-text-dark) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+body.dark-mode .btn-dark {
+  color: var(--contrast-text-light) !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Placeholder - imagens de fundo e transparência */
+body.dark-mode [style*="background-image"] {
+  color: var(--contrast-text-light) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Elementos que têm fortes padrões de contraste */
+body.dark-mode .contrast-light-text {
+  color: var(--contrast-text-light) !important;
+}
+
+body.dark-mode .contrast-dark-text {
+  color: var(--contrast-text-dark) !important;
+}

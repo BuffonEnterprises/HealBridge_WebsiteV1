@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste UltraThink Webchat</title>
+    <link rel="stylesheet" href="ultrathink-webchat.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .test-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #1f2937;
+            margin-bottom: 20px;
+            font-size: 32px;
+            background: linear-gradient(135deg, #42b983 0%, #2a9d8f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 12px;
+        }
+
+        .features h3 {
+            color: #42b983;
+            margin-bottom: 15px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+        }
+
+        .features li::before {
+            content: '✅';
+            margin-right: 10px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #42b983 0%, #2a9d8f 100%);
+            color: white;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .note {
+            margin-top: 30px;
+            padding: 15px;
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            border-radius: 8px;
+            text-align: left;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🌱 UltraThink AI Webchat</h1>
+        <p>Teste do webchat inteligente com IA integrada</p>
+
+        <div class="features">
+            <h3>Funcionalidades Implementadas:</h3>
+            <ul>
+                <li>Chat no canto inferior esquerdo</li>
+                <li>Design moderno em tons de verde</li>
+                <li>Respostas inteligentes automáticas</li>
+                <li>Sugestões rápidas de perguntas</li>
+                <li>Indicador de digitação</li>
+                <li>Badge de notificações não lidas</li>
+                <li>Animações suaves e modernas</li>
+                <li>100% responsivo</li>
+                <li>Som de notificação</li>
+                <li>Histórico de conversas</li>
+            </ul>
+        </div>
+
+        <div class="status">
+            ✅ Webchat Funcionando
+        </div>
+
+        <div class="note">
+            <strong>💡 Dica:</strong> O chat aparece no canto inferior esquerdo. Clique no botão verde para abrir e testar as funcionalidades!
+        </div>
+    </div>
+
+    <!-- UltraThink Webchat Script -->
+    <script src="ultrathink-webchat.js"></script>
+</body>
+</html>

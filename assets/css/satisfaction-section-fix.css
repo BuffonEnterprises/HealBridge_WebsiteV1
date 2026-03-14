@@ -1,0 +1,173 @@
+/* Correções específicas para a seção de satisfação e resultados comprovados */
+
+/* Classe para elementos de texto especiais identificados via JavaScript */
+.texto-especial-contraste {
+  color: #212529 !important;
+  background-color: #ffffff !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+  margin: 2px 0 !important;
+  font-weight: 500 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Classe para o título "Comprovado" */
+.titulo-comprovado {
+  color: #212529 !important;
+  background-color: #ffffff !important;
+  padding: 5px 15px !important;
+  border-radius: 6px !important;
+  display: inline-block !important;
+  margin: 5px 0 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15) !important;
+  border-left: 4px solid var(--primary-light-color) !important;
+}
+
+/* Suporte para elementos marcados via data-attributes */
+body.dark-mode [data-texto-especial="true"] {
+  color: #212529 !important;
+}
+
+/* Garantir que a seção de satisfação tenha texto visível no modo escuro */
+body.dark-mode .results-section li,
+body.dark-mode .satisfaction-section li,
+body.dark-mode .benefits-list li,
+body.dark-mode .feature-list li,
+body.dark-mode .quality-list li,
+body.dark-mode .highlights-list li,
+body.dark-mode .results-container li,
+body.dark-mode .satisfaction-container li,
+body.dark-mode .benefits-container li,
+body.dark-mode .support-container li,
+body.dark-mode [class*="satisfaction"] li,
+body.dark-mode [class*="results"] li,
+body.dark-mode [class*="benefits"] li,
+body.dark-mode [class*="metrics"] li,
+body.dark-mode [class*="proven"] li,
+body.dark-mode [class*="feature"] li {
+  color: #212529 !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+}
+
+/* Elementos com fundo branco e texto escuro no modo escuro */
+body.dark-mode li.satisfaction-item,
+body.dark-mode li.benefit-item,
+body.dark-mode li.feature-item,
+body.dark-mode li.advantage-item,
+body.dark-mode li.metrics-item,
+body.dark-mode .satisfaction-list li,
+body.dark-mode .benefits-list li,
+body.dark-mode .features-list li,
+body.dark-mode .advantages-list li,
+body.dark-mode .metrics-list li,
+body.dark-mode .results-list li,
+body.dark-mode .features-checklist li {
+  color: #212529 !important;
+  font-weight: 500 !important;
+  background-color: #ffffff !important;
+  border-radius: 5px;
+  padding: 6px 10px !important;
+  margin-bottom: 8px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  border-left: 3px solid #6ad48b !important;
+}
+
+/* Todos os textos específicos de benefícios */
+body.dark-mode li:has(span:contains("Taxa")),
+body.dark-mode li:has(span:contains("Equilíbrio")),
+body.dark-mode li:has(span:contains("Redução")),
+body.dark-mode li:has(span:contains("Algoritmos")),
+body.dark-mode li:has(span:contains("Suporte")),
+body.dark-mode li:has(span:contains("Análise")),
+body.dark-mode li:has(span:contains("Integração")),
+body.dark-mode li:has(span:contains("Metodologia")),
+body.dark-mode p:has(span:contains("Taxa")),
+body.dark-mode p:has(span:contains("Equilíbrio")),
+body.dark-mode p:has(span:contains("Redução")),
+body.dark-mode p:has(span:contains("Algoritmos")),
+body.dark-mode p:has(span:contains("Suporte")),
+body.dark-mode p:has(span:contains("Análise")),
+body.dark-mode p:has(span:contains("Integração")),
+body.dark-mode p:has(span:contains("Metodologia")) {
+  color: #212529 !important;
+}
+
+/* Elemento com título "Comprovado" */
+body.dark-mode h2.section-title:has(span:contains("Comprovado")),
+body.dark-mode h3.section-title:has(span:contains("Comprovado")),
+body.dark-mode h4.section-title:has(span:contains("Comprovado")),
+body.dark-mode h5.section-title:has(span:contains("Comprovado")),
+body.dark-mode .section-title:has(span:contains("Comprovado")),
+body.dark-mode .section-heading:has(span:contains("Comprovado")) {
+  color: #212529 !important;
+  font-weight: 700 !important;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 5px;
+  padding: 8px 15px !important;
+  display: inline-block !important;
+  margin: 10px 0 !important;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Alternativa mais genérica para garantir compatibilidade */
+body.dark-mode .satisfaction-item,
+body.dark-mode .benefit-item,
+body.dark-mode .feature-item,
+body.dark-mode .result-item,
+body.dark-mode [class*="satisfaction-"],
+body.dark-mode [class*="benefit-"],
+body.dark-mode [class*="feature-"],
+body.dark-mode [class*="result-"] {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  border-radius: 5px;
+  padding: 10px !important;
+  margin-bottom: 10px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Tratamento específico para a seção inteira */
+body.dark-mode .satisfaction-section,
+body.dark-mode .results-section,
+body.dark-mode .benefits-section,
+body.dark-mode .features-section,
+body.dark-mode .proven-section,
+body.dark-mode #satisfaction,
+body.dark-mode #results,
+body.dark-mode #benefits,
+body.dark-mode #features,
+body.dark-mode #proven,
+body.dark-mode [id*="satisfaction"],
+body.dark-mode [id*="results"],
+body.dark-mode [id*="benefits"],
+body.dark-mode [id*="features"],
+body.dark-mode [id*="proven"] {
+  background-color: rgba(30, 35, 40, 0.95) !important;
+  border-radius: 8px;
+  padding: 30px !important;
+  margin: 20px 0 !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Ícones e elementos decorativos */
+body.dark-mode .satisfaction-section i,
+body.dark-mode .results-section i,
+body.dark-mode .benefits-section i,
+body.dark-mode .features-section i,
+body.dark-mode .satisfaction-item i,
+body.dark-mode .benefit-item i,
+body.dark-mode .feature-item i,
+body.dark-mode .result-item i,
+body.dark-mode [class*="satisfaction-"] i,
+body.dark-mode [class*="benefit-"] i,
+body.dark-mode [class*="feature-"] i,
+body.dark-mode [class*="result-"] i,
+body.dark-mode .results-section .bi,
+body.dark-mode .satisfaction-section .bi,
+body.dark-mode .benefits-section .bi,
+body.dark-mode .features-section .bi {
+  color: var(--primary-light-color) !important;
+}

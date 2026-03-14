@@ -1,0 +1,290 @@
+/* Estilos para a timeline de semestres */
+.semester-timeline {
+  position: relative;
+  height: 80px;
+  margin: 30px 0;
+}
+
+.timeline-track {
+  position: relative;
+  height: 6px;
+  background: rgba(255,255,255,0.3);
+  border-radius: 3px;
+  margin: 40px 0;
+}
+
+.timeline-progress {
+  position: absolute;
+  height: 6px;
+  background: #4e63d7;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.timeline-point {
+  position: absolute;
+  top: -10px;
+  width: 26px;
+  height: 26px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  color: #333;
+  z-index: 2;
+}
+
+.timeline-point.active {
+  background: #4e63d7;
+  color: white;
+  width: 32px;
+  height: 32px;
+  top: -13px;
+}
+
+/* Posicione os pontos da timeline horizontalmente */
+.timeline-point[data-period="1"] { left: 0%; }
+.timeline-point[data-period="2"] { left: 14.3%; }
+.timeline-point[data-period="3"] { left: 28.6%; }
+.timeline-point[data-period="4"] { left: 42.9%; }
+.timeline-point[data-period="5"] { left: 57.2%; }
+.timeline-point[data-period="6"] { left: 71.5%; }
+.timeline-point[data-period="7-8"] { left: 85.8%; }
+.timeline-point[data-period="9-12"] { left: 100%; }
+
+/* Estilos para cards de disciplinas */
+.subject-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.subject-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.subject-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #4e63d7 0%, #6c99ff 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.subject-icon i {
+  color: white;
+  font-size: 26px;
+}
+
+.subject-card h5 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.resource-links {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.resource-links a {
+  color: #4e63d7;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+  font-size: 14px;
+}
+
+.resource-links a:hover {
+  color: #2a3a8f;
+}
+
+/* Estilos para metodologia */
+.methodology-steps {
+  margin-top: 30px;
+}
+
+.methodology-step {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+
+.step-number {
+  background: linear-gradient(135deg, #4e63d7 0%, #6c99ff 100%);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex-grow: 1;
+}
+
+.step-content h4 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Estilos para depoimentos */
+.testimonial-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  height: 100%;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.testimonial-text:before {
+  content: '"';
+  font-size: 60px;
+  color: rgba(78, 99, 215, 0.1);
+  position: absolute;
+  top: -20px;
+  left: -15px;
+  font-family: serif;
+}
+
+.testimonial-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+/* Estilos para pricing */
+.pricing-card {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  height: 100%;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+.pricing-card.featured {
+  border: 2px solid #4e63d7;
+}
+
+.popular-badge {
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  background: #4e63d7;
+  color: white;
+  transform: rotate(45deg);
+  padding: 5px 40px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pricing-header {
+  padding: 25px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.price {
+  margin: 20px 0 10px;
+}
+
+.currency {
+  font-size: 20px;
+  vertical-align: top;
+  margin-right: 2px;
+}
+
+.amount {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.period {
+  font-size: 16px;
+  color: #666;
+}
+
+.pricing-features {
+  padding: 20px;
+}
+
+.pricing-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-features li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.pricing-features li i {
+  margin-right: 8px;
+}
+
+.pricing-footer {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Animações e efeitos visuais */
+.service-hero-container {
+  overflow: hidden;
+}
+
+.hero-overlay {
+  background: linear-gradient(rgba(29, 42, 77, 0.8), rgba(29, 42, 77, 0.8));
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: #4e63d7;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}

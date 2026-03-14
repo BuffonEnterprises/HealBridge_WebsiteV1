@@ -1,0 +1,2422 @@
+<link href="assets/css/portfolio-details.css" rel="stylesheet"><!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sophos Academy - Potencialize seus estudos com IA</title>
+  <meta name="description" content="A Sophos Academy é uma plataforma de aprendizado acelerado que utiliza IA para transformar a forma como você aprende e retém informações.">
+  <meta name="keywords" content="aprendizado acelerado, revisão espaçada, IA educacional, second brain, gestão de conhecimento">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Carousel CSS File -->
+  <link href="assets/css/carousel.css" rel="stylesheet">
+
+  <!-- Antes do fechamento da head -->
+  <link rel="stylesheet" href="assets/css/style-mentoria.css">
+  
+  <!-- Estilos adicionais para o tema verde -->
+  <style>
+    :root {
+      --primary-color: #42b983;
+      --primary-color-rgb: 66, 185, 131;
+      --primary-color-dark: #3aa876;
+      --primary-color-light: #5ac596;
+      --primary-color-lightrgba: rgba(66, 185, 131, 0.1);
+    }
+    
+    /* Ajustes de cores para o tema verde */
+    .btn-primary, 
+    .btn-getstarted,
+    .badge-primary,
+    .badge-info,
+    .nav-link.active,
+    .icon-box i,
+    .scrolled .btn-getstarted {
+      background-color: var(--primary-color) !important;
+      border-color: var(--primary-color) !important;
+    }
+    
+    a:hover,
+    .navmenu a:hover, 
+    .navmenu .active, 
+    .navmenu .active:focus, 
+    .navmenu li:hover > a,
+    .icon-box:hover h3 a,
+    .features-item i,
+    .footer-links a:hover {
+      color: var(--primary-color) !important;
+    }
+    
+    .sitename span,
+    .service-card .icon i,
+    .footer a:hover,
+    .about-list i,
+    .stats-item i,
+    .feature-icon i {
+      color: var(--primary-color) !important;
+    }
+    
+    .social-links a:hover,
+    .scroll-top:hover,
+    .btn-details:hover,
+    .cta-btn:hover {
+      background: var(--primary-color) !important;
+    }
+    
+    /* Estilos específicos para o carrossel de recursos */
+    .feature-swiper-initialized .swiper-wrapper {
+      transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+    }
+    
+    /* Efeito de transição de Slides */
+    .feature-card {
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                  opacity 0.6s ease, 
+                  box-shadow 0.6s ease !important;
+    }
+    
+    /* Melhorar visualmente a transição entre slides */
+    .feature-swiper .swiper-slide-active {
+      transform: scale(1) translateY(0);
+      z-index: 10;
+      opacity: 1;
+    }
+    
+    .feature-swiper .swiper-slide-prev,
+    .feature-swiper .swiper-slide-next {
+      opacity: 0.85;
+      transform: scale(0.9);
+      z-index: 9;
+    }
+    
+    .feature-swiper .swiper-slide-prev {
+      transform: scale(0.9) translateX(-5%);
+    }
+    
+    .feature-swiper .swiper-slide-next {
+      transform: scale(0.9) translateX(5%);
+    }
+    
+    /* Estilos avançados para slides não ativos */
+    .feature-swiper .swiper-slide:not(.swiper-slide-active):not(.swiper-slide-prev):not(.swiper-slide-next) {
+      opacity: 0.6;
+      transform: scale(0.85);
+      z-index: 8;
+      filter: blur(1px);
+    }
+    
+    /* Efeitos de movimento para melhorar a sensação de fluidez */
+    @keyframes slideInFromRight {
+      0% {
+        transform: translateX(100%) scale(0.85);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes slideOutToLeft {
+      0% {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100%) scale(0.85);
+        opacity: 0;
+      }
+    }
+    
+    /* Adiciona efeito de perspectiva para melhorar a visualização 3D */
+    .feature-swiper {
+      perspective: 1000px;
+    }
+    
+    .feature-swiper .swiper-wrapper {
+      transform-style: preserve-3d;
+    }
+    
+    /* Melhoria visual para os controles do carrossel */
+    .swiper-button-next:after, 
+    .swiper-button-prev:after {
+      transition: all 0.3s ease;
+    }
+    
+    .swiper-button-next:hover:after, 
+    .swiper-button-prev:hover:after {
+      transform: scale(1.2);
+    }
+    
+    /* Sobreposição de sombra para destacar o slide ativo */
+    .feature-swiper .swiper-slide-active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+      opacity: 0.8;
+      border-radius: 0 0 15px 15px;
+    }
+  </style>
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename"><span style="color: green;">Sophos</span> Academy</h1>
+        <span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero" class="active">Home</a></li>
+          <li><a href="index.html#about-us">Sobre Nós</a></li>
+          <li><a href="index.html#services">Serviços</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="d-flex align-items-center">
+        <button id="theme-toggle" class="btn btn-sm me-3">
+          <i class="bi bi-moon-fill dark-icon"></i>
+          <i class="bi bi-sun-fill light-icon d-none"></i>
+        </button>
+        <a class="btn-getstarted" href="index.html#about">Experimente nossa aplicação</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="assets/img/vr3.jpg" alt="" data-aos="fade-in">
+
+      <div class="container">
+
+        <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-xl-6 col-lg-8">
+            <h2>Potencialize ao máximo<br>seus estudos e resultados<br>com a metodologia e filosofia<br>da Sophos Academy <span>.</span></h2>
+            <p>Desenvolvido pela Healbrigde™</p>
+          </div>
+        </div>
+
+        <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box">
+              <i class="bi bi-binoculars"></i>
+              <h3><a href="">Revisão Espaçada</a></h3>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="icon-box">
+              <i class="bi bi-bullseye"></i>
+              <h3><a href="">Aprendizado Acelerado</a></h3>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon-box">
+              <i class="bi bi-fullscreen-exit"></i>
+              <h3><a href="">Second Brain</a></h3>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="600">
+            <div class="icon-box">
+              <i class="bi bi-card-list"></i>
+              <h3><a href="">Gestão de Conhecimento</a></h3>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="700">
+            <div class="icon-box">
+              <i class="bi bi-gem"></i>
+              <h3><a href="">Ferramentas de IA</a></h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Us Section -->
+    <section id="about-us" class="our-story section light-background">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5" data-aos="fade-up">
+            <h2 class="story-title">Sobre Nós</h2>
+            <div class="story-subtitle">Conheça nossa trajetória e equipe</div>
+          </div>
+        </div>
+
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <div class="about-us-tabs">
+              <a href="#our-journey" class="about-tab active">Nossa Jornada</a>
+              <a href="#team-contributors" class="about-tab">Nossa Equipe</a>
+              <a href="#about-details" class="about-tab">O Que Fazemos</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="our-journey">
+          <div class="timeline-container">
+            <!-- Linha central da timeline -->
+            <div class="timeline-line"></div>
+            
+            <!-- Item 1: O Início -->
+            <div class="timeline-milestone left" data-aos="fade-right">
+              <div class="milestone-date">
+                <span>2022</span>
+                <div class="date-dot"></div>
+          </div>
+              <div class="milestone-content">
+                <div class="milestone-image-wrapper">
+                  <img src="assets/img/VR7.jpg" alt="Fase inicial da Sophos Academy">
+                </div>
+                <div class="milestone-text-wrapper">
+                  <h3>Nascimento de um propósito</h3>
+                  <p>Leonardo Buffon, fundador da Sophos Academy, descobriu o conceito de revisão espaçada e começou a transformar sua própria forma de estudar, alcançando resultados impressionantes em suas próprias avaliações.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Item 2: Do Problema à Solução -->
+            <div class="timeline-milestone right" data-aos="fade-left">
+              <div class="milestone-date">
+                <span>2023</span>
+                <div class="date-dot"></div>
+              </div>
+              <div class="milestone-content">
+                <div class="milestone-image-wrapper">
+                  <img src="assets/img/Captura de Tela 2025-03-17 às 02.26.46.png" alt="Período da pandemia">
+                </div>
+                <div class="milestone-text-wrapper">
+                  <h3>Template do Notion</h3>
+                  <p>Com o avanço da inteligência artificial, vimos a possibilidade de criar algo verdadeiramente inovador. Uma plataforma que não apenas organizasse o conhecimento, mas que aprendesse com o usuário.</p>
+                  <p>Foi nesse momento que surgiu a ideia de transformar o método de estudo pessoal em um sistema estruturado que pudesse ajudar outros estudantes a superarem os mesmos desafios.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Item 3: A Transformação de um sonho -->
+            <div class="timeline-milestone left" data-aos="fade-right">
+              <div class="milestone-date">
+                <span>2024</span>
+                <div class="date-dot"></div>
+              </div>
+              <div class="milestone-content">
+                <div class="milestone-image-wrapper">
+                  <img src="assets/img/Captura de Tela 2025-03-17 às 02.35.43.png" alt="Desenvolvimento tecnológico">
+                </div>
+                <div class="milestone-text-wrapper">
+                  <h3>O Início de um Sonho</h3>
+                  <p>Leonardo Buffon, fundador da Sophos Academy, descobriu o conceito de revisão espaçada e começou a transformar sua própria forma de estudar, alcançando resultados impressionantes em suas próprias avaliações.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Item 4: A Base Pedagógica -->
+            <div class="timeline-milestone right" data-aos="fade-left">
+              <div class="milestone-date">
+                <span>2024-2025</span>
+                <div class="date-dot"></div>
+              </div>
+              <div class="milestone-content">
+                <div class="milestone-image-wrapper">
+                  <img src="assets/img/Captura de Tela 2025-03-17 às 02.38.27.png" alt="Base científica e educacional">
+                </div>
+                <div class="milestone-text-wrapper">
+                  <h3>O Desafio</h3>
+                  <p>Para garantir que nossa tecnologia tivesse embasamento científico sólido, realizamos parcerias com neurocientistas e especialistas em educação, incorporando conceitos avançados de ciência cognitiva.</p>
+                  <p>Esse foi o momento em que o projeto ganhou sua fundamentação pedagógica, assegurando que cada recurso estivesse alinhado com pesquisas sobre cognição e memória.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Item 5: Da ideia ao App-->
+            <div class="timeline-milestone left" data-aos="fade-right">
+              <div class="milestone-date">
+                <span>2025</span>
+                <div class="date-dot"></div>
+              </div>
+              <div class="milestone-content">
+                <div class="milestone-image-wrapper">
+                  <img src="assets/img/app.jpg" alt="Lançamento do produto">
+                </div>
+                <div class="milestone-text-wrapper">
+                  <h3>Do propósito ao App</h3>
+                  <p> Leonardo Buffon, fundador da Sophos Academy, descobriu o conceito de revisão espaçada e começou a transformar sua própria forma de estudar, alcançando resultados impressionantes em suas próprias avaliações.</p>
+                  <p>Nessa fase, focamos em tornar nossa solução acessível para estudantes de diferentes perfis e necessidades, criando planos que atendessem a diversos públicos.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Item 6: A Sophos Academy Hoje -->
+            <div class="timeline-milestone right" data-aos="fade-left">
+              <div class="milestone-date">
+                <span>Hoje</span>
+                <div class="date-dot"></div>
+              </div>
+              <div class="milestone-content">
+                <div class="milestone-image-wrapper">
+                  <img src="assets/img/Captura de Tela 2025-03-17 às 04.11.43.png" alt="Sophos Academy hoje">
+                </div>
+                <div class="milestone-text-wrapper">
+                  <h3>A Sophos Academy</h3>
+                  <p>Hoje, a Sophos Academy é uma plataforma completa que une tecnologia de ponta, ciência cognitiva e metodologias inovadoras para transformar a forma como as pessoas aprendem e retêm conhecimento.</p>
+                  <p>Nossa missão: democratizar o acesso a métodos avançados de aprendizagem e potencializar o desenvolvimento intelectual das pessoas em qualquer área do conhecimento.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-5">
+            <div class="col-md-8 offset-md-2 text-center" data-aos="fade-up">
+              <div class="quote-box">
+                <i class="bi bi-quote"></i>
+                <blockquote>
+                  A Sophos Academy não é apenas um produto, é a manifestação de uma crença: que todos merecem acesso às melhores ferramentas para atingir seu potencial máximo. Cada membro da nossa equipe contribui com sua expertise para construir uma solução que realmente transforma vidas através do conhecimento.
+                </blockquote>
+                <i class="bi bi-quote"></i>
+                <p class="quote-author">— Leonardo Buffon, CEO da Sophos Academy</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Contributors Section -->
+    <section id="team-contributors" class="team-contributors section dark-background">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5" data-aos="fade-up">
+            <h2 class="contributors-title">Os Engenheiros da Sophos</h2>
+            <div class="contributors-subtitle">Conheça quem tornou essa ideia realidade</div>
+          </div>
+        </div>
+
+        <div class="contributors-wrapper">
+          <!-- Contributor 1 -->
+          <div class="contributor-card" data-aos="fade-up">
+            <div class="contributor-image">
+              <img src="assets/img/team/Captura de Tela 2024-04-08 às 05.33.01.png" alt="Leonardo Buffon">
+              <div class="contributor-role">Fundador & CEO</div>
+            </div>
+            <div class="contributor-content">
+              <h3 class="contributor-name">Leonardo Buffon</h3>
+              <div class="contributor-journey">
+                <div class="journey-header">
+                  <span class="journey-label">Juntou-se em:</span>
+                  <span class="journey-date">2023 - O início</span>
+                </div>
+                <p class="contributor-description">Médico e CEO da Sophos.</p>
+                <div class="contributor-impact">
+                  <h4>Contribuição para a Sophos:</h4>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Visão original e metodologia base da plataforma</li>
+                    <li><i class="bi bi-check-circle"></i> Desenvolvimento do framework de estudo adaptativo</li>
+                    <li><i class="bi bi-check-circle"></i> Aplicação de conhecimentos médicos ao processo de aprendizagem</li>
+            </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contributor 2 -->
+          <div class="contributor-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="contributor-image">
+              <img src="assets/img/team/Captura de Tela 2024-04-08 às 05.32.05.png" alt="Artur Martini">
+              <div class="contributor-role">Lead Designer UX/UI</div>
+            </div>
+            <div class="contributor-content">
+              <h3 class="contributor-name">Artur Martini</h3>
+              <div class="contributor-journey">
+                <div class="journey-header">
+                  <span class="journey-label">Juntou-se em:</span>
+                  <span class="journey-date">2020 - Fase de concepção</span>
+                </div>
+                <p class="contributor-description">Designer de experiência do usuário com background em plataformas educacionais, Artur trouxe expertise em tornar conceitos complexos de aprendizado em interfaces intuitivas e acessíveis.</p>
+                <div class="contributor-impact">
+                  <h4>Contribuição para a Sophos:</h4>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Design de interface centrado no usuário-estudante</li>
+                    <li><i class="bi bi-check-circle"></i> Arquitetura de informação que facilita a aquisição de conhecimento</li>
+                    <li><i class="bi bi-check-circle"></i> Sistema visual que reduz o estresse cognitivo</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contributor 3 -->
+          <div class="contributor-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="contributor-image">
+              <img src="assets/img/team/Captura de Tela 2024-04-08 às 05.31.40.png" alt="Douglas Haas">
+              <div class="contributor-role">CTO & Desenvolvedor IA</div>
+            </div>
+            <div class="contributor-content">
+              <h3 class="contributor-name">Douglas Haas</h3>
+              <div class="contributor-journey">
+                <div class="journey-header">
+                  <span class="journey-label">Juntou-se em:</span>
+                  <span class="journey-date">2021 - Fase tecnológica</span>
+                </div>
+                <p class="contributor-description">Especialista em inteligência artificial e machine learning, Douglas transformou conceitos teóricos em algoritmos funcionais que adaptam o conteúdo ao perfil de aprendizado de cada usuário.</p>
+                <div class="contributor-impact">
+                  <h4>Contribuição para a Sophos:</h4>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Desenvolvimento do motor de IA que analisa padrões de aprendizado</li>
+                    <li><i class="bi bi-check-circle"></i> Algoritmos de personalização de revisões</li>
+                    <li><i class="bi bi-check-circle"></i> Infraestrutura escalável e segura para dados educacionais</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contributor 4 -->
+          <div class="contributor-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="contributor-image">
+              <img src="assets/img/team/Captura de Tela 2024-04-08 às 05.39.03.png" alt="Artur Gschwenter">
+              <div class="contributor-role">Diretora Pedagógica</div>
+            </div>
+            <div class="contributor-content">
+              <h3 class="contributor-name">Artur Gschwenter</h3>
+              <div class="contributor-journey">
+                <div class="journey-header">
+                  <span class="journey-label">Juntou-se em:</span>
+                  <span class="journey-date">2022 - Fase pedagógica</span>
+                </div>
+                <p class="contributor-description">Neurocientista especializado em processos cognitivos e aprendizagem, Artur trouxe fundamentação científica para as metodologias utilizadas na plataforma.</p>
+                <div class="contributor-impact">
+                  <h4>Contribuição para a Sophos:</h4>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Framework pedagógico baseado em neurociência</li>
+                    <li><i class="bi bi-check-circle"></i> Metodologias de avaliação de retenção de conhecimento</li>
+                    <li><i class="bi bi-check-circle"></i> Protocolos de estudo otimizados para diferentes tipos de conteúdo</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contributor 5 -->
+          <div class="contributor-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="contributor-image">
+              <img src="assets/img/team/business.jpg" alt="Bruno Hanauer">
+              <div class="contributor-role">COO & Estrategista</div>
+            </div>
+            <div class="contributor-content">
+              <h3 class="contributor-name">Bruno Hanauer</h3>
+              <div class="contributor-journey">
+                <div class="journey-header">
+                  <span class="journey-label">Juntou-se em:</span>
+                  <span class="journey-date">2023 - Fase de crescimento</span>
+                </div>
+                <p class="contributor-description">Com experiência em startups educacionais, Bruno estruturou o modelo de negócios e as estratégias de crescimento, transformando uma solução tecnológica em um produto escalável.</p>
+                <div class="contributor-impact">
+                  <h4>Contribuição para a Sophos:</h4>
+                  <ul>
+                    <li><i class="bi bi-check-circle"></i> Estruturação dos planos de serviço e modelo de negócios</li>
+                    <li><i class="bi bi-check-circle"></i> Estratégias de aquisição e retenção de usuários</li>
+                    <li><i class="bi bi-check-circle"></i> Parcerias institucionais e acadêmicas</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Team Contributors Section -->
+
+    <!-- About Section -->
+    <div id="about-details" class="about-details py-5">
+      <div class="container" data-aos="fade-up">
+        <!-- Título e subtítulo no padrão da página home -->
+        <div class="row mb-5">
+          <div class="col-12 text-center" data-aos="fade-up">
+            <div class="section-title">
+              <h2>Sobre a Sophos Academy</h2>
+              <p>Nossa missão e como transformamos o aprendizado com IA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banner de destaque no estilo da home -->
+        <div class="row mb-5">
+          <div class="col-12">
+            <div class="about-banner" data-aos="zoom-in">
+              <div class="about-banner-content">
+                <h3><i class="bi bi-stars me-2"></i> Revolucionando o Aprendizado</h3>
+                <p>A Sophos Academy é uma plataforma de aprendizado acelerado que utiliza IA para transformar a forma como você aprende e retém informações.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cartões de destaque no estilo da home -->
+        <div class="row gy-4">
+          <div class="col-lg-6 col-md-6">
+            <div class="about-feature-card" data-aos="fade-up">
+              <div class="icon">
+                <i class="bi bi-lightbulb"></i>
+              </div>
+              <h3>Aprendizado Acelerado</h3>
+              <p>
+                Nosso sistema combina técnicas avançadas de estudo com tecnologia de ponta para reduzir significativamente o tempo necessário para dominar novos conceitos.
+              </p>
+              <div class="feature-footer">
+                <span class="badge bg-primary">Exclusivo</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="about-feature-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <h3>Resultados Comprovados</h3>
+              <p>
+                Nossa metodologia já ajudou centenas de estudantes a melhorarem significativamente seu desempenho acadêmico, com aumento médio de 40% na retenção.
+              </p>
+              <div class="feature-footer">
+                <span class="badge bg-success">Comprovado</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="about-feature-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon">
+                <i class="bi bi-calendar-check"></i>
+              </div>
+              <h3>Revisão Espaçada</h3>
+              <p>
+                Implementamos automaticamente a técnica de revisão espaçada, cientificamente comprovada para aumentar a retenção a longo prazo e otimizar seu tempo de estudo.
+              </p>
+              <div class="feature-footer">
+                <span class="badge bg-info">Científico</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="about-feature-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon">
+                <i class="bi bi-braces"></i>
+              </div>
+              <h3>Second Brain</h3>
+              <p>
+                Desenvolvemos um sistema de "Second Brain" que funciona como uma extensão da sua memória, organizando e conectando informações para facilitar a compreensão.
+              </p>
+              <div class="feature-footer">
+                <span class="badge bg-warning text-dark">Inovador</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estatísticas em destaque no estilo da home -->
+        <div class="row mt-5" data-aos="fade-up">
+          <div class="col-12">
+            <div class="about-stats-container">
+              <div class="section-title mb-4">
+                <h2>Nosso Impacto</h2>
+                <p>Transformando a educação em números</p>
+              </div>
+              
+              <div class="row about-stats">
+                <div class="col-md-3 col-sm-6">
+                  <div class="stats-item">
+                    <span class="purecounter about-stat-number" data-purecounter-start="0" data-purecounter-end="5000" data-purecounter-duration="1">0</span>
+                    <p>Alunos<br>Atendidos</p>
+                    <i class="bi bi-people"></i>
+                  </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                  <div class="stats-item">
+                    <span class="purecounter about-stat-number" data-purecounter-start="0" data-purecounter-end="40" data-purecounter-duration="1">0</span><span>%</span>
+                    <p>Aumento na<br>Retenção</p>
+                    <i class="bi bi-arrow-up-circle"></i>
+                  </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                  <div class="stats-item">
+                    <span class="purecounter about-stat-number" data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="1">0</span><span>%</span>
+                    <p>Redução no<br>Tempo de Estudo</p>
+                    <i class="bi bi-hourglass-split"></i>
+                  </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6">
+                  <div class="stats-item">
+                    <span class="purecounter about-stat-number" data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1">0</span>
+                    <p>Técnicas<br>Integradas</p>
+                    <i class="bi bi-cpu"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Seção de diferenciais com imagem no estilo da home -->
+        <div class="row mt-5 align-items-center" data-aos="fade-up">
+          <div class="col-lg-6 order-2 order-lg-1">
+            <div class="about-content">
+              <h3>O que nos diferencia</h3>
+              <p class="fst-italic mb-4">
+                Nossa abordagem única combina tecnologia de ponta com metodologias comprovadas para criar uma experiência de aprendizado personalizada e eficiente.
+              </p>
+              <ul class="about-list">
+                <li><i class="bi bi-check-circle"></i> <span>Algoritmos de IA personalizados para seu perfil de aprendizado</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Suporte técnico e pedagógico disponível 24/7</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Análise contínua de desempenho com ajustes automáticos</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Integração com principais plataformas educacionais</span></li>
+                <li><i class="bi bi-check-circle"></i> <span>Metodologia embasada em neurociência e psicologia cognitiva</span></li>
+              </ul>
+              <div class="mt-4">
+                <a href="#services" class="btn-learn-more">Conheça nossos serviços <i class="bi bi-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2 about-img" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/img/about/about-feature.jpg" class="img-fluid rounded shadow" alt="Sophos Academy Features">
+          </div>
+        </div>
+
+        <!-- Chamada para ação integrada ao design da home -->
+        <div class="row mt-5" data-aos="fade-up">
+          <div class="col-12">
+            <div class="about-cta">
+              <div class="about-cta-content">
+                <h3>Pronto para revolucionar seus estudos?</h3>
+                <p>Junte-se a milhares de estudantes que já transformaram sua forma de aprender com a Sophos Academy.</p>
+                <a href="#contact" class="cta-btn">Entre em contato</a>
+                <a href="#services" class="cta-btn-secondary">Ver serviços</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clients Section -->
+    <section id="template-features" class="template-features section bg-light">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Recursos do Template</h2>
+          <p>Conheça as ferramentas que vão transformar seus estudos médicos</p>
+        </div>
+
+        <div class="swiper init-swiper feature-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000,
+                "disableOnInteraction": false
+              },
+              "effect": "slide",
+              "grabCursor": true,
+              "centeredSlides": true,
+              "slidesPerView": "auto",
+              "loopAdditionalSlides": 5,
+              "watchSlidesProgress": true,
+              "watchSlidesVisibility": true,
+              "updateOnWindowResize": true,
+              "normalizeSlideIndex": true,
+              "loopPreventsSlide": false,
+              "virtualTranslate": false,
+              "loopFillGroupWithBlank": true,
+              "observer": true,
+              "observeParents": true,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true,
+                "dynamicBullets": true
+              },
+              "navigation": {
+                "nextEl": ".swiper-button-next",
+                "prevEl": ".swiper-button-prev"
+              },
+              "breakpoints": {
+                "320": {
+                  "slidesPerView": 1,
+                  "spaceBetween": 20
+                },
+                "640": {
+                  "slidesPerView": 2,
+                  "spaceBetween": 20
+                },
+                "992": {
+                  "slidesPerView": 3,
+                  "spaceBetween": 20
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+            <!-- Slide 1: Revisão Espaçada -->
+            <div class="swiper-slide feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-calendar2-check"></i>
+              </div>
+              <h3>Revisão Espaçada</h3>
+              <p>Algoritmo inteligente que agenda suas revisões nos momentos ideais para maximizar a retenção de memória.</p>
+              <div class="feature-tag">Memorização Eficiente</div>
+            </div>
+
+            <!-- Slide 2: Banco de Questões -->
+            <div class="swiper-slide feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-question-circle"></i>
+              </div>
+              <h3>Banco de Questões</h3>
+              <p>Organize questões por especialidade e dificuldade, com sistema integrado de geração de questões via IA.</p>
+              <div class="feature-tag">Prática Dirigida</div>
+            </div>
+
+            <!-- Slide 3: Dashboard Analítico -->
+            <div class="swiper-slide feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-graph-up"></i>
+              </div>
+              <h3>Dashboard Analítico</h3>
+              <p>Visualize seu progresso, identifique pontos fracos e acompanhe sua evolução com gráficos interativos.</p>
+              <div class="feature-tag">Analytics</div>
+            </div>
+
+            <!-- Slide 4: Biblioteca de Resumos -->
+            <div class="swiper-slide feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-journal-text"></i>
+              </div>
+              <h3>Biblioteca de Resumos</h3>
+              <p>Organize seus materiais de estudo em uma estrutura hierárquica intuitiva por especialidades médicas.</p>
+              <div class="feature-tag">Organização</div>
+            </div>
+
+            <!-- Slide 5: Flashcards Inteligentes -->
+            <div class="swiper-slide feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-card-heading"></i>
+              </div>
+              <h3>Flashcards Inteligentes</h3>
+              <p>Crie cartões de revisão com suporte a imagens médicas, fórmulas e recursos multimídia.</p>
+              <div class="feature-tag">Revisão Ativa</div>
+            </div>
+
+            <!-- Slide 6: Integração com IA -->
+            <div class="swiper-slide feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <h3>Assistente de IA</h3>
+              <p>Gere resumos, explique conceitos complexos e crie questões personalizadas com nosso assistente de IA.</p>
+              <div class="feature-tag">Tecnologia</div>
+            </div>
+
+            <!-- Slide 7: Planejamento de Estudos -->
+            <div class="swiper-slide feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-calendar-week"></i>
+              </div>
+              <h3>Planejamento de Estudos</h3>
+              <p>Calendário integrado com distribuição otimizada de conteúdos e cronogramas adaptáveis para residência médica.</p>
+              <div class="feature-tag">Produtividade</div>
+            </div>
+
+            <!-- Slide 8: Comunidade Médica -->
+            <div class="swiper-slide feature-card">
+              <div class="feature-icon">
+                <i class="bi bi-people"></i>
+              </div>
+              <h3>Comunidade Médica</h3>
+              <p>Acesso a grupo exclusivo de usuários para troca de materiais, discussões e estudos de caso.</p>
+              <div class="feature-tag">Colaboração</div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+
+        <div class="cta-container text-center mt-5">
+          <a href="service-details-notion.html" class="btn btn-primary btn-lg">Conheça o Template Completo</a>
+        </div>
+      </div>
+
+      <style>
+        /* ... existing styles ... */
+        
+        /* Ajustes para tamanho proporcional do carrossel */
+        .template-features {
+          padding: 60px 0; /* Reduzindo o padding vertical */
+          background-color: #f8f9fa;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .template-features::before {
+          content: '';
+          position: absolute;
+          top: -40px;
+          right: -40px;
+          width: 150px; /* Reduzido */
+          height: 150px; /* Reduzido */
+          background: #42b983; /* Verde */
+          opacity: 0.1;
+          border-radius: 50%;
+          z-index: 0;
+        }
+        
+        .template-features::after {
+          content: '';
+          position: absolute;
+          bottom: -40px;
+          left: -40px;
+          width: 150px; /* Reduzido */
+          height: 150px; /* Reduzido */
+          background: #42b983; /* Verde */
+          opacity: 0.1;
+          border-radius: 50%;
+          z-index: 0;
+        }
+        
+        .template-features .container {
+          max-width: 1140px; /* Limita a largura máxima para não ficar muito largo */
+        }
+        
+        .template-features .section-title {
+          margin-bottom: 30px; /* Reduz o espaço entre o título e o carrossel */
+        }
+        
+        .feature-swiper {
+          padding: 15px 0; /* Reduz o padding vertical */
+          position: relative;
+          z-index: 1;
+          overflow: visible !important;
+          height: auto; /* Permite que a altura seja ajustada automaticamente */
+        }
+        
+        .feature-card {
+          background: white;
+          border-radius: 15px;
+          padding: 20px; /* Reduz o padding interno */
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+          text-align: center;
+          transition: all 0.3s ease;
+          height: 280px; /* Reduz a altura fixa dos cards */
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          max-width: 280px; /* Reduz a largura máxima */
+          margin: 0 auto;
+          position: relative;
+          overflow: hidden;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+          transform-style: preserve-3d;
+          will-change: transform;
+        }
+        
+        .feature-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 3px; /* Reduzido */
+          height: 100%;
+          background: #42b983; /* Verde */
+          transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+          transform: translateY(-8px); /* Reduzido */
+          box-shadow: 0 12px 28px rgba(66, 185, 131, 0.2); /* Verde - reduzido */
+        }
+        
+        .feature-card:hover::before {
+          width: 100%;
+          opacity: 0.05;
+        }
+        
+        .feature-icon {
+          width: 60px; /* Reduz o tamanho do ícone */
+          height: 60px;
+          background: rgba(66, 185, 131, 0.1); /* Verde */
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 15px; /* Reduz a margem inferior */
+          transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+          background: #42b983; /* Verde */
+        }
+        
+        .feature-icon i {
+          font-size: 24px; /* Reduz o tamanho do ícone */
+          color: #42b983; /* Verde */
+          transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon i {
+          color: white;
+        }
+        
+        .feature-card h3 {
+          font-size: 18px; /* Reduz o tamanho da fonte */
+          font-weight: 600;
+          margin-bottom: 10px; /* Reduz a margem inferior */
+          color: #333;
+        }
+        
+        .feature-card p {
+          font-size: 13px; /* Reduz o tamanho da fonte */
+          color: #666;
+          margin-bottom: 15px; /* Reduz a margem inferior */
+          line-height: 1.4; /* Reduz o espaçamento entre linhas */
+        }
+        
+        .feature-tag {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(66, 185, 131, 0.1); /* Verde */
+          color: #42b983; /* Verde */
+          font-size: 11px; /* Reduzido */
+          font-weight: 500;
+          padding: 4px 0; /* Reduzido */
+        }
+        
+        /* Melhorias para o carrossel - versão reduzida */
+        .swiper-slide {
+          opacity: 0.6;
+          transform: scale(0.85);
+          transition: all 0.6s ease;
+          pointer-events: none;
+          filter: blur(1px);
+        }
+        
+        .swiper-slide-active {
+          opacity: 1;
+          transform: scale(1);
+          pointer-events: auto;
+          filter: blur(0);
+          z-index: 10;
+        }
+        
+        .swiper-slide-next,
+        .swiper-slide-prev {
+          opacity: 0.85;
+          transform: scale(0.9);
+          pointer-events: auto;
+          filter: blur(0);
+          z-index: 5;
+        }
+        
+        /* Ajustes para os controles do carrossel */
+        .swiper-button-next, 
+        .swiper-button-prev {
+          color: #42b983; /* Verde */
+          background: white;
+          width: 35px; /* Reduz o tamanho dos botões */
+          height: 35px;
+          border-radius: 50%;
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+          transition: all 0.3s ease;
+        }
+        
+        .swiper-button-next:hover, 
+        .swiper-button-prev:hover {
+          background: #42b983; /* Verde */
+          color: white;
+          transform: scale(1.1);
+        }
+        
+        .swiper-button-next:after, 
+        .swiper-button-prev:after {
+          font-size: 16px; /* Reduz o tamanho dos ícones dos botões */
+        }
+        
+        .swiper-pagination {
+          position: relative;
+          margin-top: 20px; /* Reduz o espaço entre o carrossel e a paginação */
+        }
+        
+        .swiper-pagination-bullet {
+          background: #42b983; /* Verde */
+          opacity: 0.5;
+          transition: all 0.3s ease;
+        }
+        
+        .swiper-pagination-bullet-active {
+          background: #42b983; /* Verde */
+          opacity: 1;
+          transform: scale(1.2);
+        }
+        
+        /* Ajustes para a seção CTA abaixo do carrossel */
+        .cta-container {
+          position: relative;
+          z-index: 2;
+          margin-top: 25px; /* Reduz o espaço acima do botão CTA */
+        }
+        
+        .cta-container .btn-primary {
+          background-color: #42b983; /* Verde */
+          border-color: #42b983; /* Verde */
+          padding: 10px 25px; /* Reduzido */
+          font-weight: 500;
+          transition: all 0.3s ease;
+          font-size: 15px; /* Reduzido */
+        }
+        
+        .cta-container .btn-primary:hover {
+          background-color: #3aa876; /* Verde mais escuro para hover */
+          border-color: #3aa876;
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(66, 185, 131, 0.3);
+        }
+        
+        /* Ajustes responsivos */
+        @media (max-width: 992px) {
+          .feature-card {
+            height: 260px; /* Reduz ainda mais em telas menores */
+            max-width: 240px;
+          }
+          
+          .feature-swiper {
+            padding: 10px 0;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .template-features {
+            padding: 40px 0; /* Reduz ainda mais o padding em telas menores */
+          }
+          
+          .feature-card {
+            height: 240px; /* Reduz ainda mais em telas menores */
+            max-width: 220px;
+          }
+          
+          .feature-icon {
+            width: 50px;
+            height: 50px;
+          }
+          
+          .feature-icon i {
+            font-size: 20px;
+          }
+          
+          .swiper-button-next, 
+          .swiper-button-prev {
+            display: none;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          .feature-card {
+            height: 220px; /* Reduz ainda mais em telas muito pequenas */
+            max-width: 200px;
+          }
+          
+          .feature-card h3 {
+            font-size: 16px;
+          }
+          
+          .feature-card p {
+            font-size: 12px;
+          }
+        }
+      </style>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+          <div class="features-image col-lg-6" data-aos="fade-up" data-aos-delay="100"><img src="assets/img/features-bg.jpg" alt=""></div>
+          <div class="col-lg-6">
+
+            <div class="features-item d-flex ps-0 ps-lg-3 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-archive flex-shrink-0"></i>
+              <div>
+                <h4>Revisão Espaçada</h4>
+                <p>Revisão Espaçada: Estratégia de estudo que divide o conteúdo em intervalos de tempo, melhorando a retenção e compreensão.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-basket flex-shrink-0"></i>
+              <div>
+                <h4>Aprendizado Acelerado</h4>
+                <p>Aprendizado Acelerado: Aplicações de IA para criar flashcards, resumos e exercícios personalizados.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-broadcast flex-shrink-0"></i>
+              <div>
+                <h4>Second Brain</h4>
+                <p>Ferramentas de IA para organizar e buscar informações de forma eficiente.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+            <div class="features-item d-flex mt-5 ps-0 ps-lg-3" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-camera-reels flex-shrink-0"></i>
+              <div>
+                <h4>Gestão de Conhecimento</h4>
+                <p>Ferramentas de IA para criar mapas mentais e gerenciar informações.</p>
+              </div>
+            </div><!-- End Features Item-->
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Features Section -->
+
+    <!-- Services & Portfolio Combined Section -->
+    <section id="services" class="services-portfolio">
+      <div class="container" data-aos="fade-up">
+        <div class="section-title">
+          <h2>Nossas soluções e projetos para você</h2>
+          <p>Confira nossos serviços, templates prontos e casos de sucesso</p>
+        </div>
+
+        <div class="service-tabs">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-bs-toggle="tab" href="#tab-templates">
+                <i class="bi bi-collection"></i>
+                <h4>Templates</h4>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-portfolio">
+                <i class="bi bi-images"></i>
+                <h4>Portfólio</h4>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="tab" href="#tab-cases">
+                <i class="bi bi-award"></i>
+                <h4>Casos de Sucesso</h4>
+              </a>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <!-- Tab: Templates -->
+            <div class="tab-pane active show" id="tab-templates">
+              <div class="row">
+                <!-- Templates content - service cards -->
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                  <div class="service-card template-vestibular">
+              <div class="icon">
+                <i class="bi bi-activity"></i>
+              </div>
+                <h3>Projeto Vestibular</h3>
+                    <p>Estratégia de estudo que divide o conteúdo em intervalos de tempo, melhorando a retenção e compreensão.</p>
+                    <div class="service-footer">
+                      <span class="badge bg-primary">Popular</span>
+                      <span class="badge bg-success support-badge"><i class="bi bi-headset"></i> Suporte Incluso</span>
+                      <a href="service-details.html" class="btn-details">Saiba mais <i class="bi bi-arrow-right"></i></a>
+            </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                  <div class="service-card template-residencia">
+              <div class="icon">
+                <i class="bi bi-broadcast"></i>
+              </div>
+                    <h3>Projeto Residência Médica</h3>
+                    <p>Estratégia de estudo que divide o conteúdo em intervalos de tempo, melhorando a retenção e compreensão.</p>
+                    <div class="service-footer">
+                      <span class="badge bg-success">Certificado</span>
+                      <span class="badge bg-success support-badge"><i class="bi bi-headset"></i> Suporte Incluso</span>
+                      <a href="service-details.html" class="btn-details">Saiba mais <i class="bi bi-arrow-right"></i></a>
+            </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                  <div class="service-card template-criar">
+              <div class="icon">
+                <i class="bi bi-easel"></i>
+              </div>
+                <h3>Liberdade para Criar</h3>
+                    <p>Estratégia de estudo que divide o conteúdo em intervalos de tempo, melhorando a retenção e compreensão.</p>
+                    <div class="service-footer">
+                      <span class="badge bg-primary">Popular</span>
+                      <span class="badge bg-success support-badge"><i class="bi bi-headset"></i> Suporte Incluso</span>
+                      <a href="service-details.html" class="btn-details">Saiba mais <i class="bi bi-arrow-right"></i></a>
+            </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                  <div class="service-card template-rplus">
+              <div class="icon">
+                <i class="bi bi-bounding-box-circles"></i>
+              </div>
+                <h3>Projeto R+</h3>
+                    <p>Estratégia de estudo que divide o conteúdo em intervalos de tempo, melhorando a retenção e compreensão.</p>
+                    <div class="service-footer">
+                      <span class="badge bg-info">Novo</span>
+                      <span class="badge bg-success support-badge"><i class="bi bi-headset"></i> Suporte Incluso</span>
+                      <a href="service-details.html" class="btn-details">Saiba mais <i class="bi bi-arrow-right"></i></a>
+            </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                  <div class="service-card template-faculdade">
+              <div class="icon">
+                <i class="bi bi-calendar4-week"></i>
+              </div>
+                <h3>Projeto Faculdade</h3>
+                    <p>Estratégia de estudo que divide o conteúdo em intervalos de tempo, melhorando a retenção e compreensão.</p>
+                    <div class="service-footer">
+                      <span class="badge bg-primary">Popular</span>
+                      <span class="badge bg-success support-badge"><i class="bi bi-headset"></i> Suporte Incluso</span>
+                      <a href="service-details.html" class="btn-details">Saiba mais <i class="bi bi-arrow-right"></i></a>
+            </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
+                  <div class="service-card template-notion">
+              <div class="icon">
+                <i class="bi bi-chat-square-text"></i>
+              </div>
+                <h3>Versão no Notion</h3>
+                    <p>Template para Notion - Original com recursos exclusivos para organização de estudos.</p>
+                    <div class="service-footer">
+                      <span class="badge bg-warning">Destaque</span>
+                      <span class="badge bg-success support-badge"><i class="bi bi-headset"></i> Suporte Incluso</span>
+                      <a href="service-details.html" class="btn-details">Saiba mais <i class="bi bi-arrow-right"></i></a>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+              <!-- Support banner moved to bottom of tab content -->
+              <div class="support-banner mt-5">
+                <div class="support-content">
+                  <h3><i class="bi bi-headset me-2"></i> Suporte Técnico Incluído</h3>
+                  <p>Todos os nossos serviços incluem acesso ilimitado ao suporte técnico especializado, disponível 24/7.</p>
+                  <div class="support-features">
+                    <span><i class="bi bi-check-circle"></i> Atendimento 24/7</span>
+                    <span><i class="bi bi-check-circle"></i> Especialistas dedicados</span>
+                    <span><i class="bi bi-check-circle"></i> Tempo de resposta rápido</span>
+      </div>
+              <div class="cta-buttons">
+                    <a href="#contact" class="btn-support">Solicitar Atendimento</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Portfolio -->
+            <div class="tab-pane" id="tab-portfolio">
+              <!-- Portfolio section header -->
+              <div class="row mb-4">
+                <div class="col-lg-8 mx-auto text-center">
+                  <h3 class="portfolio-section-title">Nossas Soluções</h3>
+                  <p class="portfolio-section-description">Conheça as ferramentas e templates que desenvolvemos para transformar a experiência de estudo e organização dos profissionais de saúde.</p>
+                </div>
+              </div>
+
+              <!-- Portfolio filtering -->
+              <div class="portfolio-filters mb-4" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="*">Todos</button>
+                <button class="filter-btn" data-filter=".template">Templates</button>
+                <button class="filter-btn" data-filter=".app">Aplicativos</button>
+                <button class="filter-btn" data-filter=".ia">IA Educacional</button>
+                <button class="filter-btn" data-filter=".revisao">Revisão Espaçada</button>
+              </div>
+
+              <!-- Portfolio items -->
+              <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                <!-- Portfolio Item 1: R+ Tainá Notion Template (Featured) -->
+                <div class="col-lg-6 portfolio-item template featured-item">
+                  <div class="portfolio-card medical-portfolio">
+                    <img src="assets/img/portfolio/notion-template-r-plus.jpg" class="img-fluid" alt="Template R+ Tainá para Notion">
+                    <div class="portfolio-overlay">
+                      <h4>R+ Tainá: Template Notion para Médicos</h4>
+                      <p>Sistema completo de organização para estudos médicos e subespecializações</p>
+                      <div class="portfolio-links">
+                        <a href="assets/img/portfolio/notion-template-r-plus.jpg" data-gallery="portfolio-gallery" class="portfolio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                        <a href="service-details-notion.html" title="Detalhes"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                      <div class="portfolio-tags mt-3">
+                        <span class="portfolio-tag">Notion</span>
+                        <span class="portfolio-tag">Medicina</span>
+                        <span class="portfolio-tag">Organização</span>
+                      </div>
+                    </div>
+                    <div class="portfolio-badges">
+                      <span class="badge bg-primary">Destacado</span>
+                      <span class="badge bg-success">Novo</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="col-lg-3 col-md-6 portfolio-item app">
+                  <div class="portfolio-card">
+                    <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" class="img-fluid" alt="Second Brain App">
+                    <div class="portfolio-overlay">
+                      <h4>Second Brain App</h4>
+                      <p>Gestão de Conhecimento</p>
+                      <div class="portfolio-links">
+                        <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" data-gallery="portfolio-gallery" class="portfolio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="Detalhes"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                      <div class="portfolio-tags mt-3">
+                        <span class="portfolio-tag">App</span>
+                        <span class="portfolio-tag">Produtividade</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="col-lg-3 col-md-6 portfolio-item ia">
+                  <div class="portfolio-card">
+                    <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" class="img-fluid" alt="IA Educacional">
+                    <div class="portfolio-overlay">
+                      <h4>IA Educacional</h4>
+                      <p>Assistente de Estudos</p>
+                      <div class="portfolio-links">
+                        <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" data-gallery="portfolio-gallery" class="portfolio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="Detalhes"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                      <div class="portfolio-tags mt-3">
+                        <span class="portfolio-tag">IA</span>
+                        <span class="portfolio-tag">Educação</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Portfolio Item 4 -->
+                <div class="col-lg-3 col-md-6 portfolio-item revisao">
+                  <div class="portfolio-card">
+                    <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" class="img-fluid" alt="Gerador de Questões">
+                    <div class="portfolio-overlay">
+                      <h4>Gerador de Questões</h4>
+                      <p>IA para Educação Médica</p>
+                      <div class="portfolio-links">
+                        <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" data-gallery="portfolio-gallery" class="portfolio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="Detalhes"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                      <div class="portfolio-tags mt-3">
+                        <span class="portfolio-tag">Questões</span>
+                        <span class="portfolio-tag">Medicina</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Portfolio Item 5 -->
+                <div class="col-lg-3 col-md-6 portfolio-item revisao">
+                  <div class="portfolio-card">
+                    <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" class="img-fluid" alt="Dashboard de Progresso">
+                    <div class="portfolio-overlay">
+                      <h4>Dashboard de Progresso</h4>
+                      <p>Análise de Desempenho</p>
+                      <div class="portfolio-links">
+                        <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" data-gallery="portfolio-gallery" class="portfolio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="Detalhes"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                      <div class="portfolio-tags mt-3">
+                        <span class="portfolio-tag">Analytics</span>
+                        <span class="portfolio-tag">Estudo</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Portfolio Item 6: Mini Template Showcase -->
+                <div class="col-lg-6 col-md-12 portfolio-item template">
+                  <div class="template-showcase">
+                    <div class="row g-0">
+                      <div class="col-md-6">
+                        <img src="assets/img/PRINTtemplatenotion.png" class="img-fluid h-100 object-fit-cover" alt="Templates Notion">
+                      </div>
+                      <div class="col-md-6 d-flex align-items-center">
+                        <div class="template-showcase-content p-4">
+                          <h4>Templates Notion</h4>
+                          <p>Nossa coleção de templates para profissionais de saúde</p>
+                          <ul class="template-list">
+                            <li><i class="bi bi-check-circle-fill"></i> R+ Tainá (Residência)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Acadêmico Med PRO</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Acadêmico Med</li>
+                            <li><i class="bi bi-check-circle-fill"></i> + 5 modelos especializados</li>
+                          </ul>
+                          <a href="service-details-notion.html" class="btn btn-primary btn-sm mt-3">Ver Templates</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Portfolio Item 7 -->
+                <div class="col-lg-3 col-md-6 portfolio-item app">
+                  <div class="portfolio-card">
+                    <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" class="img-fluid" alt="App Mobile">
+                    <div class="portfolio-overlay">
+                      <h4>App Mobile</h4>
+                      <p>Versão para Smartphones</p>
+                      <div class="portfolio-links">
+                        <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" data-gallery="portfolio-gallery" class="portfolio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="Detalhes"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                      <div class="portfolio-tags mt-3">
+                        <span class="portfolio-tag">Mobile</span>
+                        <span class="portfolio-tag">Android/iOS</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Portfolio Item 8 -->
+                <div class="col-lg-3 col-md-6 portfolio-item ia">
+                  <div class="portfolio-card">
+                    <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" class="img-fluid" alt="Assistente de Estudos IA">
+                    <div class="portfolio-overlay">
+                      <h4>Assistente de Estudos</h4>
+                      <p>IA Personalizada para Medicina</p>
+                      <div class="portfolio-links">
+                        <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" data-gallery="portfolio-gallery" class="portfolio-lightbox"><i class="bi bi-zoom-in"></i></a>
+                        <a href="portfolio-details.html" title="Detalhes"><i class="bi bi-link-45deg"></i></a>
+                      </div>
+                      <div class="portfolio-tags mt-3">
+                        <span class="portfolio-tag">IA</span>
+                        <span class="portfolio-tag">Medicina</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Featured Template Callout -->
+              <div class="featured-template-callout mt-5 mb-5" data-aos="fade-up">
+                <div class="row align-items-center">
+                  <div class="col-lg-6">
+                    <div class="callout-content p-4">
+                      <span class="badge bg-primary mb-2">Em Destaque</span>
+                      <h3>R+ Tainá: Template Notion para Médicos</h3>
+                      <p>O sistema completo para organizar seus estudos médicos, com foco em subespecializações e residência. Integre seus recursos, organize suas revisões e acompanhe seu progresso em um único lugar.</p>
+                      <ul class="check-list">
+                        <li><i class="bi bi-check-circle-fill"></i> Revisão espaçada inteligente</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Dashboard personalizado</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Integração com bancos de questões</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Checklist de conteúdos por especialidade</li>
+                      </ul>
+                      <a href="service-details-notion.html" class="btn btn-primary mt-3">
+                        <i class="bi bi-arrow-right-circle me-2"></i>Conhecer o Template
+                      </a>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="callout-image">
+                      <img src="assets/img/templates/r-plus-taina-showcase.jpg" class="img-fluid rounded shadow" alt="Template R+ Tainá">
+                      <div class="floating-badge">
+                        <span class="discount-badge">20% OFF</span>
+                        <span class="limited-time">Tempo limitado</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Portfolio Stats -->
+              <div class="row portfolio-stats mt-5" data-aos="fade-up">
+                <div class="col-lg-10 mx-auto">
+                  <div class="row text-center">
+                    <div class="col-md-3 col-6 mb-4 mb-md-0">
+                      <div class="stat-item">
+                        <div class="stat-number" data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter">32</div>
+                        <div class="stat-label">Projetos Concluídos</div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-6 mb-4 mb-md-0">
+                      <div class="stat-item">
+                        <div class="stat-number" data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter">24</div>
+                        <div class="stat-label">Clientes Satisfeitos</div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                      <div class="stat-item">
+                        <div class="stat-number" data-purecounter-start="0" data-purecounter-end="98" data-purecounter-duration="1" class="purecounter">98</div>
+                        <div class="stat-label">% Avaliação Positiva</div>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                      <div class="stat-item">
+                        <div class="stat-number" data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="1" class="purecounter">500</div>
+                        <div class="stat-label">Médicos Atendidos</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- User Testimonial for Portfolio -->
+              <div class="portfolio-testimonial mt-5" data-aos="fade-up">
+                <div class="row">
+                  <div class="col-lg-8 mx-auto">
+                    <div class="testimonial-card">
+                      <div class="row">
+                        <div class="col-md-4">
+                          <img src="assets/img/testimonials/doctor-testimonial.jpg" class="img-fluid rounded-circle testimonial-img" alt="Dr. Marina Soares">
+                        </div>
+                        <div class="col-md-8">
+                          <div class="testimonial-content">
+                            <i class="bi bi-quote quote-icon"></i>
+                            <p>"O template R+ Tainá revolucionou minha forma de estudar para a prova de especialização. Consegui organizar todo meu conteúdo e nunca mais esqueci de revisar os temas importantes. Recomendo para todos os médicos!"</p>
+                            <div class="testimonial-author">
+                              <h5>Dra. Marina Soares</h5>
+                              <span>Residente de Cardiologia, Hospital Albert Einstein</span>
+                              <div class="rating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- View All Projects -->
+              <div class="text-center mt-5" data-aos="fade-up">
+                <a href="portfolio.html" class="btn btn-outline-primary portfolio-view-all">
+                  <i class="bi bi-grid-3x3-gap me-2"></i> Ver Todos os Projetos
+                </a>
+              </div>
+
+              <!-- Support banner moved to bottom of tab content -->
+              <div class="support-banner mt-5">
+                <div class="support-content">
+                  <h3><i class="bi bi-headset me-2"></i> Suporte Técnico Incluído</h3>
+                  <p>Todos os nossos serviços incluem acesso ilimitado ao suporte técnico especializado, disponível 24/7.</p>
+                  <div class="support-features">
+                    <span><i class="bi bi-check-circle"></i> Atendimento 24/7</span>
+                    <span><i class="bi bi-check-circle"></i> Especialistas dedicados</span>
+                    <span><i class="bi bi-check-circle"></i> Tempo de resposta rápido</span>
+                  </div>
+                  <div class="cta-buttons">
+                    <a href="#contact" class="btn-support">Solicitar Atendimento</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Cases -->
+            <div class="tab-pane" id="tab-cases">
+              <div class="row">
+                <!-- Case study cards -->
+                <div class="col-lg-6">
+                  <div class="case-study-card case-medicina">
+                    <div class="case-header">
+                      <img src="assets/img/testimonials/julia.png" class="case-avatar" alt="">
+                      <div class="case-info">
+                        <h4>Júlia Carminatti</h4>
+                        <p>R3 de Clínica Médica em 2024</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="case-content">
+                      <p><i class="bi bi-quote quote-icon-left"></i>
+                        <span>A mentoria foi essencial para meu crescimento e consolidação do conhecimento necessário para prestar as provas de residência médica. As revisões espaçadas me permitiram estar sempre com a memória ativa e relembrar conceitos fundamentais dentro da rotina corrida do meu R3. Com o plano de estudos traçado, consegui ter mais organização e alinhar metas com meus compromissos diários  pessoais e profissionais. Só agradecer a esta ferramenta! Recomendo de olhos fechados.</span>
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </div>
+                    <div class="case-result">
+                      <div class="result-item">
+                        <span class="result-number">30%</span>
+                        <span class="result-text">Menos tempo de estudo</span>
+                      </div>
+                      <div class="result-item">
+                        <span class="result-number">45%</span>
+                        <span class="result-text">Maior retenção</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn-case-details">Ver estudo completo</a>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="case-study-card case-designer">
+                    <div class="case-header">
+                      <img src="assets/img/testimonials/taina.jpg" class="case-avatar" alt="">
+                      <div class="case-info">
+                        <h4>Tainá</h4>
+                        <p>Designer</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="case-content">
+                      <p><i class="bi bi-quote quote-icon-left"></i>
+                        <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                    <div class="case-result">
+                      <div class="result-item">
+                        <span class="result-number">50%</span>
+                        <span class="result-text">Mais produtividade</span>
+                      </div>
+                      <div class="result-item">
+                        <span class="result-number">720</span>
+                        <span class="result-text">Nota final</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn-case-details">Ver estudo completo</a>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="case-study-card case-store">
+                    <div class="case-header">
+                      <img src="assets/img/testimonials/nati.jpg" class="case-avatar" alt="">
+                      <div class="case-info">
+                        <h4>Natália</h4>
+                        <p>Store Owner</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="case-content">
+                      <p><i class="bi bi-quote quote-icon-left"></i>
+                        <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                    <div class="case-result">
+                      <div class="result-item">
+                        <span class="result-number">50%</span>
+                        <span class="result-text">Mais produtividade</span>
+                      </div>
+                      <div class="result-item">
+                        <span class="result-number">720</span>
+                        <span class="result-text">Nota final</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn-case-details">Ver estudo completo</a>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="case-study-card case-freelancer">
+                    <div class="case-header">
+                      <img src="assets/img/testimonials/cami.jpg" class="case-avatar" alt="">
+                      <div class="case-info">
+                        <h4>Camila</h4>
+                        <p>Freelancer</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="case-content">
+                      <p><i class="bi bi-quote quote-icon-left"></i>
+                        <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                    <div class="case-result">
+                      <div class="result-item">
+                        <span class="result-number">50%</span>
+                        <span class="result-text">Mais produtividade</span>
+                      </div>
+                      <div class="result-item">
+                        <span class="result-number">720</span>
+                        <span class="result-text">Nota final</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn-case-details">Ver estudo completo</a>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="case-study-card case-entrepreneur">
+                    <div class="case-header">
+                      <img src="assets/img/testimonials/testimonials-5.jpg" class="case-avatar" alt="">
+                      <div class="case-info">
+                        <h4>Ana</h4>
+                        <p>Entrepreneur</p>
+                        <div class="stars">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="case-content">
+                      <p><i class="bi bi-quote quote-icon-left"></i>
+                        <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                    <div class="case-result">
+                      <div class="result-item">
+                        <span class="result-number">50%</span>
+                        <span class="result-text">Mais produtividade</span>
+                      </div>
+                      <div class="result-item">
+                        <span class="result-number">720</span>
+                        <span class="result-text">Nota final</span>
+                      </div>
+                    </div>
+                    <a href="#" class="btn-case-details">Ver estudo completo</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Support banner moved to bottom of tab content -->
+              <div class="support-banner mt-5">
+                <div class="support-content">
+                  <h3><i class="bi bi-headset me-2"></i> Suporte Técnico Incluído</h3>
+                  <p>Todos os nossos serviços incluem acesso ilimitado ao suporte técnico especializado, disponível 24/7.</p>
+                  <div class="support-features">
+                    <span><i class="bi bi-check-circle"></i> Atendimento 24/7</span>
+                    <span><i class="bi bi-check-circle"></i> Especialistas dedicados</span>
+                    <span><i class="bi bi-check-circle"></i> Tempo de resposta rápido</span>
+                  </div>
+                  <div class="cta-buttons">
+                    <a href="#contact" class="btn-support">Solicitar Atendimento</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Services & Portfolio Section -->
+
+    <!-- Call To Action Section -->
+    <section id="call-to-action" class="call-to-action section dark-background">
+
+      <img src="assets/img/cta-bg.jpg" alt="">
+
+      <div class="container">
+        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-10">
+            <div class="text-center">
+              <h3>Garantia de Satisfação</h3>
+              <p>Estamos comprometidos com seu sucesso. Se não estiver satisfeito nos primeiros 15 dias, devolvemos seu investimento.</p>
+              <div class="cta-buttons">
+                <a class="cta-btn" href="#services">Ver Serviços</a>
+                <a class="cta-btn cta-btn-secondary" href="#contact">Falar com Consultor</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End Call To Action Section -->
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4 align-items-center justify-content-between">
+
+          <div class="col-lg-5">
+            <img src="assets/img/stats-img.jpg" alt="" class="img-fluid">
+          </div>
+
+          <div class="col-lg-6">
+
+            <h3 class="fw-bold fs-2 mb-3">Impacto do uso da Sophos Academy</h3>
+            <p>
+              Redução de 50% no tempo de estudo e aumento de 30% na eficiência.
+            </p>
+
+            <div class="row gy-4">
+
+              <div class="col-lg-6">
+                <div class="stats-item d-flex">
+                  <i class="bi bi-emoji-smile flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Aprovações</strong> <span> > 50% de aprovações</span></p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+              <div class="col-lg-6">
+                <div class="stats-item d-flex">
+                  <i class="bi bi-journal-richtext flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Aumento de 30% na eficiência</strong> <span> > aumento de 30% na eficiência</span></p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+              <div class="col-lg-6">
+                <div class="stats-item d-flex">
+                  <i class="bi bi-headset flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Redução de 50% no tempo de estudo</strong> <span> > redução de 50% no tempo de estudo</span></p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+              <div class="col-lg-6">
+                <div class="stats-item d-flex">
+                  <i class="bi bi-people flex-shrink-0"></i>
+                  <div>
+                    <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Aumento de 30% na eficiência</strong> <span> > aumento de 30% na eficiência</span></p>
+                  </div>
+                </div>
+              </div><!-- End Stats Item -->
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section dark-background">
+
+      <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": "auto",
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/julia.png" class="testimonial-img" alt="">
+                <h3>Júlia Carminatti</h3>
+                <h4>R3 de Clínica Médica em 2024</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>A mentoria foi essencial para meu crescimento e consolidação do conhecimento necessário para prestar as provas de residência médica. As revisões espaçadas me permitiram estar sempre com a memória ativa e relembrar conceitos fundamentais dentro da rotina corrida do meu R3. Com o plano de estudos traçado, consegui ter mais organização e alinhar metas com meus compromissos diários  pessoais e profissionais. Só agradecer a esta ferramenta! Recomendo de olhos fechados.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/taina.jpg" class="testimonial-img" alt="">
+                <h3>Tainá</h3>
+                <h4>Designer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/nati.jpg" class="testimonial-img" alt="">
+                <h3>Natália</h3>
+                <h4>Store Owner</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/cami.jpg" class="testimonial-img" alt="">
+                <h3>Camila</h3>
+                <h4>Freelancer</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>A plataforma me ajudou muito no processo de organização dos estudos. Foi através dela que eu baseei todas as minhas revisões, portanto, a base de todo meu estudo. Foi essencial no processo. Recomendo demais!</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <h3>Ana</h3>
+                <h4>Entrepreneur</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.356585778848!2d-51.1699655!3d-30.024553799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9519787fa76232bb%3A0x3d77b2da01ca81bb!2sPorto%20Alegre%2C%20RS!5e0!3m2!1spt-BR!2sbr!4v1679569846189!5m2!1spt-BR!2sbr" frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div><!-- End Google Maps -->
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Endereço</h3>
+                <p>Artur Rocha, 397, Bairro Jardim Botânico</p>
+                <p>Porto Alegre, RS 90690-190</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Ligue-nos</h3>
+                <p>+55 51 99999-9999</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email</h3>
+                <p>contato@sophosacademy.com</p>
+              </div>
+            </div><!-- End Info Item -->
+
+          </div>
+
+          <div class="col-lg-8">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Seu Nome" required="">
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Seu Email" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Assunto" required="">
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Mensagem" required=""></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Carregando</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Sua mensagem foi enviada. Obrigado!</div>
+
+                  <button type="submit">Enviar Mensagem</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span class="sitename">Sophos Academy</span>
+            </a>
+            <div class="footer-contact pt-3">
+              <p>Artur Rocha, 397</p>
+              <p>Porto Alegre, RS</p>
+              <p class="mt-3"><strong>Telefone:</strong> <span>+55 51 99999-9999</span></p>
+              <p><strong>Email:</strong> <span>info@sophosacademy.com</span></p>
+            </div>
+            <div class="social-links d-flex mt-4">
+              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href=""><i class="bi bi-facebook"></i></a>
+              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href=""><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Links Úteis</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Sobre nós</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Serviços</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Termos de uso</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Política de privacidade</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-3 footer-links">
+            <h4>Nossos Serviços</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Web App</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Second Brain</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> IA</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Revisão Espaçada</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#"> Aprendizado Acelerado</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-12 footer-newsletter">
+            <h4>Nosso Boletim</h4>
+            <p>Assine nosso boletim e receba as últimas notícias sobre nossos produtos e serviços!</p>
+            <form action="forms/newsletter.php" method="post" class="php-email-form">
+              <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Assinar"></div>
+              <div class="loading">Carregando</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Sua solicitação de assinatura foi enviada. Obrigado!</div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <div class="container text-center">
+        <p> 2024 <span>Copyright</span> <strong class="px-1 sitename">BF</strong> <span>Todos os direitos reservados</span></p>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you've purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+          Desenvolvido pela <a href="https://healbrigde.com/">Healbrigde™</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Chatbot IA -->
+  <div id="ai-chatbot" class="ai-chatbot-container">
+    <div class="ai-chatbot-header">
+      <h4>Assistente Virtual Sophos</h4>
+      <button id="close-chatbot" class="close-chatbot"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="ai-chatbot-body">
+      <div class="ai-chatbot-messages" id="chatbot-messages">
+        <div class="message bot-message">
+          <div class="message-content">Olá! Sou o assistente virtual da Sophos Academy. Como posso ajudar com seus estudos hoje?</div>
+        </div>
+      </div>
+      <form id="chatbot-form" class="ai-chatbot-input">
+        <input type="text" id="chatbot-message" placeholder="Digite sua mensagem..." required>
+        <button type="submit"><i class="bi bi-send-fill"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <button id="open-chatbot" class="open-chatbot">
+    <i class="bi bi-chat-dots-fill"></i>
+  </button>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Script personalizado para garantir o funcionamento adequado do carrossel -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Atualiza os swipers quando a janela é redimensionada
+      window.addEventListener('resize', function() {
+        document.querySelectorAll('.init-swiper').forEach(function(swiperElement) {
+          if (swiperElement.swiper) {
+            swiperElement.swiper.update();
+          }
+        });
+      });
+      
+      // Garante que o carrossel de recursos seja atualizado quando se torna visível
+      const templateFeatures = document.getElementById('template-features');
+      if (templateFeatures) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const swiperElement = templateFeatures.querySelector('.feature-swiper');
+              if (swiperElement && swiperElement.swiper) {
+                setTimeout(() => {
+                  swiperElement.swiper.update();
+                  // Reinicia do primeiro slide se estiver no final
+                  if (swiperElement.swiper.isEnd) {
+                    swiperElement.swiper.slideTo(0, 0, false);
+                  }
+                  swiperElement.swiper.autoplay.start();
+                }, 100);
+              }
+            } else {
+              // Quando não estiver visível, pausar para economizar recursos
+              const swiperElement = templateFeatures.querySelector('.feature-swiper');
+              if (swiperElement && swiperElement.swiper && swiperElement.swiper.autoplay) {
+                swiperElement.swiper.autoplay.stop();
+              }
+            }
+          });
+        }, { threshold: 0.25 });
+        
+        observer.observe(templateFeatures);
+      }
+      
+      // Tratamento especial para o carrossel de recursos
+      function setupFeatureCarousel() {
+        const featureSwiper = document.querySelector('.feature-swiper');
+        if (featureSwiper && featureSwiper.swiper) {
+          // Adiciona evento para o final do carrossel
+          featureSwiper.swiper.on('reachEnd', function() {
+            // Pequeno atraso para evitar efeito visual estranho
+            setTimeout(() => {
+              // Retorna ao slide inicial com transição suave
+              featureSwiper.swiper.slideTo(0, 800, true);
+            }, 500);
+          });
+          
+          // Adicionar evento para transições
+          featureSwiper.swiper.on('transitionEnd', function() {
+            // Garantir que o último slide transicione suavemente para o primeiro
+            if (featureSwiper.swiper.isEnd) {
+              setTimeout(() => {
+                featureSwiper.swiper.slideTo(0, 800, true);
+              }, 200);
+            }
+          });
+          
+          // Adiciona efeito visual aos slides durante a transição
+          featureSwiper.swiper.on('slideChange', function() {
+            const slides = featureSwiper.querySelectorAll('.swiper-slide');
+            slides.forEach((slide, index) => {
+              // Adiciona efeito dependendo da posição do slide
+              if (index === featureSwiper.swiper.activeIndex) {
+                slide.style.transition = 'all 0.6s ease';
+                slide.style.opacity = '1';
+                slide.style.transform = 'scale(1)';
+                slide.style.filter = 'blur(0)';
+                slide.style.zIndex = '10';
+              } else if (index === featureSwiper.swiper.activeIndex + 1 || 
+                        index === featureSwiper.swiper.activeIndex - 1) {
+                slide.style.transition = 'all 0.6s ease';
+                slide.style.opacity = '0.85';
+                slide.style.transform = 'scale(0.9)';
+                slide.style.filter = 'blur(0)';
+                slide.style.zIndex = '5';
+              } else {
+                slide.style.transition = 'all 0.6s ease';
+                slide.style.opacity = '0.6';
+                slide.style.transform = 'scale(0.85)';
+                slide.style.filter = 'blur(1px)';
+                slide.style.zIndex = '0';
+              }
+            });
+          });
+          
+          // Força a atualização periódica para manter o carrossel funcionando
+          setInterval(() => {
+            if (featureSwiper.swiper && isElementVisible(featureSwiper)) {
+              featureSwiper.swiper.update();
+              if (featureSwiper.swiper.autoplay && featureSwiper.swiper.autoplay.paused) {
+                featureSwiper.swiper.autoplay.start();
+              }
+              
+              // Verifica se o último slide está visível e retorna para o primeiro
+              if (featureSwiper.swiper.isEnd) {
+                setTimeout(() => {
+                  featureSwiper.swiper.slideTo(0, 800, true);
+                }, 200);
+              }
+            }
+          }, 3000);
+        }
+      }
+      
+      // Configurar o carrossel após um pequeno atraso para garantir carregamento
+      setTimeout(setupFeatureCarousel, 1000);
+      
+      // Adiciona tratamento de eventos touch para melhorar responsividade em dispositivos móveis
+      document.querySelectorAll('.init-swiper').forEach(function(swiperElement) {
+        swiperElement.addEventListener('touchstart', function() {
+          if (swiperElement.swiper) {
+            swiperElement.swiper.update();
+          }
+        }, { passive: true });
+      });
+      
+      // Função auxiliar para verificar se um elemento está visível
+      function isElementVisible(el) {
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        return (
+          rect.top <= windowHeight &&
+          rect.bottom >= 0
+        );
+      }
+      
+      // Inicializador com atraso para garantir carregamento completo
+      setTimeout(() => {
+        const featuresSwiper = document.querySelector('.feature-swiper');
+        if (featuresSwiper && featuresSwiper.swiper) {
+          featuresSwiper.swiper.update();
+          featuresSwiper.swiper.autoplay.start();
+          
+          // Adiciona classe personalizada para ativar efeitos visuais específicos
+          featuresSwiper.classList.add('feature-swiper-initialized');
+        }
+      }, 1000);
+      
+      // Tratamento específico para tema verde 
+      document.querySelectorAll('.btn-primary, .badge-primary, .badge-info').forEach(element => {
+        element.style.backgroundColor = '#42b983';
+        element.style.borderColor = '#42b983';
+      });
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Vestibular+ - Sophos Academy | Preparação para Medicina</title>
+  <meta name="description" content="Assine o Vestibular+ e prepare-se para o vestibular de medicina com IA adaptativa, 15K+ questões e cronograma personalizado por banca.">
+  <meta name="keywords" content="vestibular medicina, enem, preparação medicina, aprovação medicina, sophos academy">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #0a0a0a;
+      --bg-secondary: #111111;
+      --bg-card: #1a1a1a;
+      --bg-card-hover: #1e1e1e;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --text-muted: #888888;
+      --accent: #f5365c;
+      --accent-light: #ff6b8a;
+      --accent-green: #42b983;
+      --border-color: rgba(255,255,255,0.1);
+      --gradient-accent: linear-gradient(135deg, #f5365c, #ff6b8a);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-secondary);
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar-custom {
+      background: var(--bg-primary);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+    }
+
+    .navbar-inner {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-brand-custom {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar-brand-custom span { color: var(--accent-green); }
+
+    .btn-back {
+      background: var(--accent-green);
+      color: #fff;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero-section {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #1a0a10 0%, #0a0a0a 50%, #150a15 100%);
+      overflow: hidden;
+      padding: 100px 0 80px;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(245, 54, 92, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 54, 92, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 10px 20px;
+      border-radius: 50px;
+      color: var(--accent-light);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid rgba(245, 54, 92, 0.3);
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span { color: var(--accent); }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-hero {
+      padding: 16px 36px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      background: var(--gradient-accent);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(245, 54, 92, 0.3);
+    }
+
+    .btn-primary-hero:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(245, 54, 92, 0.4);
+      color: #fff;
+    }
+
+    .btn-secondary-hero {
+      padding: 16px 36px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      background: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary-hero:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #fff;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 550px;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    /* Section Title */
+    .section-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-heading h2 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .section-heading p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Features */
+    .features-section {
+      padding: 100px 0;
+      background: var(--bg-secondary);
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 36px;
+      border: 1px solid var(--border-color);
+      transition: all 0.4s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gradient-accent);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 54, 92, 0.3);
+      box-shadow: 0 12px 40px rgba(245, 54, 92, 0.1);
+    }
+
+    .feature-card:hover::before { transform: scaleX(1); }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-accent);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+      color: #fff;
+    }
+
+    .feature-card h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Method */
+    .method-section {
+      padding: 100px 0;
+      background: var(--bg-primary);
+    }
+
+    .method-step {
+      position: relative;
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 40px 28px 32px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease;
+    }
+
+    .method-step:hover {
+      transform: translateY(-6px);
+      border-color: rgba(245, 54, 92, 0.3);
+    }
+
+    .step-number {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 44px;
+      background: var(--gradient-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(245, 54, 92, 0.4);
+    }
+
+    .step-icon {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin: 16px 0;
+    }
+
+    .method-step h5 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .method-step p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    /* Results */
+    .results-section {
+      padding: 80px 0;
+      background: var(--gradient-accent);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .results-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .result-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 36px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .result-card:hover {
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.05);
+    }
+
+    .result-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #fff;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .result-label {
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Pricing */
+    .pricing-section {
+      padding: 100px 0;
+      background: var(--bg-secondary);
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border-radius: 24px;
+      padding: 48px 40px;
+      border: 2px solid var(--border-color);
+      transition: all 0.4s ease;
+      position: relative;
+      text-align: center;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+      box-shadow: 0 12px 40px rgba(245, 54, 92, 0.15);
+      transform: scale(1.03);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gradient-accent);
+      color: #fff;
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+    }
+
+    .pricing-card.featured:hover {
+      transform: scale(1.05) translateY(-8px);
+    }
+
+    .plan-name {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .plan-description {
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    .plan-price {
+      margin: 28px 0;
+    }
+
+    .price-currency {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      vertical-align: top;
+    }
+
+    .price-value {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .price-period {
+      font-size: 1rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 8px;
+    }
+
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 28px 0;
+      text-align: left;
+    }
+
+    .plan-features li {
+      padding: 10px 0;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+
+    .plan-features li i { color: var(--accent-green); font-size: 1.1rem; }
+
+    .btn-pricing {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-pricing-primary {
+      background: var(--gradient-accent);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(245, 54, 92, 0.3);
+    }
+
+    .btn-pricing-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(245, 54, 92, 0.4);
+      color: #fff;
+    }
+
+    .btn-pricing-secondary {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+    }
+
+    .btn-pricing-secondary:hover {
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-2px);
+      color: var(--text-primary);
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding: 100px 0;
+      background: var(--bg-primary);
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border-radius: 16px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(245, 54, 92, 0.3);
+    }
+
+    .faq-question {
+      padding: 24px 28px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover { color: var(--accent); }
+
+    .faq-question i {
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+      color: var(--accent);
+    }
+
+    .faq-answer {
+      padding: 0 28px 24px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.98rem;
+      display: none;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #1a0a10 0%, #0a0a0a 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(245, 54, 92, 0.06) 0%, transparent 70%);
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+    }
+
+    .btn-cta-large {
+      padding: 18px 44px;
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: var(--gradient-accent);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 32px rgba(245, 54, 92, 0.3);
+    }
+
+    .btn-cta-large:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(245, 54, 92, 0.4);
+      color: #fff;
+    }
+
+    /* Footer */
+    .footer-dark {
+      background: #060606;
+      padding: 48px 0 24px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.5rem; }
+      .hero-subtitle { font-size: 1.1rem; }
+      .section-heading h2 { font-size: 2rem; }
+      .cta-section h2 { font-size: 2rem; }
+      .hero-cta-group { flex-direction: column; }
+      .btn-primary-hero, .btn-secondary-hero { width: 100%; justify-content: center; }
+      .pricing-card.featured { transform: scale(1); }
+      .pricing-card.featured:hover { transform: translateY(-8px); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar-custom">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand-custom"><span>Sophos</span> Academy</a>
+      <a href="index.html" class="btn-back">Voltar ao Inicio</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="hero-badge">
+              <i class="bi bi-mortarboard-fill"></i>
+              <span>Assinatura para Vestibulandos de Medicina</span>
+            </div>
+            <h1 class="hero-title"><span>Vestibular</span>+</h1>
+            <p class="hero-subtitle">Plataforma completa de preparacao para vestibulares de medicina. Estude com IA adaptativa, banco de 15K+ questoes comentadas e cronograma personalizado por banca.</p>
+            <div class="hero-cta-group">
+              <a href="#pricing" class="btn-primary-hero">
+                <i class="bi bi-rocket-takeoff"></i> Assinar Agora
+              </a>
+              <a href="#features" class="btn-secondary-hero">
+                <i class="bi bi-list-check"></i> O que esta incluso?
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="200">
+            <!-- SUBSTITUIR: adicione screenshot real do produto aqui -->
+            <div class="hero-image">
+              <img src="assets/img/vestibular-screenshot.png" alt="Vestibular+ - Plataforma de Estudos para Medicina">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-up">
+          <h2>O que voce recebe como assinante</h2>
+          <p>Tudo que voce precisa para conquistar sua vaga em medicina</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="bi bi-collection"></i></div>
+              <h4>Banco de Questoes</h4>
+              <p>15.000+ questoes de ENEM, FUVEST, UNICAMP e mais de 100 bancas, organizadas por tema e nivel de dificuldade com resolucao detalhada.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="bi bi-cpu"></i></div>
+              <h4>IA Adaptativa</h4>
+              <p>Algoritmo que identifica seus pontos fracos e ajusta automaticamente seu plano de estudos, priorizando os conteudos que voce mais precisa.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="bi bi-calendar-check"></i></div>
+              <h4>Cronograma por Banca</h4>
+              <p>Plano de estudos customizado para os vestibulares que voce vai prestar, com datas, prioridades e distribuicao inteligente de conteudo.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="bi bi-file-earmark-text"></i></div>
+              <h4>Simulados Completos</h4>
+              <p>Provas simuladas no formato exato de cada banca com correcao automatica, gabarito comentado e analise de desempenho por area.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="bi bi-arrow-repeat"></i></div>
+              <h4>Revisao Espacada</h4>
+              <p>Sistema de flashcards com repeticao cientifica baseada em Spaced Repetition para garantir retencao de longo prazo.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="bi bi-headset"></i></div>
+              <h4>Suporte Dedicado</h4>
+              <p>Equipe de suporte pronta para tirar suas duvidas sobre o uso da plataforma e orientar seus estudos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method Section -->
+    <section id="method" class="method-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-up">
+          <h2>Como funciona</h2>
+          <p>4 passos para comecar sua preparacao</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="method-step">
+              <div class="step-number">1</div>
+              <div class="step-icon"><i class="bi bi-person-plus"></i></div>
+              <h5>Crie sua conta</h5>
+              <p>Assine e acesse a plataforma. Defina seus vestibulares-alvo e sua rotina de estudos.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="method-step">
+              <div class="step-number">2</div>
+              <div class="step-icon"><i class="bi bi-map"></i></div>
+              <h5>Receba seu plano</h5>
+              <p>A IA gera um cronograma personalizado baseado na sua rotina e nos vestibulares que voce vai prestar.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+            <div class="method-step">
+              <div class="step-number">3</div>
+              <div class="step-icon"><i class="bi bi-book"></i></div>
+              <h5>Estude com metodo</h5>
+              <p>Questoes, revisoes e simulados programados automaticamente. Voce so precisa estudar.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+            <div class="method-step">
+              <div class="step-number">4</div>
+              <div class="step-icon"><i class="bi bi-graph-up-arrow"></i></div>
+              <h5>Acompanhe seu progresso</h5>
+              <p>Dashboard com metricas de desempenho, evolucao por materia e comparativo entre bancas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-up">
+          <h2 style="color: #fff;">Vestibular+ em numeros</h2>
+          <p style="color: rgba(255,255,255,0.85);">O que voce encontra dentro da plataforma</p>
+        </div>
+
+        <div class="row g-4 mt-2">
+          <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="100">
+            <div class="result-card">
+              <span class="result-number">15K+</span>
+              <span class="result-label">Questoes Comentadas</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="200">
+            <div class="result-card">
+              <span class="result-number">100+</span>
+              <span class="result-label">Vestibulares Cobertos</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="300">
+            <div class="result-card">
+              <span class="result-number">24/7</span>
+              <span class="result-label">Acesso a Plataforma</span>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="flip-left" data-aos-delay="400">
+            <div class="result-card">
+              <span class="result-number">IA</span>
+              <span class="result-label">Estudo Adaptativo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-up">
+          <h2>Escolha seu plano</h2>
+          <p>Assinatura com acesso completo a plataforma</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="pricing-card">
+              <h3 class="plan-name">Mensal</h3>
+              <p class="plan-description">Flexibilidade total, cancele quando quiser</p>
+              <div class="plan-price">
+                <span class="price-currency">R$</span>
+                <span class="price-value">XX</span>
+                <span class="price-period">por mes, cobrado mensalmente</span>
+              </div>
+              <ul class="plan-features">
+                <li><i class="bi bi-check-circle-fill"></i> Acesso completo a plataforma</li>
+                <li><i class="bi bi-check-circle-fill"></i> 15.000+ questoes comentadas</li>
+                <li><i class="bi bi-check-circle-fill"></i> Simulados ilimitados</li>
+                <li><i class="bi bi-check-circle-fill"></i> IA adaptativa</li>
+                <li><i class="bi bi-check-circle-fill"></i> Cronograma personalizado</li>
+                <li><i class="bi bi-check-circle-fill"></i> Suporte por email</li>
+              </ul>
+              <a href="#" class="btn-pricing btn-pricing-secondary">Assinar Mensal</a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-card featured">
+              <div class="pricing-badge">MELHOR CUSTO-BENEFICIO</div>
+              <h3 class="plan-name">Semestral</h3>
+              <p class="plan-description">6 meses de acesso com desconto</p>
+              <div class="plan-price">
+                <span class="price-currency">R$</span>
+                <span class="price-value">XX</span>
+                <span class="price-period">por mes, cobrado a cada 6 meses</span>
+              </div>
+              <ul class="plan-features">
+                <li><i class="bi bi-check-circle-fill"></i> Tudo do plano Mensal</li>
+                <li><i class="bi bi-check-circle-fill"></i> Desconto no valor mensal</li>
+                <li><i class="bi bi-check-circle-fill"></i> Relatorios de progresso</li>
+                <li><i class="bi bi-check-circle-fill"></i> Conteudo exclusivo</li>
+                <li><i class="bi bi-check-circle-fill"></i> Prioridade no suporte</li>
+                <li><i class="bi bi-check-circle-fill"></i> Acesso antecipado a novidades</li>
+              </ul>
+              <a href="#" class="btn-pricing btn-pricing-primary">Assinar Semestral</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-heading" data-aos="fade-up">
+          <h2>Perguntas frequentes</h2>
+          <p>Tire suas duvidas sobre o Vestibular+</p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="faq-question">
+              <span>O que e o Vestibular+?</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              O Vestibular+ e uma plataforma de estudos por assinatura focada em vestibulares de medicina. Voce tem acesso a um banco com mais de 15.000 questoes comentadas, simulados, cronograma personalizado por banca e inteligencia artificial que adapta seu plano de estudos ao seu nivel.
+            </div>
+          </div>
+
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="faq-question">
+              <span>Para quais vestibulares prepara?</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              O sistema cobre ENEM, FUVEST, UNICAMP, UNESP, UNIFESP, UERJ e mais de 100 vestibulares de medicina de todo o Brasil. O cronograma e os simulados se adaptam automaticamente as especificidades de cada banca.
+            </div>
+          </div>
+
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="faq-question">
+              <span>Como funciona a assinatura?</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Voce escolhe entre o plano Mensal ou Semestral. O pagamento e recorrente e voce tem acesso completo a plataforma enquanto sua assinatura estiver ativa. Sem taxa de adesao ou custos extras.
+            </div>
+          </div>
+
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="faq-question">
+              <span>Posso cancelar a qualquer momento?</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Sim. Nao ha periodo de fidelidade. Voce pode cancelar sua assinatura a qualquer momento e continua com acesso ate o final do periodo ja pago.
+            </div>
+          </div>
+
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+            <div class="faq-question">
+              <span>Tem periodo de teste?</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Consulte nossa pagina de planos para verificar a disponibilidade de periodo de teste gratuito. As condicoes podem variar conforme o plano escolhido.
+            </div>
+          </div>
+
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+            <div class="faq-question">
+              <span>Preciso de alguma ferramenta especifica?</span>
+              <i class="bi bi-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              Nao. O Vestibular+ funciona diretamente no navegador, sem necessidade de instalar nada. Voce pode acessar pelo computador, tablet ou celular.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="cta-content" data-aos="zoom-in">
+        <h2>Comece sua preparacao para medicina</h2>
+        <p>Estude com metodo, IA e o maior banco de questoes do Brasil</p>
+        <a href="#pricing" class="btn-cta-large">
+          <i class="bi bi-rocket-takeoff-fill"></i> Assinar Vestibular+
+        </a>
+        <p style="font-size: 0.9rem; margin-top: 24px; color: var(--text-muted);">
+          <i class="bi bi-shield-check me-2"></i> Cancele quando quiser. Sem compromisso.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer-dark">
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-4 col-md-6">
+          <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 12px;">Sophos Academy</h4>
+          <p style="color: #888; font-size: 0.9rem;">Transformando a preparacao para medicina com tecnologia e metodologia cientifica.</p>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 12px;">Contato</h4>
+          <p style="color: #888; font-size: 0.9rem;"><i class="bi bi-envelope me-2"></i>contato@sophosacademy.com</p>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h4 style="color: #fff; font-size: 1.1rem; margin-bottom: 12px;">Links</h4>
+          <p><a href="index.html" style="color: #888; text-decoration: none; font-size: 0.9rem;">Voltar ao inicio</a></p>
+        </div>
+      </div>
+      <div class="text-center mt-4" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+        <p style="color: #666; font-size: 0.85rem; margin: 0;">&copy; 2025 Sophos Academy. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="position: fixed; bottom: 20px; right: 20px; width: 44px; height: 44px; background: var(--accent); border-radius: 50%; color: #fff; text-decoration: none; z-index: 999; display: none; transition: all 0.3s;"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <script>
+    // AOS
+    AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        const isOpen = faqItem.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('open');
+          item.querySelector('.faq-answer').style.display = 'none';
+          item.querySelector('.faq-question i').style.transform = 'rotate(0deg)';
+        });
+        if (!isOpen) {
+          faqItem.classList.add('open');
+          faqItem.querySelector('.faq-answer').style.display = 'block';
+          faqItem.querySelector('.faq-question i').style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Scroll to top button
+    const scrollTop = document.getElementById('scroll-top');
+    window.addEventListener('scroll', () => {
+      scrollTop.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+  </script>
+
+</body>
+</html>

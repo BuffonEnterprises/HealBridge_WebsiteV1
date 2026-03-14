@@ -1,0 +1,14 @@
+<!-- Backup do arquivo index.html corrigido para o carousel de depoimentos -->
+<!-- Versão corrigida em 1 de maio de 2025 -->
+
+<p>Alterações realizadas:</p>
+
+<ul>
+    <li>Alterado a classe da seção de testimonials para incluir "depoimentos-section"</li>
+    <li>Alterado a classe do swiper para "depoimentos-slider" (substituindo init-swiper)</li>
+    <li>Removido o bloco de configuração JSON inline (script type="application/json")</li>
+    <li>Adicionado botões de navegação (swiper-button-next e swiper-button-prev)</li>
+    <li>Atualizado o arquivo main.js para incluir função initTestimonialsCarousel() específica</li>
+</ul>
+
+<p>Essas alterações garantem que o carrossel funcione corretamente através do JavaScript inicializador próprio, em vez de depender da função genérica "initSwiper".</p>

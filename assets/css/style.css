@@ -1,0 +1,99 @@
+/* Estilos para o botão de vídeo de depoimento */
+.video-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.video-testimonial-btn {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.video-testimonial-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.video-testimonial-btn i {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+/* Estilos para o modal de vídeo */
+.testimonial-video-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.close-video-modal {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.video-content {
+  display: none;
+  width: 100%;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+  }
+  
+  .close-video-modal {
+    top: -35px;
+    font-size: 25px;
+  }
+} 

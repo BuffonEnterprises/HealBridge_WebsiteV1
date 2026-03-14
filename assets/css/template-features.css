@@ -1,0 +1,355 @@
+/* =============================================================
+   TEMPLATE FEATURES - Carousel Section
+   Sophos Academy
+   ============================================================= */
+
+#template-features {
+  padding: 20px 0 60px 0 !important;
+  margin: 0 !important;
+  max-height: 500px !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+#template-features .section-title {
+  margin-bottom: 15px !important;
+  padding: 5px 0 !important;
+}
+
+#template-features .section-title h2 {
+  margin-bottom: 5px !important;
+  font-size: 26px !important;
+}
+
+#template-features .section-title p {
+  margin-bottom: 5px !important;
+  font-size: 15px !important;
+}
+
+#template-features .feature-swiper {
+  height: 300px !important;
+  max-height: 300px !important;
+  overflow: hidden !important;
+  padding-bottom: 40px !important;
+}
+
+#template-features .swiper-slide .feature-card {
+  height: 220px !important;
+  max-height: 220px !important;
+  max-width: 220px !important;
+  padding: 15px !important;
+}
+
+#template-features .cta-container {
+  margin-top: 15px !important;
+}
+
+#template-features .cta-container .btn {
+  padding: 8px 20px !important;
+  font-size: 14px !important;
+}
+
+/* Section anchors */
+.section-anchor {
+  display: block;
+  position: relative;
+  top: -100px;
+  visibility: hidden;
+}
+
+#diferencial-anchor {
+  top: -120px;
+}
+
+/* Service tabs animations */
+.service-tabs .tab-pane {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.service-tabs .tab-pane.show.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-tabs .nav-link {
+  transition: var(--transition);
+  position: relative;
+}
+
+.service-tabs .nav-link:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.service-tabs .nav-link.active:after {
+  width: 70%;
+}
+
+/* Swiper pagination */
+#template-features .swiper-pagination {
+  position: relative;
+  bottom: 0;
+  text-align: center;
+  transition: 0.3s opacity;
+  transform: translate3d(0, 0, 0);
+  z-index: 10;
+  margin-top: 15px;
+}
+
+#template-features .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  border-radius: 10px;
+  background: #dddddd;
+  opacity: 0.5;
+  margin: 0 5px;
+  transition: var(--transition);
+}
+
+#template-features .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: var(--primary-color);
+  width: 20px;
+  transform: scale(1.1);
+}
+
+#template-features .swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 5px;
+}
+
+#template-features .swiper-pagination-bullet:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+  background: var(--primary-light);
+}
+
+/* Navigation buttons */
+#template-features .swiper-button-next,
+#template-features .swiper-button-prev {
+  width: 35px;
+  height: 35px;
+  background-color: rgba(66, 185, 131, 0.8);
+  border-radius: 50%;
+  color: white;
+  transition: var(--transition);
+  opacity: 0.7;
+}
+
+#template-features .swiper-button-next:after,
+#template-features .swiper-button-prev:after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#template-features .swiper-button-next:hover,
+#template-features .swiper-button-prev:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  background-color: rgba(66, 185, 131, 1);
+}
+
+#template-features .swiper-button-disabled {
+  opacity: 0.3 !important;
+}
+
+/* Slide transitions */
+#template-features .swiper-slide {
+  transition: all 0.4s ease;
+  opacity: 0.7;
+  transform: scale(0.85);
+}
+
+#template-features .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+#template-features .swiper-slide-prev,
+#template-features .swiper-slide-next {
+  opacity: 0.8;
+  transform: scale(0.9);
+  z-index: 1;
+}
+
+/* Feature cards */
+#template-features .feature-card {
+  position: relative;
+  background: var(--bg-surface);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 25px 20px;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  border: 1px solid rgba(66, 185, 131, 0.2);
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+#template-features .feature-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(66, 185, 131, 0.25);
+  border-color: rgba(66, 185, 131, 0.4);
+}
+
+#template-features .feature-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #111111, #1a1a1a);
+  border-radius: 20px;
+  color: var(--primary-color);
+  font-size: 28px;
+  transition: var(--transition);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(30, 30, 30, 0.2);
+  border: 1px solid rgba(66, 185, 131, 0.15);
+}
+
+#template-features .feature-card:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+  background: linear-gradient(145deg, var(--primary-color), var(--primary-dark));
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(66, 185, 131, 0.35);
+}
+
+#template-features .feature-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: var(--text-white);
+  transition: var(--transition);
+}
+
+#template-features .feature-card:hover h3 {
+  color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+#template-features .feature-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+#template-features .feature-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  background: rgba(66, 185, 131, 0.1);
+  color: var(--primary-color);
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: auto;
+  transition: var(--transition);
+}
+
+#template-features .feature-card:hover .feature-tag {
+  background: rgba(66, 185, 131, 0.2);
+  transform: scale(1.05);
+}
+
+/* Glassmorphism */
+#template-features .feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(60, 60, 60, 0.3) 0%, rgba(30, 30, 30, 0.05) 100%);
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+#template-features .feature-card:hover::before {
+  opacity: 1;
+}
+
+/* Icon pulse */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+#template-features .swiper-slide-active .feature-icon {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Active slide highlight */
+#template-features .swiper-slide-active .feature-card {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(66, 185, 131, 0.2);
+  border-color: rgba(66, 185, 131, 0.4);
+  z-index: 10;
+}
+
+#template-features .swiper-slide-active .feature-tag {
+  background: rgba(66, 185, 131, 0.2);
+}
+
+#template-features .swiper-slide-active .feature-card:hover {
+  transform: scale(1.08) translateY(-5px);
+}
+
+/* CTA button */
+#template-features .cta-container .btn-primary {
+  background-color: var(--primary-color);
+  border-radius: 30px;
+  padding: 8px 25px;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(66, 185, 131, 0.2);
+  border: none;
+  transition: var(--transition);
+}
+
+#template-features .cta-container .btn-primary:hover {
+  background-color: #3aa876;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(66, 185, 131, 0.35);
+}
+
+@keyframes cta-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(66, 185, 131, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(66, 185, 131, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(66, 185, 131, 0); }
+}
+
+#template-features .cta-container .btn-primary {
+  animation: cta-pulse 2s infinite;
+}
+
+/* Dark mode title */
+.dark-mode #template-features .section-title h2 {
+  color: #f0f0f0;
+}
+
+.dark-mode #template-features .section-title p {
+  color: #aaa;
+}
+
+.dark-mode #template-features .title-accent {
+  background: linear-gradient(90deg, var(--primary-color), rgba(66, 185, 131, 0.01));
+}

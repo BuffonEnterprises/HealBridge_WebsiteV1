@@ -1,0 +1,60 @@
+/* =============================================================
+   SOPHOS ACADEMY - CSS Variables (Master)
+   Single source of truth for all design tokens
+   ============================================================= */
+
+:root {
+  /* Brand Colors */
+  --primary-color: #42b983;
+  --primary-dark: #2D9C6A;
+  --primary-light: #5fcf9d;
+  --secondary-color: #4e63d7;
+  --accent-color: #42b983;
+
+  /* Aliases (backwards compatibility) */
+  --sophos-primary: var(--primary-color);
+  --sophos-primary-dark: var(--primary-dark);
+  --sophos-primary-light: var(--primary-light);
+  --sophos-secondary: #2d5ebb;
+  --sophos-gradient: linear-gradient(135deg, var(--primary-color), var(--sophos-secondary));
+  --sophos-gradient-reverse: linear-gradient(135deg, var(--sophos-secondary), var(--primary-color));
+
+  /* Backgrounds */
+  --bg-dark: #000000;
+  --bg-surface: #0a0a0a;
+  --bg-card: #111111;
+
+  /* Text */
+  --text-white: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-dark: #ffffff;
+  --text-light: #b0b0b0;
+
+  /* Shadows */
+  --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-green: 0 5px 20px rgba(66, 185, 131, 0.3);
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.3);
+  --shadow-glow: 0 0 40px rgba(66, 185, 131, 0.4);
+
+  /* Glass */
+  --glass-bg: rgba(0, 0, 0, 0.6);
+  --glass-border: rgba(66, 185, 131, 0.3);
+
+  /* Layout */
+  --border-radius: 12px;
+
+  /* Transitions */
+  --transition: all 0.3s ease;
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* =============================================================
+   STANDARD BREAKPOINTS (reference)
+   - xs: < 576px   (mobile portrait)
+   - sm: >= 576px  (mobile landscape)
+   - md: >= 768px  (tablet)
+   - lg: >= 992px  (desktop)
+   - xl: >= 1200px (large desktop)
+   ============================================================= */

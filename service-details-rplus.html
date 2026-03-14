@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Projeto R+ - Sophos Academy | Experiência Premium Exclusiva</title>
+  <meta name="description" content="O mais completo sistema para residência médica. Experiência VIP com resultados garantidos.">
+  <meta name="keywords" content="residência premium, mentoria exclusiva, aprovação garantida, elite médica">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #f4e5b8;
+      --gold-dark: #b8941f;
+      --black: #0a0a0a;
+      --dark-gray: #1a1a1a;
+      --text-light: #94a3b8;
+      --premium-gradient: linear-gradient(135deg, #d4af37 0%, #f4e5b8 50%, #d4af37 100%);
+      --dark-gradient: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #fff;
+      background: var(--black);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Hero Section */
+    .hero-rplus {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: radial-gradient(circle at top right, #1a1a1a 0%, #0a0a0a 100%);
+      overflow: hidden;
+      padding: 140px 0 100px;
+    }
+
+    .hero-rplus::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+
+    .hero-rplus::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .vip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0.05) 100%);
+      backdrop-filter: blur(10px);
+      padding: 12px 28px;
+      border-radius: 50px;
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
+    }
+
+    .vip-badge i {
+      font-size: 1.2rem;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(1.1); }
+    }
+
+    .hero-title {
+      font-size: 5rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 32px;
+      letter-spacing: -2px;
+    }
+
+    .hero-title .gold-text {
+      background: var(--premium-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--text-light);
+      margin-bottom: 40px;
+      line-height: 1.8;
+      max-width: 600px;
+      font-weight: 300;
+    }
+
+    .hero-features {
+      display: flex;
+      gap: 40px;
+      margin: 48px 0;
+      flex-wrap: wrap;
+    }
+
+    .hero-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-feature-item i {
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+
+    .hero-feature-item span {
+      font-size: 1.05rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 20px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold-primary {
+      padding: 20px 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: var(--premium-gradient);
+      color: var(--black);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-gold-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-gold-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-gold-primary:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 15px 50px rgba(212, 175, 55, 0.6);
+      color: var(--black);
+    }
+
+    .btn-gold-secondary {
+      padding: 20px 50px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: transparent;
+      color: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-gold-secondary:hover {
+      background: rgba(212, 175, 55, 0.1);
+      transform: translateY(-4px);
+      color: var(--gold);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Exclusivity Section */
+    .exclusivity-section {
+      padding: 120px 0;
+      background: var(--dark-gray);
+      position: relative;
+    }
+
+    .exclusivity-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .section-title h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .section-title .gold-accent {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .section-title p {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    .exclusive-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .exclusive-card {
+      background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+      border-radius: 20px;
+      padding: 48px 40px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exclusive-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--premium-gradient);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+
+    .exclusive-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+    }
+
+    .exclusive-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .exclusive-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--premium-gradient);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+      font-size: 2rem;
+      color: var(--black);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    }
+
+    .exclusive-card h4 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .exclusive-card p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* Elite Benefits */
+    .benefits-section {
+      padding: 120px 0;
+      background: var(--black);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 60px;
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 24px;
+      padding: 32px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+      border-radius: 16px;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .benefit-item:hover {
+      border-color: var(--gold);
+      transform: translateX(8px);
+      box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+    }
+
+    .benefit-number {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      background: var(--premium-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--black);
+    }
+
+    .benefit-content h5 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .benefit-content p {
+      color: var(--text-light);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* Results Premium */
+    .results-premium {
+      padding: 120px 0;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+      position: relative;
+    }
+
+    .results-premium::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .results-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-top: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .result-card-premium {
+      background: rgba(212, 175, 55, 0.05);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(212, 175, 55, 0.3);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: all 0.4s ease;
+    }
+
+    .result-card-premium:hover {
+      background: rgba(212, 175, 55, 0.1);
+      transform: scale(1.05);
+      border-color: var(--gold);
+    }
+
+    .result-value {
+      font-size: 4rem;
+      font-weight: 900;
+      background: var(--premium-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .result-description {
+      font-size: 1.1rem;
+      color: #fff;
+      font-weight: 500;
+    }
+
+    /* Pricing VIP */
+    .pricing-vip {
+      padding: 120px 0;
+      background: var(--black);
+    }
+
+    .pricing-vip-card {
+      max-width: 600px;
+      margin: 60px auto 0;
+      background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+      border-radius: 24px;
+      padding: 60px 50px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 20px 60px rgba(212, 175, 55, 0.3);
+      position: relative;
+    }
+
+    .pricing-crown {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background: var(--premium-gradient);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--black);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+    }
+
+    .vip-plan-name {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .vip-plan-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .vip-price {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .vip-price-value {
+      font-size: 5rem;
+      font-weight: 900;
+      background: var(--premium-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+
+    .vip-price-period {
+      font-size: 1.3rem;
+      color: var(--text-light);
+      margin-top: 12px;
+      font-weight: 300;
+    }
+
+    .vip-features {
+      list-style: none;
+      padding: 0;
+      margin: 48px 0;
+    }
+
+    .vip-features li {
+      padding: 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 1.1rem;
+      color: #fff;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .vip-features li:last-child {
+      border-bottom: none;
+    }
+
+    .vip-features li i {
+      color: var(--gold);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .btn-vip-cta {
+      width: 100%;
+      padding: 22px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      background: var(--premium-gradient);
+      color: var(--black);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-vip-cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(212, 175, 55, 0.7);
+      color: var(--black);
+    }
+
+    /* CTA Final Premium */
+    .cta-premium {
+      padding: 120px 0;
+      background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-premium::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1000px;
+      height: 1000px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+      animation: pulse-gold 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-gold {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
+    }
+
+    .cta-premium-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cta-premium h2 {
+      font-size: 4rem;
+      font-weight: 900;
+      margin-bottom: 32px;
+      line-height: 1.2;
+      color: #fff;
+    }
+
+    .cta-premium .gold-highlight {
+      background: var(--premium-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-style: italic;
+    }
+
+    .cta-premium p {
+      font-size: 1.5rem;
+      color: var(--text-light);
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+
+    .btn-final-gold {
+      padding: 26px 70px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: var(--premium-gradient);
+      color: var(--black);
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 20px 60px rgba(212, 175, 55, 0.5);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 48px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .btn-final-gold:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 30px 80px rgba(212, 175, 55, 0.7);
+      color: var(--black);
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 3.5rem;
+      }
+
+      .exclusive-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .results-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.8rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+      }
+
+      .cta-premium h2 {
+        font-size: 2.5rem;
+      }
+
+      .results-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+      }
+
+      .btn-gold-primary,
+      .btn-gold-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+  </style>
+</head>
+
+<body class="service-details-page">
+
+  <!-- Navbar - ESPECIFICACOES EXATAS DO TEMPLATE-HUB.HTML -->
+  <nav style="background:#0a0a0a !important;box-shadow:0 2px 10px rgba(0,0,0,0.05) !important;padding:16px 0 !important;position:sticky !important;top:0 !important;z-index:9999 !important;">
+    <div style="width:100% !important;max-width:1320px !important;margin:0 auto !important;padding:0 12px !important;display:flex !important;align-items:center !important;justify-content:space-between !important;box-sizing:border-box !important;">
+      <a href="index.html" style="font-size:24px !important;font-weight:700 !important;color:#fff !important;text-decoration:none !important;line-height:1.2 !important;padding:0 !important;margin:0 !important;"><span style="color:#42b983 !important;">Sophos</span> Academy</a>
+      <a href="index.html" style="background:#42b983 !important;color:#fff !important;border:none !important;padding:9.6px 24px !important;border-radius:8px !important;font-weight:600 !important;font-size:16px !important;text-decoration:none !important;display:inline-block !important;margin:0 !important;line-height:1.5 !important;">Voltar ao Início</a>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section class="hero-rplus">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7 hero-content" data-aos="fade-right">
+            <div class="vip-badge">
+              <i class="bi bi-gem"></i>
+              <span>Experiência Exclusiva</span>
+            </div>
+            <h1 class="hero-title">
+              A Elite da
+              <span class="gold-text">Residência Médica</span>
+            </h1>
+            <p class="hero-subtitle">
+              Mentoria 1:1 com médicos aprovados nas instituições mais concorridas. Garantia de resultados. Apenas 20 vagas por turma.
+            </p>
+
+            <div class="hero-features">
+              <div class="hero-feature-item">
+                <i class="bi bi-star-fill"></i>
+                <span>100% Personalizado</span>
+              </div>
+              <div class="hero-feature-item">
+                <i class="bi bi-trophy-fill"></i>
+                <span>Garantia Aprovação</span>
+              </div>
+              <div class="hero-feature-item">
+                <i class="bi bi-shield-check"></i>
+                <span>Suporte 24/7</span>
+              </div>
+            </div>
+
+            <div class="hero-cta-group">
+              <a href="#pricing" class="btn-gold-primary">
+                <i class="bi bi-crown-fill"></i>
+                Garantir Minha Vaga
+              </a>
+              <a href="#benefits" class="btn-gold-secondary">
+                <i class="bi bi-play-circle"></i>
+                Ver Benefícios
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-5 text-center" data-aos="fade-left" data-aos-delay="200">
+            <div style="position: relative; display: inline-block;">
+              <svg width="400" height="400" viewBox="0 0 400 400" style="filter: drop-shadow(0 20px 60px rgba(212, 175, 55, 0.3));">
+                <defs>
+                  <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+                    <stop offset="50%" style="stop-color:#f4e5b8;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#d4af37;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <circle cx="200" cy="200" r="180" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.3"/>
+                <circle cx="200" cy="200" r="140" fill="url(#goldGrad)" opacity="0.1"/>
+                <path d="M200,100 L220,160 L280,160 L230,200 L250,260 L200,220 L150,260 L170,200 L120,160 L180,160 Z" fill="url(#goldGrad)"/>
+                <circle cx="160" cy="150" r="10" fill="#d4af37" opacity="0.8">
+                  <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="240" cy="180" r="8" fill="#d4af37" opacity="0.8">
+                  <animate attributeName="r" values="6;10;6" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="220" cy="280" r="12" fill="#d4af37" opacity="0.8">
+                  <animate attributeName="r" values="10;14;10" dur="3s" repeatCount="indefinite"/>
+                </circle>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Details with Sidebar -->
+    <section class="product-details-section" style="padding: 80px 0; background: #0a0a0a;">
+      <div class="container">
+        <div class="row gy-5">
+
+          <!-- Sidebar -->
+          <div class="col-lg-3" data-aos="fade-right">
+
+            <div class="service-box" style="background: #1a1a1a; border-radius: 16px; padding: 32px; margin-bottom: 24px; border: 1px solid #d4af37;">
+              <h4 style="font-size: 1.3rem; font-weight: 700; color: #d4af37; margin-bottom: 20px;">Nossos Templates</h4>
+              <div class="services-list" style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="service-details-vestibular.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #0f0f0f; color: #d4af37; border-radius: 12px; text-decoration: none; transition: all 0.3s ease; border: 1px solid #333;"><i class="bi bi-arrow-right-circle"></i><span>Projeto Vestibular</span></a>
+                <a href="service-details-residencia.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #0f0f0f; color: #d4af37; border-radius: 12px; text-decoration: none; transition: all 0.3s ease; border: 1px solid #333;"><i class="bi bi-arrow-right-circle"></i><span>Projeto Residência Médica</span></a>
+                <a href="service-details-criar.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #0f0f0f; color: #d4af37; border-radius: 12px; text-decoration: none; transition: all 0.3s ease; border: 1px solid #333;"><i class="bi bi-arrow-right-circle"></i><span>Liberdade para Criar</span></a>
+                <a href="service-details-rplus.html" class="active" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: linear-gradient(135deg, #d4af37 0%, #f4e5b8 50%, #d4af37 100%); color: #0a0a0a; border-radius: 12px; text-decoration: none; transition: all 0.3s ease; font-weight: 700;"><i class="bi bi-arrow-right-circle"></i><span>Projeto R+</span></a>
+                <a href="service-details-faculdade.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #0f0f0f; color: #d4af37; border-radius: 12px; text-decoration: none; transition: all 0.3s ease; border: 1px solid #333;"><i class="bi bi-arrow-right-circle"></i><span>Projeto Faculdade</span></a>
+                <a href="service-details-notion.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #0f0f0f; color: #d4af37; border-radius: 12px; text-decoration: none; transition: all 0.3s ease; border: 1px solid #333;"><i class="bi bi-arrow-right-circle"></i><span>Versão no Notion</span></a>
+              </div>
+            </div>
+
+            <div class="help-box" style="background: linear-gradient(135deg, #d4af37 0%, #f4e5b8 50%, #d4af37 100%); border-radius: 16px; padding: 40px 32px; text-align: center; color: #0a0a0a;">
+              <i class="bi bi-headset" style="font-size: 3rem; margin-bottom: 20px; display: block;"></i>
+              <h4 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 16px;">Precisa de Ajuda?</h4>
+              <p style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0; font-size: 0.95rem; font-weight: 600;"><i class="bi bi-telephone"></i> <span>(51) 3333-4444</span></p>
+              <p style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0; font-size: 0.95rem; font-weight: 600;"><i class="bi bi-envelope"></i> <a href="mailto:contato@meds-ai.com" style="color: #0a0a0a; text-decoration: none;">contato@meds-ai.com</a></p>
+            </div>
+
+          </div>
+
+          <!-- Main Content -->
+          <div class="col-lg-9" data-aos="fade-left">
+
+    <!-- Exclusivity Section -->
+    <section class="exclusivity-section" style="padding: 60px 0;">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Por Que o R+ é <span class="gold-accent">Diferente</span></h2>
+          <p>Não é apenas um curso. É uma experiência transformadora exclusiva.</p>
+        </div>
+
+        <div class="exclusive-cards">
+          <div class="exclusive-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="exclusive-icon">
+              <i class="bi bi-person-badge"></i>
+            </div>
+            <h4>Mentoria Individual</h4>
+            <p>Sessões semanais privadas com médicos que conquistaram as primeiras colocações. Estratégia 100% personalizada.</p>
+          </div>
+
+          <div class="exclusive-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="exclusive-icon">
+              <i class="bi bi-graph-up-arrow"></i>
+            </div>
+            <h4>Análise Preditiva IA</h4>
+            <p>Sistema exclusivo que prevê sua pontuação em cada instituição e ajusta seu plano em tempo real.</p>
+          </div>
+
+          <div class="exclusive-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="exclusive-icon">
+              <i class="bi bi-shield-fill-check"></i>
+            </div>
+            <h4>Garantia Total</h4>
+            <p>Não passou? Renovação gratuita até sua aprovação. Confiamos tanto que assumimos o risco.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits-section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>O Que Você Recebe <span class="gold-accent">Exclusivamente</span></h2>
+          <p>Cada detalhe pensado para sua aprovação</p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-item" data-aos="fade-right" data-aos-delay="100">
+            <div class="benefit-number">1</div>
+            <div class="benefit-content">
+              <h5>Mentor Dedicado VIP</h5>
+              <p>Médico aprovado em primeira colocação acompanha você durante todo o processo. WhatsApp direto, sem intermediários.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item" data-aos="fade-left" data-aos-delay="200">
+            <div class="benefit-number">2</div>
+            <div class="benefit-content">
+              <h5>Banco Premium 15K Questões</h5>
+              <p>Questões exclusivas não disponíveis em outros cursos, incluindo provas inéditas e comentários detalhados.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item" data-aos="fade-right" data-aos-delay="300">
+            <div class="benefit-number">3</div>
+            <div class="benefit-content">
+              <h5>Simulados Personalizados</h5>
+              <p>Provas criadas especificamente para seu perfil, simulando exatamente a instituição que você deseja.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item" data-aos="fade-left" data-aos-delay="400">
+            <div class="benefit-number">4</div>
+            <div class="benefit-content">
+              <h5>Grupo Fechado Elite</h5>
+              <p>Networking com outros candidatos de alto nível. Conexões que duram toda a carreira.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item" data-aos="fade-right" data-aos-delay="500">
+            <div class="benefit-number">5</div>
+            <div class="benefit-content">
+              <h5>Material Físico Premium</h5>
+              <p>Kit exclusivo entregue em casa: resumos encadernados, flashcards premium e guia de estudos personalizado.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item" data-aos="fade-left" data-aos-delay="600">
+            <div class="benefit-number">6</div>
+            <div class="benefit-content">
+              <h5>Acesso Vitalício</h5>
+              <p>Mesmo após aprovação, mantenha acesso a todo conteúdo e atualizações. Para sempre.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results Premium -->
+    <section class="results-premium">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Diferenciais <span class="gold-accent">Premium</span></h2>
+          <p>O que você recebe no R+</p>
+        </div>
+
+        <div class="results-cards">
+          <div class="result-card-premium" data-aos="zoom-in" data-aos-delay="100">
+            <span class="result-value">1:1</span>
+            <span class="result-description">Mentoria Individual</span>
+          </div>
+
+          <div class="result-card-premium" data-aos="zoom-in" data-aos-delay="200">
+            <span class="result-value">15K+</span>
+            <span class="result-description">Questões Exclusivas</span>
+          </div>
+
+          <div class="result-card-premium" data-aos="zoom-in" data-aos-delay="300">
+            <span class="result-value">+150%</span>
+            <span class="result-description">Retenção via Active Recall*</span>
+          </div>
+
+          <div class="result-card-premium" data-aos="zoom-in" data-aos-delay="400">
+            <span class="result-value">24/7</span>
+            <span class="result-description">Suporte Premium</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing VIP -->
+    <section id="pricing" class="pricing-vip">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Investimento <span class="gold-accent">Premium</span></h2>
+          <p>Exclusivo para quem busca o melhor</p>
+        </div>
+
+        <div class="pricing-vip-card" data-aos="zoom-in" data-aos-delay="200">
+          <div class="pricing-crown">
+            <i class="bi bi-gem"></i>
+          </div>
+
+          <h3 class="vip-plan-name">Projeto R+ Elite</h3>
+          <p class="vip-plan-subtitle">A experiência mais completa do mercado</p>
+
+          <div class="vip-price">
+            <div class="vip-price-value">R$ 997</div>
+            <div class="vip-price-period">por mês • plano anual</div>
+          </div>
+
+          <ul class="vip-features">
+            <li><i class="bi bi-check-circle-fill"></i> Mentoria individual semanal (4h/mês)</li>
+            <li><i class="bi bi-check-circle-fill"></i> WhatsApp direto com mentor VIP</li>
+            <li><i class="bi bi-check-circle-fill"></i> 15.000+ questões exclusivas</li>
+            <li><i class="bi bi-check-circle-fill"></i> IA preditiva de pontuação</li>
+            <li><i class="bi bi-check-circle-fill"></i> Material físico premium</li>
+            <li><i class="bi bi-check-circle-fill"></i> Grupo fechado elite</li>
+            <li><i class="bi bi-check-circle-fill"></i> Suporte prioritário 24/7</li>
+            <li><i class="bi bi-check-circle-fill"></i> Garantia de aprovação*</li>
+            <li><i class="bi bi-check-circle-fill"></i> Acesso vitalício</li>
+          </ul>
+
+          <a href="#" class="btn-vip-cta">
+            <i class="bi bi-gem me-2"></i>
+            Garantir Vaga Exclusiva
+          </a>
+
+          <p style="text-align: center; margin-top: 24px; color: var(--text-light); font-size: 0.9rem;">
+            <i class="bi bi-shield-check me-2"></i>
+            Apenas 20 vagas abertas por turma
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Premium -->
+    <section class="cta-premium">
+      <div class="cta-premium-content" data-aos="zoom-in">
+        <h2>
+          Junte-se à <span class="gold-highlight">Elite Médica</span>
+        </h2>
+        <p>Transforme sua preparação em uma experiência premium</p>
+        <p style="font-size: 1.2rem; margin-top: 28px;">
+          Vagas limitadas. Processo seletivo rigoroso.
+        </p>
+        <a href="#pricing" class="btn-final-gold">
+          <i class="bi bi-gem"></i>
+          Candidatar-se Agora
+        </a>
+        <p style="font-size: 0.95rem; margin-top: 40px; opacity: 0.7;">
+          <i class="bi bi-clock me-2"></i>
+          Próxima turma inicia em Janeiro/2025
+        </p>
+      </div>
+    </section>
+
+          </div><!-- End Main Content -->
+
+        </div><!-- End Row -->
+      </div><!-- End Container -->
+    </section><!-- End Product Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer" style="background: var(--black); border-top: 1px solid rgba(212, 175, 55, 0.2);">
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6">
+          <h4 style="color: var(--gold);">Sophos Academy</h4>
+          <p style="color: var(--text-light); margin-top: 16px;">Excelência em educação médica</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 style="color: #fff;">Contato</h4>
+          <p style="color: var(--text-light); margin-top: 16px;">
+            <strong>Email:</strong> vip@meds-ai.com
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 style="color: #fff;">Suporte</h4>
+          <p style="color: var(--text-light); margin-top: 16px;">
+            <strong>24/7:</strong> Prioritário
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 style="color: #fff;">Siga-nos</h4>
+          <div class="social-links d-flex" style="margin-top: 16px;">
+            <a href="#" style="color: var(--gold); margin-right: 16px;"><i class="bi bi-instagram"></i></a>
+            <a href="#" style="color: var(--gold); margin-right: 16px;"><i class="bi bi-linkedin"></i></a>
+            <a href="#" style="color: var(--gold);"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-4" style="padding-top: 32px; border-top: 1px solid rgba(212, 175, 55, 0.1);">
+      <p style="color: var(--text-light);">
+        © <span>2024</span> <strong style="color: var(--gold);">Sophos Academy R+</strong> <span>Todos os direitos reservados</span>
+      </p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="background: var(--premium-gradient);"><i class="bi bi-arrow-up-short" style="color: var(--black);"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

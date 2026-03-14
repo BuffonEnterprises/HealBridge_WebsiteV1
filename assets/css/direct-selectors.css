@@ -1,0 +1,99 @@
+/* Seletores diretos para corrigir o problema de texto em caixas brancas no modo escuro */
+
+/* Estiliza diretamente os itens de liste e paragrafos de qualquer lista ou seção relacionada a benefícios/resultados */
+body.dark-mode [class*="benefit"] li,
+body.dark-mode [class*="feature"] li,
+body.dark-mode [class*="satisfaction"] li,
+body.dark-mode [class*="result"] li,
+body.dark-mode [class*="metric"] li,
+body.dark-mode [class*="advantage"] li,
+body.dark-mode li.feature-list-item {
+  color: #212529 !important;
+  background-color: rgba(255, 255, 255, 0.97) !important;
+  font-weight: 500 !important;
+  border-radius: 6px;
+  padding: 8px 12px !important;
+  margin-bottom: 10px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08) !important;
+  border-left: 3px solid #6ad48b !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Estilização específica para ícones dentro dessas listas */
+body.dark-mode [class*="benefit"] li i,
+body.dark-mode [class*="feature"] li i,
+body.dark-mode [class*="satisfaction"] li i,
+body.dark-mode [class*="result"] li i,
+body.dark-mode [class*="metric"] li i,
+body.dark-mode [class*="advantage"] li i,
+body.dark-mode li.feature-list-item i,
+body.dark-mode [class*="benefit"] li .bi,
+body.dark-mode [class*="feature"] li .bi,
+body.dark-mode [class*="satisfaction"] li .bi,
+body.dark-mode [class*="result"] li .bi,
+body.dark-mode [class*="metric"] li .bi,
+body.dark-mode [class*="advantage"] li .bi,
+body.dark-mode li.feature-list-item .bi {
+  color: #6ad48b !important;
+  margin-right: 10px !important;
+  font-size: 18px !important;
+}
+
+/* Seletores específicos para textos de satisfação */
+body.dark-mode .features-checklist li,
+body.dark-mode ul.features-list li,
+body.dark-mode ol.features-list li,
+body.dark-mode ul.benefits-list li,
+body.dark-mode ol.benefits-list li,
+body.dark-mode ul.satisfaction-list li,
+body.dark-mode ol.satisfaction-list li,
+body.dark-mode ul.results-list li,
+body.dark-mode ol.results-list li {
+  color: #212529 !important;
+  background-color: rgba(255, 255, 255, 0.97) !important;
+  padding: 8px 12px !important;
+  margin-bottom: 10px !important;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08) !important;
+  border-left: 3px solid #6ad48b !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Seletor para o texto específico mencionado no requisito */
+body.dark-mode li:contains("Taxa de satisfação de 98% entre usuários"),
+body.dark-mode li:contains("Mais equilíbrio entre estudo e vida pessoal"),
+body.dark-mode li:contains("Redução significativa de estresse acadêmico"),
+body.dark-mode li:contains("Algoritmos de IA personalizados"),
+body.dark-mode li:contains("Suporte técnico e pedagógico"),
+body.dark-mode li:contains("Análise contínua de desempenho"),
+body.dark-mode li:contains("Integração com principais plataformas"),
+body.dark-mode li:contains("Metodologia embasada") {
+  color: #212529 !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 10px 15px !important;
+  margin: 8px 0 !important;
+  border-left: 4px solid #6ad48b !important;
+  font-weight: 500 !important;
+}
+
+/* Estilo para o título "Comprovado" */
+body.dark-mode h2:contains("Comprovado"),
+body.dark-mode h3:contains("Comprovado"),
+body.dark-mode h4:contains("Comprovado"),
+body.dark-mode h5:contains("Comprovado"),
+body.dark-mode .section-title:contains("Comprovado"),
+body.dark-mode .section-heading:contains("Comprovado") {
+  color: #212529 !important;
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 12px 20px !important;
+  display: inline-block !important;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1) !important;
+  border-bottom: 3px solid #6ad48b !important;
+  font-weight: 700 !important;
+}

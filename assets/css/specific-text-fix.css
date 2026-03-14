@@ -1,0 +1,119 @@
+/* CSS específico para tratar elementos de texto mencionados no requisito */
+
+/* Estilos aplicados por JavaScript ou diretamente via CSS */
+body.dark-mode li,
+body.dark-mode p {
+  position: relative;
+}
+
+/* Estilos específicos para os textos mencionados */
+body.dark-mode li:contains("Taxa de satisfação de 98% entre usuários"),
+body.dark-mode li:contains("Mais equilíbrio entre estudo e vida pessoal"),
+body.dark-mode li:contains("Redução significativa de estresse acadêmico"),
+body.dark-mode li:contains("Algoritmos de IA personalizados"),
+body.dark-mode li:contains("Suporte técnico e pedagógico"),
+body.dark-mode li:contains("Análise contínua de desempenho"),
+body.dark-mode li:contains("Integração com principais plataformas"),
+body.dark-mode li:contains("Metodologia embasada") {
+  color: #212529 !important;
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08) !important;
+  padding: 10px 15px !important;
+  font-weight: 500 !important;
+  margin: 10px 0 !important;
+  border-left: 4px solid #6ad48b !important;
+  display: block !important;
+}
+
+/* Aplicação específica para o texto exato do requisito */
+body.dark-mode span.specific-text-taxa,
+body.dark-mode span.specific-text-equilibrio,
+body.dark-mode span.specific-text-reducao,
+body.dark-mode span.specific-text-algoritmos,
+body.dark-mode span.specific-text-suporte,
+body.dark-mode span.specific-text-analise,
+body.dark-mode span.specific-text-integracao,
+body.dark-mode span.specific-text-metodologia {
+  color: #212529 !important;
+  background-color: #ffffff !important;
+  border-radius: 4px !important;
+  padding: 3px 8px !important;
+  font-weight: 500 !important;
+  display: inline-block !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Estilo específico para listas que podem conter esses textos */
+body.dark-mode ul.benefits-list,
+body.dark-mode ul.features-list,
+body.dark-mode ul.results-list,
+body.dark-mode ul.satisfaction-list,
+body.dark-mode ul.metrics-list,
+body.dark-mode ol.benefits-list,
+body.dark-mode ol.features-list,
+body.dark-mode ol.results-list,
+body.dark-mode ol.satisfaction-list,
+body.dark-mode ol.metrics-list {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+body.dark-mode ul.benefits-list li,
+body.dark-mode ul.features-list li,
+body.dark-mode ul.results-list li,
+body.dark-mode ul.satisfaction-list li,
+body.dark-mode ul.metrics-list li,
+body.dark-mode ol.benefits-list li,
+body.dark-mode ol.features-list li,
+body.dark-mode ol.results-list li,
+body.dark-mode ol.satisfaction-list li,
+body.dark-mode ol.metrics-list li {
+  color: #212529 !important;
+  background-color: #ffffff !important;
+  border-radius: 8px !important;
+  padding: 10px 15px !important;
+  margin-bottom: 10px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08) !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+}
+
+/* Estilo específico para ícones dentro dessas listas */
+body.dark-mode ul.benefits-list li i,
+body.dark-mode ul.features-list li i,
+body.dark-mode ul.results-list li i,
+body.dark-mode ul.satisfaction-list li i,
+body.dark-mode ul.metrics-list li i,
+body.dark-mode ol.benefits-list li i,
+body.dark-mode ol.features-list li i,
+body.dark-mode ol.results-list li i,
+body.dark-mode ol.satisfaction-list li i,
+body.dark-mode ol.metrics-list li i,
+body.dark-mode ul.benefits-list li .bi,
+body.dark-mode ul.features-list li .bi,
+body.dark-mode ul.results-list li .bi,
+body.dark-mode ul.satisfaction-list li .bi,
+body.dark-mode ul.metrics-list li .bi,
+body.dark-mode ol.benefits-list li .bi,
+body.dark-mode ol.features-list li .bi,
+body.dark-mode ol.results-list li .bi,
+body.dark-mode ol.satisfaction-list li .bi,
+body.dark-mode ol.metrics-list li .bi {
+  color: #6ad48b !important;
+  margin-right: 10px !important;
+  font-size: 18px !important;
+}
+
+/* Fix específico para as frases exatas */
+body.dark-mode *:contains("Taxa de satisfação de 98% entre usuários"),
+body.dark-mode *:contains("Mais equilíbrio entre estudo e vida pessoal"),
+body.dark-mode *:contains("Redução significativa de estresse acadêmico"),
+body.dark-mode *:contains("Algoritmos de IA personalizados para seu perfil de aprendizado"),
+body.dark-mode *:contains("Suporte técnico e pedagógico disponível 24/7"),
+body.dark-mode *:contains("Análise contínua de desempenho com ajustes automáticos"),
+body.dark-mode *:contains("Integração com principais plataformas educacionais"),
+body.dark-mode *:contains("Metodologia embasada em neurociência e psicologia cognitiva") {
+  color: #212529 !important;
+}

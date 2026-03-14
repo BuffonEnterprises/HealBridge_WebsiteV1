@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Liberdade para Criar - Sophos Academy | Plataforma Educacional Médica</title>
+  <meta name="description" content="Liberdade para Criar - Template personalizável para estudos médicos com flexibilidade total para adaptar às suas necessidades">
+  <meta name="keywords" content="estudos médicos, personalização, template médico, flexibilidade de estudos">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Antes do fechamento da head -->
+  <link rel="stylesheet" href="assets/css/style-mentoria.css">
+
+  <!-- Estilos específicos para a página Liberdade para Criar -->
+  <style>
+    .template-criar .service-hero-container {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+    
+    .template-criar .creative-element {
+      transition: all 0.4s ease;
+      transform-origin: center;
+    }
+    
+    .template-criar .creative-element:hover {
+      transform: scale(1.05);
+    }
+    
+    .creative-canvas {
+      background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .template-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .template-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    
+    .template-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(79,172,254,0.1) 0%, rgba(0,242,254,0.1) 100%);
+      z-index: -1;
+      transition: all 0.5s ease;
+    }
+    
+    .template-card:hover::before {
+      transform: scale(1.1);
+    }
+    
+    .drag-indicator {
+      color: #6c757d;
+      font-size: 1.5rem;
+      margin-right: 10px;
+      cursor: move;
+    }
+    
+    .brain-map {
+      position: relative;
+      min-height: 400px;
+      background: #f8f9fa;
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .node {
+      position: absolute;
+      background: #fff;
+      padding: 10px 15px;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .node:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .node-1 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #4361ee;
+      color: white;
+      padding: 15px 25px;
+      z-index: 10;
+    }
+    
+    .node-2 {
+      top: 30%;
+      left: 30%;
+      background: #f72585;
+      color: white;
+    }
+    
+    .node-3 {
+      top: 30%;
+      right: 30%;
+      background: #7209b7;
+      color: white;
+    }
+    
+    .node-4 {
+      bottom: 30%;
+      left: 30%;
+      background: #3a0ca3;
+      color: white;
+    }
+    
+    .node-5 {
+      bottom: 30%;
+      right: 30%;
+      background: #4cc9f0;
+      color: white;
+    }
+    
+    .connection {
+      position: absolute;
+      background: #e9ecef;
+      height: 2px;
+      z-index: 1;
+    }
+    
+    .glow-effect {
+      position: relative;
+    }
+    
+    .glow-effect::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: inherit;
+      background: linear-gradient(45deg, #ff0099, #00ff99, #0099ff, #9900ff);
+      z-index: -1;
+      animation: glowing 5s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+    
+    .glow-effect:hover::before {
+      opacity: 1;
+    }
+    
+    @keyframes glowing {
+      0% { background-position: 0 0; }
+      50% { background-position: 400% 0; }
+      100% { background-position: 0 0; }
+    }
+    
+    .creative-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 30px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .feature-icon-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover .feature-icon-circle {
+      transform: rotateY(180deg);
+    }
+    
+    .purple-gradient {
+      background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
+      color: white;
+    }
+    
+    .green-gradient {
+      background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+      color: white;
+    }
+    
+    .blue-gradient {
+      background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+      color: white;
+    }
+    
+    .orange-gradient {
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+      color: white;
+    }
+  </style>
+</head>
+
+<body class="service-details-page template-criar">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="sitename"><span style="color: green;">Sophos</span> Academy</h1>
+        <span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#services">Serviços</a></li>
+          <li><a href="index.html#about-us">Sobre Nós</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+          <li class="dropdown"><a href="#"><span>Templates</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+            <ul>
+              <li><a href="service-details-vestibular.html"><i class="bi bi-arrow-right-circle"></i><span>Projeto Vestibular</span></a></li>
+              <li><a href="service-details-residencia.html"><i class="bi bi-arrow-right-circle"></i><span>Projeto Residência Médica</span></a></li>
+              <li><a href="service-details-criar.html" class="active"><i class="bi bi-arrow-right-circle"></i><span>Liberdade para Criar</span></a></li>
+              <li><a href="service-details-rplus.html"><i class="bi bi-arrow-right-circle"></i><span>Projeto R+</span></a></li>
+              <li><a href="service-details-faculdade.html"><i class="bi bi-arrow-right-circle"></i><span>Projeto Faculdade</span></a></li>
+              <li><a href="service-details-notion.html"><i class="bi bi-arrow-right-circle"></i><span>Versão no Notion</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="d-flex align-items-center">
+        <button id="theme-toggle" class="btn btn-sm me-3">
+          <i class="bi bi-moon-fill dark-icon"></i>
+          <i class="bi bi-sun-fill light-icon d-none"></i>
+        </button>
+        <a class="btn-getstarted" href="index.html#about">Experimente nossa aplicação</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="heading">
+        <div class="container">
+          <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-8">
+              <h1>Liberdade para Criar</h1>
+              <p class="mb-0">Um sistema flexível e personalizável que coloca você no controle. Crie sua própria metodologia de estudo médico adaptada ao seu estilo de aprendizagem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav class="breadcrumbs">
+        <div class="container">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Serviços</a></li>
+            <li class="current">Liberdade para Criar</li>
+          </ol>
+        </div>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <!-- Service Details Section -->
+    <section id="service-details" class="service-details section">
+
+      <div class="container">
+
+        <div class="row gy-5">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="service-box">
+              <h4>Nossos Templates</h4>
+              <div class="services-list">
+                <a href="service-details-vestibular.html"><i class="bi bi-arrow-right-circle"></i><span>Projeto Vestibular</span></a>
+                <a href="service-details-residencia.html"><i class="bi bi-arrow-right-circle"></i><span>Projeto Residência Médica</span></a>
+                <a href="service-details-criar.html" class="active"><i class="bi bi-arrow-right-circle"></i><span>Liberdade para Criar</span></a>
+                <a href="service-details-rplus.html"><i class="bi bi-arrow-right-circle"></i><span>Projeto R+</span></a>
+                <a href="service-details-faculdade.html"><i class="bi bi-arrow-right-circle"></i><span>Projeto Faculdade</span></a>
+                <a href="service-details-notion.html"><i class="bi bi-arrow-right-circle"></i><span>Versão no Notion</span></a>
+              </div>
+            </div><!-- End Services List -->
+
+            <div class="service-box">
+              <h4>Downloads Disponíveis</h4>
+              <div class="download-catalog">
+                <a href="#"><i class="bi bi-filetype-pdf"></i><span>Guia de Personalização PDF</span></a>
+                <a href="#"><i class="bi bi-file-earmark-ppt"></i><span>Templates Iniciais</span></a>
+                <a href="#"><i class="bi bi-file-earmark-code"></i><span>Plugins Personalizados</span></a>
+              </div>
+            </div><!-- End Services List -->
+
+            <div class="help-box d-flex flex-column justify-content-center align-items-center">
+              <i class="bi bi-headset help-icon"></i>
+              <h4>Precisa de Ajuda?</h4>
+              <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>(51) 3333-4444</span></p>
+              <p class="d-flex align-items-center mt-1 mb-0"><i class="bi bi-envelope me-2"></i> <a href="mailto:contato@sophosacademy.com">contato@sophosacademy.com</a></p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 ps-lg-5" data-aos="fade-up" data-aos-delay="200">
+            <!-- Hero Section with Overlay Text -->
+            <div class="service-hero-container position-relative mb-5">
+              <img src="assets/img/criar-template.jpg" alt="Liberdade para Criar" class="img-fluid services-img w-100">
+              <div class="service-hero-overlay">
+                <div class="overlay-content">
+                  <span class="service-badge glow-effect">Exclusivo</span>
+                  <h2>Liberdade para Criar</h2>
+                  <p class="service-subtitle">Seu método, suas regras, seu sucesso</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Introduction with Creative Elements -->
+            <div class="service-intro mb-5">
+              <h3>A revolução do estudo personalizado</h3>
+              <p class="lead">
+                Diferente de outros métodos pré-formatados, a Liberdade para Criar é uma abordagem revolucionária que coloca você no centro da sua jornada de aprendizado. Construa seu próprio sistema de estudo com nossas ferramentas interativas.
+              </p>
+              
+              <div class="creative-canvas mt-5 mb-4">
+                <div class="row align-items-center">
+                  <div class="col-md-6">
+                    <h4 class="mb-4">Construa seu próprio caminho</h4>
+                    <p>
+                      Nossa abordagem fornece os blocos fundamentais para você criar um método de estudo totalmente adaptado às suas necessidades específicas. Combinando técnicas científicas com a sua intuição pessoal.
+                    </p>
+                    <div class="mt-4">
+                      <a href="#builder-section" class="btn btn-primary rounded-pill px-4">Explorar o Builder <i class="bi bi-arrow-right ms-2"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="floating-element text-center">
+                      <img src="assets/img/creative-learning.svg" alt="Aprendizado Criativo" class="img-fluid" style="max-height: 250px;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Visual Brain Map -->
+            <div class="brain-map mb-5" id="builder-section">
+              <h3 class="text-center mb-4">Mapa Mental Interativo</h3>
+              <p class="text-center mb-5">Explore as possibilidades de construção do seu sistema personalizado</p>
+              
+              <div class="node node-1">Seu Sistema Personalizado</div>
+              <div class="node node-2">Revisão Espaçada</div>
+              <div class="node node-3">Recursos Visuais</div>
+              <div class="node node-4">Mapas Mentais</div>
+              <div class="node node-5">Flashcards</div>
+              
+              <div class="connection" style="width: 100px; transform: rotate(45deg); top: 40%; left: 37%;"></div>
+              <div class="connection" style="width: 100px; transform: rotate(-45deg); top: 40%; right: 37%;"></div>
+              <div class="connection" style="width: 100px; transform: rotate(-45deg); bottom: 40%; left: 37%;"></div>
+              <div class="connection" style="width: 100px; transform: rotate(45deg); bottom: 40%; right: 37%;"></div>
+            </div>
+            
+            <!-- Main Features Section with Creative Grid -->
+            <div class="features-section mb-5">
+              <h3 class="text-center mb-2">Blocos de Construção</h3>
+              <p class="text-center mb-5">Combine estes elementos poderosos para criar seu sistema de estudo personalizado</p>
+              
+              <div class="creative-grid">
+                <div class="feature-card creative-element">
+                  <div class="feature-icon-circle purple-gradient">
+                    <i class="bi bi-layers"></i>
+                  </div>
+                  <h4>Templates Flexíveis</h4>
+                  <p>Base personalizável para você adaptar às suas necessidades específicas de estudo</p>
+                </div>
+                
+                <div class="feature-card creative-element">
+                  <div class="feature-icon-circle green-gradient">
+                    <i class="bi bi-clock-history"></i>
+                  </div>
+                  <h4>Espaçamento Adaptativo</h4>
+                  <p>Algoritmos personalizáveis para revisão espaçada baseados no seu progresso individual</p>
+                </div>
+                
+                <div class="feature-card creative-element">
+                  <div class="feature-icon-circle blue-gradient">
+                    <i class="bi bi-puzzle"></i>
+                  </div>
+                  <h4>Módulos Expansíveis</h4>
+                  <p>Adicione funcionalidades específicas conforme sua evolução e necessidades</p>
+                </div>
+                
+                <div class="feature-card creative-element">
+                  <div class="feature-icon-circle orange-gradient">
+                    <i class="bi bi-palette"></i>
+                  </div>
+                  <h4>Personalização Visual</h4>
+                  <p>Adapte cores, layouts e organização visual para potencializar seu aprendizado</p>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <!-- Drag and Drop Builder Mockup -->
+                              <div class="builder-mockup mb-5">
+                                <h3 class="text-center mb-4">Construtor de Sistema</h3>
+                                <p class="text-center mb-4">Experimente nosso construtor interativo para montar seu sistema personalizado</p>
+                                
+                                <div class="template-card p-4 mb-4">
+                                  <div class="d-flex align-items-center mb-3">
+                                    <span class="drag-indicator"><i class="bi bi-grid-3x3-gap-fill"></i></span>
+                                    <h5 class="mb-0">Módulo de Revisão Espaçada</h5>
+                                    <div class="ms-auto">
+                                      <button class="btn btn-sm btn-outline-primary rounded-circle"><i class="bi bi-gear"></i></button>
+                                      <button class="btn btn-sm btn-outline-danger rounded-circle ms-2"><i class="bi bi-x"></i></button>
+                                    </div>
+                                  </div>
+                                  <div class="px-4">
+                                    <div class="form-check form-switch mb-2">
+                                      <input class="form-check-input" type="checkbox" id="activeRevision" checked>
+                                      <label class="form-check-label" for="activeRevision">Ativo</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-2">
+                                      <input class="form-check-input" type="checkbox" id="adaptiveRevision" checked>
+                                      <label class="form-check-label" for="adaptiveRevision">Adaptativo</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-2">
+                                      <input class="form-check-input" type="checkbox" id="notificationsRevision" checked>
+                                      <label class="form-check-label" for="notificationsRevision">Notificações</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <div class="template-card p-4 mb-4">
+                                  <div class="d-flex align-items-center mb-3">
+                                    <span class="drag-indicator"><i class="bi bi-grid-3x3-gap-fill"></i></span>
+                                    <h5 class="mb-0">Módulo de Flashcards</h5>
+                                    <div class="ms-auto">
+                                      <button class="btn btn-sm btn-outline-primary rounded-circle"><i class="bi bi-gear"></i></button>
+                                      <button class="btn btn-sm btn-outline-danger rounded-circle ms-2"><i class="bi bi-x"></i></button>
+                                    </div>
+                                  </div>
+                                  <div class="px-4">
+                                    <div class="form-check form-switch mb-2">
+                                      <input class="form-check-input" type="checkbox" id="activeFlashcards" checked>
+                                      <label class="form-check-label" for="activeFlashcards">Ativo</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-2">
+                                      <input class="form-check-input" type="checkbox" id="imageSupport" checked>
+                                      <label class="form-check-label" for="imageSupport">Suporte a Imagens</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-2">
+                                      <input class="form-check-input" type="checkbox" id="aiGeneration" checked>
+                                      <label class="form-check-label" for="aiGeneration">Geração por IA</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <div class="text-center mt-4">
+                                  <button class="btn btn-primary rounded-pill me-2"><i class="bi bi-plus-circle me-2"></i>Adicionar Módulo</button>
+                                  <button class="btn btn-success rounded-pill"><i class="bi bi-save me-2"></i>Salvar Sistema</button>
+                                </div>
+                              </div>
+                              
+                              <!-- Progression Path Visualization -->
+                              <div class="progression-path mb-5">
+                                <h3 class="text-center mb-4">Seu Caminho, Seu Ritmo</h3>
+                                <p class="text-center mb-4">Visualize como seu sistema personalizado evolui com o tempo</p>
+                                
+                                <div class="row">
+                                  <div class="col-md-3 mb-4">
+                                    <div class="stage-card text-center p-4 shadow-sm rounded bg-white">
+                                      <div class="stage-icon mb-3">
+                                        <i class="bi bi-1-circle-fill fs-1 text-primary"></i>
+                                      </div>
+                                      <h5>Fundação</h5>
+                                      <p class="small">Estabeleça as bases do seu sistema personalizado</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="col-md-3 mb-4">
+                                    <div class="stage-card text-center p-4 shadow-sm rounded bg-white">
+                                      <div class="stage-icon mb-3">
+                                        <i class="bi bi-2-circle-fill fs-1 text-primary"></i>
+                                      </div>
+                                      <h5>Expansão</h5>
+                                      <p class="small">Adicione módulos específicos para suas necessidades</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="col-md-3 mb-4">
+                                    <div class="stage-card text-center p-4 shadow-sm rounded bg-white">
+                                      <div class="stage-icon mb-3">
+                                        <i class="bi bi-3-circle-fill fs-1 text-primary"></i>
+                                      </div>
+                                      <h5>Otimização</h5>
+                                      <p class="small">Refine seu sistema com base em análises de desempenho</p>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="col-md-3 mb-4">
+                                    <div class="stage-card text-center p-4 shadow-sm rounded bg-white">
+                                      <div class="stage-icon mb-3">
+                                        <i class="bi bi-4-circle-fill fs-1 text-primary"></i>
+                                      </div>
+                                      <h5>Maestria</h5>
+                                      <p class="small">Domine seu sistema e maximize seus resultados</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <!-- Testimonials Section with Slider -->
+                              <div class="testimonials-section mb-5">
+                                <h3 class="text-center mb-4">Histórias de Sucesso</h3>
+                                
+                                <div class="swiper testimonial-swiper">
+                                  <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                      <div class="testimonial-card bg-white p-4 rounded shadow-sm">
+                                        <div class="testimonial-text mb-4">
+                                          <p>"O sistema Liberdade para Criar me permitiu adaptar completamente meus estudos ao meu estilo de aprendizagem visual. Criei um método baseado em mapas mentais integrados com revisão espaçada que revolucionou minha forma de estudar."</p>
+                                        </div>
+                                        <div class="testimonial-author d-flex align-items-center">
+                                          <img src="assets/img/testimonials/testimonials-1.jpg" class="rounded-circle me-3" width="60" alt="">
+                                          <div>
+                                            <h5 class="mb-0">Dr. Rafael Mendes</h5>
+                                            <p class="small text-muted mb-0">Neurocirurgião</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="swiper-slide">
+                                      <div class="testimonial-card bg-white p-4 rounded shadow-sm">
+                                        <div class="testimonial-text mb-4">
+                                          <p>"Como professora de medicina, sempre busquei métodos que pudessem se adaptar às diferenças individuais dos alunos. O sistema Liberdade para Criar é exatamente o que eu precisava. Cada estudante desenvolve seu próprio método personalizado."</p>
+                                        </div>
+                                        <div class="testimonial-author d-flex align-items-center">
+                                          <img src="assets/img/testimonials/testimonials-2.jpg" class="rounded-circle me-3" width="60" alt="">
+                                          <div>
+                                            <h5 class="mb-0">Profa. Camila Vasconcelos</h5>
+                                            <p class="small text-muted mb-0">Docente de Medicina</p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="swiper-pagination"></div>
+                                </div>
+                              </div>
+                              
+                              <!-- Pricing Section -->
+                              <div class="pricing-section mb-5">
+                                <h3 class="text-center mb-4">Investimento</h3>
+                                <p class="text-center mb-5">Escolha o plano que melhor se adapta ao seu momento de criação</p>
+                                
+                                <div class="row">
+                                  <div class="col-md-6 mb-4">
+                                    <div class="pricing-card bg-white p-4 rounded shadow-sm text-center">
+                                      <div class="pricing-header mb-4">
+                                        <h4>Plano Fundação</h4>
+                                        <div class="price-container my-4">
+                                          <span class="currency">R$</span>
+                                          <span class="price">397</span>
+                                          <span class="period">/mês</span>
+                                        </div>
+                                      </div>
+                                      
+                                      <ul class="pricing-features list-unstyled mb-4">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sistema básico personalizável</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>3 módulos principais</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Suporte por email</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Atualizações gratuitas</li>
+                                        <li class="mb-2 text-muted"><i class="bi bi-x-circle-fill text-danger me-2"></i>Módulos avançados</li>
+                                        <li class="mb-2 text-muted"><i class="bi bi-x-circle-fill text-danger me-2"></i>Mentoria personalizada</li>
+                                      </ul>
+                                      
+                                      <a href="#" class="btn btn-outline-primary rounded-pill w-100">Escolher Plano</a>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="col-md-6 mb-4">
+                                    <div class="pricing-card bg-white p-4 rounded shadow-sm text-center position-relative">
+                                      <span class="badge bg-primary position-absolute top-0 end-0 mt-3 me-3">Recomendado</span>
+                                      <div class="pricing-header mb-4">
+                                        <h4>Plano Maestria</h4>
+                                        <div class="price-container my-4">
+                                          <span class="currency">R$</span>
+                                          <span class="price">797</span>
+                                          <span class="period">/mês</span>
+                                        </div>
+                                      </div>
+                                      
+                                      <ul class="pricing-features list-unstyled mb-4">
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Sistema completo personalizável</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Todos os módulos disponíveis</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Suporte prioritário 24/7</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Atualizações antecipadas</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Módulos avançados de IA</li>
+                                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Mentoria personalizada (4h/mês)</li>
+                                      </ul>
+                                      
+                                      <a href="#" class="btn btn-primary rounded-pill w-100">Escolher Plano</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <!-- FAQ Section with Accordion -->
+                              <div class="faq-section mb-5">
+                                <h3 class="text-center mb-4">Perguntas Frequentes</h3>
+                                
+                                <div class="accordion" id="faqAccordion">
+                                  <div class="accordion-item border-0 mb-3 shadow-sm">
+                                    <h2 class="accordion-header">
+                                      <button class="accordion-button rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                        Preciso ter experiência em tecnologia para criar meu sistema?
+                                      </button>
+                                    </h2>
+                                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                      <div class="accordion-body">
+                                        Não é necessário nenhum conhecimento técnico avançado! Nossa interface de construção é intuitiva e amigável, projetada para que qualquer pessoa, independentemente do nível de habilidade técnica, possa criar seu sistema personalizado com facilidade.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="accordion-item border-0 mb-3 shadow-sm">
+                                    <h2 class="accordion-header">
+                                      <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                        Posso integrar recursos de outros sistemas que já utilizo?
+                                      </button>
+                                    </h2>
+                                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                      <div class="accordion-body">
+                                        Sim! Nosso sistema foi projetado para ser altamente integrável. Você pode conectar com várias ferramentas populares como Anki, Notion, Google Calendar, Trello e outras plataformas educacionais, permitindo que você mantenha seus recursos existentes enquanto aprimora seu sistema de estudo.
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="accordion-item border-0 mb-3 shadow-sm">
+                                    <h2 class="accordion-header">
+                                      <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                        É possível compartilhar meus templates personalizados com colegas?
+                                      </button>
+                                    </h2>
+                                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                      <div class="accordion-body">
+                                        Absolutamente! Uma das grandes vantagens do nosso sistema é a capacidade de compartilhar templates e módulos que você criar. Temos inclusive uma biblioteca comunitária onde os usuários podem compartilhar e descobrir sistemas criados por outros estudantes de medicina, permitindo aprendizado colaborativo.
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                              <!-- Call to Action -->
+                              <div class="cta-section text-center p-5 rounded" style="background: linear-gradient(135deg, rgba(108,99,255,0.1) 0%, rgba(108,99,255,0.2) 100%);">
+                                <h3>Pronto para criar seu próprio sistema?</h3>
+                                <p class="lead mb-4">Comece agora e revolucione sua forma de estudar medicina</p>
+                                <a href="#" class="btn btn-primary btn-lg rounded-pill px-5">Comece a Criar <i class="bi bi-arrow-right ms-2"></i></a>
+                              </div>
+                              
+                            </div>
+                  
+                          </div>
+                  
+                        </div>
+                  
+                      </section><!-- /Service Details Section -->
+                  
+                    </main>
+                  
+                    <footer id="footer" class="footer dark-background">
+                  
+                      <div class="footer-top">
+                        <div class="container">
+                          <div class="row gy-4">
+                            <div class="col-lg-5 col-md-12 footer-info">
+                              <a href="index.html" class="logo d-flex align-items-center">
+                                <span><span style="color: green;">Sophos</span> Academy</span>
+                              </a>
+                              <p>Transformando a forma como você aprende e retém conhecimento médico através de tecnologia e metodologias avançadas de estudo.</p>
+                              <div class="social-links mt-3">
+                                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                              </div>
+                            </div>
+                  
+                            <div class="col-lg-2 col-6 footer-links">
+                              <h4>Links Úteis</h4>
+                              <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="index.html">Home</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="index.html#about-us">Sobre Nós</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="index.html#services">Serviços</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#">Termos de Serviço</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="#">Política de Privacidade</a></li>
+                              </ul>
+                            </div>
+                  
+                            <div class="col-lg-2 col-6 footer-links">
+                              <h4>Nossos Serviços</h4>
+                              <ul>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-details-vestibular.html">Projeto Vestibular</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-details-residencia.html">Projeto Residência</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-details-faculdade.html">Projeto Faculdade</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-details-notion.html">Versão no Notion</a></li>
+                                <li><i class="bi bi-chevron-right"></i> <a href="service-details-criar.html">Liberdade para Criar</a></li>
+                              </ul>
+                            </div>
+                  
+                            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                              <h4>Contato</h4>
+                              <p>
+                                Av. Tecnologia, 1234<br>
+                                Porto Alegre, RS 90000-000<br>
+                                Brasil <br><br>
+                                <strong>Telefone:</strong> (51) 3333-4444<br>
+                                <strong>Email:</strong> contato@sophosacademy.com<br>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  
+                      <div class="container">
+                        <div class="copyright">
+                          &copy; Copyright <strong><span>Sophos Academy</span></strong>. Todos os direitos reservados
+                        </div>
+                      </div>
+                    </footer>
+                  
+                    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+                  
+                    <div id="preloader"></div>
+                  
+                    <!-- Vendor JS Files -->
+                    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                    <script src="assets/vendor/aos/aos.js"></script>
+                    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+                    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+                    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+                    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+                    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+                  
+                    <!-- Main JS File -->
+                    <script src="assets/js/main.js"></script>
+                  
+                    <!-- Specific Script for Interactive Elements -->
+                    <script>
+                      document.addEventListener('DOMContentLoaded', function() {
+                        // Initialize testimonial swiper
+                        new Swiper('.testimonial-swiper', {
+                          slidesPerView: 1,
+                          spaceBetween: 30,
+                          loop: true,
+                          pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                          },
+                          autoplay: {
+                            delay: 5000,
+                          },
+                        });
+                        
+                        // Simple animation for nodes in brain map
+                        const nodes = document.querySelectorAll('.node');
+                        nodes.forEach(node => {
+                          node.addEventListener('mouseover', function() {
+                            this.style.transform = 'scale(1.1)';
+                            this.style.boxShadow = '0 10px 25px rgba(0,0,0,0.15)';
+                          });
+                          
+                          node.addEventListener('mouseout', function() {
+                            if (this.classList.contains('node-1')) {
+                              this.style.transform = 'translate(-50%, -50%)';
+                            } else {
+                              this.style.transform = 'scale(1)';
+                            }
+                            this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                          });
+                        });
+                      });
+                    </script>
+                  
+                  </body>
+                  
+                  </html>

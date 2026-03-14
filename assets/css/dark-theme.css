@@ -1,0 +1,210 @@
+/* Dark Theme CSS - Sophos Academy */
+
+/* Dark theme variables */
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --secondary-text: #b0b0b0;
+  --primary-color: #42b983;
+  --secondary-color: #6b7fe3;
+  --border-color: #333333;
+  --card-bg: #1e1e1e;
+  --section-bg: #1a1a1a;
+  --footer-bg: #0a0a0a;
+  --footer-text: #e0e0e0;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --header-bg: #1a1a1a;
+  --nav-link-color: #e0e0e0;
+  --testimonial-bg: #1e1e1e;
+  --input-bg: #2a2a2a;
+}
+
+/* General Elements */
+.dark-theme body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.dark-theme h1, .dark-theme h2, .dark-theme h3, 
+.dark-theme h4, .dark-theme h5, .dark-theme h6 {
+  color: var(--heading-color);
+}
+
+/* Header styling */
+.dark-theme .header {
+  background-color: var(--header-bg);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.dark-theme .navmenu ul li a {
+  color: var(--nav-link-color);
+}
+
+.dark-theme .navmenu .active, 
+.dark-theme .navmenu li:hover > a {
+  color: var(--primary-color);
+}
+
+/* Sections styling */
+.dark-theme .section {
+  background-color: var(--bg-color);
+}
+
+.dark-theme .section-bg {
+  background-color: var(--section-bg);
+}
+
+/* Cards and content boxes */
+.dark-theme .card, 
+.dark-theme .methodology-card, 
+.dark-theme .feature-item,
+.dark-theme .testimonial-card,
+.dark-theme .service-box,
+.dark-theme .subject-card,
+.dark-theme .pricing-card,
+.dark-theme .feature-card,
+.dark-theme .notion-feature-card,
+.dark-theme .template-card {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+/* Service details page */
+.dark-theme .services-list a {
+  color: var(--text-color);
+  background-color: var(--card-bg);
+}
+
+.dark-theme .services-list a:hover, 
+.dark-theme .services-list a.active {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.dark-theme .download-catalog a {
+  color: var(--text-color);
+  background-color: var(--card-bg);
+}
+
+.dark-theme .download-catalog a:hover {
+  color: var(--primary-color);
+}
+
+.dark-theme .help-box {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+/* Form elements */
+.dark-theme input, 
+.dark-theme textarea,
+.dark-theme select {
+  background-color: var(--input-bg);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.dark-theme .php-email-form {
+  background-color: var(--card-bg);
+}
+
+/* Breadcrumbs */
+.dark-theme .breadcrumbs {
+  background-color: var(--section-bg);
+}
+
+.dark-theme .breadcrumbs ol li + li::before {
+  color: var(--secondary-text);
+}
+
+/* Footer */
+.dark-theme .footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+.dark-theme .footer-links ul a {
+  color: var(--footer-text);
+}
+
+/* Buttons and CTAs */
+.dark-theme .btn-getstarted {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.dark-theme .btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.dark-theme .btn-outline-primary {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.dark-theme .btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+/* Accordions */
+.dark-theme .accordion-item {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+}
+
+.dark-theme .accordion-button {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+.dark-theme .accordion-button:not(.collapsed) {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.dark-theme .accordion-button::after {
+  filter: invert(1);
+}
+
+/* Tabs */
+.dark-theme .nav-tabs {
+  border-color: var(--border-color);
+}
+
+.dark-theme .nav-tabs .nav-link {
+  color: var(--text-color);
+}
+
+.dark-theme .nav-tabs .nav-link.active {
+  background-color: var(--card-bg);
+  border-color: var(--border-color);
+  color: var(--primary-color);
+}
+
+/* Timeline and progress elements */
+.dark-theme .timeline-item::before,
+.dark-theme .timeline-container::before {
+  background-color: var(--border-color);
+}
+
+.dark-theme .timeline-content {
+  background-color: var(--card-bg);
+}
+
+.dark-theme .progress {
+  background-color: var(--section-bg);
+}
+
+/* Page title and heroes */
+.dark-theme .page-title .heading {
+  background-color: var(--section-bg);
+}
+
+/* Transitions for smooth theme switching */
+body, header, footer, section, div, button, input, textarea, select, a, h1, h2, h3, h4, h5, h6, p {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+} 

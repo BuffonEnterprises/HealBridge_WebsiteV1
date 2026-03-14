@@ -1,0 +1,503 @@
+/* Correções para o tema escuro - Textos que ficam ilegíveis */
+
+/* Variáveis de cor para modo escuro */
+body.dark-mode {
+  --text-color: #e9ecef;
+  --bg-color: #1a1d20;
+  --header-bg: rgba(33, 37, 41, 0.95);
+  --dark-bg-color: #121417;
+  --dark-text-color: #e0e0e0;
+  --primary-light-color: #6ad48b;
+  --color-dark-bg: #1a1d20;
+  --color-dark-bg-subtle: #242729;
+  --color-dark-bg-secondary: #171a1d;
+  --color-dark-card: #2a2e33;
+  --color-dark-title: #ffffff;
+  --color-white: #ffffff;
+  --color-white-rgb: 255, 255, 255;
+  --dark-border-color: rgba(255, 255, 255, 0.1);
+  --contrast-text-light: #ffffff;
+  --contrast-text-dark: #121417;
+}
+
+/* Correções gerais para textos em modo escuro */
+body.dark-mode {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+/* Correção para textos em blockquote */
+body.dark-mode blockquote {
+  color: var(--dark-text-color) !important;
+}
+
+/* Correções para textos em timelines */
+body.dark-mode .milestone-text-wrapper p,
+body.dark-mode .timeline-content p {
+  color: var(--dark-text-color) !important;
+}
+
+/* Correções para cards e elementos diversos */
+body.dark-mode .card,
+body.dark-mode .service-card,
+body.dark-mode .portfolio-item,
+body.dark-mode .methodology-card,
+body.dark-mode .feature-item,
+body.dark-mode .dashboard-feature,
+body.dark-mode .testimonial-card,
+body.dark-mode .pricing-plan,
+body.dark-mode .benefit-item,
+body.dark-mode .pillar-item,
+body.dark-mode .stat-card,
+body.dark-mode .stage-card,
+body.dark-mode .filter-btn,
+body.dark-mode .feature-card,
+body.dark-mode .notion-feature-card,
+body.dark-mode .video-testimonias-card,
+body.dark-mode .video-info,
+body.dark-mode .testimonial-content {
+  background-color: var(--color-dark-card);
+  border-color: var(--dark-border-color);
+}
+
+body.dark-mode .creative-canvas {
+  background: linear-gradient(135deg, rgba(55, 65, 81, 0.3) 0%, rgba(17, 24, 39, 0.5) 100%);
+  border-color: var(--dark-border-color);
+}
+
+/* Exceção para cards com fundo branco em modo escuro */
+body.dark-mode .bg-white,
+body.dark-mode .card.bg-white,
+body.dark-mode .card.white-card,
+body.dark-mode .white-box,
+body.dark-mode .plan-card,
+body.dark-mode .pricing-box,
+body.dark-mode .white-container,
+body.dark-mode [class*="white-bg"],
+body.dark-mode [class*="bg-white"] {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Exceção para elementos de disciplinas - manter fundo branco */
+body.dark-mode .curriculum-card,
+body.dark-mode .disciplines-card,
+body.dark-mode .ciclo-card,
+body.dark-mode .disciplines-section .card,
+body.dark-mode .curriculum-section .card,
+body.dark-mode .subject-card,
+body.dark-mode .discipline-item,
+body.dark-mode [class*="discipline-"] {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.125) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Textos em cards e componentes do site */
+body.dark-mode .card-body, 
+body.dark-mode .card-text,
+body.dark-mode .card p,
+body.dark-mode .methodology-card p,
+body.dark-mode .feature-item p,
+body.dark-mode .dashboard-feature p,
+body.dark-mode .testimonial-card p,
+body.dark-mode .pricing-plan p,
+body.dark-mode .benefit-item p,
+body.dark-mode .pillar-item p,
+body.dark-mode .video-info p,
+body.dark-mode .student-details p,
+body.dark-mode .accordion-body,
+body.dark-mode .testimonial-text p,
+body.dark-mode .testimonial-author p,
+body.dark-mode .video-testimoniasxsl-card .video-info p,
+body.dark-mode .feature-card p,
+body.dark-mode .stage-card p,
+body.dark-mode .notion-feature-card p {
+  color: var(--dark-text-color) !important;
+}
+
+/* Exceção para textos em cards de disciplinas */
+body.dark-mode .disciplines-card p,
+body.dark-mode .curriculum-card p,
+body.dark-mode .ciclo-card p,
+body.dark-mode .subject-card p,
+body.dark-mode .discipline-item p,
+body.dark-mode .disciplines-section .card p,
+body.dark-mode .curriculum-section .card p,
+body.dark-mode [class*="discipline-"] p,
+body.dark-mode .disciplines-card li,
+body.dark-mode .curriculum-card li,
+body.dark-mode .ciclo-card li,
+body.dark-mode .subject-card li,
+body.dark-mode .discipline-item li,
+body.dark-mode .disciplines-section .card li,
+body.dark-mode .curriculum-section .card li,
+body.dark-mode [class*="discipline-"] li,
+body.dark-mode .disciplines-card span,
+body.dark-mode .curriculum-card span,
+body.dark-mode .ciclo-card span,
+body.dark-mode .subject-card span,
+body.dark-mode .discipline-item span,
+body.dark-mode .disciplines-section .card span,
+body.dark-mode .curriculum-section .card span,
+body.dark-mode [class*="discipline-"] span {
+  color: #343a40 !important;
+  font-weight: 500 !important;
+}
+
+/* Melhorias de contraste para textos em caixas brancas no modo escuro */
+body.dark-mode .bg-white p,
+body.dark-mode .white-card p,
+body.dark-mode .white-box p,
+body.dark-mode .plan-card p,
+body.dark-mode .pricing-box p,
+body.dark-mode .white-container p,
+body.dark-mode [class*="white-bg"] p,
+body.dark-mode [class*="bg-white"] p,
+body.dark-mode .bg-white li,
+body.dark-mode .white-card li,
+body.dark-mode .white-box li,
+body.dark-mode .plan-card li,
+body.dark-mode .pricing-box li,
+body.dark-mode .white-container li,
+body.dark-mode [class*="white-bg"] li,
+body.dark-mode [class*="bg-white"] li,
+body.dark-mode .bg-white .text-muted,
+body.dark-mode .white-card .text-muted,
+body.dark-mode .plan-card .text-muted,
+body.dark-mode .pricing-box .text-muted {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+/* Correção para títulos em cards e elementos */
+body.dark-mode .card-title,
+body.dark-mode .card h3,
+body.dark-mode .card h4,
+body.dark-mode .card h5,
+body.dark-mode .card h6,
+body.dark-mode .methodology-card h5,
+body.dark-mode .feature-item h4,
+body.dark-mode .feature-content h5,
+body.dark-mode .dashboard-feature h5,
+body.dark-mode .testimonial-card h5,
+body.dark-mode .pricing-plan h4,
+body.dark-mode .benefit-item h5,
+body.dark-mode .pillar-item h5,
+body.dark-mode .stat-card .stat-value,
+body.dark-mode .stat-card .stat-label,
+body.dark-mode .stage-card h5,
+body.dark-mode .feature-card h4,
+body.dark-mode .notion-feature-card h5,
+body.dark-mode .video-testimonias-card h4,
+body.dark-mode .student-details h5,
+body.dark-mode .video-info h4,
+body.dark-mode .testimonial-author h5 {
+  color: var(--color-white) !important;
+}
+
+/* Exceção para títulos em cards de disciplinas */
+body.dark-mode .disciplines-card h3,
+body.dark-mode .disciplines-card h4,
+body.dark-mode .disciplines-card h5,
+body.dark-mode .curriculum-card h3,
+body.dark-mode .curriculum-card h4,
+body.dark-mode .curriculum-card h5,
+body.dark-mode .ciclo-card h3,
+body.dark-mode .ciclo-card h4,
+body.dark-mode .ciclo-card h5,
+body.dark-mode .subject-card h3,
+body.dark-mode .subject-card h4,
+body.dark-mode .subject-card h5,
+body.dark-mode .discipline-item h3,
+body.dark-mode .discipline-item h4,
+body.dark-mode .discipline-item h5,
+body.dark-mode .disciplines-section .card h3,
+body.dark-mode .disciplines-section .card h4,
+body.dark-mode .disciplines-section .card h5,
+body.dark-mode .curriculum-section .card h3,
+body.dark-mode .curriculum-section .card h4,
+body.dark-mode .curriculum-section .card h5,
+body.dark-mode [class*="discipline-"] h3,
+body.dark-mode [class*="discipline-"] h4,
+body.dark-mode [class*="discipline-"] h5,
+body.dark-mode .disciplines-card .card-title,
+body.dark-mode .curriculum-card .card-title,
+body.dark-mode .ciclo-card .card-title,
+body.dark-mode .subject-card .card-title,
+body.dark-mode .discipline-item .card-title,
+body.dark-mode .disciplines-section .card .card-title,
+body.dark-mode .curriculum-section .card .card-title,
+body.dark-mode [class*="discipline-"] .card-title {
+  color: #212529 !important;
+  font-weight: 600 !important;
+}
+
+/* Melhoria específica para títulos em caixas brancas */
+body.dark-mode .bg-white h1,
+body.dark-mode .bg-white h2,
+body.dark-mode .bg-white h3,
+body.dark-mode .bg-white h4,
+body.dark-mode .bg-white h5,
+body.dark-mode .bg-white h6,
+body.dark-mode .white-card h1,
+body.dark-mode .white-card h2,
+body.dark-mode .white-card h3,
+body.dark-mode .white-card h4,
+body.dark-mode .white-card h5,
+body.dark-mode .white-card h6,
+body.dark-mode .plan-card h1,
+body.dark-mode .plan-card h2,
+body.dark-mode .plan-card h3,
+body.dark-mode .plan-card h4,
+body.dark-mode .plan-card h5,
+body.dark-mode .plan-card h6,
+body.dark-mode .pricing-box h1,
+body.dark-mode .pricing-box h2,
+body.dark-mode .pricing-box h3,
+body.dark-mode .pricing-box h4,
+body.dark-mode .pricing-box h5,
+body.dark-mode .pricing-box h6,
+body.dark-mode .white-container h1,
+body.dark-mode .white-container h2,
+body.dark-mode .white-container h3,
+body.dark-mode .white-container h4,
+body.dark-mode .white-container h5,
+body.dark-mode .white-container h6,
+body.dark-mode [class*="white-bg"] h1,
+body.dark-mode [class*="white-bg"] h2,
+body.dark-mode [class*="white-bg"] h3,
+body.dark-mode [class*="white-bg"] h4,
+body.dark-mode [class*="white-bg"] h5,
+body.dark-mode [class*="white-bg"] h6,
+body.dark-mode [class*="bg-white"] h1,
+body.dark-mode [class*="bg-white"] h2,
+body.dark-mode [class*="bg-white"] h3,
+body.dark-mode [class*="bg-white"] h4,
+body.dark-mode [class*="bg-white"] h5,
+body.dark-mode [class*="bg-white"] h6,
+body.dark-mode .bg-white .card-title,
+body.dark-mode .white-card .card-title,
+body.dark-mode .plan-card .card-title,
+body.dark-mode .pricing-box .card-title,
+body.dark-mode .white-container .card-title,
+body.dark-mode [class*="white-bg"] .card-title,
+body.dark-mode [class*="bg-white"] .card-title {
+  color: rgba(255, 255, 255, 0.95) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Correções para seções específicas */
+body.dark-mode .our-story,
+body.dark-mode .curriculum-map,
+body.dark-mode .brain-map,
+body.dark-mode .timeline-container {
+  background-color: var(--dark-bg-color);
+}
+
+/* Correção para parágrafos gerais */
+body.dark-mode p {
+  color: var(--dark-text-color) !important;
+}
+
+/* Correção para listas */
+body.dark-mode ul li,
+body.dark-mode ol li {
+  color: var(--dark-text-color) !important;
+}
+
+/* Correção para tabelas */
+body.dark-mode table {
+  color: var(--dark-text-color);
+}
+
+/* Correção para textos em accordions e tabs */
+body.dark-mode .accordion-body,
+body.dark-mode .tab-content,
+body.dark-mode .tab-pane {
+  color: var(--dark-text-color) !important;
+}
+
+/* Correção para títulos em geral */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode .lead {
+  color: var(--color-white) !important;
+}
+
+/* Correção para textos em badges e indicadores */
+body.dark-mode .badge:not(.bg-primary):not(.bg-secondary):not(.bg-success):not(.bg-danger):not(.bg-warning):not(.bg-info):not(.bg-dark):not(.bg-light),
+body.dark-mode .feature-list i,
+body.dark-mode .service-badge,
+body.dark-mode .pillar-number,
+body.dark-mode .semester-indicator {
+  background-color: var(--color-dark-card);
+  color: var(--dark-text-color);
+}
+
+/* Correção para ícones */
+body.dark-mode .card-icon,
+body.dark-mode .feature-icon,
+body.dark-mode .feature-icon-circle,
+body.dark-mode .dashboard-feature i,
+body.dark-mode .step-icon,
+body.dark-mode .service-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary-light-color);
+}
+
+/* Correção para textos em footers */
+body.dark-mode footer {
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+}
+
+/* Correção para textos em forms */
+body.dark-mode input, 
+body.dark-mode textarea, 
+body.dark-mode select {
+  background-color: var(--color-dark-bg);
+  border-color: var(--dark-border-color);
+  color: var(--dark-text-color);
+}
+
+body.dark-mode input::placeholder, 
+body.dark-mode textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Correção para textos em botões não-primários */
+body.dark-mode .btn:not(.btn-primary):not(.btn-secondary):not(.btn-success):not(.btn-danger):not(.btn-warning):not(.btn-info):not(.btn-dark):not(.btn-light) {
+  background-color: var(--color-dark-card);
+  color: var(--dark-text-color);
+  border-color: var(--dark-border-color);
+}
+
+/* Melhorias específicas para elementos de preço e planos */
+body.dark-mode .price-value,
+body.dark-mode .price-amount,
+body.dark-mode .price-currency,
+body.dark-mode .price-period,
+body.dark-mode .plan-price,
+body.dark-mode .pricing-value,
+body.dark-mode .pricing-amount,
+body.dark-mode .pricing-number,
+body.dark-mode .price-number,
+body.dark-mode .plan-feature-check,
+body.dark-mode .plan-features-list span,
+body.dark-mode .price-tag,
+body.dark-mode .period {
+  color: var(--primary-light-color) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  font-weight: 600 !important;
+}
+
+/* Destaque para elementos importantes em caixas brancas */
+body.dark-mode .bg-white strong,
+body.dark-mode .white-card strong,
+body.dark-mode .plan-card strong,
+body.dark-mode .pricing-box strong,
+body.dark-mode .white-container strong,
+body.dark-mode [class*="white-bg"] strong,
+body.dark-mode [class*="bg-white"] strong,
+body.dark-mode .highlight-text,
+body.dark-mode .featured-text,
+body.dark-mode .important-text {
+  color: var(--primary-light-color) !important;
+  font-weight: 600 !important;
+}
+
+/* Correção para links */
+body.dark-mode a:not(.btn):not(.nav-link) {
+  color: var(--primary-light-color);
+}
+
+body.dark-mode a:not(.btn):not(.nav-link):hover {
+  color: var(--color-white);
+}
+
+/* Categorias para depoimentos em vídeo */
+body.dark-mode .category-vestibular {
+  background-color: rgba(0, 112, 243, 0.2);
+  color: #5b9bff;
+}
+
+body.dark-mode .category-residencia {
+  background-color: rgba(250, 140, 22, 0.2);
+  color: #ffb74d;
+}
+
+body.dark-mode .category-faculdade {
+  background-color: rgba(82, 196, 26, 0.2);
+  color: #89e65c;
+}
+
+body.dark-mode .category-metodologia {
+  background-color: rgba(235, 47, 150, 0.2);
+  color: #ff6fb9;
+}
+
+/* Melhorias para os cards de preço e planos no modo escuro */
+body.dark-mode .pricing-card,
+body.dark-mode .pricing-table,
+body.dark-mode .price-card,
+body.dark-mode .price-table,
+body.dark-mode .plan-table,
+body.dark-mode .plan-box,
+body.dark-mode .plan-item {
+  background-color: rgba(30, 35, 40, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+body.dark-mode .pricing-card .card-header,
+body.dark-mode .pricing-table .card-header,
+body.dark-mode .plan-header,
+body.dark-mode .price-header,
+body.dark-mode .plan-title-area {
+  background-color: rgba(40, 45, 50, 0.6) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark-mode .pricing-card.popular,
+body.dark-mode .pricing-table.featured,
+body.dark-mode .price-card.recommended,
+body.dark-mode .plan-item.featured,
+body.dark-mode .plan-box.highlighted {
+  background-color: rgba(45, 85, 100, 0.3) !important;
+  border: 1px solid rgba(var(--color-primary-rgb), 0.3) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+  transform: translateY(-5px);
+  z-index: 1;
+}
+
+body.dark-mode .plan-features,
+body.dark-mode .price-features,
+body.dark-mode .pricing-features,
+body.dark-mode .plan-list {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+body.dark-mode .feature-check,
+body.dark-mode .feature-available,
+body.dark-mode .plan-included {
+  color: var(--primary-light-color) !important;
+}
+
+body.dark-mode .feature-unavailable,
+body.dark-mode .feature-not-included,
+body.dark-mode .plan-not-included {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Fix para elementos da timeline */
+body.dark-mode .date-dot,
+body.dark-mode .milestone-content,
+body.dark-mode .timeline-content {
+  background-color: var(--color-dark-card) !important;
+}

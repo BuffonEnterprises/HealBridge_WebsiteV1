@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub de Templates Premium | Sophos Academy</title>
+    <meta name="description" content="Explore nossa coleção completa de templates para otimizar seus estudos médicos. Compare, visualize e escolha o template perfeito para suas necessidades.">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8.4.5/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8.4.5/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        :root {
+            --primary-color: #42b983;
+            --primary-dark: #2D9C6A;
+            --secondary-color: #4e63d7;
+            --text-color: #333333;
+            --text-light: #666666;
+            --bg-color: #ffffff;
+            --bg-light: #f8f9fa;
+            --bg-dark: #e9ecef;
+            --border-color: #e0e0e0;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #42b983;
+            --primary-dark: #5CCD97;
+            --secondary-color: #6b7fe3;
+            --text-color: #e0e0e0;
+            --text-light: #b0b0b0;
+            --bg-color: #121212;
+            --bg-light: #1e1e1e;
+            --bg-dark: #0a0a0a;
+            --border-color: #333333;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: var(--transition);
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .card {
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .template-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+
+        .template-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem 1.5rem;
+            transform: translateY(50%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .template-card:hover .template-card-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .swiper-pagination-bullet {
+            background: var(--primary-color) !important;
+        }
+
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        #template-comparison .comparison-item {
+            transition: transform 0.3s ease;
+        }
+        
+        #template-comparison .comparison-item:hover {
+            transform: scale(1.03);
+        }
+
+        .comparison-tooltip {
+            position: relative;
+        }
+
+        .comparison-tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip-text {
+            visibility: hidden;
+            opacity: 0;
+            width: 200px;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            transition: opacity 0.3s;
+        }
+
+        .template-viewer-container {
+            height: 500px;
+            perspective: 1000px;
+        }
+
+        .template-viewer {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+
+        .template-preview {
+            max-height: 500px;
+            overflow: auto;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        #canvas-container {
+            width: 100%;
+            height: 400px;
+            position: relative;
+        }
+
+        .rating-stars {
+            display: inline-flex;
+        }
+        
+        .rating-star {
+            color: #ffc107;
+            font-size: 1.25rem;
+            margin-right: 0.25rem;
+        }
+
+        .template-chip {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Customizing scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-light);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        /* Animated underline for nav links */
+        .nav-link {
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Pulse animation for CTA */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        /* Custom select styling */
+        .custom-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        /* Template Badge */
+        .template-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 9999px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+        
+        .template-badge.new {
+            background-color: var(--secondary-color);
+        }
+        
+        .template-badge.popular {
+            background-color: #f59e0b;
+        }
+        
+        /* Chat bot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+        
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: var(--transition);
+        }
+        
+        .chatbot-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .chatbot-panel {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background-color: var(--bg-color);
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            display: none;
+        }
+        
+        .chatbot-header {
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 1rem 1rem 0 0;
+        }
+        
+        .chatbot-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 1rem;
+        }
+        
+        .chatbot-input {
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        /* Progress bar */
+        .progress-bar {
+            height: 8px;
+            background-color: var(--bg-dark);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md dark:bg-gray-900" style="background-color: var(--bg-color);">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <span class="text-2xl font-bold" style="color: var(--primary-color);">Sophos</span>
+                        <span class="text-2xl font-light ml-1" style="color: var(--text-color);">Academy</span>
+                    </a>
+                </div>
+                
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#templates" class="nav-link" style="color: var(--text-color);">Templates</a>
+                    <a href="#comparison" class="nav-link" style="color: var(--text-color);">Comparativo</a>
+                    <a href="#recommender" class="nav-link" style="color: var(--text-color);">Recomendador</a>
+                    <a href="#testimonials" class="nav-link" style="color: var(--text-color);">Depoimentos</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" class="btn-primary px-6 py-2 rounded-md hidden md:block">Ver Planos</a>
+                    <button class="block md:hidden" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl" style="color: var(--text-color);"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="mt-4 py-2 border-t border-gray-300 dark:border-gray-700" style="border-color: var(--border-color);">
+                    <a href="#templates" class="block py-2" style="color: var(--text-color);">Templates</a>
+                    <a href="#comparison" class="block py-2" style="color: var(--text-color);">Comparativo</a>
+                    <a href="#recommender" class="block py-2" style="color: var(--text-color);">Recomendador</a>
+                    <a href="#testimonials" class="block py-2" style="color: var(--text-color);">Depoimentos</a>
+                    <a href="#" class="btn-primary block text-center mt-4 px-6 py-2 rounded-md">Ver Planos</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 relative overflow-hidden" style="background-color: var(--bg-color);">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <h1 class="text-3xl md:text-5xl font-bold mb-6" style="color: var(--text-color);">
+                        Encontre o Template <span style="color: var(--primary-color);">Perfeito</span> para seus Estudos Médicos
+                    </h1>
+                    <p class="text-lg mb-8" style="color: var(--text-light);">
+                        Compare, visualize e escolha entre nossos templates premium com recursos avançados para acelerar seu aprendizado e potencializar seus estudos médicos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#templates" class="btn-primary text-center px-8 py-3 rounded-md text-white font-medium">Ver Templates</a>
+                        <a href="#recommender" class="border border-gray-300 dark:border-gray-700 text-center px-8 py-3 rounded-md font-medium" style="color: var(--text-color); border-color: var(--border-color);">Recomendador de Template</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative" data-aos="fade-left">
+                    <div class="relative">
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-blue-500 opacity-10 rounded-full"></div>
+                        <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-green-500 opacity-10 rounded-full"></div>
+                        <img src="assets/img/PRINTtemplatenotion.png" alt="Templates Sophos Academy" class="rounded-lg shadow-xl relative z-10">
+                    </div>
+                    <div class="absolute top-5 right-5 bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg pulse-animation" style="background-color: var(--bg-light);">
+                        <div class="flex items-center px-4 py-2">
+                            <div class="text-xs font-semibold mr-2">Novo</div>
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Stats -->
+        <div class="container mx-auto px-4 mt-16">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+                <div class="card rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-3xl font-bold mb-2" style="color: var(--primary-color);">6+</div>
+                    <div class="text-sm" style="color: var(--text-light);">Templates Especializados</div>
+                </div>
+                <div class="card rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-3xl font-bold mb-2" style="color: var(--primary-color);">100+</div>
+                    <div class="text-sm" style="color: var(--text-light);">Usuários Satisfeitos</div>
+                </div>
+                <div class="card rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-3xl font-bold mb-2" style="color: var(--primary-color);">85%</div>
+                    <div class="text-sm" style="color: var(--text-light);">Taxa de Aprovação</div>
+                </div>
+                <div class="card rounded-xl p-6 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-3xl font-bold mb-2" style="color: var(--primary-color);">4.8/5</div>
+                    <div class="text-sm" style="color: var(--text-light);">Avaliação Média</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Advanced Filter Section -->
+    <section class="py-16" style="background-color: var(--bg-light);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--text-color);">Encontre o Template Ideal</h2>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--text-light);">Utilize nossos filtros avançados para encontrar o template perfeito para sua fase de estudos e necessidades específicas.</p>
+            </div>
+            
+            <div class="card rounded-xl p-6 md:p-8 max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block mb-2 font-medium" style="color: var(--text-color);">Fase de Estudo</label>
+                        <select class="w-full px-4 py-2 rounded-md border custom-select" style="background-color: var(--bg-color); color: var(--text-color); border-color: var(--border-color);">
+                            <option value="">Selecione uma opção</option>
+                            <option value="vestibular">Vestibular</option>
+                            <option value="graduacao">Graduação</option>
+                            <option value="residencia">Residência</option>
+                            <option value="especializacao">Especialização</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-medium" style="color: var(--text-color);">Funcionalidades</label>
+                        <select class="w-full px-4 py-2 rounded-md border custom-select" style="background-color: var(--bg-color); color: var(--text-color); border-color: var(--border-color);">
+                            <option value="">Selecione uma opção</option>
+                            <option value="revisao">Revisão Espaçada</option>
+                            <option value="flashcards">Flashcards</option>
+                            <option value="resumos">Sistema de Resumos</option>
+                            <option value="questoes">Banco de Questões</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-medium" style="color: var(--text-color);">Plataforma</label>
+                        <select class="w-full px-4 py-2 rounded-md border custom-select" style="background-color: var(--bg-color); color: var(--text-color); border-color: var(--border-color);">
+                            <option value="">Selecione uma opção</option>
+                            <option value="notion">Notion</option>
+                            <option value="app">Aplicativo</option>
+                            <option value="web">Web</option>
+                            <option value="custom">Personalizado</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <label class="block mb-2 font-medium" style="color: var(--text-color);">Recursos Desejados</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span style="color: var(--text-color);">Revisão Espaçada</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span style="color: var(--text-color);">Dashboard Analítico</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span style="color: var(--text-color);">Banco de Questões</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span style="color: var(--text-color);">Flashcards</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span style="color: var(--text-color);">Gestão de Tempo</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span style="color: var(--text-color);">Biblioteca de Resumos</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span style="color: var(--text-color);">Integração com IA</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2">
+                            <span style="color: var(--text-color);">Segunda Especialização</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center mt-8">
+                    <button class="btn-primary px-8 py-3 rounded-md text-white font-medium">Buscar Templates</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Templates Grid Section -->
+    <section id="templates" class="py-16" style="background-color: var(--bg-color);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--text-color);">Nossos Templates Premium</h2>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--text-light);">Cada template foi desenvolvido por especialistas para atender necessidades específicas do seu processo de aprendizado médico.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Template 1 -->
+                <div class="template-card card overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="template-badge popular">Mais Popular</div>
+                    <img src="assets/img/portfolio/notion-template-r-plus.jpg" alt="Projeto Residência Médica" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex space-x-2">
+                                <span class="template-chip">Residência</span>
+                                <span class="template-chip" style="background-color: var(--secondary-color);">Medicina</span>
+                            </div>
+                            <div class="rating-stars">
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Projeto Residência Médica</h3>
+                        <p class="mb-4" style="color: var(--text-light);">Estratégia personalizada para aprovação em residência médica com sistema avançado de revisão espaçada e banco de questões.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="service-details-residencia.html" class="text-sm font-medium" style="color: var(--primary-color);">Ver Detalhes</a>
+                            <span class="text-sm font-bold" style="color: var(--text-color);">R$ 197,00</span>
+                        </div>
+                    </div>
+                    <div class="template-card-overlay">
+                        <h4 class="text-white text-lg font-bold mb-2">Principais Recursos:</h4>
+                        <ul class="text-white text-sm mb-4">
+                            <li class="mb-1">• Sistema de revisão espaçada avançado</li>
+                            <li class="mb-1">• Banco com +5000 questões categorizadas</li>
+                            <li class="mb-1">• Dashboard analítico de desempenho</li>
+                            <li class="mb-1">• Cronograma personalizado</li>
+                        </ul>
+                        <div class="flex space-x-2">
+                            <a href="service-details-residencia.html" class="btn-primary px-4 py-2 rounded-md text-white text-sm">Ver Template</a>
+                            <button class="bg-white text-gray-800 px-4 py-2 rounded-md text-sm">Preview</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 2 -->
+                <div class="template-card card overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" alt="Projeto Vestibular" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex space-x-2">
+                                <span class="template-chip">Vestibular</span>
+                                <span class="template-chip" style="background-color: var(--secondary-color);">Medicina</span>
+                            </div>
+                            <div class="rating-stars">
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Projeto Vestibular</h3>
+                        <p class="mb-4" style="color: var(--text-light);">Estratégia completa para aprovação no vestibular de medicina, com materiais exclusivos e organização de estudos.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="service-details-vestibular.html" class="text-sm font-medium" style="color: var(--primary-color);">Ver Detalhes</a>
+                            <span class="text-sm font-bold" style="color: var(--text-color);">R$ 147,00</span>
+                        </div>
+                    </div>
+                    <div class="template-card-overlay">
+                        <h4 class="text-white text-lg font-bold mb-2">Principais Recursos:</h4>
+                        <ul class="text-white text-sm mb-4">
+                            <li class="mb-1">• Plano de estudos personalizado</li>
+                            <li class="mb-1">• Calendário de provas e simulados</li>
+                            <li class="mb-1">• Organização por disciplinas</li>
+                            <li class="mb-1">• Monitoramento de desempenho</li>
+                        </ul>
+                        <div class="flex space-x-2">
+                            <a href="service-details-vestibular.html" class="btn-primary px-4 py-2 rounded-md text-white text-sm">Ver Template</a>
+                            <button class="bg-white text-gray-800 px-4 py-2 rounded-md text-sm">Preview</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 3 -->
+                <div class="template-card card overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="template-badge new">Novo</div>
+                    <img src="assets/img/testimonials/cami.jpg" alt="Liberdade para Criar" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex space-x-2">
+                                <span class="template-chip">Personalizado</span>
+                                <span class="template-chip" style="background-color: var(--secondary-color);">Flexível</span>
+                            </div>
+                            <div class="rating-stars">
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Liberdade para Criar</h3>
+                        <p class="mb-4" style="color: var(--text-light);">Sistema flexível e personalizável que coloca você no controle da sua metodologia de estudo médico.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="service-details-criar.html" class="text-sm font-medium" style="color: var(--primary-color);">Ver Detalhes</a>
+                            <span class="text-sm font-bold" style="color: var(--text-color);">R$ 227,00</span>
+                        </div>
+                    </div>
+                    <div class="template-card-overlay">
+                        <h4 class="text-white text-lg font-bold mb-2">Principais Recursos:</h4>
+                        <ul class="text-white text-sm mb-4">
+                            <li class="mb-1">• Framework personalizado</li>
+                            <li class="mb-1">• Blocos modulares de conteúdo</li>
+                            <li class="mb-1">• Sistema de metas flexível</li>
+                            <li class="mb-1">• Múltiplas visualizações de dados</li>
+                        </ul>
+                        <div class="flex space-x-2">
+                            <a href="service-details-criar.html" class="btn-primary px-4 py-2 rounded-md text-white text-sm">Ver Template</a>
+                            <button class="bg-white text-gray-800 px-4 py-2 rounded-md text-sm">Preview</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 4 -->
+                <div class="template-card card overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="assets/img/portfolio/rplus.jpg" alt="Projeto R+" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex space-x-2">
+                                <span class="template-chip">Especialização</span>
+                                <span class="template-chip" style="background-color: var(--secondary-color);">Médicos</span>
+                            </div>
+                            <div class="rating-stars">
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Projeto R+</h3>
+                        <p class="mb-4" style="color: var(--text-light);">Sistema para médicos que já completaram a primeira residência e buscam uma segunda especialização.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="service-details-rplus.html" class="text-sm font-medium" style="color: var(--primary-color);">Ver Detalhes</a>
+                            <span class="text-sm font-bold" style="color: var(--text-color);">R$ 297,00</span>
+                        </div>
+                    </div>
+                    <div class="template-card-overlay">
+                        <h4 class="text-white text-lg font-bold mb-2">Principais Recursos:</h4>
+                        <ul class="text-white text-sm mb-4">
+                            <li class="mb-1">• Integração entre especialidades</li>
+                            <li class="mb-1">• Cronograma para profissionais</li>
+                            <li class="mb-1">• Casos clínicos avançados</li>
+                            <li class="mb-1">• Sistema de artigos científicos</li>
+                        </ul>
+                        <div class="flex space-x-2">
+                            <a href="service-details-rplus.html" class="btn-primary px-4 py-2 rounded-md text-white text-sm">Ver Template</a>
+                            <button class="bg-white text-gray-800 px-4 py-2 rounded-md text-sm">Preview</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 5 -->
+                <div class="template-card card overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <img src="assets/img/portfolio/faculdade.jpg" alt="Projeto Faculdade" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex space-x-2">
+                                <span class="template-chip">Graduação</span>
+                                <span class="template-chip" style="background-color: var(--secondary-color);">Medicina</span>
+                            </div>
+                            <div class="rating-stars">
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Projeto Faculdade</h3>
+                        <p class="mb-4" style="color: var(--text-light);">Sistema completo para organização de estudos médicos na graduação, com recursos para disciplinas básicas e clínicas.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="service-details-faculdade.html" class="text-sm font-medium" style="color: var(--primary-color);">Ver Detalhes</a>
+                            <span class="text-sm font-bold" style="color: var(--text-color);">R$ 177,00</span>
+                        </div>
+                    </div>
+                    <div class="template-card-overlay">
+                        <h4 class="text-white text-lg font-bold mb-2">Principais Recursos:</h4>
+                        <ul class="text-white text-sm mb-4">
+                            <li class="mb-1">• Organização semestral</li>
+                            <li class="mb-1">• Sistema para aulas práticas</li>
+                            <li class="mb-1">• Gestão de atividades acadêmicas</li>
+                            <li class="mb-1">• Acompanhamento de frequência</li>
+                        </ul>
+                        <div class="flex space-x-2">
+                            <a href="service-details-faculdade.html" class="btn-primary px-4 py-2 rounded-md text-white text-sm">Ver Template</a>
+                            <button class="bg-white text-gray-800 px-4 py-2 rounded-md text-sm">Preview</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 6 -->
+                <div class="template-card card overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <img src="assets/img/PRINTtemplatenotion.png" alt="R+ Tainá para Notion" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex space-x-2">
+                                <span class="template-chip">Notion</span>
+                                <span class="template-chip" style="background-color: var(--secondary-color);">Médicos</span>
+                            </div>
+                            <div class="rating-stars">
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                                <span class="rating-star">★</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">R+ Tainá para Notion</h3>
+                        <p class="mb-4" style="color: var(--text-light);">Assistente Inteligente no Notion para organização de estudos médicos e revisões semanais, ideal para médicos em especialização.</p>
+                        <div class="flex items-center justify-between">
+                            <a href="service-details-notion.html" class="text-sm font-medium" style="color: var(--primary-color);">Ver Detalhes</a>
+                            <span class="text-sm font-bold" style="color: var(--text-color);">R$ 197,00</span>
+                        </div>
+                    </div>
+                    <div class="template-card-overlay">
+                        <h4 class="text-white text-lg font-bold mb-2">Principais Recursos:</h4>
+                        <ul class="text-white text-sm mb-4">
+                            <li class="mb-1">• Template completo para Notion</li>
+                            <li class="mb-1">• Painéis customizados para médicos</li>
+                            <li class="mb-1">• Sistema de revisões automáticas</li>
+                            <li class="mb-1">• Banco de conhecimento estruturado</li>
+                        </ul>
+                        <div class="flex space-x-2">
+                            <a href="service-details-notion.html" class="btn-primary px-4 py-2 rounded-md text-white text-sm">Ver Template</a>
+                            <button class="bg-white text-gray-800 px-4 py-2 rounded-md text-sm">Preview</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center mt-12">
+                <a href="service-details.html" class="btn-primary px-8 py-3 rounded-md text-white font-medium">Ver Todos os Templates</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 3D Comparison Section -->
+    <section id="comparison" class="py-16" style="background-color: var(--bg-light);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--text-color);">Comparativo Interativo de Templates</h2>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--text-light);">Compare lado a lado os recursos de cada template para encontrar a solução que melhor atende às suas necessidades.</p>
+            </div>
+            
+            <!-- 3D Canvas -->
+            <div id="canvas-container" class="mb-12 rounded-lg overflow-hidden" data-aos="fade-up"></div>
+            
+            <!-- Comparison Table -->
+            <div class="overflow-x-auto card rounded-xl" data-aos="fade-up">
+                <table class="w-full" id="template-comparison">
+                    <thead>
+                        <tr style="background-color: var(--primary-color);" class="text-white">
+                            <th class="p-4 text-left">Recursos</th>
+                            <th class="p-4 text-center">Residência Médica</th>
+                            <th class="p-4 text-center">Vestibular</th>
+                            <th class="p-4 text-center">Liberdade para Criar</th>
+                            <th class="p-4 text-center">Projeto R+</th>
+                            <th class="p-4 text-center">Projeto Faculdade</th>
+                            <th class="p-4 text-center">Notion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="comparison-item" style="background-color: var(--bg-color);">
+                            <td class="p-4 font-medium" style="color: var(--text-color);">Revisão Espaçada</td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                        </tr>
+                        <tr class="comparison-item" style="background-color: var(--bg-light);">
+                            <td class="p-4 font-medium comparison-tooltip" style="color: var(--text-color);">
+                                Dashboard Analítico
+                                <span class="tooltip-text">Painel com gráficos e estatísticas sobre seu progresso e desempenho</span>
+                            </td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-minus-circle text-xl text-gray-400"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                        </tr>
+                        <tr class="comparison-item" style="background-color: var(--bg-color);">
+                            <td class="p-4 font-medium" style="color: var(--text-color);">Banco de Questões</td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-minus-circle text-xl text-gray-400"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-minus-circle text-xl text-gray-400"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                        </tr>
+                        <tr class="comparison-item" style="background-color: var(--bg-light);">
+                            <td class="p-4 font-medium comparison-tooltip" style="color: var(--text-color);">
+                                Flashcards
+                                <span class="tooltip-text">Sistema de cartões para memorização e revisão rápida</span>
+                            </td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-minus-circle text-xl text-gray-400"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                        </tr>
+                        <tr class="comparison-item" style="background-color: var(--bg-color);">
+                            <td class="p-4 font-medium" style="color: var(--text-color);">Integração com IA</td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-minus-circle text-xl text-gray-400"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-minus-circle text-xl text-gray-400"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                        </tr>
+                        <tr class="comparison-item" style="background-color: var(--bg-light);">
+                            <td class="p-4 font-medium comparison-tooltip" style="color: var(--text-color);">
+                                Biblioteca de Resumos
+                                <span class="tooltip-text">Sistema para organização de resumos por temas e especialidades</span>
+                            </td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                        </tr>
+                        <tr class="comparison-item" style="background-color: var(--bg-color);">
+                            <td class="p-4 font-medium" style="color: var(--text-color);">Personalização</td>
+                            <td class="p-4 text-center"><i class="fas fa-minus-circle text-xl text-gray-400"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-minus-circle text-xl text-gray-400"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-minus-circle text-xl text-gray-400"></i></td>
+                            <td class="p-4 text-center"><i class="fas fa-check-circle text-xl" style="color: var(--primary-color);"></i></td>
+                        </tr>
+                        <tr class="comparison-item" style="background-color: var(--bg-light);">
+                            <td class="p-4 font-medium" style="color: var(--text-color);">Preço</td>
+                            <td class="p-4 text-center font-medium" style="color: var(--text-color);">R$ 197,00</td>
+                            <td class="p-4 text-center font-medium" style="color: var(--text-color);">R$ 147,00</td>
+                            <td class="p-4 text-center font-medium" style="color: var(--text-color);">R$ 227,00</td>
+                            <td class="p-4 text-center font-medium" style="color: var(--text-color);">R$ 297,00</td>
+                            <td class="p-4 text-center font-medium" style="color: var(--text-color);">R$ 177,00</td>
+                            <td class="p-4 text-center font-medium" style="color: var(--text-color);">R$ 197,00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <a href="service-details.html" class="btn-primary px-8 py-3 rounded-md text-white font-medium">Ver Planos de Assinatura</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Interactive Template Viewer -->
+    <section class="py-16 bg-gradient-to-r from-green-500 to-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Visualização Interativa de Templates</h2>
+                <p class="text-lg max-w-3xl mx-auto text-white opacity-90">Experimente nossos templates em tempo real. Navegue pelos recursos e funcionalidades antes de fazer sua escolha.</p>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-900 rounded-xl p-6 md:p-8 shadow-lg" style="background-color: var(--bg-color);">
+                <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6">
+                    <!-- Template Selection -->
+                    <div class="md:w-1/4">
+                        <h3 class="text-xl font-bold mb-4" style="color: var(--text-color);">Selecione um Template</h3>
+                        <div class="space-y-2">
+                            <button class="w-full p-3 rounded-md text-left font-medium text-white bg-green-500 hover:bg-green-600 transition">Residência Médica</button>
+                            <button class="w-full p-3 rounded-md text-left font-medium" style="color: var(--text-color); background-color: var(--bg-light);">Projeto Vestibular</button>
+                            <button class="w-full p-3 rounded-md text-left font-medium" style="color: var(--text-color); background-color: var(--bg-light);">Liberdade para Criar</button>
+                            <button class="w-full p-3 rounded-md text-left font-medium" style="color: var(--text-color); background-color: var(--bg-light);">Projeto R+</button>
+                            <button class="w-full p-3 rounded-md text-left font-medium" style="color: var(--text-color); background-color: var(--bg-light);">Projeto Faculdade</button>
+                            <button class="w-full p-3 rounded-md text-left font-medium" style="color: var(--text-color); background-color: var(--bg-light);">R+ Tainá para Notion</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Template Preview -->
+                    <div class="md:w-3/4">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold" style="color: var(--text-color);">Projeto Residência Médica</h3>
+                            <div class="flex space-x-2">
+                                <button class="px-4 py-2 rounded-md text-sm font-medium" style="color: var(--text-color); background-color: var(--bg-light);">Desktop</button>
+                                <button class="px-4 py-2 rounded-md text-sm font-medium" style="color: var(--text-color); background-color: var(--bg-light);">Tablet</button>
+                                <button class="px-4 py-2 rounded-md text-sm font-medium" style="color: var(--text-color); background-color: var(--bg-light);">Mobile</button>
+                            </div>
+                        </div>
+                        
+                        <div class="template-preview rounded-lg border overflow-hidden" style="border-color: var(--border-color);">
+                            <img src="assets/img/portfolio/notion-template-r-plus.jpg" alt="Preview do Template" class="w-full">
+                        </div>
+                        
+                        <div class="grid grid-cols-3 gap-4 mt-4">
+                            <div class="p-4 rounded-md text-center" style="background-color: var(--bg-light);">
+                                <div class="text-xl font-bold mb-1" style="color: var(--primary-color);">85%</div>
+                                <div class="text-sm" style="color: var(--text-light);">Satisfação</div>
+                            </div>
+                            <div class="p-4 rounded-md text-center" style="background-color: var(--bg-light);">
+                                <div class="text-xl font-bold mb-1" style="color: var(--primary-color);">1230+</div>
+                                <div class="text-sm" style="color: var(--text-light);">Usuários</div>
+                            </div>
+                            <div class="p-4 rounded-md text-center" style="background-color: var(--bg-light);">
+                                <div class="text-xl font-bold mb-1" style="color: var(--primary-color);">45%</div>
+                                <div class="text-sm" style="color: var(--text-light);">Mais eficiência</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI Recommender Section -->
+    <section id="recommender" class="py-16" style="background-color: var(--bg-color);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--text-color);">Recomendador Personalizado de Template</h2>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--text-light);">Responda algumas perguntas simples e nossa IA recomendará o template ideal para suas necessidades específicas.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <div class="card rounded-xl p-6 md:p-8">
+                    <div id="recommender-step-1" class="recommender-step">
+                        <h3 class="text-xl font-bold mb-6" style="color: var(--text-color);">Em qual fase dos estudos médicos você se encontra?</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <button class="p-4 rounded-lg border text-center hover:border-green-500 transition" style="border-color: var(--border-color); color: var(--text-color); background-color: var(--bg-light);">
+                                <i class="fas fa-book-open text-2xl mb-2" style="color: var(--primary-color);"></i>
+                                <div class="font-medium">Vestibular</div>
+                            </button>
+                            <button class="p-4 rounded-lg border text-center hover:border-green-500 transition" style="border-color: var(--border-color); color: var(--text-color); background-color: var(--bg-light);">
+                                <i class="fas fa-user-graduate text-2xl mb-2" style="color: var(--primary-color);"></i>
+                                <div class="font-medium">Graduação</div>
+                            </button>
+                            <button class="p-4 rounded-lg border text-center hover:border-green-500 transition" style="border-color: var(--border-color); color: var(--text-color); background-color: var(--bg-light);">
+                                <i class="fas fa-stethoscope text-2xl mb-2" style="color: var(--primary-color);"></i>
+                                <div class="font-medium">Residência</div>
+                            </button>
+                            <button class="p-4 rounded-lg border text-center hover:border-green-500 transition" style="border-color: var(--border-color); color: var(--text-color); background-color: var(--bg-light);">
+                                <i class="fas fa-user-md text-2xl mb-2" style="color: var(--primary-color);"></i>
+                                <div class="font-medium">Especialização</div>
+                            </button>
+                            <button class="p-4 rounded-lg border text-center hover:border-green-500 transition" style="border-color: var(--border-color); color: var(--text-color); background-color: var(--bg-light);">
+                                <i class="fas fa-briefcase-medical text-2xl mb-2" style="color: var(--primary-color);"></i>
+                                <div class="font-medium">Prática Médica</div>
+                            </button>
+                            <button class="p-4 rounded-lg border text-center hover:border-green-500 transition" style="border-color: var(--border-color); color: var(--text-color); background-color: var(--bg-light);">
+                                <i class="fas fa-cogs text-2xl mb-2" style="color: var(--primary-color);"></i>
+                                <div class="font-medium">Outro</div>
+                            </button>
+                        </div>
+                        <div class="mt-8 text-center">
+                            <button class="btn-primary px-8 py-3 rounded-md text-white font-medium" onclick="nextStep()">Continuar</button>
+                        </div>
+                    </div>
+                    
+                    <div id="recommender-step-2" class="recommender-step hidden">
+                        <h3 class="text-xl font-bold mb-6" style="color: var(--text-color);">Quais recursos são mais importantes para você?</h3>
+                        <p class="mb-6" style="color: var(--text-light);">Selecione todas as opções aplicáveis</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <label class="flex items-center p-3 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <input type="checkbox" class="mr-3">
+                                <div style="color: var(--text-color);">Revisão Espaçada</div>
+                            </label>
+                            <label class="flex items-center p-3 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <input type="checkbox" class="mr-3">
+                                <div style="color: var(--text-color);">Flashcards</div>
+                            </label>
+                            <label class="flex items-center p-3 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <input type="checkbox" class="mr-3">
+                                <div style="color: var(--text-color);">Banco de Questões</div>
+                            </label>
+                            <label class="flex items-center p-3 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <input type="checkbox" class="mr-3">
+                                <div style="color: var(--text-color);">Dashboard Analítico</div>
+                            </label>
+                            <label class="flex items-center p-3 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <input type="checkbox" class="mr-3">
+                                <div style="color: var(--text-color);">Integração com IA</div>
+                            </label>
+                            <label class="flex items-center p-3 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <input type="checkbox" class="mr-3">
+                                <div style="color: var(--text-color);">Biblioteca de Resumos</div>
+                            </label>
+                            <label class="flex items-center p-3 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <input type="checkbox" class="mr-3">
+                                <div style="color: var(--text-color);">Personalização Avançada</div>
+                            </label>
+                            <label class="flex items-center p-3 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <input type="checkbox" class="mr-3">
+                                <div style="color: var(--text-color);">Cronogramas Automáticos</div>
+                            </label>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button class="px-8 py-3 rounded-md font-medium border" style="color: var(--text-color); border-color: var(--border-color);" onclick="prevStep()">Voltar</button>
+                            <button class="btn-primary px-8 py-3 rounded-md text-white font-medium" onclick="nextStep()">Continuar</button>
+                        </div>
+                    </div>
+                    
+                    <div id="recommender-step-3" class="recommender-step hidden">
+                        <h3 class="text-xl font-bold mb-6" style="color: var(--text-color);">Qual é o seu estilo de estudo preferido?</h3>
+                        <div class="space-y-4">
+                            <label class="block p-4 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <div class="flex items-center">
+                                    <input type="radio" name="study-style" class="mr-3">
+                                    <div>
+                                        <div class="font-medium" style="color: var(--text-color);">Estruturado e Guiado</div>
+                                        <div class="text-sm mt-1" style="color: var(--text-light);">Prefiro seguir um plano detalhado e pré-definido</div>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="block p-4 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <div class="flex items-center">
+                                    <input type="radio" name="study-style" class="mr-3">
+                                    <div>
+                                        <div class="font-medium" style="color: var(--text-color);">Flexível e Personalizado</div>
+                                        <div class="text-sm mt-1" style="color: var(--text-light);">Prefiro adaptar minha metodologia conforme necessário</div>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="block p-4 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <div class="flex items-center">
+                                    <input type="radio" name="study-style" class="mr-3">
+                                    <div>
+                                        <div class="font-medium" style="color: var(--text-color);">Orientado a Dados</div>
+                                        <div class="text-sm mt-1" style="color: var(--text-light);">Prefiro tomar decisões baseadas em análises e estatísticas</div>
+                                    </div>
+                                </div>
+                            </label>
+                            <label class="block p-4 rounded-lg border" style="border-color: var(--border-color); background-color: var(--bg-light);">
+                                <div class="flex items-center">
+                                    <input type="radio" name="study-style" class="mr-3">
+                                    <div>
+                                        <div class="font-medium" style="color: var(--text-color);">Visual e Interativo</div>
+                                        <div class="text-sm mt-1" style="color: var(--text-light);">Prefiro recursos visuais e interações práticas</div>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="mt-8 flex justify-between">
+                            <button class="px-8 py-3 rounded-md font-medium border" style="color: var(--text-color); border-color: var(--border-color);" onclick="prevStep()">Voltar</button>
+                            <button class="btn-primary px-8 py-3 rounded-md text-white font-medium" onclick="showResult()">Ver Recomendação</button>
+                        </div>
+                    </div>
+                    
+                    <div id="recommender-result" class="recommender-step hidden">
+                        <div class="text-center">
+                            <div class="mb-6">
+                                <i class="fas fa-check-circle text-5xl" style="color: var(--primary-color);"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2" style="color: var(--text-color);">Recomendação Personalizada</h3>
+                            <p class="mb-6" style="color: var(--text-light);">Com base nas suas respostas, recomendamos:</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-green-500 to-blue-600 p-6 rounded-lg text-white">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-stethoscope text-3xl" style="color: var(--primary-color);"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold">Projeto Residência Médica</h4>
+                                    <p class="opacity-90">Compatibilidade: 98%</p>
+                                </div>
+                            </div>
+                            <p class="mb-4">Este template oferece exatamente o que você precisa: um sistema estruturado com revisão espaçada, banco de questões avançado e análises detalhadas de desempenho.</p>
+                            <div class="flex space-x-4">
+                                <a href="service-details-residencia.html" class="bg-white text-blue-600 px-6 py-2 rounded-md font-medium">Ver Detalhes</a>
+                                <a href="service-details.html" class="bg-transparent border border-white text-white px-6 py-2 rounded-md font-medium">Ver Planos</a>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-bold mb-4" style="color: var(--text-color);">Outras opções compatíveis:</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="p-4 rounded-lg" style="background-color: var(--bg-light);">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <h5 class="font-medium" style="color: var(--text-color);">Liberdade para Criar</h5>
+                                        <span class="text-sm font-bold" style="color: var(--primary-color);">85%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="width: 85%;"></div>
+                                    </div>
+                                </div>
+                                <div class="p-4 rounded-lg" style="background-color: var(--bg-light);">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <h5 class="font-medium" style="color: var(--text-color);">R+ Tainá para Notion</h5>
+                                        <span class="text-sm font-bold" style="color: var(--primary-color);">78%</span>
+                                    </div>
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-fill" style="width: 78%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 text-center">
+                            <button class="btn-primary px-8 py-3 rounded-md text-white font-medium" onclick="resetRecommender()">Refazer Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16" style="background-color: var(--bg-light);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--text-color);">Experiências de Sucesso com Nossos Templates</h2>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--text-light);">Veja como nossos templates transformaram a jornada de estudo de médicos e estudantes.</p>
+            </div>
+            
+            <!-- Testimonial Tabs -->
+            <div class="max-w-3xl mx-auto mb-8">
+                <div class="flex overflow-x-auto pb-2">
+                    <button class="testimonial-tab px-6 py-2 rounded-full mr-2 whitespace-nowrap active" style="background-color: var(--primary-color); color: white;" data-tab="all">Todos</button>
+                    <button class="testimonial-tab px-6 py-2 rounded-full mr-2 whitespace-nowrap" style="color: var(--text-color); background-color: var(--bg-color);" data-tab="residencia">Residência Médica</button>
+                    <button class="testimonial-tab px-6 py-2 rounded-full mr-2 whitespace-nowrap" style="color: var(--text-color); background-color: var(--bg-color);" data-tab="vestibular">Vestibular</button>
+                    <button class="testimonial-tab px-6 py-2 rounded-full mr-2 whitespace-nowrap" style="color: var(--text-color); background-color: var(--bg-color);" data-tab="faculdade">Faculdade</button>
+                    <button class="testimonial-tab px-6 py-2 rounded-full mr-2 whitespace-nowrap" style="color: var(--text-color); background-color: var(--bg-color);" data-tab="notion">Notion</button>
+                </div>
+            </div>
+            
+            <!-- Testimonial Cards -->
+            <div class="swiper testimonial-swiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide" data-category="residencia">
+                        <div class="card rounded-xl overflow-hidden">
+                            <div class="p-6">
+                                <div class="rating-stars mb-4">
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                </div>
+                                <p class="mb-6 italic" style="color: var(--text-color);">"O template Residência Médica revolucionou minha forma de estudar. Consegui organizar todo meu conteúdo e nunca mais esqueci de revisar os temas importantes. Fui aprovada em primeiro lugar na residência que tanto sonhava!"</p>
+                                <div class="flex items-center">
+                                    <img src="assets/img/testimonials/cami.jpg" alt="Dra. Marina Soares" class="w-12 h-12 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold" style="color: var(--text-color);">Dra. Marina Soares</h4>
+                                        <p class="text-sm" style="color: var(--text-light);">Residente de Cardiologia, Hospital Albert Einstein</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 pt-4 border-t" style="border-color: var(--border-color);">
+                                    <div class="flex items-center">
+                                        <img src="assets/img/portfolio/notion-template-r-plus.jpg" alt="Projeto Residência Médica" class="w-10 h-10 rounded object-cover">
+                                        <span class="ml-2 text-sm font-medium" style="color: var(--text-color);">Projeto Residência Médica</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide" data-category="notion">
+                        <div class="card rounded-xl overflow-hidden">
+                            <div class="p-6">
+                                <div class="rating-stars mb-4">
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                </div>
+                                <p class="mb-6 italic" style="color: var(--text-color);">"O template R+ Tainá para Notion foi essencial para meu crescimento e consolidação do conhecimento necessário para prestar as provas de residência médica. As revisões espaçadas me permitiram estar sempre com a memória ativa."</p>
+                                <div class="flex items-center">
+                                    <img src="assets/img/testimonials/julia.png" alt="Júlia Carminatti" class="w-12 h-12 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold" style="color: var(--text-color);">Júlia Carminatti</h4>
+                                        <p class="text-sm" style="color: var(--text-light);">R3 de Clínica Médica em 2024</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 pt-4 border-t" style="border-color: var(--border-color);">
+                                    <div class="flex items-center">
+                                        <img src="assets/img/PRINTtemplatenotion.png" alt="R+ Tainá para Notion" class="w-10 h-10 rounded object-cover">
+                                        <span class="ml-2 text-sm font-medium" style="color: var(--text-color);">R+ Tainá para Notion</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide" data-category="faculdade">
+                        <div class="card rounded-xl overflow-hidden">
+                            <div class="p-6">
+                                <div class="rating-stars mb-4">
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                </div>
+                                <p class="mb-6 italic" style="color: var(--text-color);">"A plataforma me ajudou muito no processo de organização dos estudos. Foi através dela que eu baseei todas as minhas revisões, portanto, a base de todo meu estudo. Foi essencial no processo. Recomendo demais!"</p>
+                                <div class="flex items-center">
+                                    <img src="assets/img/testimonials/cami.jpg" alt="Camila" class="w-12 h-12 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold" style="color: var(--text-color);">Camila</h4>
+                                        <p class="text-sm" style="color: var(--text-light);">Estudante de Medicina, 6º ano</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 pt-4 border-t" style="border-color: var(--border-color);">
+                                    <div class="flex items-center">
+                                        <img src="assets/img/portfolio/faculdade.jpg" alt="Projeto Faculdade" class="w-10 h-10 rounded object-cover">
+                                        <span class="ml-2 text-sm font-medium" style="color: var(--text-color);">Projeto Faculdade</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 4 -->
+                    <div class="swiper-slide" data-category="vestibular">
+                        <div class="card rounded-xl overflow-hidden">
+                            <div class="p-6">
+                                <div class="rating-stars mb-4">
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                    <span class="rating-star">★</span>
+                                </div>
+                                <p class="mb-6 italic" style="color: var(--text-color);">"Passei em medicina na FMUSP graças ao Projeto Vestibular da Sophos Academy. A organização do material e o cronograma adaptativo fizeram toda a diferença na minha preparação. Não teria conseguido sem essa ferramenta!"</p>
+                                <div class="flex items-center">
+                                    <img src="assets/img/testimonials/taina.jpg" alt="Pedro Henrique" class="w-12 h-12 rounded-full object-cover mr-4">
+                                    <div>
+                                        <h4 class="font-bold" style="color: var(--text-color);">Pedro Henrique</h4>
+                                        <p class="text-sm" style="color: var(--text-light);">Calouro de Medicina, FMUSP</p>
+                                    </div>
+                                </div>
+                                <div class="mt-4 pt-4 border-t" style="border-color: var(--border-color);">
+                                    <div class="flex items-center">
+                                        <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" alt="Projeto Vestibular" class="w-10 h-10 rounded object-cover">
+                                        <span class="ml-2 text-sm font-medium" style="color: var(--text-color);">Projeto Vestibular</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination mt-6"></div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="testimonials.html" class="btn-primary px-8 py-3 rounded-md text-white font-medium">Ver Todos os Depoimentos</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-green-500 to-blue-600 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto para Transformar seus Estudos?</h2>
+                <p class="text-lg mb-8 opacity-90">Escolha o template ideal para suas necessidades e eleve seu desempenho acadêmico a um novo patamar. Garantia de satisfação de 15 dias.</p>
+                <div class="flex flex-col sm:flex-row justify-center sm:space-x-4 space-y-4 sm:space-y-0">
+                    <a href="service-details.html" class="bg-white text-blue-600 px-8 py-4 rounded-md font-medium">Ver Todos Templates</a>
+                    <a href="service-details.html" class="bg-transparent border border-white text-white px-8 py-4 rounded-md font-medium">Ver Planos de Assinatura</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="py-16" style="background-color: var(--bg-color);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" style="color: var(--text-color);">Perguntas Frequentes</h2>
+                <p class="text-lg max-w-3xl mx-auto" style="color: var(--text-light);">Encontre respostas para as dúvidas mais comuns sobre nossos templates.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="card rounded-xl overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 font-medium flex justify-between items-center" style="color: var(--text-color);">
+                            Como escolher o template ideal para minha fase de estudos?
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p style="color: var(--text-light);">Recomendamos utilizar nosso sistema de recomendação personalizada, onde você responde algumas perguntas sobre sua fase atual e preferências de estudo. Alternativamente, você pode comparar os recursos de cada template em nossa tabela comparativa ou entrar em contato com nossa equipe para obter orientação personalizada.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="card rounded-xl overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 font-medium flex justify-between items-center" style="color: var(--text-color);">
+                            Os templates são atualizados com frequência?
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p style="color: var(--text-light);">Sim! Todos os nossos templates recebem atualizações regulares com novas funcionalidades e melhorias. Após a compra, você terá acesso a todas as atualizações futuras do template adquirido sem custos adicionais.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="card rounded-xl overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 font-medium flex justify-between items-center" style="color: var(--text-color);">
+                            Posso personalizar os templates após a compra?
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p style="color: var(--text-light);">Absolutamente! Todos os nossos templates foram projetados para serem personalizados de acordo com suas necessidades específicas. Alguns templates, como o "Liberdade para Criar", oferecem níveis ainda mais avançados de personalização. Fornecemos guias detalhados sobre como adaptar cada componente às suas preferências.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="card rounded-xl overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 font-medium flex justify-between items-center" style="color: var(--text-color);">
+                            Os templates funcionam em dispositivos móveis?
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p style="color: var(--text-light);">Sim, todos os nossos templates são otimizados para uso em dispositivos móveis. Os templates baseados no Notion funcionam perfeitamente no aplicativo Notion para iOS e Android, enquanto nossas soluções web são totalmente responsivas e adaptadas para diferentes tamanhos de tela.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="card rounded-xl overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 font-medium flex justify-between items-center" style="color: var(--text-color);">
+                            Como funciona a garantia de satisfação?
+                            <i class="fas fa-chevron-down transition-transform"></i>
+                        </button>
+                        <div class="faq-answer px-6 pb-6 hidden">
+                            <p style="color: var(--text-light);">Oferecemos garantia de satisfação de 15 dias para todos os nossos templates. Se você não estiver satisfeito com sua compra, basta entrar em contato com nosso suporte dentro desse período e processaremos o reembolso integral, sem perguntas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 text-white" style="background-color: #333;">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <span class="text-2xl font-bold text-white">Sophos</span>
+                        <span class="text-2xl font-light ml-1 text-gray-300">Academy</span>
+                    </div>
+                    <p class="text-gray-300 mb-6">Transforme sua jornada de aprendizado médico com nossas soluções avançadas e metodologias cientificamente comprovadas.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-green-400 transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-green-400 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-green-400 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-green-400 transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Templates</h3>
+                    <ul class="space-y-3">
+                        <li><a href="service-details-residencia.html" class="text-gray-300 hover:text-white transition">Residência Médica</a></li>
+                        <li><a href="service-details-vestibular.html" class="text-gray-300 hover:text-white transition">Projeto Vestibular</a></li>
+                        <li><a href="service-details-criar.html" class="text-gray-300 hover:text-white transition">Liberdade para Criar</a></li>
+                        <li><a href="service-details-rplus.html" class="text-gray-300 hover:text-white transition">Projeto R+</a></li>
+                        <li><a href="service-details-faculdade.html" class="text-gray-300 hover:text-white transition">Projeto Faculdade</a></li>
+                        <li><a href="service-details-notion.html" class="text-gray-300 hover:text-white transition">R+ Tainá para Notion</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Links Úteis</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Sobre Nós</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Blog</a></li>
+                        <li><a href="service-details.html" class="text-gray-300 hover:text-white transition">Preços</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Contato</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Termos de Uso</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Política de Privacidade</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Newsletter</h3>
+                    <p class="text-gray-300 mb-4">Receba novidades, dicas de estudo e promoções exclusivas.</p>
+                    <form class="mb-4">
+                        <div class="flex">
+                            <input type="email" placeholder="Seu email" class="px-4 py-2 rounded-l-md w-full focus:outline-none text-gray-800">
+                            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-r-md hover:bg-green-600 transition">Enviar</button>
+                        </div>
+                    </form>
+                    <p class="text-sm text-gray-400">Ao se inscrever, você concorda com nossa política de privacidade.</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-400">© 2025 Sophos Academy. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <div class="chatbot-button" id="chatbot-toggle">
+            <i class="fas fa-comments text-white text-xl"></i>
+        </div>
+        <div class="chatbot-panel" id="chatbot-panel">
+            <div class="chatbot-header">
+                <h3 class="font-bold text-white">Assistente Sophos</h3>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="mb-4">
+                    <div class="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg inline-block max-w-xs" style="background-color: var(--bg-light);">
+                        <p style="color: var(--text-color);">Olá! Como posso ajudar você a encontrar o template ideal para seus estudos?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <div class="flex">
+                    <input type="text" placeholder="Digite sua pergunta..." class="px-4 py-2 rounded-l-md w-full focus:outline-none" style="color: var(--text-color); background-color: var(--bg-light);">
+                    <button class="btn-primary px-4 py-2 rounded-r-md">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Theme Switcher
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            
+            // Check for saved theme preference or use device preference
+            const savedTheme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            
+            // Apply saved theme
+            if (savedTheme === 'dark') {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                htmlElement.removeAttribute('data-theme');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+            
+            // Theme toggle click event
+            themeToggle.addEventListener('click', function() {
+                if (htmlElement.getAttribute('data-theme') === 'dark') {
+                    htmlElement.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                } else {
+                    htmlElement.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                }
+            });
+            
+            // Mobile menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Initialize Swiper
+            const testimonialSwiper = new Swiper('.testimonial-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                },
+            });
+            
+            // FAQ accordions
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    
+                    answer.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
+            
+            // Chatbot toggle
+            const chatbotToggle = document.getElementById('chatbot-toggle');
+            const chatbotPanel = document.getElementById('chatbot-panel');
+            
+            chatbotToggle.addEventListener('click', () => {
+                chatbotPanel.style.display = chatbotPanel.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Testimonial tabs
+            const testimonialTabs = document.querySelectorAll('.testimonial-tab');
+            const testimonialSlides = document.querySelectorAll('.swiper-slide');
+            
+            testimonialTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active tab
+                    testimonialTabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.style.backgroundColor = 'var(--bg-color)';
+                        t.style.color = 'var(--text-color)';
+                    });
+                    tab.classList.add('active');
+                    tab.style.backgroundColor = 'var(--primary-color)';
+                    tab.style.color = 'white';
+                    
+                    const category = tab.dataset.tab;
+                    
+                    // Filter testimonials
+                    if (category === 'all') {
+                        testimonialSlides.forEach(slide => {
+                            slide.style.display = 'block';
+                        });
+                    } else {
+                        testimonialSlides.forEach(slide => {
+                            if (slide.dataset.category === category) {
+                                slide.style.display = 'block';
+                            } else {
+                                slide.style.display = 'none';
+                            }
+                        });
+                    }
+                    
+                    // Update swiper
+                    testimonialSwiper.update();
+                    testimonialSwiper.slideTo(0);
+                });
+            });
+            
+            // 3D Visualization
+            try {
+                initCanvas();
+            } catch (e) {
+                console.log('Three.js initialization skipped');
+            }
+        });
+        
+        // Three.js Canvas Initialization
+        function initCanvas() {
+            if (!document.getElementById('canvas-container')) return;
+            
+            const container = document.getElementById('canvas-container');
+            
+            // Create scene
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xf8f9fa);
+            
+            // Create camera
+            const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.z = 5;
+            
+            // Create renderer
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            container.appendChild(renderer.domElement);
+            
+            // Add cubes for each template
+            const templates = [
+                { name: 'Residência', color: 0x42b983, position: new THREE.Vector3(-3, 1, 0) },
+                { name: 'Vestibular', color: 0x4e63d7, position: new THREE.Vector3(-1.8, -1, 0) },
+                { name: 'Liberdade', color: 0xf59e0b, position: new THREE.Vector3(-0.6, 1, 0) },
+                { name: 'R+', color: 0xef4444, position: new THREE.Vector3(0.6, -1, 0) },
+                { name: 'Faculdade', color: 0x8b5cf6, position: new THREE.Vector3(1.8, 1, 0) },
+                { name: 'Notion', color: 0x10b981, position: new THREE.Vector3(3, -1, 0) }
+            ];
+            
+            const cubes = [];
+            templates.forEach(template => {
+                const geometry = new THREE.BoxGeometry(1, 1, 1);
+                const material = new THREE.MeshLambertMaterial({ color: template.color });
+                const cube = new THREE.Mesh(geometry, material);
+                cube.position.copy(template.position);
+                scene.add(cube);
+                cubes.push(cube);
+            });
+            
+            // Add lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(1, 1, 1);
+            scene.add(directionalLight);
+            
+            // Add connections between templates
+            const lineMaterial = new THREE.LineBasicMaterial({ color: 0xcccccc, opacity: 0.6, transparent: true });
+            
+            for (let i = 0; i < cubes.length - 1; i++) {
+                const points = [];
+                points.push(cubes[i].position);
+                points.push(cubes[i + 1].position);
+                const geometry = new THREE.BufferGeometry().setFromPoints(points);
+                const line = new THREE.Line(geometry, lineMaterial);
+                scene.add(line);
+            }
+            
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                cubes.forEach(cube => {
+                    cube.rotation.x += 0.01;
+                    cube.rotation.y += 0.01;
+                });
+                
+                renderer.render(scene, camera);
+            }
+            
+            animate();
+            
+            // Handle resize
+            window.addEventListener('resize', () => {
+                camera.aspect = container.clientWidth / container.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(container.clientWidth, container.clientHeight);
+            });
+            
+            // Update canvas theme when theme changes
+            const observer = new MutationObserver(mutations => {
+                mutations.forEach(mutation => {
+                    if (mutation.attributeName === 'data-theme') {
+                        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                        scene.background = new THREE.Color(isDark ? 0x1e1e1e : 0xf8f9fa);
+                    }
+                });
+            });
+            
+            observer.observe(document.documentElement, { attributes: true });
+        }
+        
+        // Recommender steps navigation
+        let currentStep = 1;
+        
+        function nextStep() {
+            document.getElementById(`recommender-step-${currentStep}`).classList.add('hidden');
+            currentStep++;
+            document.getElementById(`recommender-step-${currentStep}`).classList.remove('hidden');
+        }
+        
+        function prevStep() {
+            document.getElementById(`recommender-step-${currentStep}`).classList.add('hidden');
+            currentStep--;
+            document.getElementById(`recommender-step-${currentStep}`).classList.remove('hidden');
+        }
+        
+        function showResult() {
+            document.getElementById(`recommender-step-${currentStep}`).classList.add('hidden');
+            document.getElementById('recommender-result').classList.remove('hidden');
+        }
+        
+        function resetRecommender() {
+            document.getElementById('recommender-result').classList.add('hidden');
+            currentStep = 1;
+            document.getElementById(`recommender-step-${currentStep}`).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

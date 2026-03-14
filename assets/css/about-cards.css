@@ -1,0 +1,88 @@
+/* =============================================================
+   ABOUT SECTION - Card Animations & Responsiveness
+   Sophos Academy
+   ============================================================= */
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.about-feature-card-enhanced:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.about-feature-card-enhanced:hover .icon-bg {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.about-banner-enhanced::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.about-banner-enhanced::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 150px;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+}
+
+@media (max-width: 767px) {
+  .case-study-card {
+    margin-bottom: 20px;
+  }
+  .case-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  .case-info h4 {
+    font-size: 16px;
+  }
+  .case-content p {
+    font-size: 13px;
+  }
+  .case-result .result-number {
+    font-size: 22px;
+  }
+  .case-result .result-text {
+    font-size: 12px;
+  }
+  .about-banner-enhanced .banner-text {
+    padding: 20px;
+  }
+  .about-banner-enhanced h3 {
+    font-size: 1.8rem;
+  }
+  .about-banner-enhanced p {
+    font-size: 0.9rem;
+  }
+  .about-feature-card-enhanced {
+    padding: 25px 20px;
+  }
+  .about-feature-card-enhanced .icon-bg {
+    width: 55px;
+    height: 55px;
+  }
+  .about-feature-card-enhanced .icon-bg i {
+    font-size: 24px;
+  }
+  .about-feature-card-enhanced h3 {
+    font-size: 18px;
+  }
+  .about-feature-card-enhanced p {
+    font-size: 13px;
+  }
+}

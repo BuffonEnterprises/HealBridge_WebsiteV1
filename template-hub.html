@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Premium | Sophos Academy</title>
+    <meta name="description" content="Explore nossa coleção de produtos premium desenvolvidos para transformar seus estudos médicos.">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #42b983;
+            --primary-dark: #2D9C6A;
+            --secondary: #3498db;
+            --dark: #2c3e50;
+            --light-gray: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary) !important;
+        }
+
+        .nav-link {
+            color: var(--dark) !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        .btn-primary-custom {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(66, 185, 131, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(66, 185, 131, 0.1), transparent);
+            border-radius: 50%;
+            top: -150px;
+            right: -150px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons .btn {
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .filter-wrapper {
+            background: linear-gradient(135deg, rgba(66, 185, 131, 0.03) 0%, rgba(52, 152, 219, 0.03) 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(66, 185, 131, 0.15);
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-subtitle {
+            color: #64748b;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .btn-reset-filters {
+            background: white;
+            border: 1px solid #dee2e6;
+            color: var(--dark);
+            padding: 0.6rem 1.25rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-reset-filters:hover {
+            background: var(--light-gray);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-item {
+            background: white;
+            border-radius: 14px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s;
+        }
+
+        .filter-item:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .filter-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .filter-content {
+            flex: 1;
+        }
+
+        .filter-label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .filter-select-modern {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background: white;
+            font-size: 0.95rem;
+            color: var(--dark);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .filter-select-modern:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(66, 185, 131, 0.1);
+        }
+
+        .filter-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .btn-search-filters {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.85rem 2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(66, 185, 131, 0.3);
+        }
+
+        .btn-search-filters:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(66, 185, 131, 0.4);
+        }
+
+        .btn-search-filters:active {
+            transform: translateY(0);
+        }
+
+        /* Templates Grid */
+        .templates-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .template-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .template-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .template-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .template-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .template-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .template-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .template-tag {
+            background: rgba(66, 185, 131, 0.1);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .template-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .template-desc {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .template-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .template-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .template-rating {
+            color: #fbbf24;
+            font-size: 0.9rem;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .comparison-table {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .comparison-table table {
+            width: 100%;
+            margin: 0;
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .comparison-table th {
+            color: white;
+            padding: 1.25rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .comparison-table td {
+            padding: 1rem 1.25rem;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: rgba(66, 185, 131, 0.05);
+        }
+
+        .check-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .cross-icon {
+            color: #cbd5e1;
+            font-size: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            height: 100%;
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-title {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+            padding: 0.9rem 2.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            transition: all 0.3s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        footer a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span style="color: var(--primary);">Sophos</span> Academy
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a href="index.html" class="btn btn-primary-custom">Voltar ao Início</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1>Produtos Premium para Seus Estudos</h1>
+                    <p>Descubra ferramentas desenvolvidas por especialistas para acelerar seu aprendizado e maximizar seus resultados em medicina.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="assets/img/PRINTtemplatenotion.png" alt="Templates Sophos Academy" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparacao" class="comparison-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Compare os Recursos</h2>
+                <p>Veja lado a lado as funcionalidades de cada produto</p>
+            </div>
+
+            <div class="comparison-table" data-aos="fade-up">
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left;">Recursos</th>
+                                <th>Residência</th>
+                                <th>Vestibular</th>
+                                <th>Criar</th>
+                                <th>R+</th>
+                                <th>Faculdade</th>
+                                <th>Notion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: left; font-weight: 600;">Revisão Espaçada</td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; font-weight: 600;">Dashboard Analítico</td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-x-circle-fill cross-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; font-weight: 600;">Banco de Questões</td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-x-circle-fill cross-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-x-circle-fill cross-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; font-weight: 600;">Flashcards</td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-x-circle-fill cross-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; font-weight: 600;">Integração IA</td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-x-circle-fill cross-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-x-circle-fill cross-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: left; font-weight: 600;">Personalização</td>
+                                <td><i class="bi bi-x-circle-fill cross-icon"></i></td>
+                                <td><i class="bi bi-x-circle-fill cross-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                                <td><i class="bi bi-x-circle-fill cross-icon"></i></td>
+                                <td><i class="bi bi-check-circle-fill check-icon"></i></td>
+                            </tr>
+                            <tr style="background: rgba(66, 185, 131, 0.05);">
+                                <td style="text-align: left; font-weight: 700;">Preço</td>
+                                <td><strong>R$ 197</strong></td>
+                                <td><strong>R$ 147</strong></td>
+                                <td><strong>R$ 227</strong></td>
+                                <td><strong>R$ 297</strong></td>
+                                <td><strong>R$ 177</strong></td>
+                                <td><strong>R$ 197</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-wrapper" data-aos="fade-up">
+                <div class="filter-header">
+                    <div>
+                        <h3 class="filter-title">Encontre o Produto Ideal</h3>
+                        <p class="filter-subtitle">Use os filtros abaixo para encontrar exatamente o que você precisa</p>
+                    </div>
+                    <button class="btn-reset-filters" onclick="resetFilters()">
+                        <i class="bi bi-arrow-clockwise me-1"></i>Limpar Filtros
+                    </button>
+                </div>
+
+                <div class="filters-grid">
+                    <div class="filter-item">
+                        <div class="filter-icon">
+                            <i class="bi bi-mortarboard-fill"></i>
+                        </div>
+                        <div class="filter-content">
+                            <label class="filter-label">Fase de Estudo</label>
+                            <select class="filter-select-modern" id="filterFase">
+                                <option value="">Todas as fases</option>
+                                <option value="vestibular">Vestibular</option>
+                                <option value="graduacao">Graduação</option>
+                                <option value="residencia">Residência</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-item">
+                        <div class="filter-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <div class="filter-content">
+                            <label class="filter-label">Plataforma</label>
+                            <select class="filter-select-modern" id="filterPlataforma">
+                                <option value="">Todas as plataformas</option>
+                                <option value="notion">Notion</option>
+                                <option value="app">Aplicativo</option>
+                                <option value="web">Web</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="filter-item">
+                        <div class="filter-icon">
+                            <i class="bi bi-sort-down"></i>
+                        </div>
+                        <div class="filter-content">
+                            <label class="filter-label">Ordenar por</label>
+                            <select class="filter-select-modern" id="filterOrdem">
+                                <option value="popular">Mais Popular</option>
+                                <option value="preco-menor">Menor Preço</option>
+                                <option value="preco-maior">Maior Preço</option>
+                                <option value="avaliacao">Melhor Avaliação</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-actions">
+                    <button class="btn-search-filters" onclick="applyFilters()">
+                        <i class="bi bi-search me-2"></i>Buscar Produtos
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Grid -->
+    <section id="produtos" class="templates-section">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>Nossos Produtos Premium</h2>
+                <p>Cada produto foi desenvolvido para atender necessidades específicas do seu processo de aprendizado</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Template 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="template-card position-relative">
+                        <span class="template-badge">Mais Popular</span>
+                        <img src="assets/img/portfolio/notion-template-r-plus.jpg" alt="Projeto Residência" class="template-img">
+                        <div class="template-body">
+                            <div class="template-tags">
+                                <span class="template-tag">Residência</span>
+                            </div>
+                            <h3 class="template-title">Projeto Residência Médica</h3>
+                            <p class="template-desc">Sistema completo com revisão espaçada, banco de questões e dashboard analítico para aprovação em residência.</p>
+                            <div class="template-footer">
+                                <div class="template-price">R$ 197</div>
+                                <div class="template-rating">
+                                    <i class="bi bi-check-circle-fill"></i> Revisão Espaçada + IA
+                                </div>
+                            </div>
+                            <a href="service-details-residencia.html" class="btn btn-primary-custom w-100 mt-3">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="template-card">
+                        <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" alt="Projeto Vestibular" class="template-img">
+                        <div class="template-body">
+                            <div class="template-tags">
+                                <span class="template-tag">Vestibular</span>
+                            </div>
+                            <h3 class="template-title">Projeto Vestibular</h3>
+                            <p class="template-desc">Estratégia completa para aprovação no vestibular de medicina com cronograma adaptativo e materiais exclusivos.</p>
+                            <div class="template-footer">
+                                <div class="template-price">R$ 147</div>
+                                <div class="template-rating">
+                                    <i class="bi bi-check-circle-fill"></i> Active Recall + IA
+                                </div>
+                            </div>
+                            <a href="service-details-vestibular.html" class="btn btn-primary-custom w-100 mt-3">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="template-card">
+                        <img src="assets/img/portfolio/criar.jpg" alt="Liberdade para Criar" class="template-img">
+                        <div class="template-body">
+                            <div class="template-tags">
+                                <span class="template-tag">Personalizado</span>
+                            </div>
+                            <h3 class="template-title">Liberdade para Criar</h3>
+                            <p class="template-desc">Template flexível e totalmente personalizável para criar seu próprio sistema de estudos único.</p>
+                            <div class="template-footer">
+                                <div class="template-price">R$ 227</div>
+                                <div class="template-rating">
+                                    <i class="bi bi-check-circle-fill"></i> 100% Personalizável
+                                </div>
+                            </div>
+                            <a href="service-details-criar.html" class="btn btn-primary-custom w-100 mt-3">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="template-card">
+                        <img src="assets/img/portfolio/rplus.jpg" alt="Projeto R+" class="template-img">
+                        <div class="template-body">
+                            <div class="template-tags">
+                                <span class="template-tag">Avançado</span>
+                            </div>
+                            <h3 class="template-title">Projeto R+</h3>
+                            <p class="template-desc">Solução premium com IA integrada para otimização máxima do seu processo de aprendizado.</p>
+                            <div class="template-footer">
+                                <div class="template-price">R$ 297</div>
+                                <div class="template-rating">
+                                    <i class="bi bi-check-circle-fill"></i> Premium + Mentoria 1:1
+                                </div>
+                            </div>
+                            <a href="service-details-rplus.html" class="btn btn-primary-custom w-100 mt-3">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="template-card">
+                        <img src="assets/img/portfolio/faculdade.jpg" alt="Projeto Faculdade" class="template-img">
+                        <div class="template-body">
+                            <div class="template-tags">
+                                <span class="template-tag">Graduação</span>
+                            </div>
+                            <h3 class="template-title">Projeto Faculdade</h3>
+                            <p class="template-desc">Organização completa para os 6 anos da faculdade de medicina com gestão de disciplinas e resumos.</p>
+                            <div class="template-footer">
+                                <div class="template-price">R$ 177</div>
+                                <div class="template-rating">
+                                    <i class="bi bi-check-circle-fill"></i> 6 Anos de Medicina
+                                </div>
+                            </div>
+                            <a href="service-details-faculdade.html" class="btn btn-primary-custom w-100 mt-3">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template 6 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="template-card">
+                        <img src="assets/img/PRINTtemplatenotion.png" alt="R+ Tainá Notion" class="template-img">
+                        <div class="template-body">
+                            <div class="template-tags">
+                                <span class="template-tag">Notion</span>
+                            </div>
+                            <h3 class="template-title">R+ Tainá para Notion</h3>
+                            <p class="template-desc">Template otimizado para Notion com sistema de revisão espaçada e biblioteca de resumos completa.</p>
+                            <div class="template-footer">
+                                <div class="template-price">R$ 197</div>
+                                <div class="template-rating">
+                                    <i class="bi bi-check-circle-fill"></i> Notion Otimizado
+                                </div>
+                            </div>
+                            <a href="service-details-notion.html" class="btn btn-primary-custom w-100 mt-3">Ver Detalhes</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="footer-logo">Sophos Academy</div>
+                    <p style="color: #cbd5e1;">Transformando a forma como estudantes de medicina aprendem e alcançam seus objetivos.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Início</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Contato</h5>
+                    <p style="color: #cbd5e1;">
+                        <i class="bi bi-envelope me-2"></i>contato@sophosacademy.com<br>
+                        <i class="bi bi-instagram me-2"></i>@sophosacademy
+                    </p>
+                </div>
+            </div>
+            <hr style="border-color: #374151; margin: 2rem 0;">
+            <div class="text-center" style="color: #9ca3af;">
+                <p class="mb-0">&copy; 2025 Sophos Academy. Desenvolvido por Healbridge™</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Reset filters function
+        function resetFilters() {
+            document.getElementById('filterFase').value = '';
+            document.getElementById('filterPlataforma').value = '';
+            document.getElementById('filterOrdem').value = 'popular';
+            applyFilters();
+        }
+
+        // Apply filters function
+        function applyFilters() {
+            const fase = document.getElementById('filterFase').value;
+            const plataforma = document.getElementById('filterPlataforma').value;
+            const ordem = document.getElementById('filterOrdem').value;
+
+            const cards = document.querySelectorAll('.template-card');
+
+            cards.forEach(card => {
+                let shouldShow = true;
+
+                // Filter by fase
+                if (fase) {
+                    const tags = card.querySelector('.template-tag');
+                    if (tags) {
+                        const tagText = tags.textContent.toLowerCase();
+                        const faseMatch = {
+                            'vestibular': 'vestibular',
+                            'graduacao': 'graduação',
+                            'residencia': 'residência'
+                        };
+                        if (!tagText.includes(faseMatch[fase])) {
+                            shouldShow = false;
+                        }
+                    }
+                }
+
+                // Filter by plataforma
+                if (plataforma) {
+                    const title = card.querySelector('.template-title').textContent.toLowerCase();
+                    if (plataforma === 'notion' && !title.includes('notion')) {
+                        shouldShow = false;
+                    }
+                }
+
+                if (shouldShow) {
+                    card.parentElement.style.display = 'block';
+                } else {
+                    card.parentElement.style.display = 'none';
+                }
+            });
+
+            // Scroll to products section
+            document.getElementById('produtos').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Versão no Notion - Sophos Academy | Templates Prontos para Usar</title>
+  <meta name="description" content="Templates médicos profissionais para Notion. Organize seus estudos com sistemas comprovados.">
+  <meta name="keywords" content="notion medicina, templates notion, organização estudos, produtividade médica">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --notion-black: #37352f;
+      --notion-gray: #787774;
+      --notion-brown: #9f6b53;
+      --notion-orange: #d9730d;
+      --notion-yellow: #dfab01;
+      --notion-green: #0f7b6c;
+      --notion-blue: #0b6e99;
+      --notion-purple: #6940a5;
+      --notion-pink: #ad1a72;
+      --notion-red: #e03e3e;
+      --notion-bg: #ffffff;
+      --notion-bg-gray: #f7f6f3;
+      --clean-gradient: linear-gradient(135deg, #37352f 0%, #6940a5 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--notion-black);
+      overflow-x: hidden;
+      background: var(--notion-bg);
+    }
+
+    /* Hero Section */
+    .hero-notion {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--notion-bg-gray);
+      overflow: hidden;
+      padding: 120px 0 80px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .notion-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--notion-bg);
+      padding: 8px 20px;
+      border-radius: 6px;
+      color: var(--notion-gray);
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      border: 1px solid #e3e2df;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .notion-badge i {
+      font-size: 1.1rem;
+      color: var(--notion-black);
+    }
+
+    .hero-title {
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: var(--notion-black);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title .notion-highlight {
+      color: var(--notion-purple);
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--notion-gray);
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 600px;
+      font-weight: 400;
+    }
+
+    .hero-stats-minimal {
+      display: flex;
+      gap: 48px;
+      margin: 48px 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-minimal {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-minimal-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--notion-black);
+      line-height: 1;
+    }
+
+    .stat-minimal-label {
+      font-size: 0.875rem;
+      color: var(--notion-gray);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .btn-notion-primary {
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: var(--notion-black);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-notion-primary:hover {
+      background: var(--notion-purple);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(105, 64, 165, 0.2);
+      color: #fff;
+    }
+
+    .btn-notion-secondary {
+      padding: 14px 32px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: var(--notion-bg);
+      color: var(--notion-black);
+      border: 1px solid #e3e2df;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-notion-secondary:hover {
+      background: var(--notion-bg-gray);
+      border-color: var(--notion-gray);
+      transform: translateY(-1px);
+      color: var(--notion-black);
+    }
+
+    .hero-visual-notion {
+      position: relative;
+      z-index: 2;
+    }
+
+    .notion-preview {
+      background: #fff;
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e3e2df;
+    }
+
+    .notion-page-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .notion-emoji {
+      font-size: 3rem;
+    }
+
+    .notion-title-text {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--notion-black);
+    }
+
+    .notion-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .notion-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      background: var(--notion-bg-gray);
+      border-radius: 4px;
+      font-size: 0.95rem;
+      color: var(--notion-black);
+    }
+
+    .notion-block i {
+      color: var(--notion-gray);
+    }
+
+    /* Templates Section */
+    .templates-section {
+      padding: 120px 0;
+      background: #fff;
+    }
+
+    .section-title-clean {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    .section-title-clean h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--notion-black);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title-clean p {
+      font-size: 1.25rem;
+      color: var(--notion-gray);
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .template-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 32px;
+      border: 1px solid #e3e2df;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .template-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      border-color: var(--notion-purple);
+    }
+
+    .template-emoji {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .template-card h4 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--notion-black);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .template-card p {
+      color: var(--notion-gray);
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .template-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: var(--notion-bg-gray);
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: var(--notion-gray);
+      font-weight: 500;
+    }
+
+    /* Features Section */
+    .features-notion {
+      padding: 120px 0;
+      background: var(--notion-bg-gray);
+    }
+
+    .features-grid-clean {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .feature-clean {
+      display: flex;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .feature-icon-clean {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: var(--notion-bg);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--notion-purple);
+      border: 1px solid #e3e2df;
+    }
+
+    .feature-content-clean h5 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--notion-black);
+      margin-bottom: 8px;
+    }
+
+    .feature-content-clean p {
+      color: var(--notion-gray);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* Pricing Section */
+    .pricing-notion {
+      padding: 120px 0;
+      background: #fff;
+    }
+
+    .pricing-cards-notion {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 70px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-card-notion {
+      background: #fff;
+      border-radius: 8px;
+      padding: 48px 36px;
+      border: 1px solid #e3e2df;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .pricing-card-notion.featured {
+      border-color: var(--notion-purple);
+      box-shadow: 0 8px 32px rgba(105, 64, 165, 0.12);
+      transform: scale(1.02);
+    }
+
+    .popular-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--notion-purple);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .pricing-card-notion:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .pricing-card-notion.featured:hover {
+      transform: scale(1.04) translateY(-4px);
+    }
+
+    .plan-name-notion {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--notion-black);
+      margin-bottom: 12px;
+    }
+
+    .plan-desc-notion {
+      color: var(--notion-gray);
+      margin-bottom: 28px;
+      font-size: 0.95rem;
+    }
+
+    .plan-price-notion {
+      margin: 32px 0;
+    }
+
+    .price-value-notion {
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--notion-black);
+      line-height: 1;
+    }
+
+    .price-period-notion {
+      font-size: 1rem;
+      color: var(--notion-gray);
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .plan-features-notion {
+      list-style: none;
+      padding: 0;
+      margin: 32px 0;
+    }
+
+    .plan-features-notion li {
+      padding: 12px 0;
+      color: var(--notion-black);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+
+    .plan-features-notion li i {
+      color: var(--notion-green);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .btn-notion-cta {
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .btn-notion-primary-cta {
+      background: var(--notion-black);
+      color: #fff;
+    }
+
+    .btn-notion-primary-cta:hover {
+      background: var(--notion-purple);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(105, 64, 165, 0.2);
+      color: #fff;
+    }
+
+    .btn-notion-secondary-cta {
+      background: var(--notion-bg-gray);
+      color: var(--notion-black);
+      border: 1px solid #e3e2df;
+    }
+
+    .btn-notion-secondary-cta:hover {
+      background: var(--notion-bg);
+      border-color: var(--notion-gray);
+      transform: translateY(-2px);
+      color: var(--notion-black);
+    }
+
+    /* CTA Final */
+    .cta-notion {
+      padding: 120px 0;
+      background: var(--notion-bg-gray);
+      text-align: center;
+    }
+
+    .cta-notion-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-notion h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--notion-black);
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .cta-notion p {
+      font-size: 1.5rem;
+      color: var(--notion-gray);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .btn-cta-notion-large {
+      padding: 18px 48px;
+      font-size: 1.125rem;
+      font-weight: 700;
+      background: var(--notion-black);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-cta-notion-large:hover {
+      background: var(--notion-purple);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(105, 64, 165, 0.25);
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 3rem;
+      }
+
+      .features-grid-clean {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .section-title-clean h2 {
+        font-size: 2.2rem;
+      }
+
+      .cta-notion h2 {
+        font-size: 2.5rem;
+      }
+
+      .pricing-card-notion.featured {
+        transform: scale(1);
+      }
+
+      .hero-cta-group {
+        flex-direction: column;
+      }
+
+      .btn-notion-primary,
+      .btn-notion-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+  </style>
+</head>
+
+<body class="service-details-page">
+
+  <!-- Navbar - ESPECIFICACOES EXATAS DO TEMPLATE-HUB.HTML -->
+  <nav style="background:#0a0a0a !important;box-shadow:0 2px 10px rgba(0,0,0,0.05) !important;padding:16px 0 !important;position:sticky !important;top:0 !important;z-index:9999 !important;">
+    <div style="width:100% !important;max-width:1320px !important;margin:0 auto !important;padding:0 12px !important;display:flex !important;align-items:center !important;justify-content:space-between !important;box-sizing:border-box !important;">
+      <a href="index.html" style="font-size:24px !important;font-weight:700 !important;color:#fff !important;text-decoration:none !important;line-height:1.2 !important;padding:0 !important;margin:0 !important;"><span style="color:#42b983 !important;">Sophos</span> Academy</a>
+      <a href="index.html" style="background:#42b983 !important;color:#fff !important;border:none !important;padding:9.6px 24px !important;border-radius:8px !important;font-weight:600 !important;font-size:16px !important;text-decoration:none !important;display:inline-block !important;margin:0 !important;line-height:1.5 !important;">Voltar ao Início</a>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section class="hero-notion">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 hero-content" data-aos="fade-right">
+            <div class="notion-badge">
+              <i class="bi bi-file-earmark-text"></i>
+              <span>Templates para Notion</span>
+            </div>
+            <h1 class="hero-title">
+              Organize Seus Estudos no <span class="notion-highlight">Notion</span>
+            </h1>
+            <p class="hero-subtitle">
+              Templates médicos prontos. Copie, personalize e comece a usar imediatamente. Sistemas comprovados de organização.
+            </p>
+
+            <div class="hero-stats-minimal">
+              <div class="stat-minimal">
+                <span class="stat-minimal-number">50+</span>
+                <span class="stat-minimal-label">Templates</span>
+              </div>
+              <div class="stat-minimal">
+                <span class="stat-minimal-number">100%</span>
+                <span class="stat-minimal-label">Customizável</span>
+              </div>
+              <div class="stat-minimal">
+                <span class="stat-minimal-number">2026</span>
+                <span class="stat-minimal-label">Atualizado</span>
+              </div>
+            </div>
+
+            <div class="hero-cta-group">
+              <a href="#pricing" class="btn-notion-primary">
+                <i class="bi bi-download"></i>
+                Baixar Templates
+              </a>
+              <a href="#templates" class="btn-notion-secondary">
+                <i class="bi bi-eye"></i>
+                Ver Exemplos
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 hero-visual-notion" data-aos="fade-left" data-aos-delay="200">
+            <div class="notion-preview">
+              <div class="notion-page-title">
+                <span class="notion-emoji">📚</span>
+                <span class="notion-title-text">Meus Estudos</span>
+              </div>
+              <div class="notion-blocks">
+                <div class="notion-block">
+                  <i class="bi bi-check-circle"></i>
+                  <span>Sistema de revisão espaçada</span>
+                </div>
+                <div class="notion-block">
+                  <i class="bi bi-calendar3"></i>
+                  <span>Cronograma semanal automático</span>
+                </div>
+                <div class="notion-block">
+                  <i class="bi bi-journal-bookmark"></i>
+                  <span>Database de questões resolvidas</span>
+                </div>
+                <div class="notion-block">
+                  <i class="bi bi-graph-up"></i>
+                  <span>Tracker de progresso e metas</span>
+                </div>
+                <div class="notion-block">
+                  <i class="bi bi-folder2"></i>
+                  <span>Biblioteca de resumos organizada</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="templates-section">
+      <div class="container">
+        <div class="section-title-clean" data-aos="fade-up">
+          <h2>Templates Disponíveis</h2>
+          <p>Escolha entre diversos templates prontos para uso</p>
+        </div>
+
+        <div class="templates-grid">
+          <div class="template-card" data-aos="fade-up" data-aos-delay="100">
+            <span class="template-emoji">📖</span>
+            <h4>Dashboard de Estudos</h4>
+            <p>Visão completa dos seus estudos. Calendário, metas, progresso e estatísticas em uma página.</p>
+            <span class="template-tag">
+              <i class="bi bi-star-fill"></i>
+              Mais popular
+            </span>
+          </div>
+
+          <div class="template-card" data-aos="fade-up" data-aos-delay="200">
+            <span class="template-emoji">🔄</span>
+            <h4>Sistema de Revisões</h4>
+            <p>Algoritmo de revisão espaçada integrado. Nunca mais esqueça de revisar um assunto.</p>
+            <span class="template-tag">
+              <i class="bi bi-fire"></i>
+              Essencial
+            </span>
+          </div>
+
+          <div class="template-card" data-aos="fade-up" data-aos-delay="300">
+            <span class="template-emoji">📝</span>
+            <h4>Banco de Questões</h4>
+            <p>Database completa para catalogar questões resolvidas com filtros e tags inteligentes.</p>
+            <span class="template-tag">
+              <i class="bi bi-trophy"></i>
+              Avançado
+            </span>
+          </div>
+
+          <div class="template-card" data-aos="fade-up" data-aos-delay="400">
+            <span class="template-emoji">📅</span>
+            <h4>Planejador Semanal</h4>
+            <p>Template visual para planejar sua semana com blocos de tempo e prioridades.</p>
+            <span class="template-tag">
+              <i class="bi bi-clock"></i>
+              Produtividade
+            </span>
+          </div>
+
+          <div class="template-card" data-aos="fade-up" data-aos-delay="500">
+            <span class="template-emoji">🎯</span>
+            <h4>Tracker de Metas</h4>
+            <p>Acompanhe objetivos de curto e longo prazo com visualizações de progresso.</p>
+            <span class="template-tag">
+              <i class="bi bi-graph-up-arrow"></i>
+              Motivação
+            </span>
+          </div>
+
+          <div class="template-card" data-aos="fade-up" data-aos-delay="600">
+            <span class="template-emoji">📚</span>
+            <h4>Biblioteca Digital</h4>
+            <p>Organize todos seus materiais, PDFs e links em um sistema de biblioteca completo.</p>
+            <span class="template-tag">
+              <i class="bi bi-folder2-open"></i>
+              Organização
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Details with Sidebar -->
+    <section class="product-details-section" style="padding: 80px 0; background: #fff;">
+      <div class="container">
+        <div class="row gy-5">
+
+          <!-- Sidebar -->
+          <div class="col-lg-3" data-aos="fade-right">
+
+            <div class="service-box" style="background: var(--notion-bg-gray); border-radius: 8px; padding: 32px; margin-bottom: 24px; border: 1px solid #e3e2df;">
+              <h4 style="font-size: 1.3rem; font-weight: 600; color: var(--notion-black); margin-bottom: 20px;">Nossos Templates</h4>
+              <div class="services-list" style="display: flex; flex-direction: column; gap: 12px;">
+                <a href="service-details-vestibular.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #fff; color: var(--notion-black); border-radius: 6px; text-decoration: none; transition: all 0.2s ease; border: 1px solid #e3e2df;"><i class="bi bi-arrow-right-circle"></i><span>Projeto Vestibular</span></a>
+                <a href="service-details-residencia.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #fff; color: var(--notion-black); border-radius: 6px; text-decoration: none; transition: all 0.2s ease; border: 1px solid #e3e2df;"><i class="bi bi-arrow-right-circle"></i><span>Projeto Residência Médica</span></a>
+                <a href="service-details-criar.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #fff; color: var(--notion-black); border-radius: 6px; text-decoration: none; transition: all 0.2s ease; border: 1px solid #e3e2df;"><i class="bi bi-arrow-right-circle"></i><span>Liberdade para Criar</span></a>
+                <a href="service-details-rplus.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #fff; color: var(--notion-black); border-radius: 6px; text-decoration: none; transition: all 0.2s ease; border: 1px solid #e3e2df;"><i class="bi bi-arrow-right-circle"></i><span>Projeto R+</span></a>
+                <a href="service-details-faculdade.html" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: #fff; color: var(--notion-black); border-radius: 6px; text-decoration: none; transition: all 0.2s ease; border: 1px solid #e3e2df;"><i class="bi bi-arrow-right-circle"></i><span>Projeto Faculdade</span></a>
+                <a href="service-details-notion.html" class="active" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--notion-black); color: #fff; border-radius: 6px; text-decoration: none; transition: all 0.2s ease; font-weight: 600;"><i class="bi bi-arrow-right-circle"></i><span>Versão no Notion</span></a>
+              </div>
+            </div>
+
+            <div class="help-box" style="background: var(--notion-black); border-radius: 8px; padding: 40px 32px; text-align: center; color: #fff;">
+              <i class="bi bi-headset" style="font-size: 3rem; margin-bottom: 20px; display: block;"></i>
+              <h4 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 16px;">Precisa de Ajuda?</h4>
+              <p style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0; font-size: 0.95rem;"><i class="bi bi-telephone"></i> <span>(51) 3333-4444</span></p>
+              <p style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 12px 0; font-size: 0.95rem;"><i class="bi bi-envelope"></i> <a href="mailto:contato@meds-ai.com" style="color: #fff; text-decoration: none;">contato@meds-ai.com</a></p>
+            </div>
+
+          </div>
+
+          <!-- Main Content -->
+          <div class="col-lg-9" data-aos="fade-left">
+
+    <!-- Features Section -->
+    <section class="features-notion" style="padding: 60px 0;">
+        <div class="section-title-clean" data-aos="fade-up">
+          <h2>Por Que Usar Nossos Templates</h2>
+          <p>Benefícios de um sistema organizado</p>
+        </div>
+
+        <div class="features-grid-clean">
+          <div class="feature-clean" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-icon-clean">
+              <i class="bi bi-lightning"></i>
+            </div>
+            <div class="feature-content-clean">
+              <h5>Comece Imediatamente</h5>
+              <p>Templates prontos para duplicar. Em 5 minutos você já está usando um sistema completo de organização.</p>
+            </div>
+          </div>
+
+          <div class="feature-clean" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-icon-clean">
+              <i class="bi bi-gear"></i>
+            </div>
+            <div class="feature-content-clean">
+              <h5>100% Customizável</h5>
+              <p>Todos os templates podem ser modificados. Adapte cores, campos e estrutura ao seu gosto.</p>
+            </div>
+          </div>
+
+          <div class="feature-clean" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-icon-clean">
+              <i class="bi bi-award"></i>
+            </div>
+            <div class="feature-content-clean">
+              <h5>Sistema Comprovado</h5>
+              <p>Baseado em metodologias testadas por milhares de estudantes aprovados.</p>
+            </div>
+          </div>
+
+          <div class="feature-clean" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-icon-clean">
+              <i class="bi bi-arrow-clockwise"></i>
+            </div>
+            <div class="feature-content-clean">
+              <h5>Atualizações Gratuitas</h5>
+              <p>Novos templates e melhorias adicionados mensalmente sem custo adicional.</p>
+            </div>
+          </div>
+
+          <div class="feature-clean" data-aos="fade-up" data-aos-delay="500">
+            <div class="feature-icon-clean">
+              <i class="bi bi-book"></i>
+            </div>
+            <div class="feature-content-clean">
+              <h5>Guia Completo Incluído</h5>
+              <p>Tutorial em vídeo e PDF explicando como usar cada template efetivamente.</p>
+            </div>
+          </div>
+
+          <div class="feature-clean" data-aos="fade-up" data-aos-delay="600">
+            <div class="feature-icon-clean">
+              <i class="bi bi-people"></i>
+            </div>
+            <div class="feature-content-clean">
+              <h5>Comunidade Ativa</h5>
+              <p>Acesso a grupo exclusivo onde usuários compartilham dicas e personalizações.</p>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing-notion">
+        <div class="section-title-clean" data-aos="fade-up">
+          <h2>Planos Simples</h2>
+          <p>Escolha o que faz sentido para você</p>
+        </div>
+
+        <div class="pricing-cards-notion">
+          <div class="pricing-card-notion" data-aos="fade-up" data-aos-delay="100">
+            <h3 class="plan-name-notion">Básico</h3>
+            <p class="plan-desc-notion">Para quem está começando</p>
+            <div class="plan-price-notion">
+              <div class="price-value-notion">R$ 49</div>
+              <div class="price-period-notion">pagamento único</div>
+            </div>
+            <ul class="plan-features-notion">
+              <li><i class="bi bi-check-circle-fill"></i> 5 templates essenciais</li>
+              <li><i class="bi bi-check-circle-fill"></i> Guia de uso em PDF</li>
+              <li><i class="bi bi-check-circle-fill"></i> Atualizações gratuitas</li>
+              <li><i class="bi bi-check-circle-fill"></i> Suporte por email</li>
+            </ul>
+            <a href="#" class="btn-notion-cta btn-notion-secondary-cta">Começar Agora</a>
+          </div>
+
+          <div class="pricing-card-notion featured" data-aos="fade-up" data-aos-delay="200">
+            <div class="popular-tag">RECOMENDADO</div>
+            <h3 class="plan-name-notion">Completo</h3>
+            <p class="plan-desc-notion">Pacote completo de templates</p>
+            <div class="plan-price-notion">
+              <div class="price-value-notion">R$ 97</div>
+              <div class="price-period-notion">pagamento único</div>
+            </div>
+            <ul class="plan-features-notion">
+              <li><i class="bi bi-check-circle-fill"></i> 50+ templates médicos</li>
+              <li><i class="bi bi-check-circle-fill"></i> Vídeos tutoriais completos</li>
+              <li><i class="bi bi-check-circle-fill"></i> Acesso à comunidade</li>
+              <li><i class="bi bi-check-circle-fill"></i> Templates novos mensais</li>
+              <li><i class="bi bi-check-circle-fill"></i> Suporte prioritário</li>
+            </ul>
+            <a href="#" class="btn-notion-cta btn-notion-primary-cta">Começar Agora</a>
+          </div>
+
+          <div class="pricing-card-notion" data-aos="fade-up" data-aos-delay="300">
+            <h3 class="plan-name-notion">Pro</h3>
+            <p class="plan-desc-notion">Solução completa + consultoria</p>
+            <div class="plan-price-notion">
+              <div class="price-value-notion">R$ 197</div>
+              <div class="price-period-notion">pagamento único</div>
+            </div>
+            <ul class="plan-features-notion">
+              <li><i class="bi bi-check-circle-fill"></i> Tudo do Completo</li>
+              <li><i class="bi bi-check-circle-fill"></i> Setup personalizado (1h)</li>
+              <li><i class="bi bi-check-circle-fill"></i> Consultoria de organização</li>
+              <li><i class="bi bi-check-circle-fill"></i> Templates sob demanda</li>
+              <li><i class="bi bi-check-circle-fill"></i> Suporte WhatsApp direto</li>
+            </ul>
+            <a href="#" class="btn-notion-cta btn-notion-secondary-cta">Começar Agora</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Notion -->
+    <section class="cta-notion">
+      <div class="cta-notion-content" data-aos="zoom-in" style="max-width: none;">
+        <h2>Organize Seus Estudos Hoje</h2>
+        <p>Templates médicos prontos para uso com metodologia de revisão espaçada</p>
+        <p style="font-size: 1.125rem; margin-top: 24px; color: var(--notion-gray);">
+          Pagamento único. Sem mensalidades. Atualizações gratuitas para sempre.
+        </p>
+        <a href="#pricing" class="btn-cta-notion-large">
+          <i class="bi bi-download"></i>
+          Baixar Templates Agora
+        </a>
+        <p style="font-size: 0.875rem; margin-top: 32px; color: var(--notion-gray);">
+          <i class="bi bi-shield-check me-2"></i>
+          Garantia de 7 dias • Reembolso sem perguntas
+        </p>
+      </div>
+    </section>
+
+          </div><!-- End Main Content -->
+
+        </div><!-- End Row -->
+      </div><!-- End Container -->
+    </section><!-- End Product Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer" style="background: var(--notion-bg-gray); border-top: 1px solid #e3e2df; color: var(--notion-black);">
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6">
+          <h4 style="color: var(--notion-black);">Sophos Academy</h4>
+          <p style="color: var(--notion-gray); margin-top: 12px; font-size: 0.875rem;">Templates Notion para medicina</p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 style="color: var(--notion-black);">Contato</h4>
+          <p style="color: var(--notion-gray); margin-top: 12px; font-size: 0.875rem;">
+            <strong>Email:</strong> templates@meds-ai.com
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 style="color: var(--notion-black);">Suporte</h4>
+          <p style="color: var(--notion-gray); margin-top: 12px; font-size: 0.875rem;">
+            <strong>Seg-Sex:</strong> 9h - 18h
+          </p>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4 style="color: var(--notion-black);">Siga-nos</h4>
+          <div class="social-links d-flex" style="margin-top: 12px;">
+            <a href="#" style="color: var(--notion-gray); margin-right: 16px;"><i class="bi bi-instagram"></i></a>
+            <a href="#" style="color: var(--notion-gray); margin-right: 16px;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" style="color: var(--notion-gray);"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container text-center mt-4" style="padding-top: 24px; border-top: 1px solid #e3e2df;">
+      <p style="color: var(--notion-gray); font-size: 0.875rem;">
+        © 2024 <strong style="color: var(--notion-black);">Sophos Academy</strong> • Todos os direitos reservados
+      </p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" style="background: var(--notion-black);"><i class="bi bi-arrow-up-short" style="color: #fff;"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true,
+      mirror: false
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

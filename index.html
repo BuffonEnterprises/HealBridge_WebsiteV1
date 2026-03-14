@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HealBridge — Conectando Saude e Tecnologia</title>
+  <meta name="description" content="HealBridge — Empresa de tecnologia especializada em mentoria e aplicacoes com IA na area medica. Desenvolvedora da Sophos Academy.">
+  <meta name="author" content="HealBridge">
+  <meta property="og:title" content="HealBridge — Conectando Saude e Tecnologia">
+  <meta property="og:description" content="Tecnologia e IA aplicadas a saude. Desenvolvedora da Sophos Academy.">
+  <meta property="og:type" content="website">
+  <link href="assets/img/favicon.png" rel="icon">
+
+  <!-- Fonts: Outfit (geometric body) + DM Serif Display (editorial display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+/* ===========================================================
+   0. DESIGN TOKENS
+   =========================================================== */
+:root {
+  /* ── Brand from logo ── */
+  --green: #1DB954;
+  --green-hi: #25d060;
+  --green-lo: #159244;
+  --green-glow: rgba(29,185,84,.3);
+  --green-mist: rgba(29,185,84,.05);
+
+  /* Charcoal tones (from logo bars) */
+  --char: #2d2d2d;
+  --char-lt: #555555;
+  --char-mist: rgba(45,45,45,.12);
+
+  /* Surfaces — charcoal-tinted dark */
+  --s0: #080808;
+  --s1: #0d0d0f;
+  --s2: #131315;
+  --s3: #1a1a1d;
+  --s4: #222225;
+  --s5: #2c2c30;
+
+  /* Text */
+  --t0: #f2f2f5;
+  --t1: #c5c5ce;
+  --t2: #8a8a98;
+  --t3: #55555f;
+  --t4: #38383f;
+
+  /* Fonts (geometric like logo) */
+  --sans: 'Outfit', system-ui, sans-serif;
+  --display: 'DM Serif Display', Georgia, serif;
+
+  /* Easing */
+  --expo: cubic-bezier(.16,1,.3,1);
+  --spring: cubic-bezier(.34,1.56,.64,1);
+  --smooth: cubic-bezier(.4,0,.2,1);
+}
+
+/* ===========================================================
+   1. RESET
+   =========================================================== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--sans);font-weight:400;background:var(--s0);color:var(--t1);overflow-x:hidden;cursor:none;letter-spacing:.015em;line-height:1.65}
+::selection{background:var(--green);color:var(--s0)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--s0)}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:3px}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+@media(max-width:1024px){
+  body{cursor:auto}
+  .cur-dot,.cur-ring{display:none!important}
+}
+
+/* ===========================================================
+   2. CURSOR
+   =========================================================== */
+.cur-dot{
+  width:6px;height:6px;background:var(--green);border-radius:50%;
+  position:fixed;pointer-events:none;z-index:99999;
+  mix-blend-mode:difference;will-change:transform;
+}
+.cur-ring{
+  width:42px;height:42px;
+  border:1px solid rgba(29,185,84,.35);border-radius:50%;
+  position:fixed;pointer-events:none;z-index:99998;
+  will-change:transform;
+  transition:width .35s var(--expo),height .35s var(--expo),
+             border-color .3s,background .3s;
+}
+.cur-ring.active{
+  width:64px;height:64px;
+  background:rgba(29,185,84,.05);border-color:var(--green);
+}
+
+/* ===========================================================
+   3. PRELOADER
+   =========================================================== */
+.preloader{
+  position:fixed;inset:0;background:var(--s0);z-index:100000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  transition:opacity .9s var(--expo),visibility .9s;
+}
+.preloader.hide{opacity:0;visibility:hidden;pointer-events:none}
+
+.preloader .pl-logo{
+  width:120px;height:120px;object-fit:contain;
+  margin-bottom:1.5rem;
+  mix-blend-mode:screen;
+  opacity:0;animation:plFade 1s var(--expo) .3s forwards;
+}
+@keyframes plFade{to{opacity:1}}
+.preloader .pl-bar-bg{
+  width:100px;height:1px;background:var(--s4);margin-top:1.4rem;
+  overflow:hidden;opacity:0;animation:plFade .4s ease 1s forwards;
+}
+.preloader .pl-bar{
+  height:100%;width:0;background:var(--green);
+  animation:plFill 1.1s var(--expo) 1.1s forwards;
+}
+@keyframes plFill{to{width:100%}}
+
+/* ===========================================================
+   4. SCROLL PROGRESS
+   =========================================================== */
+.scroll-prog{
+  position:fixed;top:0;left:0;height:2px;width:0;
+  background:var(--green);z-index:10000;
+  pointer-events:none;will-change:width;
+}
+
+/* ===========================================================
+   5. NOISE TEXTURE
+   =========================================================== */
+.noise{
+  position:fixed;inset:0;z-index:9000;pointer-events:none;
+  opacity:.02;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px;
+}
+
+/* ===========================================================
+   6. NAVBAR
+   =========================================================== */
+.nav{
+  position:fixed;top:0;width:100%;z-index:9999;
+  padding:1.3rem 0;
+  transition:padding .5s var(--expo),background .5s var(--expo),
+             box-shadow .5s var(--expo),border-color .5s;
+  border-bottom:1px solid transparent;
+}
+.nav.pinned{
+  padding:.65rem 0;
+  background:rgba(4,5,6,.82);
+  backdrop-filter:blur(36px) saturate(1.6);
+  -webkit-backdrop-filter:blur(36px) saturate(1.6);
+  border-bottom-color:rgba(255,255,255,.04);
+  box-shadow:0 4px 30px rgba(0,0,0,.25);
+}
+.nav-wrap{
+  max-width:1200px;margin:0 auto;padding:0 2.5rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+
+/* Brand */
+.brand{display:flex;align-items:center;gap:.7rem}
+.brand img{width:34px;height:34px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen}
+.brand-name{
+  font-family:var(--sans);font-size:.82rem;font-weight:800;
+  letter-spacing:3.5px;text-transform:uppercase;color:var(--t0);
+}
+.brand-name .g{color:var(--green)}
+
+/* Links */
+.nav-links{display:flex;align-items:center;gap:.15rem}
+.nav-links a{
+  font-size:.7rem;font-weight:600;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--t3);
+  padding:.5rem 1rem;position:relative;
+  transition:color .35s var(--smooth);
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:2px;left:50%;
+  width:0;height:1.5px;background:var(--green);border-radius:1px;
+  transition:width .4s var(--expo),left .4s var(--expo);
+}
+.nav-links a:hover{color:var(--t0)}
+.nav-links a:hover::after{width:60%;left:20%}
+
+/* Mobile */
+.nav-tog{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;
+}
+.nav-tog span{display:block;width:20px;height:1.5px;background:var(--t0);transition:all .3s var(--expo);transform-origin:center}
+.nav-tog.on span:nth-child(1){transform:rotate(45deg) translate(4px,5px)}
+.nav-tog.on span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-tog.on span:nth-child(3){transform:rotate(-45deg) translate(4px,-5px)}
+
+@media(max-width:768px){
+  .nav-tog{display:flex}
+  .nav-links{
+    position:fixed;top:0;right:-100%;width:260px;height:100dvh;
+    background:rgba(9,10,12,.97);backdrop-filter:blur(30px);
+    flex-direction:column;justify-content:center;gap:.3rem;
+    transition:right .5s var(--expo);
+    border-left:1px solid rgba(255,255,255,.04);
+  }
+  .nav-links.on{right:0}
+  .nav-links a{font-size:.85rem;padding:.9rem 2rem}
+}
+
+/* ===========================================================
+   7. HERO
+   =========================================================== */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-img{
+  position:absolute;inset:0;
+  background:url('assets/img/hero-healbridge.jpg') center/cover no-repeat;
+  transform:scale(1.08);will-change:transform;
+}
+.hero-dim{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 65% 50% at 50% 38%,rgba(29,185,84,.04),transparent),
+    linear-gradient(180deg,rgba(4,5,6,.58) 0%,rgba(4,5,6,.28) 38%,rgba(4,5,6,.55) 68%,var(--s0) 100%);
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(29,185,84,.018) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(29,185,84,.018) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 55% 50% at 50% 50%,#000,transparent);
+  -webkit-mask-image:radial-gradient(ellipse 55% 50% at 50% 50%,#000,transparent);
+  animation:gridPulse 10s ease-in-out infinite;
+}
+@keyframes gridPulse{0%,100%{opacity:.25}50%{opacity:.65}}
+
+/* Orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(110px);animation:orbMove 16s ease-in-out infinite}
+.orb-a{width:550px;height:550px;top:-8%;right:-12%;background:radial-gradient(circle,var(--green-glow),transparent 70%);opacity:.18}
+.orb-b{width:350px;height:350px;bottom:-6%;left:-6%;background:radial-gradient(circle,rgba(29,185,84,.22),transparent 70%);opacity:.1;animation-delay:-8s}
+.orb-c{width:260px;height:260px;top:35%;left:55%;background:radial-gradient(circle,rgba(29,185,84,.12),transparent 70%);opacity:.12;animation-delay:-4s}
+@keyframes orbMove{
+  0%,100%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(35px,-45px) scale(1.06)}
+  50%{transform:translate(-25px,28px) scale(.94)}
+  75%{transform:translate(18px,-18px) scale(1.03)}
+}
+
+/* Particles */
+.pts{position:absolute;inset:0;overflow:hidden}
+.pt{
+  position:absolute;width:2px;height:2px;background:var(--green);
+  border-radius:50%;opacity:0;animation:ptUp 9s ease-in-out infinite;
+}
+.pt:nth-child(1){left:12%;top:72%;animation-delay:0s}
+.pt:nth-child(2){left:28%;top:84%;animation-delay:1.4s;width:3px;height:3px}
+.pt:nth-child(3){left:52%;top:76%;animation-delay:2.8s}
+.pt:nth-child(4){left:68%;top:82%;animation-delay:4.2s;width:1.5px;height:1.5px}
+.pt:nth-child(5){left:84%;top:68%;animation-delay:5.6s}
+.pt:nth-child(6){left:40%;top:88%;animation-delay:7s;width:2.5px;height:2.5px}
+.pt:nth-child(7){left:60%;top:92%;animation-delay:1s}
+.pt:nth-child(8){left:22%;top:65%;animation-delay:3.5s;width:1.5px;height:1.5px}
+@keyframes ptUp{
+  0%{opacity:0;transform:translateY(0)}
+  15%{opacity:.55}
+  85%{opacity:.55}
+  100%{opacity:0;transform:translateY(-130px)}
+}
+
+.hero-body{
+  position:relative;z-index:2;text-align:center;
+  max-width:880px;padding:0 2rem;
+}
+
+/* Logo entrance */
+.hero-mark{
+  display:inline-block;margin-bottom:2.2rem;
+  opacity:0;animation:markIn 1.2s var(--spring) 2s forwards;
+}
+.hero-mark img{
+  width:170px;height:170px;object-fit:contain;
+  mix-blend-mode:screen;
+  filter:drop-shadow(0 0 40px var(--green-glow)) drop-shadow(0 0 80px rgba(29,185,84,.1));
+  animation:logoFloat 6s ease-in-out infinite 3.2s;
+}
+@keyframes markIn{from{opacity:0;transform:scale(.35) rotate(-12deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes logoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.hero-chip{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.62rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--t3);
+  border:1px solid rgba(255,255,255,.07);
+  padding:.5rem 1.8rem;border-radius:50px;
+  margin-bottom:2.2rem;
+  opacity:0;animation:rise .8s var(--expo) 2.15s forwards;
+}
+.hero-chip .dot{
+  width:5px;height:5px;border-radius:50%;background:var(--green);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
+
+.hero-h{
+  font-family:var(--display);
+  font-size:clamp(2.6rem,6.5vw,5rem);
+  font-weight:400;line-height:1.12;
+  color:var(--t0);
+  margin-bottom:1.6rem;
+  overflow:hidden;
+  letter-spacing:-.01em;
+}
+.hero-h .ln{
+  display:block;opacity:0;transform:translateY(105%);
+  animation:lnUp 1.1s var(--expo) forwards;
+}
+.hero-h .ln:nth-child(1){animation-delay:2.25s}
+.hero-h .ln:nth-child(2){animation-delay:2.4s}
+.hero-h .hl{
+  font-style:italic;color:var(--green);
+  position:relative;display:inline-block;
+}
+.hero-h .hl::after{
+  content:'';position:absolute;bottom:6%;left:0;width:100%;height:1px;
+  background:var(--green);opacity:.3;
+  transform:scaleX(0);transform-origin:left;
+  animation:lineGrow .6s var(--expo) 3s forwards;
+}
+@keyframes lnUp{to{opacity:1;transform:translateY(0)}}
+@keyframes lineGrow{to{transform:scaleX(1)}}
+
+.hero-p{
+  font-size:clamp(.9rem,1.3vw,1.02rem);
+  font-weight:400;color:var(--t2);
+  line-height:1.9;max-width:490px;margin:0 auto 3rem;
+  letter-spacing:.015em;
+  opacity:0;animation:rise .8s var(--expo) 2.65s forwards;
+}
+
+.hero-btns{
+  display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;
+  opacity:0;animation:rise .8s var(--expo) 2.85s forwards;
+}
+
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* Scroll indicator */
+.hero-scroll{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  z-index:3;display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:0;animation:rise .8s var(--expo) 3.3s forwards;
+}
+.hero-scroll .lbl{font-size:.55rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--t4)}
+.hero-scroll .bar{
+  width:1px;height:36px;
+  background:linear-gradient(to bottom,var(--green),transparent);
+  animation:scrollPulse 2.4s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+  51%{transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+/* ===========================================================
+   8. BUTTONS
+   =========================================================== */
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;
+  padding:.85rem 2.2rem;
+  font-family:var(--sans);font-size:.68rem;font-weight:700;
+  letter-spacing:1.8px;text-transform:uppercase;
+  border:none;border-radius:10px;
+  cursor:none;position:relative;overflow:hidden;
+  transition:all .45s var(--expo);
+}
+.btn .shine{
+  position:absolute;top:0;left:-100%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);
+  transition:left .6s var(--expo);
+}
+.btn:hover .shine{left:130%}
+.btn-fill{background:var(--green);color:var(--s0);font-weight:800}
+.btn-fill:hover{
+  background:var(--green-hi);color:var(--s0);
+  transform:translateY(-3px);
+  box-shadow:0 12px 36px var(--green-glow),0 0 0 1px rgba(29,185,84,.15);
+}
+.btn-ghost{
+  background:transparent;color:var(--t1);
+  border:1px solid rgba(255,255,255,.1);
+}
+.btn-ghost:hover{
+  border-color:var(--green);color:var(--green);
+  transform:translateY(-3px);
+  box-shadow:0 8px 28px rgba(29,185,84,.08);
+}
+.mag{display:inline-block}
+
+/* ===========================================================
+   9. SHARED SECTION
+   =========================================================== */
+.sec{padding:9rem 0;position:relative}
+.wrap{max-width:1140px;margin:0 auto;padding:0 2.5rem}
+
+.tag{
+  font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;
+  color:var(--green);
+  display:inline-flex;align-items:center;gap:.8rem;
+  margin-bottom:1.2rem;
+}
+.tag .bar{width:24px;height:1.5px;background:var(--green);border-radius:1px}
+
+.hdg{
+  font-family:var(--display);
+  font-size:clamp(2rem,4.2vw,3rem);
+  font-weight:400;line-height:1.18;letter-spacing:-.005em;
+  color:var(--t0);margin-bottom:1rem;
+}
+.hdg em{font-style:italic;color:var(--green)}
+
+.desc{font-weight:400;font-size:.92rem;color:var(--t2);line-height:1.9;max-width:470px;letter-spacing:.01em}
+
+.line{width:36px;height:2px;background:var(--green);border-radius:1px;margin:1.4rem 0}
+.line.c{margin:1.4rem auto}
+
+/* Divider */
+.div{
+  height:1px;max-width:1140px;margin:0 auto;
+  background:linear-gradient(90deg,transparent,rgba(29,185,84,.14) 35%,rgba(29,185,84,.14) 65%,transparent);
+}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--expo),transform 1s var(--expo)}
+.rv.on{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ===========================================================
+   10. ABOUT
+   =========================================================== */
+.about{
+  background:
+    radial-gradient(ellipse 55% 45% at 82% 12%,rgba(29,185,84,.035),transparent),
+    radial-gradient(ellipse 40% 40% at 5% 90%,var(--char-mist),transparent),
+    var(--s1);
+}
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:5rem;align-items:center}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:3rem}}
+
+.about-text p{color:var(--t2);font-size:.9rem;line-height:1.95;margin-bottom:1.1rem;letter-spacing:.01em}
+.about-text strong{font-weight:700;color:var(--green)}
+
+.stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:rgba(255,255,255,.03);border-radius:20px;overflow:hidden;
+}
+.st{
+  background:var(--s2);padding:2.6rem 1.4rem;text-align:center;
+  position:relative;transition:background .6s var(--expo);
+}
+.st::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle,var(--green-mist),transparent);
+  opacity:0;transition:opacity .5s;
+}
+.st:hover{background:var(--s3)}
+.st:hover::after{opacity:1}
+.st-num{
+  font-family:var(--sans);font-size:2.4rem;font-weight:800;
+  color:var(--green);line-height:1;margin-bottom:.5rem;
+  position:relative;z-index:1;letter-spacing:-.01em;
+}
+.st-lbl{
+  font-size:.58rem;font-weight:700;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--t4);
+  position:relative;z-index:1;
+}
+
+/* ===========================================================
+   11. PRODUCTS
+   =========================================================== */
+.products{
+  background:
+    radial-gradient(ellipse 40% 32% at 18% 78%,rgba(29,185,84,.03),transparent),
+    radial-gradient(ellipse 30% 28% at 85% 15%,rgba(29,185,84,.02),transparent),
+    var(--s0);
+}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:3.5rem}
+@media(max-width:992px){.p-grid{grid-template-columns:1fr}}
+
+.pc{
+  background:var(--s2);
+  border:1px solid rgba(255,255,255,.04);
+  border-radius:20px;padding:2.6rem 2rem;
+  position:relative;overflow:hidden;
+  transition:all .5s var(--expo);
+}
+.pc::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--green);border-radius:0 0 2px 2px;
+  transform:scaleX(0);transition:transform .55s var(--expo);
+}
+.pc::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(29,185,84,.055),transparent 55%);
+  opacity:0;transition:opacity .5s;pointer-events:none;
+}
+.pc:hover{
+  transform:translateY(-7px);
+  border-color:rgba(29,185,84,.1);
+  box-shadow:0 22px 55px rgba(0,0,0,.3),0 0 35px rgba(29,185,84,.04);
+}
+.pc:hover::before{transform:scaleX(1)}
+.pc:hover::after{opacity:1}
+
+.pc-icon{
+  width:50px;height:50px;border-radius:14px;
+  background:var(--green-mist);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.6rem;font-size:1.2rem;color:var(--green);
+  position:relative;z-index:1;
+  transition:background .4s,transform .4s var(--expo);
+}
+.pc:hover .pc-icon{background:rgba(29,185,84,.1);transform:scale(1.06)}
+.pc h3{
+  font-family:var(--sans);font-size:1rem;font-weight:700;
+  margin-bottom:.7rem;position:relative;z-index:1;color:var(--t0);
+  letter-spacing:.01em;
+}
+.pc p{color:var(--t2);font-size:.85rem;line-height:1.85;position:relative;z-index:1;letter-spacing:.01em}
+
+.pc-tag{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.55rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  padding:.3rem .8rem;border-radius:50px;margin-top:1.3rem;
+  position:relative;z-index:1;
+}
+.pc-tag .d{width:5px;height:5px;border-radius:50%}
+.pc-tag.ok{background:rgba(29,185,84,.1);color:var(--green)}
+.pc-tag.ok .d{background:var(--green);animation:pulse 2s infinite}
+.pc-tag.wip{background:rgba(255,180,0,.07);color:#f5b800}
+.pc-tag.wip .d{background:#f5b800}
+.pc-tag.plan{background:rgba(130,130,255,.07);color:#9898ff}
+.pc-tag.plan .d{background:#9898ff}
+
+/* ===========================================================
+   12. MARQUEE
+   =========================================================== */
+.marquee{
+  overflow:hidden;padding:1.8rem 0;
+  border-top:1px solid rgba(255,255,255,.03);
+  border-bottom:1px solid rgba(255,255,255,.03);
+  background:var(--s0);
+}
+.marquee-track{
+  display:flex;gap:3.5rem;width:max-content;
+  animation:scroll 35s linear infinite;
+}
+.marquee-track span{
+  font-size:.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;
+  color:var(--t4);white-space:nowrap;
+  display:flex;align-items:center;gap:3.5rem;
+}
+.marquee-track span::after{
+  content:'';width:4px;height:4px;border-radius:50%;
+  background:var(--green);opacity:.35;
+}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ===========================================================
+   13. SERVICES
+   =========================================================== */
+.services{
+  background:
+    radial-gradient(ellipse 50% 42% at 72% 22%,rgba(29,185,84,.03),transparent),
+    radial-gradient(ellipse 35% 35% at 10% 80%,var(--char-mist),transparent),
+    var(--s1);
+}
+.srv-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:5rem;align-items:start}
+@media(max-width:768px){.srv-layout{grid-template-columns:1fr;gap:3rem}}
+
+.srv{
+  display:flex;align-items:flex-start;gap:1.6rem;
+  padding:2rem 0;
+  border-bottom:1px solid rgba(255,255,255,.035);
+  transition:all .5s var(--expo);
+}
+.srv:last-child{border-bottom:none}
+.srv:hover{padding-left:.8rem}
+.srv:hover .srv-n{color:var(--green);opacity:.55}
+
+.srv-n{
+  font-family:var(--sans);font-size:2.4rem;font-weight:800;
+  line-height:1;min-width:62px;letter-spacing:-.01em;
+  color:var(--t4);opacity:.15;
+  transition:color .5s var(--expo),opacity .5s var(--expo);
+}
+.srv-bd h3{font-size:.98rem;font-weight:700;margin-bottom:.5rem;color:var(--t0);letter-spacing:.01em}
+.srv-bd p{color:var(--t2);font-size:.85rem;line-height:1.85;letter-spacing:.01em}
+
+@media(max-width:768px){
+  .srv{flex-direction:column;gap:.4rem}
+  .srv-n{font-size:2rem}
+}
+
+/* ===========================================================
+   14. TEAM
+   =========================================================== */
+.team{
+  background:
+    radial-gradient(ellipse 45% 38% at 50% 35%,rgba(29,185,84,.035),transparent),
+    radial-gradient(ellipse 28% 28% at 88% 80%,rgba(29,185,84,.02),transparent),
+    var(--s0);
+}
+.t-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3.5rem}
+@media(max-width:992px){.t-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:576px){.t-grid{grid-template-columns:1fr;max-width:300px;margin-left:auto;margin-right:auto}}
+
+.tc{
+  text-align:center;padding:2.8rem 1.2rem 2.2rem;
+  background:var(--s2);
+  border:1px solid rgba(255,255,255,.04);
+  border-radius:20px;position:relative;overflow:hidden;
+  transition:all .5s var(--expo);
+}
+.tc::before{
+  content:'';position:absolute;top:0;left:50%;width:0;height:2px;
+  background:var(--green);
+  transition:width .5s var(--expo),left .5s var(--expo);
+}
+.tc:hover{
+  transform:translateY(-6px);
+  border-color:rgba(29,185,84,.1);
+  box-shadow:0 24px 55px rgba(0,0,0,.3);
+}
+.tc:hover::before{width:100%;left:0}
+
+.tc-aw{position:relative;display:inline-block;margin-bottom:1.3rem}
+.tc-aw::after{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:2px solid var(--green);opacity:0;
+  transition:opacity .5s var(--expo),transform .5s var(--expo);
+  transform:scale(.92);
+}
+.tc:hover .tc-aw::after{opacity:1;transform:scale(1)}
+
+.tc-img{
+  width:100px;height:100px;border-radius:50%;object-fit:cover;
+  filter:grayscale(45%) contrast(1.08);
+  transition:all .55s var(--expo);
+}
+.tc:hover .tc-img{filter:grayscale(0%) contrast(1);transform:scale(1.05)}
+.tc h4{font-family:var(--sans);font-size:.9rem;font-weight:700;color:var(--t0);margin-bottom:.25rem;letter-spacing:.01em}
+.tc .role{font-size:.55rem;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--green)}
+
+/* ===========================================================
+   15. CONTACT
+   =========================================================== */
+.contact{
+  background:
+    radial-gradient(ellipse 45% 38% at 28% 58%,rgba(29,185,84,.025),transparent),
+    radial-gradient(ellipse 35% 30% at 85% 15%,var(--char-mist),transparent),
+    var(--s1);
+}
+.ct-layout{display:grid;grid-template-columns:1fr 1.3fr;gap:5rem}
+@media(max-width:768px){.ct-layout{grid-template-columns:1fr;gap:3rem}}
+
+.ci{display:flex;align-items:center;gap:1.1rem;padding:1.2rem 0}
+.ci-ico{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--green-mist);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;color:var(--green);flex-shrink:0;
+  transition:all .45s var(--expo);
+}
+.ci:hover .ci-ico{
+  background:var(--green);color:var(--s0);
+  transform:scale(1.08);
+  box-shadow:0 8px 24px var(--green-glow);
+}
+.ci-meta .ci-lbl{font-size:.55rem;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--t4);margin-bottom:.15rem}
+.ci-meta .ci-val{font-size:.88rem;color:var(--t2);letter-spacing:.01em}
+
+.form .fi{
+  width:100%;background:var(--s2);
+  border:1px solid rgba(255,255,255,.04);
+  color:var(--t0);padding:1rem 1.2rem;
+  font-family:var(--sans);font-size:.85rem;font-weight:500;
+  letter-spacing:.01em;
+  border-radius:12px;outline:none;margin-bottom:.9rem;
+  transition:all .45s var(--expo);
+}
+.form .fi:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px rgba(29,185,84,.06),0 0 20px rgba(29,185,84,.04);
+  background:var(--s3);
+}
+.form .fi::placeholder{color:var(--t4);font-weight:500}
+.form textarea{resize:vertical;min-height:120px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:576px){.form-row{grid-template-columns:1fr}}
+
+/* ===========================================================
+   16. FOOTER
+   =========================================================== */
+.ft{background:var(--s0);border-top:1px solid rgba(255,255,255,.035);padding:3.5rem 0 2.5rem}
+.ft-inner{max-width:1140px;margin:0 auto;padding:0 2.5rem}
+.ft-top{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1.5rem;
+  padding-bottom:1.8rem;border-bottom:1px solid rgba(255,255,255,.035);margin-bottom:1.8rem;
+}
+.ft-brand{display:flex;align-items:center;gap:.55rem}
+.ft-brand img{width:28px;height:28px;object-fit:contain;mix-blend-mode:screen}
+.ft-brand .fn{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--t4)}
+
+.ft-social{display:flex;gap:.8rem}
+.ft-social a{
+  width:36px;height:36px;border-radius:50%;background:var(--s3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;color:var(--t4);
+  transition:all .4s var(--expo);
+}
+.ft-social a:hover{
+  background:var(--green);color:var(--s0);
+  transform:translateY(-2px);box-shadow:0 6px 20px var(--green-glow);
+}
+
+.ft-bot{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.ft-copy{font-size:.7rem;color:var(--t4)}
+.ft-legal{display:flex;gap:1.5rem}
+.ft-legal a{font-size:.7rem;color:var(--t4);transition:color .3s}
+.ft-legal a:hover{color:var(--green)}
+
+@media(max-width:576px){
+  .ft-top,.ft-bot{flex-direction:column;text-align:center}
+}
+
+/* ===========================================================
+   17. BACK TO TOP
+   =========================================================== */
+.btt{
+  position:fixed;bottom:2rem;right:2rem;z-index:9990;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--s3);border:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--t3);font-size:1rem;cursor:none;
+  opacity:0;transform:translateY(12px);pointer-events:none;
+  transition:all .4s var(--expo);
+}
+.btt.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.btt:hover{background:var(--green);color:var(--s0);border-color:var(--green);box-shadow:0 6px 20px var(--green-glow)}
+
+/* ===========================================================
+   18. RESPONSIVE FINAL
+   =========================================================== */
+@media(max-width:768px){
+  .sec{padding:5.5rem 0}
+  .wrap{padding:0 1.4rem}
+  .hero-h{font-size:clamp(2.2rem,6.5vw,4rem)}
+  .hdg{font-size:clamp(1.7rem,4vw,2.6rem)}
+}
+
+/* ===========================================================
+   19. GLOBAL SPOTLIGHT (follows mouse)
+   =========================================================== */
+.spotlight{
+  position:fixed;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(
+    650px circle at var(--sp-x,50%) var(--sp-y,50%),
+    rgba(29,185,84,.035),
+    transparent 60%
+  );
+  transition:opacity .6s;opacity:0;
+}
+.spotlight.active{opacity:1}
+@media(max-width:1024px){.spotlight{display:none}}
+
+/* ===========================================================
+   20. AURORA EFFECT (hero background)
+   =========================================================== */
+.aurora{
+  position:absolute;inset:0;overflow:hidden;pointer-events:none;
+}
+.aurora-band{
+  position:absolute;width:180%;height:45%;left:-40%;
+  border-radius:50%;filter:blur(80px);
+  mix-blend-mode:screen;
+  animation:auroraDrift 18s ease-in-out infinite alternate;
+}
+.aurora-band:nth-child(1){
+  top:5%;
+  background:radial-gradient(ellipse,rgba(29,185,84,.1),transparent 70%);
+  animation-delay:0s;
+}
+.aurora-band:nth-child(2){
+  top:20%;
+  background:radial-gradient(ellipse,rgba(16,210,90,.06),transparent 70%);
+  animation-delay:-6s;
+  animation-duration:22s;
+}
+.aurora-band:nth-child(3){
+  top:35%;
+  background:radial-gradient(ellipse,rgba(29,185,84,.04),transparent 60%);
+  animation-delay:-12s;
+  animation-duration:26s;
+}
+@keyframes auroraDrift{
+  0%{transform:translateX(-15%) rotate(-3deg) scaleY(1)}
+  50%{transform:translateX(10%) rotate(2deg) scaleY(1.2)}
+  100%{transform:translateX(-5%) rotate(-1deg) scaleY(.9)}
+}
+
+/* ===========================================================
+   21. CARD TILT 3D
+   =========================================================== */
+.tilt{
+  transform-style:preserve-3d;
+  transition:transform .4s var(--expo),box-shadow .4s var(--expo);
+}
+.tilt .tilt-inner{transform:translateZ(30px)}
+
+/* ===========================================================
+   22. GLOWING BORDER (cards)
+   =========================================================== */
+.glow-border{position:relative}
+.glow-border::before{
+  content:'';position:absolute;inset:-1px;border-radius:inherit;
+  background:conic-gradient(
+    from var(--glow-angle,0deg) at var(--glow-x,50%) var(--glow-y,50%),
+    transparent 0%,var(--green) 10%,transparent 20%
+  );
+  opacity:0;transition:opacity .5s;
+  z-index:-1;
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  mask-composite:exclude;
+  -webkit-mask-composite:xor;
+  padding:1px;
+}
+.glow-border:hover::before{opacity:.7}
+
+/* ===========================================================
+   23. ANIMATED DIVIDER
+   =========================================================== */
+.div{position:relative;overflow:hidden}
+.div::after{
+  content:'';position:absolute;top:0;left:-20%;
+  width:20%;height:100%;
+  background:linear-gradient(90deg,transparent,var(--green),transparent);
+  animation:divSweep 4s ease-in-out infinite;
+}
+@keyframes divSweep{
+  0%{left:-20%;opacity:0}
+  10%{opacity:.5}
+  90%{opacity:.5}
+  100%{left:100%;opacity:0}
+}
+
+/* ===========================================================
+   24. TEXT SCRAMBLE
+   =========================================================== */
+.scramble-char{
+  display:inline-block;
+  transition:opacity .15s,transform .15s;
+}
+.scramble-char.shuffle{
+  opacity:.3;
+  transform:translateY(-2px);
+}
+
+/* ===========================================================
+   25. SECTION PARALLAX FLOAT
+   =========================================================== */
+.pfloat{will-change:transform;transition:transform .1s linear}
+
+/* ===========================================================
+   26. STAT CELL COUNTER GLOW
+   =========================================================== */
+.st-num.counting{
+  text-shadow:0 0 30px var(--green-glow),0 0 60px rgba(29,185,84,.15);
+}
+
+/* ===========================================================
+   27. HERO TITLE LETTER STAGGER
+   =========================================================== */
+.hero-h .letter{
+  display:inline-block;
+  opacity:0;transform:translateY(60px) rotateX(-40deg);
+  animation:letterIn .6s var(--expo) forwards;
+}
+@keyframes letterIn{
+  to{opacity:1;transform:translateY(0) rotateX(0)}
+}
+
+/* ===========================================================
+   28. FORM FOCUS GLOW LINE
+   =========================================================== */
+.form .fi-wrap{position:relative}
+.form .fi-wrap::after{
+  content:'';position:absolute;bottom:0;left:50%;
+  width:0;height:2px;
+  background:var(--green);border-radius:1px;
+  transition:width .4s var(--expo),left .4s var(--expo);
+}
+.form .fi-wrap:focus-within::after{width:100%;left:0}
+</style>
+
+</head>
+<body>
+
+<!-- ============ NOISE ============ -->
+<div class="noise"></div>
+
+<!-- ============ GLOBAL SPOTLIGHT ============ -->
+<div class="spotlight" id="spot"></div>
+
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="pre">
+  <img class="pl-logo" src="assets/img/portfolio/LOGO HEALBRIGE PRIME.jpg" alt="HealBridge">
+  <div class="pl-bar-bg"><div class="pl-bar"></div></div>
+</div>
+
+<!-- ============ CURSOR ============ -->
+<div class="cur-dot" id="cDot"></div>
+<div class="cur-ring" id="cRing"></div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div class="scroll-prog" id="sProg"></div>
+
+<!-- ============ BACK TO TOP ============ -->
+<button class="btt" id="btt" aria-label="Voltar ao topo"><i class="bi bi-chevron-up"></i></button>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-wrap">
+    <a href="#" class="brand">
+      <img src="assets/img/portfolio/LOGO HEALBRIGE PRIME.jpg" alt="HealBridge">
+      <div class="brand-name">HEAL<span class="g">BRIDGE</span></div>
+    </a>
+    <div class="nav-links" id="nLinks">
+      <a href="#about">Sobre</a>
+      <a href="#products">Produtos</a>
+      <a href="#services">Servicos</a>
+      <a href="#team">Equipe</a>
+      <a href="#contact">Contato</a>
+    </div>
+    <button class="nav-tog" id="nTog" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section class="hero" id="hero">
+  <div class="hero-img" id="hImg"></div>
+  <div class="hero-dim"></div>
+  <div class="aurora">
+    <div class="aurora-band"></div>
+    <div class="aurora-band"></div>
+    <div class="aurora-band"></div>
+  </div>
+  <div class="hero-grid"></div>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="orb orb-c"></div>
+  <div class="pts">
+    <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
+    <div class="pt"></div><div class="pt"></div><div class="pt"></div><div class="pt"></div>
+  </div>
+
+  <div class="hero-body">
+    <div class="hero-mark">
+      <img src="assets/img/portfolio/LOGO HEALBRIGE PRIME.jpg" alt="HealBridge">
+    </div>
+    <div class="hero-chip"><span class="dot"></span> Since 2024</div>
+    <h1 class="hero-h">
+      <span class="ln">Conectando <span class="hl">Saude</span></span>
+      <span class="ln">e Tecnologia</span>
+    </h1>
+    <p class="hero-p">Desenvolvemos solucoes com Inteligencia Artificial para transformar a educacao e a pratica medica. Criadores da Sophos Academy.</p>
+    <div class="hero-btns">
+      <div class="mag"><a href="#products" class="btn btn-fill"><span class="shine"></span>Nossos Produtos <i class="bi bi-arrow-right"></i></a></div>
+      <div class="mag"><a href="#contact" class="btn btn-ghost">Fale Conosco</a></div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span class="lbl">Scroll</span>
+    <div class="bar"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section class="sec about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="rv">
+          <div class="tag"><span class="bar"></span> Quem Somos</div>
+          <h2 class="hdg">A ponte entre<br><em>IA</em> e a <em>Saude</em></h2>
+          <div class="line"></div>
+        </div>
+        <div class="rv d1">
+          <p>A HealBridge e uma empresa de tecnologia focada em criar pontes entre a inteligencia artificial e a area da saude. Nascemos da necessidade de modernizar o aprendizado e a pratica medica com ferramentas inteligentes e acessiveis.</p>
+        </div>
+        <div class="rv d2">
+          <p>Nosso primeiro produto, a <strong>Sophos Academy</strong>, ja transforma a forma como estudantes de medicina aprendem, utilizando revisao espacada, Second Brain e IA para maximizar a retencao e a aprovacao.</p>
+        </div>
+      </div>
+      <div class="rv d2">
+        <div class="stats">
+          <div class="st pfloat"><div class="st-num" data-count="1">0</div><div class="st-lbl">Produto Ativo</div></div>
+          <div class="st pfloat"><div class="st-num">IA</div><div class="st-lbl">Powered</div></div>
+          <div class="st pfloat"><div class="st-num" data-count="2024">0</div><div class="st-lbl">Fundacao</div></div>
+          <div class="st pfloat"><div class="st-num">BR</div><div class="st-lbl">Sede Brasil</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ============================================================
+     PRODUCTS
+============================================================ -->
+<section class="sec products" id="products">
+  <div class="wrap">
+    <div style="text-align:center" class="rv">
+      <div class="tag" style="justify-content:center"><span class="bar"></span> Nossos Produtos <span class="bar"></span></div>
+      <h2 class="hdg">Solucoes que <em>transformam</em></h2>
+      <div class="line c"></div>
+      <p class="desc" style="margin:0 auto">Tecnologia inteligente para o ecossistema de saude.</p>
+    </div>
+    <div class="p-grid">
+      <div class="pc tilt glow-border rv d1">
+        <div class="pc-icon"><i class="bi bi-mortarboard-fill"></i></div>
+        <h3>Sophos Academy</h3>
+        <p>Plataforma de mentoria e estudo para medicina com metodologia cientifica, revisao espacada, flashcards inteligentes e IA integrada ao fluxo de aprendizado.</p>
+        <div class="pc-tag ok"><span class="d"></span> Ativo</div>
+      </div>
+      <div class="pc tilt glow-border rv d2">
+        <div class="pc-icon"><i class="bi bi-robot"></i></div>
+        <h3>Assistente Clinico IA</h3>
+        <p>Ferramenta de apoio a decisao clinica com inteligencia artificial para profissionais de saude. Sugestoes baseadas em evidencias e atualizacao continua.</p>
+        <div class="pc-tag wip"><span class="d"></span> Em Desenvolvimento</div>
+      </div>
+      <div class="pc tilt glow-border rv d3">
+        <div class="pc-icon"><i class="bi bi-graph-up-arrow"></i></div>
+        <h3>Analytics Medico</h3>
+        <p>Dashboard de inteligencia de dados para instituicoes de saude. Metricas de desempenho e insights acionaveis alimentados por machine learning.</p>
+        <div class="pc-tag plan"><span class="d"></span> Em Planejamento</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Inteligencia Artificial</span><span>Educacao Medica</span><span>HealthTech</span>
+    <span>Machine Learning</span><span>Revisao Espacada</span><span>Sophos Academy</span>
+    <span>Inovacao</span><span>Second Brain</span>
+    <span>Inteligencia Artificial</span><span>Educacao Medica</span><span>HealthTech</span>
+    <span>Machine Learning</span><span>Revisao Espacada</span><span>Sophos Academy</span>
+    <span>Inovacao</span><span>Second Brain</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section class="sec services" id="services">
+  <div class="wrap">
+    <div class="srv-layout">
+      <div>
+        <div class="rv">
+          <div class="tag"><span class="bar"></span> O Que Fazemos</div>
+          <h2 class="hdg">Da <em>ideia</em> ao produto</h2>
+          <div class="line"></div>
+          <p class="desc">Criamos solucoes completas com IA para o ecossistema de saude, do conceito a entrega.</p>
+        </div>
+      </div>
+      <div>
+        <div class="srv rv">
+          <div class="srv-n">01</div>
+          <div class="srv-bd">
+            <h3>Mentoria com IA</h3>
+            <p>Programas de mentoria para estudantes de medicina potencializados por inteligencia artificial, com trilhas personalizadas e acompanhamento de performance.</p>
+          </div>
+        </div>
+        <div class="srv rv d1">
+          <div class="srv-n">02</div>
+          <div class="srv-bd">
+            <h3>Desenvolvimento de Aplicacoes</h3>
+            <p>Criacao de aplicacoes web e mobile focadas em saude, desde plataformas educacionais ate ferramentas de apoio clinico.</p>
+          </div>
+        </div>
+        <div class="srv rv d2">
+          <div class="srv-n">03</div>
+          <div class="srv-bd">
+            <h3>Consultoria HealthTech</h3>
+            <p>Assessoria para instituicoes de saude e educacao que desejam integrar inteligencia artificial em seus processos.</p>
+          </div>
+        </div>
+        <div class="srv rv d3">
+          <div class="srv-n">04</div>
+          <div class="srv-bd">
+            <h3>Pesquisa e Inovacao</h3>
+            <p>Pesquisa aplicada em IA para saude, desenvolvendo novos modelos e abordagens para problemas reais do setor medico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ============================================================
+     TEAM
+============================================================ -->
+<section class="sec team" id="team">
+  <div class="wrap">
+    <div style="text-align:center" class="rv">
+      <div class="tag" style="justify-content:center"><span class="bar"></span> Nossa Equipe <span class="bar"></span></div>
+      <h2 class="hdg">Os <em>fundadores</em></h2>
+      <div class="line c"></div>
+    </div>
+    <div class="t-grid">
+      <div class="tc tilt glow-border rv d1">
+        <div class="tc-aw"><img class="tc-img" src="assets/img/team/leonardo-buffon.png" alt="Leonardo Buffon"></div>
+        <h4>Leonardo Buffon</h4>
+        <div class="role">Co-Fundador &amp; CEO</div>
+      </div>
+      <div class="tc tilt glow-border rv d2">
+        <div class="tc-aw"><img class="tc-img" src="assets/img/team/artur-martini.png" alt="Artur Martini"></div>
+        <h4>Artur Martini</h4>
+        <div class="role">Co-Fundador &amp; CTO</div>
+      </div>
+      <div class="tc tilt glow-border rv d3">
+        <div class="tc-aw"><img class="tc-img" src="assets/img/team/artur-gschwenter.png" alt="Artur Gschwenter"></div>
+        <h4>Artur Gschwenter</h4>
+        <div class="role">Co-Fundador &amp; CFO</div>
+      </div>
+      <div class="tc tilt glow-border rv d4">
+        <div class="tc-aw"><img class="tc-img" src="assets/img/team/douglas-haas.png" alt="Douglas Haas"></div>
+        <h4>Douglas Haas</h4>
+        <div class="role">Co-Fundador &amp; COO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="ct-layout">
+      <div>
+        <div class="rv">
+          <div class="tag"><span class="bar"></span> Contato</div>
+          <h2 class="hdg">Fale <em>Conosco</em></h2>
+          <div class="line"></div>
+          <p class="desc" style="margin-bottom:1.8rem">Tem um projeto em mente? Quer saber mais sobre nossos produtos? Entre em contato.</p>
+        </div>
+        <div class="rv d1">
+          <div class="ci">
+            <div class="ci-ico"><i class="bi bi-envelope"></i></div>
+            <div class="ci-meta"><div class="ci-lbl">Email</div><div class="ci-val">contato@healbridge.com.br</div></div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico"><i class="bi bi-geo-alt"></i></div>
+            <div class="ci-meta"><div class="ci-lbl">Localizacao</div><div class="ci-val">Brasil</div></div>
+          </div>
+          <div class="ci">
+            <div class="ci-ico"><i class="bi bi-instagram"></i></div>
+            <div class="ci-meta"><div class="ci-lbl">Instagram</div><div class="ci-val">@healbridge</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rv d2">
+        <form class="form" onsubmit="return false">
+          <div class="form-row">
+            <input type="text" class="fi" placeholder="Seu nome" required>
+            <input type="email" class="fi" placeholder="Seu email" required>
+          </div>
+          <input type="text" class="fi" placeholder="Assunto">
+          <textarea class="fi" placeholder="Sua mensagem" required></textarea>
+          <div class="mag" style="width:100%">
+            <button type="submit" class="btn btn-fill" style="width:100%;justify-content:center">
+              <span class="shine"></span>Enviar Mensagem <i class="bi bi-send"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="ft">
+  <div class="ft-inner">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <img src="assets/img/portfolio/LOGO HEALBRIGE PRIME.jpg" alt="HealBridge">
+        <span class="fn">HEALBRIDGE</span>
+      </div>
+      <div class="ft-social">
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <div class="ft-copy">&copy; 2025 HealBridge &mdash; Todos os direitos reservados.</div>
+      <div class="ft-legal"><a href="#">Termos</a><a href="#">Privacidade</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ── Preloader ── */
+  window.addEventListener('load',()=>{
+    setTimeout(()=>document.getElementById('pre').classList.add('hide'),2600);
+  });
+
+  /* ── Cursor ── */
+  const dot=document.getElementById('cDot'),ring=document.getElementById('cRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    dot.style.transform=`translate(${mx-3}px,${my-3}px)`;
+  });
+  (function loop(){
+    rx+=(mx-rx)*.09;ry+=(my-ry)*.09;
+    ring.style.transform=`translate(${rx-21}px,${ry-21}px)`;
+    requestAnimationFrame(loop);
+  })();
+
+  const hovers='a,button,.mag,.pc,.tc,.srv,.ci';
+  document.querySelectorAll(hovers).forEach(el=>{
+    el.addEventListener('mouseenter',()=>ring.classList.add('active'));
+    el.addEventListener('mouseleave',()=>ring.classList.remove('active'));
+  });
+
+  /* ── Scroll: progress + nav + back-to-top ── */
+  const prog=document.getElementById('sProg');
+  const nav=document.getElementById('nav');
+  const btt=document.getElementById('btt');
+  let ticking=false;
+
+  function onScroll(){
+    const st=document.documentElement.scrollTop;
+    const dh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    prog.style.width=(st/dh*100)+'%';
+    nav.classList.toggle('pinned',st>50);
+    btt.classList.toggle('show',st>600);
+  }
+  window.addEventListener('scroll',()=>{
+    if(!ticking){requestAnimationFrame(()=>{onScroll();ticking=false});ticking=true}
+  },{passive:true});
+
+  btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  /* ── Mobile menu ── */
+  const tog=document.getElementById('nTog'),links=document.getElementById('nLinks');
+  tog.addEventListener('click',()=>{tog.classList.toggle('on');links.classList.toggle('on')});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    tog.classList.remove('on');links.classList.remove('on');
+  }));
+
+  /* ── Hero parallax ── */
+  const hImg=document.getElementById('hImg');
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    if(y<window.innerHeight) hImg.style.transform=`scale(1.08) translateY(${y*.32}px)`;
+  },{passive:true});
+
+  /* ── Reveal ── */
+  const rvObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')});
+  },{threshold:.08,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
+
+  /* ── Counters ── */
+  const cObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(!e.isIntersecting)return;
+      const el=e.target,end=+el.dataset.count;
+      if(!end)return;
+      const dur=1600,t0=performance.now();
+      (function tick(now){
+        const p=Math.min((now-t0)/dur,1);
+        el.textContent=Math.round((1-Math.pow(1-p,4))*end);
+        if(p<1)requestAnimationFrame(tick);
+      })(t0);
+      cObs.unobserve(el);
+    });
+  },{threshold:.5});
+  document.querySelectorAll('[data-count]').forEach(el=>cObs.observe(el));
+
+  /* ── Card glow ── */
+  document.querySelectorAll('.pc').forEach(c=>{
+    c.addEventListener('mousemove',e=>{
+      const r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+      c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+    });
+  });
+
+  /* ── Magnetic buttons ── */
+  document.querySelectorAll('.mag').forEach(w=>{
+    const b=w.querySelector('.btn');
+    if(!b)return;
+    w.addEventListener('mousemove',e=>{
+      const r=w.getBoundingClientRect();
+      const dx=(e.clientX-r.left-r.width/2)*.18;
+      const dy=(e.clientY-r.top-r.height/2)*.18;
+      b.style.transform=`translate(${dx}px,${dy}px)`;
+    });
+    w.addEventListener('mouseleave',()=>{
+      b.style.transition='transform .5s var(--expo)';
+      b.style.transform='translate(0,0)';
+      setTimeout(()=>b.style.transition='',500);
+    });
+  });
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      e.preventDefault();
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t)t.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
+
+  /* ── Global Spotlight ── */
+  const spot=document.getElementById('spot');
+  let spotActive=false;
+  document.addEventListener('mousemove',e=>{
+    if(!spotActive){spotActive=true;spot.classList.add('active')}
+    spot.style.setProperty('--sp-x',e.clientX+'px');
+    spot.style.setProperty('--sp-y',e.clientY+'px');
+  });
+
+  /* ── 3D Tilt on Cards ── */
+  document.querySelectorAll('.tilt').forEach(card=>{
+    card.addEventListener('mousemove',e=>{
+      const r=card.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5;
+      const y=(e.clientY-r.top)/r.height-.5;
+      card.style.transform=`perspective(600px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-6px)`;
+    });
+    card.addEventListener('mouseleave',()=>{
+      card.style.transition='transform .6s var(--expo)';
+      card.style.transform='perspective(600px) rotateY(0) rotateX(0) translateY(0)';
+      setTimeout(()=>card.style.transition='',600);
+    });
+    card.addEventListener('mouseenter',()=>{card.style.transition='none'});
+  });
+
+  /* ── Glow Border Angle ── */
+  document.querySelectorAll('.glow-border').forEach(el=>{
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const cx=r.left+r.width/2, cy=r.top+r.height/2;
+      const angle=Math.atan2(e.clientY-cy,e.clientX-cx)*180/Math.PI+180;
+      el.style.setProperty('--glow-angle',angle+'deg');
+      el.style.setProperty('--glow-x',((e.clientX-r.left)/r.width*100)+'%');
+      el.style.setProperty('--glow-y',((e.clientY-r.top)/r.height*100)+'%');
+    });
+  });
+
+  /* ── Parallax Float on scroll ── */
+  const pfloats=document.querySelectorAll('.pfloat');
+  window.addEventListener('scroll',()=>{
+    const st=window.scrollY;
+    pfloats.forEach((el,i)=>{
+      const r=el.getBoundingClientRect();
+      if(r.top<window.innerHeight&&r.bottom>0){
+        const offset=(r.top/window.innerHeight-.5)*((i%2===0)?-12:12);
+        el.style.transform=`translateY(${offset}px)`;
+      }
+    });
+  },{passive:true});
+
+  /* ── Text Scramble on Reveal ── */
+  const chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  function scrambleText(el){
+    const original=el.textContent;
+    const len=original.length;
+    let iteration=0;
+    const interval=setInterval(()=>{
+      el.textContent=original.split('').map((c,i)=>{
+        if(i<iteration||c===' ')return original[i];
+        return chars[Math.floor(Math.random()*chars.length)];
+      }).join('');
+      iteration+=1/2;
+      if(iteration>=len)clearInterval(interval);
+    },30);
+  }
+  const scrObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        scrambleText(e.target);
+        scrObs.unobserve(e.target);
+      }
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.hdg,.hero-chip,.tag').forEach(el=>scrObs.observe(el));
+
+  /* ── Counter glow effect ── */
+  const origCounterObs=cObs;
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const obs2=new IntersectionObserver(es=>{
+      es.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('counting');
+          setTimeout(()=>e.target.classList.remove('counting'),2000);
+          obs2.unobserve(e.target);
+        }
+      });
+    },{threshold:.5});
+    obs2.observe(el);
+  });
+
+  /* ── Hero letters mouse-reactive parallax ── */
+  const heroBody=document.querySelector('.hero-body');
+  if(heroBody){
+    document.addEventListener('mousemove',e=>{
+      const cx=window.innerWidth/2,cy=window.innerHeight/2;
+      const dx=(e.clientX-cx)/cx,dy=(e.clientY-cy)/cy;
+      heroBody.style.transform=`translate(${dx*6}px,${dy*4}px)`;
+    });
+  }
+
+})();
+</script>
+
+</body>
+</html>

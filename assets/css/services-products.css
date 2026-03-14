@@ -1,0 +1,198 @@
+/* =============================================================
+   SERVICES SECTION - Product Cards
+   Sophos Academy
+   ============================================================= */
+
+/* Section base */
+#services.services-section {
+  background-color: var(--bg-dark);
+  padding: 70px 0 90px;
+}
+
+/* Section title override (prevent main.css global leak) */
+#services .section-title {
+  padding-bottom: 30px;
+}
+
+#services .section-title h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--text-white);
+  padding: 0;
+  margin: 0;
+}
+
+#services .section-title h2::after {
+  display: none;
+}
+
+#services .section-title p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--text-secondary);
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Product Cards */
+.product-card {
+  background: var(--bg-surface);
+  border-radius: 24px;
+  padding: 40px;
+  height: 100%;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.product-vestibular {
+  border: 1px solid rgba(245, 54, 92, 0.3);
+}
+
+.product-vestibular:hover {
+  border-color: rgba(245, 54, 92, 0.6);
+}
+
+.product-residente {
+  border: 1px solid rgba(94, 114, 228, 0.3);
+}
+
+.product-residente:hover {
+  border-color: rgba(94, 114, 228, 0.6);
+}
+
+.product-card .product-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.product-vestibular .product-icon {
+  background: linear-gradient(135deg, #f5365c, #f56036);
+}
+
+.product-residente .product-icon {
+  background: linear-gradient(135deg, #5e72e4, #825ee4);
+}
+
+.product-card .product-icon i {
+  font-size: 28px;
+  color: white;
+}
+
+.product-card h3 {
+  color: var(--text-white);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.product-card .product-audience {
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.product-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.product-features li {
+  color: var(--text-secondary);
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.product-features li i {
+  color: var(--primary-color);
+}
+
+.product-badges {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.product-badges .badge {
+  background: rgba(66, 185, 131, 0.15);
+  color: var(--primary-color);
+  border: 1px solid rgba(66, 185, 131, 0.3);
+  font-size: 11px;
+  padding: 7px 12px;
+  border-radius: 30px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.product-btn {
+  display: inline-block;
+  background: transparent;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: var(--transition);
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.product-btn-vestibular {
+  color: #f5365c;
+  border: 2px solid #f5365c;
+}
+
+.product-btn-vestibular:hover {
+  background: #f5365c;
+  color: #fff;
+}
+
+.product-btn-residente {
+  color: #5e72e4;
+  border: 2px solid #5e72e4;
+}
+
+.product-btn-residente:hover {
+  background: #5e72e4;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .product-card {
+    padding: 28px;
+  }
+  .product-card h3 {
+    font-size: 1.3rem;
+  }
+  .product-features li {
+    font-size: 0.88rem;
+  }
+  .product-btn {
+    padding: 10px 22px;
+    font-size: 0.88rem;
+  }
+}

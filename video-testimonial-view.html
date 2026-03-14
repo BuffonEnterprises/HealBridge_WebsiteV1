@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Depoimento em Vídeo - Sophos Academy</title>
+  <meta name="description" content="Assista ao depoimento completo de alunos que transformaram seus estudos com a Sophos Academy">
+  <meta name="keywords" content="depoimentos, vídeos, estudantes de medicina, metodologia de estudo">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Depoimentos CSS Unificado -->
+  <link href="assets/css/testimonials.css" rel="stylesheet">
+</head>
+
+<body class="testimonial-view-page dark-mode">
+
+  <!-- Navbar -->
+  <nav class="hub-navbar">
+    <div class="hub-navbar-container">
+      <a href="index.html" class="hub-navbar-logo"><span class="hub-navbar-logo-highlight">Sophos</span> Academy</a>
+      <a href="testimonials.html" class="hub-navbar-btn">Ver Todos</a>
+    </div>
+  </nav>
+
+  <main class="main">
+
+    <!-- Hero do Vídeo (mostrado apenas para depoimentos com vídeo) -->
+    <section class="tv-hero" id="video-hero" style="display:none">
+      <div class="container">
+        <div class="tv-video-wrapper" data-aos="fade-up">
+          <div class="tv-video-container">
+            <video id="testimonial-video-player" controls preload="metadata" poster="">
+              <source src="" type="video/mp4">
+              Seu navegador não suporta o elemento de vídeo.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero de Citação (mostrado para depoimentos sem vídeo) -->
+    <section class="tv-hero-text" id="text-hero" style="display:none">
+      <div class="container">
+        <div class="tv-featured-quote-card" data-aos="fade-up">
+          <img id="hero-quote-img" src="" alt="" class="tv-featured-quote-avatar">
+          <blockquote class="tv-featured-quote-text" id="hero-quote-text"></blockquote>
+          <div class="tv-featured-quote-author">
+            <span id="hero-quote-name" class="tv-featured-quote-name"></span>
+            <span id="hero-quote-role" class="tv-featured-quote-role"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <section class="tv-content">
+      <div class="container">
+        <div class="tv-content-grid">
+
+          <!-- Coluna Principal -->
+          <div class="tv-main-column">
+
+            <!-- Card do Autor -->
+            <div class="tv-author-card" data-aos="fade-up">
+              <div class="tv-author-header">
+                <img id="student-img" src="" alt="" class="tv-author-image">
+                <div class="tv-author-info">
+                  <span id="video-category" class="tv-category-badge"></span>
+                  <h1 id="student-name"></h1>
+                  <p id="student-role"></p>
+                </div>
+                <div class="tv-verified-badge">
+                  <i class="bi bi-patch-check-fill"></i>
+                  <span>Verificado</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Título e Conteúdo -->
+            <div class="tv-story-card" data-aos="fade-up" data-aos-delay="100">
+              <h2 id="testimonial-title" class="tv-story-title"></h2>
+
+              <div class="tv-story-content">
+                <p id="testimonial-content" class="tv-story-intro"></p>
+
+                <blockquote class="tv-quote" id="testimonial-quote">
+                  <span class="tv-quote-text"></span>
+                </blockquote>
+
+                <p id="testimonial-content-2" class="tv-story-conclusion"></p>
+              </div>
+            </div>
+
+            <!-- Timeline da Jornada -->
+            <div class="tv-timeline-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="tv-section-header">
+                <div class="tv-section-icon">
+                  <i class="bi bi-flag-fill"></i>
+                </div>
+                <h3>Jornada de Transformação</h3>
+              </div>
+              <div class="tv-timeline" id="timeline-container">
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sidebar -->
+          <div class="tv-sidebar">
+
+            <!-- Resultados -->
+            <div class="tv-results-card" data-aos="fade-left">
+              <div class="tv-section-header">
+                <div class="tv-section-icon">
+                  <i class="bi bi-trophy-fill"></i>
+                </div>
+                <h3>Conquista</h3>
+              </div>
+              <div class="tv-results-grid" id="results-grid">
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="tv-cta-card" data-aos="fade-left" data-aos-delay="100">
+              <div class="tv-cta-content">
+                <i class="bi bi-rocket-takeoff-fill"></i>
+                <h4>Quer resultados assim?</h4>
+                <p>Comece sua jornada de transformação agora</p>
+                <a href="index.html#about-us" class="tv-cta-btn">Começar Agora</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Navegação Simplificada -->
+        <div class="tv-nav-simple" data-aos="fade-up">
+          <div class="tv-nav-simple-header">
+            <span class="tv-nav-simple-label">Continue Explorando</span>
+          </div>
+
+          <div class="tv-nav-simple-grid">
+            <!-- Anterior -->
+            <a href="#" class="tv-nav-simple-link prev" id="prev-testimonial">
+              <img id="prev-img" src="" alt="" class="tv-nav-simple-avatar">
+              <div class="tv-nav-simple-info">
+                <span class="tv-nav-simple-direction">← Anterior</span>
+                <span class="tv-nav-simple-name" id="prev-student"></span>
+                <span class="tv-nav-simple-role" id="prev-role"></span>
+              </div>
+            </a>
+
+            <!-- Centro -->
+            <a href="testimonials.html" class="tv-nav-simple-center">
+              <div class="tv-nav-simple-center-icon">
+                <i class="bi bi-collection-fill"></i>
+              </div>
+              <span class="tv-nav-simple-center-text">Ver Todos</span>
+              <span class="tv-nav-simple-center-count" id="total-count">6 histórias</span>
+            </a>
+
+            <!-- Próximo -->
+            <a href="#" class="tv-nav-simple-link next" id="next-testimonial">
+              <img id="next-img" src="" alt="" class="tv-nav-simple-avatar">
+              <div class="tv-nav-simple-info">
+                <span class="tv-nav-simple-direction">Próximo →</span>
+                <span class="tv-nav-simple-name" id="next-student"></span>
+                <span class="tv-nav-simple-role" id="next-role"></span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer dark-background">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span><span style="color: #42b983;">Sophos</span> Academy</span>
+            </a>
+            <p>Transformando a forma como você aprende e retém conhecimento médico através de tecnologia e metodologias avançadas de estudo.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Links Úteis</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="index.html">Home</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="index.html#about-us">Sobre Nós</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="index.html#services">Serviços</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Termos de Serviço</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#">Política de Privacidade</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Nossos Serviços</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="service-details-vestibular.html">Projeto Vestibular</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="service-details-residencia.html">Projeto Residência</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="service-details-faculdade.html">Projeto Faculdade</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="service-details-notion.html">Versão no Notion</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="service-details-criar.html">Liberdade para Criar</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contato</h4>
+            <p>
+              Porto Alegre, RS<br>
+              Brasil <br><br>
+              <strong>Email:</strong> contato@sophosacademy.com.br<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Sophos Academy</span></strong>. Todos os direitos reservados
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Dados e lógica da página -->
+  <script>
+    function loadTestimonial(testimonialId, testimonials) {
+      const testimonial = testimonials.find(t => t.id === parseInt(testimonialId)) || testimonials[0];
+
+      // Toggle hero sections
+      const videoHero = document.getElementById('video-hero');
+      const textHero = document.getElementById('text-hero');
+
+      if (testimonial.hasVideo) {
+        videoHero.style.display = '';
+        textHero.style.display = 'none';
+        const videoPlayer = document.getElementById('testimonial-video-player');
+        if (videoPlayer) {
+          videoPlayer.poster = testimonial.student.image;
+          const sourceElement = videoPlayer.querySelector('source');
+          if (sourceElement) {
+            sourceElement.src = testimonial.videoSource;
+            videoPlayer.load();
+          }
+        }
+      } else {
+        videoHero.style.display = 'none';
+        textHero.style.display = '';
+        document.getElementById('hero-quote-img').src = testimonial.student.image;
+        document.getElementById('hero-quote-img').alt = testimonial.student.name;
+        document.getElementById('hero-quote-text').textContent = '\u201C' + testimonial.quote + '\u201D';
+        document.getElementById('hero-quote-name').textContent = testimonial.student.name;
+        document.getElementById('hero-quote-role').textContent = testimonial.student.role;
+      }
+
+      // Student info
+      document.getElementById('student-img').src = testimonial.student.image;
+      document.getElementById('student-img').alt = testimonial.student.name;
+      document.getElementById('student-name').textContent = testimonial.student.name;
+      document.getElementById('student-role').textContent = testimonial.student.role;
+
+      // Category
+      const categoryElement = document.getElementById('video-category');
+      categoryElement.textContent = testimonial.categoryLabel;
+      categoryElement.className = 'tv-category-badge';
+
+      // Content
+      document.getElementById('testimonial-title').textContent = testimonial.title;
+      document.getElementById('testimonial-content').textContent = testimonial.content;
+
+      const quoteText = document.querySelector('#testimonial-quote .tv-quote-text');
+      if (quoteText) quoteText.textContent = testimonial.quote;
+
+      document.getElementById('testimonial-content-2').textContent = testimonial.contentSecondary;
+
+      // Results
+      const resultsGrid = document.getElementById('results-grid');
+      resultsGrid.innerHTML = '';
+      if (testimonial.results.length <= 2) {
+        resultsGrid.classList.add('results-compact');
+      } else {
+        resultsGrid.classList.remove('results-compact');
+      }
+      testimonial.results.forEach(result => {
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        card.innerHTML = `<i class="bi ${result.icon} result-icon"></i><div class="result-value">${result.value}</div><div class="result-label">${result.label}</div>`;
+        resultsGrid.appendChild(card);
+      });
+
+      // Timeline
+      const timelineContainer = document.getElementById('timeline-container');
+      timelineContainer.innerHTML = '';
+      testimonial.timeline.forEach(item => {
+        const el = document.createElement('div');
+        el.className = 'timeline-item';
+        el.innerHTML = `
+          <div class="timeline-dot"><i class="bi ${item.icon}"></i></div>
+          <div class="timeline-content">
+            <div class="timeline-date">${item.date}</div>
+            <div class="timeline-title">${item.title}</div>
+            <p>${item.content}</p>
+          </div>`;
+        timelineContainer.appendChild(el);
+      });
+
+      // Navigation
+      const currentIndex = testimonials.findIndex(t => t.id === testimonial.id);
+      const prevIndex = currentIndex > 0 ? currentIndex - 1 : testimonials.length - 1;
+      const nextIndex = currentIndex < testimonials.length - 1 ? currentIndex + 1 : 0;
+      const prev = testimonials[prevIndex];
+      const next = testimonials[nextIndex];
+
+      document.getElementById('prev-testimonial').href = `video-testimonial-view.html?id=${prev.id}`;
+      document.getElementById('prev-student').textContent = prev.student.name;
+      document.getElementById('prev-role').textContent = prev.student.role;
+      document.getElementById('prev-img').src = prev.student.image;
+      document.getElementById('prev-img').alt = prev.student.name;
+
+      document.getElementById('next-testimonial').href = `video-testimonial-view.html?id=${next.id}`;
+      document.getElementById('next-student').textContent = next.student.name;
+      document.getElementById('next-role').textContent = next.student.role;
+      document.getElementById('next-img').src = next.student.image;
+      document.getElementById('next-img').alt = next.student.name;
+
+      document.getElementById('total-count').textContent = `${testimonials.length} histórias`;
+
+      window.history.pushState({}, '', `video-testimonial-view.html?id=${testimonial.id}`);
+      window.scrollTo(0, 0);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({ duration: 600, easing: 'ease-in-out', once: true });
+
+      fetch('assets/data/testimonials.json')
+        .then(function(r) { return r.json(); })
+        .then(function(testimonials) {
+          var urlParams = new URLSearchParams(window.location.search);
+          loadTestimonial(urlParams.get('id') || 1, testimonials);
+
+          // Permitir navegação entre depoimentos sem recarregar
+          window.loadTestimonialData = testimonials;
+        })
+        .catch(function(err) { console.error('Erro ao carregar depoimentos:', err); });
+    });
+  </script>
+
+</body>
+
+</html>

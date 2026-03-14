@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "hasVideo": false,
+    "videoSource": "",
+    "category": "residencia",
+    "categoryLabel": "Residência Médica",
+    "title": "A mentoria foi essencial para meu crescimento na residência",
+    "content": "A mentoria e o acompanhamento personalizado foram essenciais para meu crescimento. Consegui identificar e corrigir minhas fraquezas com as análises de desempenho detalhadas, o que fez toda diferença na minha preparação para o R3.",
+    "quote": "O diferencial da Sophos Academy foi me mostrar que estudar não se trata de quantidade, mas de qualidade e consistência.",
+    "contentSecondary": "As análises de desempenho detalhadas me ajudaram a entender exatamente onde eu precisava melhorar. O acompanhamento personalizado dos mentores foi fundamental para corrigir falhas e consolidar protocolos e condutas clínicas.",
+    "student": { "name": "Júlia Carminatti", "role": "R3 Clínica Médica - Aprovada 2024", "image": "assets/img/testimonials/julia.png" },
+    "results": [
+      { "value": "R3", "label": "Clínica Médica", "icon": "bi-mortarboard" },
+      { "value": "2024", "label": "Aprovação", "icon": "bi-calendar-check" }
+    ],
+    "timeline": [
+      { "date": "Janeiro 2023", "title": "Início da preparação", "content": "Comecei a utilizar o método da Sophos Academy durante meu R2.", "icon": "bi-flag" },
+      { "date": "Maio 2023", "title": "Consolidação do conhecimento", "content": "Retenção superior mesmo com a rotina pesada.", "icon": "bi-graph-up" },
+      { "date": "Setembro 2023", "title": "Revisão intensiva", "content": "Flashcards para revisar protocolos e condutas clínicas.", "icon": "bi-journal-check" },
+      { "date": "Novembro 2023", "title": "Aprovação R3", "content": "Consegui minha aprovação no R3 de Clínica Médica.", "icon": "bi-trophy" }
+    ]
+  },
+  {
+    "id": 2,
+    "hasVideo": false,
+    "videoSource": "",
+    "category": "residencia",
+    "categoryLabel": "Residência Médica",
+    "title": "Passei em Dermatologia na USP no primeiro ano tentando!",
+    "content": "Passei em Dermatologia na USP na minha primeira tentativa. O cronograma inteligente me ajudou a focar nas áreas certas sem desperdiçar tempo, o que foi decisivo em uma especialidade tão concorrida.",
+    "quote": "O cronograma inteligente me mostrou exatamente onde investir meu tempo. Sem ele, teria me perdido na imensidão do conteúdo.",
+    "contentSecondary": "A vaga em dermatologia é extremamente concorrida. O cronograma inteligente distribuiu o conteúdo de forma estratégica, priorizando as áreas com maior peso nas provas e otimizando cada hora de estudo.",
+    "student": { "name": "Tainá Rodrigues", "role": "R1 Dermatologia - USP 2024", "image": "assets/img/testimonials/taina.jpg" },
+    "results": [
+      { "value": "1ª", "label": "Tentativa", "icon": "bi-bullseye" },
+      { "value": "USP", "label": "Instituição", "icon": "bi-building" },
+      { "value": "2024", "label": "Aprovação", "icon": "bi-calendar-check" },
+      { "value": "Dermato", "label": "Especialidade", "icon": "bi-heart-pulse" }
+    ],
+    "timeline": [
+      { "date": "Janeiro 2023", "title": "Início da preparação", "content": "Comecei focada em Dermatologia logo após me formar.", "icon": "bi-flag" },
+      { "date": "Abril 2023", "title": "Sistema de flashcards", "content": "Aumentei significativamente minha retenção.", "icon": "bi-gear" },
+      { "date": "Agosto 2023", "title": "Fase avançada", "content": "Foquei nas áreas com maior dificuldade.", "icon": "bi-graph-up" },
+      { "date": "Novembro 2023", "title": "Aprovação", "content": "Conquistei a vaga na USP na primeira tentativa!", "icon": "bi-trophy" }
+    ]
+  },
+  {
+    "id": 3,
+    "hasVideo": false,
+    "videoSource": "",
+    "category": "residencia",
+    "categoryLabel": "Residência Médica",
+    "title": "Após duas tentativas frustradas, finalmente conquistei minha vaga",
+    "content": "Após duas tentativas frustradas, encontrei a Sophos Academy. O método de organização do conhecimento e as revisões programadas fizeram toda diferença.",
+    "quote": "O que mudou foi a consistência. Antes eu estudava muito em algumas épocas e nada em outras.",
+    "contentSecondary": "O sistema de planejamento me ajudou a distribuir as matérias de forma inteligente, evitando o acúmulo de conteúdo.",
+    "student": { "name": "Natália Ferreira", "role": "R2 Pediatria - Unifesp 2023", "image": "assets/img/testimonials/nati.jpg" },
+    "results": [
+      { "value": "3ª", "label": "Tentativa (sucesso!)", "icon": "bi-bullseye" },
+      { "value": "Unifesp", "label": "Instituição", "icon": "bi-building" },
+      { "value": "2023", "label": "Aprovação", "icon": "bi-calendar-check" },
+      { "value": "Pediatria", "label": "Especialidade", "icon": "bi-heart-pulse" }
+    ],
+    "timeline": [
+      { "date": "Janeiro 2022", "title": "Mudança de estratégia", "content": "Após duas reprovações, mudei minha metodologia.", "icon": "bi-flag" },
+      { "date": "Junho 2022", "title": "Identificação de gaps", "content": "A análise revelou onde eu estava errando.", "icon": "bi-search" },
+      { "date": "Outubro 2022", "title": "Consistência nos estudos", "content": "Mantive ritmo constante de revisões.", "icon": "bi-graph-up" },
+      { "date": "Novembro 2022", "title": "Aprovação", "content": "Conquistei minha vaga em Pediatria na Unifesp!", "icon": "bi-trophy" }
+    ]
+  },
+  {
+    "id": 4,
+    "hasVideo": false,
+    "videoSource": "",
+    "category": "residencia",
+    "categoryLabel": "Residência Médica",
+    "title": "Trabalhando e estudando: Em 8 meses passei em Cirurgia Geral",
+    "content": "Trabalhar e estudar para residência era quase impossível até conhecer a plataforma. A metodologia de revisão espaçada otimizou meu tempo de estudo.",
+    "quote": "O sistema de estudos fragmentados foi perfeito para minha rotina de plantões.",
+    "contentSecondary": "O app móvel foi essencial, permitindo que eu revisasse flashcards mesmo nos intervalos curtos entre atendimentos.",
+    "student": { "name": "Camila Santos", "role": "R1 Cirurgia Geral - Santa Casa SP 2024", "image": "assets/img/testimonials/cami.jpg" },
+    "results": [
+      { "value": "8 Meses", "label": "De preparo", "icon": "bi-clock" },
+      { "value": "Santa Casa", "label": "SP", "icon": "bi-building" },
+      { "value": "2024", "label": "Aprovação", "icon": "bi-calendar-check" },
+      { "value": "Cirurgia", "label": "Geral", "icon": "bi-heart-pulse" }
+    ],
+    "timeline": [
+      { "date": "Março 2023", "title": "Início com rotina pesada", "content": "Comecei enquanto trabalhava em plantões.", "icon": "bi-clock" },
+      { "date": "Junho 2023", "title": "Otimização do tempo", "content": "Usei intervalos entre atendimentos para revisar.", "icon": "bi-phone" },
+      { "date": "Setembro 2023", "title": "Fase intensiva", "content": "Intensifiquei as revisões nos finais de semana.", "icon": "bi-graph-up" },
+      { "date": "Novembro 2023", "title": "Aprovação", "content": "Em 8 meses, conquistei a vaga na Santa Casa!", "icon": "bi-trophy" }
+    ]
+  },
+  {
+    "id": 5,
+    "hasVideo": true,
+    "videoSource": "assets/videos/depoimento-laura.mp4",
+    "category": "residencia",
+    "categoryLabel": "Residência Médica",
+    "title": "A IA adaptativa identificou exatamente onde eu estava errando",
+    "content": "A inteligência artificial da plataforma identificou exatamente onde eu estava errando e reorganizou meus estudos. Ganhei confiança para a prova ao ver meu desempenho melhorar semana após semana.",
+    "quote": "A IA da plataforma me conhecia melhor do que eu mesma. Ela sabia exatamente o que eu precisava revisar e quando.",
+    "contentSecondary": "O sistema adaptativo analisou meu desempenho em tempo real e reorganizou automaticamente meu plano de estudos, priorizando os temas onde eu tinha mais dificuldade.",
+    "student": { "name": "Laura", "role": "R2 de Medicina Interna - Aprovada 2024", "image": "assets/img/testimonials/laura.png" },
+    "results": [
+      { "value": "R2", "label": "Medicina Interna", "icon": "bi-mortarboard" },
+      { "value": "2024", "label": "Aprovação", "icon": "bi-calendar-check" }
+    ],
+    "timeline": [
+      { "date": "Janeiro 2023", "title": "Início da jornada", "content": "Comecei a utilizar o método durante meu R1.", "icon": "bi-flag" },
+      { "date": "Abril 2023", "title": "Otimização do tempo", "content": "Implementei revisões espaçadas e flashcards.", "icon": "bi-clock" },
+      { "date": "Agosto 2023", "title": "Aumento da retenção", "content": "Aumento significativo na retenção de conteúdo.", "icon": "bi-graph-up" },
+      { "date": "Dezembro 2023", "title": "Excelência alcançada", "content": "Conquistei excelentes resultados!", "icon": "bi-trophy" }
+    ]
+  },
+  {
+    "id": 6,
+    "hasVideo": true,
+    "videoSource": "assets/videos/JuBarrios.mp4",
+    "category": "residencia",
+    "categoryLabel": "Residência Médica",
+    "title": "O banco de questões e simulados me deram segurança para a prova",
+    "content": "O banco de questões organizado por especialidade e o sistema de simulados me deram segurança. Sabia exatamente onde eu estava forte e onde precisava melhorar.",
+    "quote": "Os simulados me prepararam para o ritmo e a pressão da prova real. Cheguei no dia confiante e sem surpresas.",
+    "contentSecondary": "O banco de questões organizado por especialidade e nível de dificuldade me permitiu treinar de forma direcionada. Os simulados reproduziam o formato das provas reais, o que me deu segurança no dia.",
+    "student": { "name": "Júlia Barrios", "role": "R2 de Medicina Interna - Aprovada 2024", "image": "assets/img/testimonials/julia-barrios.png" },
+    "results": [
+      { "value": "R2", "label": "Medicina Interna", "icon": "bi-mortarboard" },
+      { "value": "2024", "label": "Aprovação", "icon": "bi-calendar-check" }
+    ],
+    "timeline": [
+      { "date": "Fevereiro 2023", "title": "Início com a Sophos", "content": "Comecei a organizar meus estudos.", "icon": "bi-flag" },
+      { "date": "Maio 2023", "title": "Banco de questões", "content": "Treino direcionado por especialidade e dificuldade.", "icon": "bi-journal-check" },
+      { "date": "Setembro 2023", "title": "Simulados intensivos", "content": "Treinei com simulados no formato das provas reais.", "icon": "bi-graph-up" },
+      { "date": "Dezembro 2023", "title": "Aprovação", "content": "Conquistei minha vaga com excelência!", "icon": "bi-trophy" }
+    ]
+  }
+]
