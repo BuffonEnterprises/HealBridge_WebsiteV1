@@ -752,14 +752,14 @@ button{font-family:inherit}
    14. SOPHOS ACADEMY — PREMIUM SHOWCASE
    =========================================================== */
 .sophos{
-  position:relative;overflow:hidden;padding:8rem 0;
+  position:relative;overflow:hidden;padding:7rem 0 8rem;
   background:
-    radial-gradient(ellipse 70% 50% at 30% 40%,rgba(29,185,84,.035),transparent),
-    radial-gradient(ellipse 50% 60% at 80% 60%,rgba(0,204,106,.02),transparent),
-    #000;
+    radial-gradient(ellipse 60% 45% at 25% 50%,rgba(29,185,84,.03),transparent),
+    radial-gradient(ellipse 45% 50% at 80% 30%,rgba(29,185,84,.02),transparent),
+    linear-gradient(180deg,var(--s0),#060808,var(--s0));
 }
 .sophos-inner{
-  display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+  display:grid;grid-template-columns:1fr 1.1fr;gap:4.5rem;align-items:center;
 }
 
 /* Left: Content */
@@ -773,16 +773,15 @@ button{font-family:inherit}
 .sophos-feat{
   display:inline-flex;align-items:center;gap:.45rem;
   padding:.4rem .9rem;border-radius:100px;
-  background:rgba(29,185,84,.03);border:1px solid rgba(29,185,84,.08);
+  background:rgba(29,185,84,.03);border:1px solid rgba(29,185,84,.06);
   color:var(--t1);font-family:var(--mono);font-size:.7rem;font-weight:500;
   letter-spacing:.3px;
   transition:all .5s var(--smooth);
 }
 .sophos-feat i{color:var(--green);font-size:.85rem}
 .sophos-feat:hover{
-  background:rgba(29,185,84,.08);border-color:rgba(29,185,84,.2);
-  transform:translateY(-3px);
-  box-shadow:0 6px 20px rgba(0,0,0,.3);
+  background:rgba(29,185,84,.06);border-color:rgba(29,185,84,.12);
+  transform:translateY(-2px);
 }
 
 .sophos-cta-group{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
@@ -793,36 +792,33 @@ button{font-family:inherit}
   background:var(--green);
   color:#000;font-family:var(--mono);font-weight:600;font-size:.6rem;
   letter-spacing:1.8px;text-transform:uppercase;
-  border:none;cursor:pointer;position:relative;overflow:hidden;
-  transition:all .5s var(--elastic);text-decoration:none;
+  border:none;cursor:pointer;
+  transition:all .5s var(--circ);text-decoration:none;
 }
 .sophos-btn-primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 25px rgba(29,185,84,.2);
+  transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(29,185,84,.18);
 }
-.sophos-btn-primary i,.sophos-btn-primary span{position:relative;z-index:1}
-.sophos-btn-primary i{font-size:1rem;transition:transform .4s var(--elastic)}
-.sophos-btn-primary:hover i{transform:translateX(5px)}
+.sophos-btn-primary i{font-size:1rem;transition:transform .4s var(--circ)}
+.sophos-btn-primary:hover i{transform:translateX(4px)}
 
 .sophos-btn-ghost{
   display:inline-flex;align-items:center;gap:.5rem;
   padding:.9rem 1.8rem;border-radius:100px;
-  background:rgba(29,185,84,.03);
-  border:1px solid rgba(29,185,84,.08);
+  background:rgba(29,185,84,.02);
+  border:1px solid rgba(29,185,84,.07);
   color:var(--t1);font-family:var(--mono);font-weight:500;font-size:.6rem;
   letter-spacing:1.8px;text-transform:uppercase;
   cursor:pointer;text-decoration:none;
-  backdrop-filter:blur(12px);
-  transition:all .5s var(--elastic);
+  transition:all .5s var(--circ);
 }
 .sophos-btn-ghost:hover{
   border-color:var(--green);color:var(--green);
-  background:rgba(29,185,84,.06);
-  transform:translateY(-3px);
-  box-shadow:0 8px 25px rgba(0,0,0,.3);
+  background:rgba(29,185,84,.05);
+  transform:translateY(-2px);
 }
 
-.sophos-stats{display:flex;gap:2.5rem}
+.sophos-stats{display:flex;gap:2.5rem;margin-top:.5rem}
 .sophos-stat{text-align:left}
 .sophos-stat-num{
   font-family:var(--display);font-size:2.2rem;font-weight:800;
@@ -834,103 +830,136 @@ button{font-family:inherit}
 /* Right: Visual showcase */
 .sophos-visual{position:relative;display:flex;align-items:center;justify-content:center}
 
-.sophos-preview{
-  position:relative;width:100%;max-width:480px;
+/* Browser mockup */
+.sophos-browser{
+  position:relative;width:100%;max-width:520px;
   border-radius:var(--radius-xl);overflow:hidden;
-  border:1px solid rgba(29,185,84,.08);
-  background:#050505;
-  box-shadow:0 40px 80px rgba(0,0,0,.7);
-  transition:all .7s var(--circ);
+  border:1px solid rgba(29,185,84,.06);
+  background:var(--s1);
+  box-shadow:
+    0 4px 6px rgba(0,0,0,.1),
+    0 20px 50px rgba(0,0,0,.4),
+    0 40px 80px rgba(0,0,0,.2);
+  transition:all .8s var(--circ);
 }
-.sophos-preview:hover{
-  transform:translateY(-10px) scale(1.02);
-  border-color:rgba(29,185,84,.15);
-  box-shadow:0 50px 100px rgba(0,0,0,.8);
+.sophos-browser:hover{
+  transform:translateY(-8px);
+  border-color:rgba(29,185,84,.1);
+  box-shadow:
+    0 8px 16px rgba(0,0,0,.15),
+    0 30px 60px rgba(0,0,0,.4),
+    0 50px 100px rgba(0,0,0,.25);
 }
 
-.sophos-preview-bar{
-  display:flex;align-items:center;gap:.5rem;
-  padding:.75rem 1.2rem;
-  background:#0a0a0a;border-bottom:1px solid rgba(29,185,84,.05);
+.sophos-browser-bar{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.7rem 1rem;
+  background:var(--s2);border-bottom:1px solid rgba(255,255,255,.04);
 }
-.sophos-preview-dots{display:flex;gap:5px}
-.sophos-preview-dots span{
-  width:8px;height:8px;border-radius:50%;
+.sophos-browser-dots{display:flex;gap:6px}
+.sophos-browser-dots span{
+  width:10px;height:10px;border-radius:50%;
 }
-.sophos-preview-dots span:nth-child(1){background:#ff5f57}
-.sophos-preview-dots span:nth-child(2){background:#ffbd2e}
-.sophos-preview-dots span:nth-child(3){background:#28c940}
-.sophos-preview-url{
+.sophos-browser-dots span:nth-child(1){background:#ff5f57}
+.sophos-browser-dots span:nth-child(2){background:#ffbd2e}
+.sophos-browser-dots span:nth-child(3){background:#28c940}
+.sophos-browser-url{
   flex:1;text-align:center;
-  font-family:var(--mono);
-  font-size:.55rem;color:var(--t3);font-weight:400;
-  background:#050505;padding:.3rem .8rem;border-radius:6px;
-  letter-spacing:.5px;
+  font-family:var(--sans);
+  font-size:.65rem;color:var(--t3);font-weight:400;
+  background:var(--s0);padding:.35rem 1rem;border-radius:8px;
+  letter-spacing:.3px;display:flex;align-items:center;justify-content:center;gap:.4rem;
 }
+.sophos-browser-url i{font-size:.6rem;color:var(--green);opacity:.7}
 
-.sophos-preview-body{
-  position:relative;height:320px;overflow:hidden;
+/* Screenshot area */
+.sophos-screenshot{
+  position:relative;overflow:hidden;
+  aspect-ratio:16/10;
 }
-.sophos-preview-body iframe{
-  width:200%;height:200%;
-  transform:scale(.5);transform-origin:0 0;
-  border:none;pointer-events:none;
+.sophos-screenshot img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  transition:transform 6s var(--circ);
 }
-.sophos-preview-overlay{
+.sophos-browser:hover .sophos-screenshot img{
+  transform:translateY(-15%);
+}
+.sophos-screenshot-overlay{
   position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 60%,var(--s2));
+  background:linear-gradient(180deg,transparent 50%,rgba(10,12,16,.95));
   display:flex;align-items:flex-end;justify-content:center;
-  padding-bottom:1.5rem;
-  opacity:0;transition:opacity .4s var(--expo);
+  padding-bottom:1.8rem;gap:.8rem;
+  opacity:0;transition:opacity .6s var(--circ);
 }
-.sophos-preview:hover .sophos-preview-overlay{opacity:1}
-.sophos-preview-overlay a{
+.sophos-browser:hover .sophos-screenshot-overlay{opacity:1}
+.sophos-screenshot-overlay a{
   display:inline-flex;align-items:center;gap:.5rem;
-  padding:.6rem 1.4rem;border-radius:100px;
+  padding:.65rem 1.6rem;border-radius:100px;
   background:var(--green);color:#000;
-  font-family:var(--mono);
-  font-size:.55rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  font-family:var(--sans);
+  font-size:.72rem;font-weight:600;letter-spacing:.3px;
   text-decoration:none;
-  transition:all .5s var(--smooth);
+  transition:all .4s var(--circ);
 }
-.sophos-preview-overlay a:hover{transform:scale(1.03);box-shadow:0 4px 16px var(--green-glow)}
+.sophos-screenshot-overlay a:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(29,185,84,.2)}
+.sophos-screenshot-overlay a.ghost{
+  background:rgba(255,255,255,.08);color:var(--t0);
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);
+}
+.sophos-screenshot-overlay a.ghost:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.2)}
+
+/* Live badge */
+.sophos-live-badge{
+  position:absolute;top:1rem;left:1rem;z-index:3;
+  display:inline-flex;align-items:center;gap:.4rem;
+  padding:.35rem .85rem;border-radius:100px;
+  background:rgba(10,12,16,.8);backdrop-filter:blur(8px);
+  border:1px solid rgba(29,185,84,.1);
+  font-family:var(--sans);font-size:.62rem;font-weight:500;color:var(--green);
+  letter-spacing:.3px;
+}
+.sophos-live-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--green);
+  animation:pulseDot 2.5s ease-in-out infinite;
+}
 
 /* Floating logo */
 .sophos-float-logo{
-  position:absolute;top:-20px;right:-20px;
-  width:80px;height:80px;
-  background:#050505;border:1px solid rgba(29,185,84,.1);
-  border-radius:20px;padding:12px;
-  box-shadow:0 12px 40px rgba(0,0,0,.4);
-  animation:floatBadge 6s ease-in-out infinite;
+  position:absolute;top:-16px;right:-16px;
+  width:72px;height:72px;
+  background:var(--s1);border:1px solid rgba(29,185,84,.08);
+  border-radius:18px;padding:11px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  animation:floatBadge 7s ease-in-out infinite;
   z-index:2;
 }
 .sophos-float-logo img{width:100%;height:100%;object-fit:contain}
-@keyframes floatBadge{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-10px) rotate(3deg)}}
+@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 
-/* Particles */
-.sophos-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.sophos-particle{
-  position:absolute;width:3px;height:3px;border-radius:50%;
-  background:var(--green);opacity:.12;
-  animation:sophosFloat 8s ease-in-out infinite;
+/* Floating feature cards */
+.sophos-float-card{
+  position:absolute;z-index:3;
+  display:flex;align-items:center;gap:.5rem;
+  padding:.55rem 1rem;border-radius:var(--radius);
+  background:rgba(10,12,16,.85);backdrop-filter:blur(12px);
+  border:1px solid rgba(29,185,84,.06);
+  font-family:var(--sans);font-size:.68rem;font-weight:500;color:var(--t1);
+  box-shadow:0 8px 24px rgba(0,0,0,.3);
+  opacity:0;transition:all .8s var(--circ);
 }
-.sophos-particle:nth-child(1){top:15%;left:10%;animation-delay:0s;animation-duration:7s}
-.sophos-particle:nth-child(2){top:70%;left:85%;animation-delay:1.5s;animation-duration:9s}
-.sophos-particle:nth-child(3){top:40%;left:60%;animation-delay:3s;animation-duration:6s}
-.sophos-particle:nth-child(4){top:80%;left:30%;animation-delay:2s;animation-duration:10s}
-.sophos-particle:nth-child(5){top:25%;left:75%;animation-delay:4s;animation-duration:8s}
-.sophos-particle:nth-child(6){top:55%;left:15%;animation-delay:1s;animation-duration:11s}
-@keyframes sophosFloat{
-  0%,100%{transform:translateY(0) scale(1);opacity:.1}
-  50%{transform:translateY(-40px) scale(1.8);opacity:.25}
-}
+.sophos-browser:hover .sophos-float-card{opacity:1}
+.sophos-float-card i{color:var(--green);font-size:.8rem}
+.sophos-float-card.top-left{top:15%;left:-12%;animation:floatCard1 5s ease-in-out infinite}
+.sophos-float-card.bottom-right{bottom:12%;right:-10%;animation:floatCard2 6s ease-in-out infinite}
+@keyframes floatCard1{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes floatCard2{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 
 @media(max-width:900px){
   .sophos-inner{grid-template-columns:1fr;gap:3rem;text-align:center}
   .sophos-visual{order:-1}
   .sophos-content .desc{margin:0 auto 2rem}
   .sophos-features{justify-content:center}
+  .sophos-float-card{display:none}
   .sophos-cta-group{justify-content:center}
   .sophos-stats{justify-content:center}
   .sophos-preview{max-width:360px;margin:0 auto}
@@ -1632,14 +1661,6 @@ button{font-family:inherit}
      SOPHOS ACADEMY — PREMIUM SHOWCASE
 ============================================================ -->
 <section class="sec sophos" id="sophos">
-  <div class="sophos-particles">
-    <div class="sophos-particle"></div>
-    <div class="sophos-particle"></div>
-    <div class="sophos-particle"></div>
-    <div class="sophos-particle"></div>
-    <div class="sophos-particle"></div>
-    <div class="sophos-particle"></div>
-  </div>
   <div class="wrap">
     <div class="sophos-inner">
       <div class="sophos-content">
@@ -1684,20 +1705,34 @@ button{font-family:inherit}
         </div>
       </div>
       <div class="sophos-visual rv d2">
-        <div class="sophos-preview">
-          <div class="sophos-preview-bar">
-            <div class="sophos-preview-dots">
+        <div class="sophos-browser">
+          <div class="sophos-browser-bar">
+            <div class="sophos-browser-dots">
               <span></span><span></span><span></span>
             </div>
-            <div class="sophos-preview-url">sophosacademy.com.br</div>
+            <div class="sophos-browser-url">
+              <i class="bi bi-lock-fill"></i> sophosacademy.com.br
+            </div>
           </div>
-          <div class="sophos-preview-body">
-            <iframe src="https://sophosacademy-167276830647.southamerica-east1.run.app/" loading="lazy" title="Sophos Academy Preview"></iframe>
-            <div class="sophos-preview-overlay">
+          <div class="sophos-screenshot">
+            <div class="sophos-live-badge">
+              <span class="sophos-live-dot"></span> Plataforma ao vivo
+            </div>
+            <img src="assets/img/portfolio/SITESOPHOS.png" alt="Sophos Academy — Plataforma de mentoria medica com IA" loading="lazy">
+            <div class="sophos-screenshot-overlay">
               <a href="https://sophosacademy-167276830647.southamerica-east1.run.app/" target="_blank" rel="noopener">
                 Visitar Site <i class="bi bi-arrow-up-right"></i>
               </a>
+              <a href="https://sophosacademy-167276830647.southamerica-east1.run.app/" target="_blank" rel="noopener" class="ghost">
+                <i class="bi bi-play-fill"></i> Ver Demo
+              </a>
             </div>
+          </div>
+          <div class="sophos-float-card top-left">
+            <i class="bi bi-stars"></i> IA Adaptativa
+          </div>
+          <div class="sophos-float-card bottom-right">
+            <i class="bi bi-shield-check"></i> 95% Aprovacao
           </div>
         </div>
         <div class="sophos-float-logo">
