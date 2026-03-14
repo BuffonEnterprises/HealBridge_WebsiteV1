@@ -921,6 +921,151 @@ button{font-family:inherit}
   transition:width .4s var(--expo),left .4s var(--expo);
 }
 .form .fi-wrap:focus-within::after{width:100%;left:0}
+
+/* ===========================================================
+   29. SOPHOS ACADEMY SECTION
+   =========================================================== */
+.sophos{position:relative;overflow:hidden;padding:7rem 0}
+.sophos::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(29,185,84,.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(29,185,84,.05) 0%, transparent 70%);
+  pointer-events:none;
+}
+.sophos .wrap{max-width:1200px;margin:0 auto;padding:0 2rem}
+.sophos-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+}
+.sophos-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.sophos-logo-wrap{
+  position:relative;width:320px;height:320px;
+  display:flex;align-items:center;justify-content:center;
+}
+.sophos-logo-wrap img{
+  width:240px;height:240px;object-fit:contain;
+  border-radius:24px;
+  filter:drop-shadow(0 0 40px rgba(29,185,84,.2));
+  transition:transform .6s var(--expo),filter .6s var(--expo);
+}
+.sophos-logo-wrap:hover img{
+  transform:scale(1.05) rotate(-2deg);
+  filter:drop-shadow(0 0 60px rgba(29,185,84,.35));
+}
+.sophos-orbit{
+  position:absolute;inset:-20px;
+  border:1px solid rgba(29,185,84,.1);border-radius:50%;
+  animation:sophosOrbit 20s linear infinite;
+}
+.sophos-orbit::before{
+  content:'';position:absolute;top:-4px;left:50%;
+  width:8px;height:8px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 12px var(--green-glow);
+}
+.sophos-orbit:nth-child(2){
+  inset:-50px;animation-duration:30s;animation-direction:reverse;
+  border-color:rgba(29,185,84,.06);
+}
+.sophos-orbit:nth-child(2)::before{
+  width:6px;height:6px;background:var(--green-lo);
+}
+@keyframes sophosOrbit{to{transform:rotate(360deg)}}
+
+.sophos-content .tag{margin-bottom:.8rem}
+.sophos-content .hdg{margin-bottom:1rem}
+.sophos-content .desc{margin-bottom:1.5rem;color:var(--t1);line-height:1.75}
+.sophos-features{
+  display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem;
+}
+.sophos-feat{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.45rem 1rem;border-radius:100px;
+  background:rgba(29,185,84,.06);border:1px solid rgba(29,185,84,.12);
+  color:var(--t1);font-size:.85rem;font-weight:500;
+  transition:all .3s var(--expo);
+}
+.sophos-feat i{color:var(--green);font-size:.9rem}
+.sophos-feat:hover{
+  background:rgba(29,185,84,.12);border-color:rgba(29,185,84,.25);
+  transform:translateY(-2px);
+}
+.sophos-cta-area{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
+.sophos-btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  padding:.9rem 2rem;border-radius:100px;
+  background:linear-gradient(135deg,var(--green),var(--green-lo));
+  color:#fff;font-weight:600;font-size:.95rem;
+  border:none;cursor:pointer;position:relative;overflow:hidden;
+  transition:transform .4s var(--expo),box-shadow .4s var(--expo);
+  text-decoration:none;
+}
+.sophos-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent,rgba(255,255,255,.15));
+  opacity:0;transition:opacity .3s;
+}
+.sophos-btn:hover::before{opacity:1}
+.sophos-btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 8px 30px rgba(29,185,84,.35),0 0 60px rgba(29,185,84,.15);
+}
+.sophos-btn i{font-size:1.1rem;transition:transform .3s var(--expo)}
+.sophos-btn:hover i{transform:translateX(3px)}
+
+.sophos-btn-outline{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 1.8rem;border-radius:100px;
+  background:transparent;
+  border:1px solid rgba(29,185,84,.3);
+  color:var(--green);font-weight:500;font-size:.9rem;
+  cursor:pointer;text-decoration:none;
+  transition:all .4s var(--expo);
+}
+.sophos-btn-outline:hover{
+  border-color:var(--green);
+  background:rgba(29,185,84,.06);
+  transform:translateY(-2px);
+}
+
+.sophos-stats{
+  display:flex;gap:2.5rem;margin-top:2rem;padding-top:1.5rem;
+  border-top:1px solid var(--s4);
+}
+.sophos-stat-num{
+  font-family:var(--display);font-size:1.8rem;color:var(--green);
+  line-height:1;
+}
+.sophos-stat-label{font-size:.78rem;color:var(--t2);margin-top:.3rem}
+
+/* Particles */
+.sophos-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.sophos-particle{
+  position:absolute;width:3px;height:3px;border-radius:50%;
+  background:var(--green);opacity:.15;
+  animation:sophosFloat 8s ease-in-out infinite;
+}
+.sophos-particle:nth-child(1){top:15%;left:10%;animation-delay:0s;animation-duration:7s}
+.sophos-particle:nth-child(2){top:70%;left:85%;animation-delay:1.5s;animation-duration:9s}
+.sophos-particle:nth-child(3){top:40%;left:60%;animation-delay:3s;animation-duration:6s}
+.sophos-particle:nth-child(4){top:80%;left:30%;animation-delay:2s;animation-duration:10s}
+.sophos-particle:nth-child(5){top:25%;left:75%;animation-delay:4s;animation-duration:8s}
+.sophos-particle:nth-child(6){top:55%;left:15%;animation-delay:1s;animation-duration:11s}
+@keyframes sophosFloat{
+  0%,100%{transform:translateY(0) scale(1);opacity:.15}
+  50%{transform:translateY(-30px) scale(1.5);opacity:.35}
+}
+
+@media(max-width:900px){
+  .sophos-grid{grid-template-columns:1fr;gap:2.5rem;text-align:center}
+  .sophos-visual{order:-1}
+  .sophos-logo-wrap{width:240px;height:240px}
+  .sophos-logo-wrap img{width:180px;height:180px}
+  .sophos-features{justify-content:center}
+  .sophos-cta-area{justify-content:center}
+  .sophos-stats{justify-content:center}
+  .sophos-content .tag{justify-content:center}
+}
 </style>
 
 </head>
@@ -959,6 +1104,7 @@ button{font-family:inherit}
       <a href="#about">Sobre</a>
       <a href="#products">Produtos</a>
       <a href="#services">Servicos</a>
+      <a href="#sophos">Sophos</a>
       <a href="#team">Equipe</a>
       <a href="#contact">Contato</a>
     </div>
@@ -1128,6 +1274,74 @@ button{font-family:inherit}
           <div class="srv-bd">
             <h3>Pesquisa e Inovacao</h3>
             <p>Pesquisa aplicada em IA para saude, desenvolvendo novos modelos e abordagens para problemas reais do setor medico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- ============================================================
+     SOPHOS ACADEMY
+============================================================ -->
+<section class="sec sophos" id="sophos">
+  <div class="sophos-particles">
+    <div class="sophos-particle"></div>
+    <div class="sophos-particle"></div>
+    <div class="sophos-particle"></div>
+    <div class="sophos-particle"></div>
+    <div class="sophos-particle"></div>
+    <div class="sophos-particle"></div>
+  </div>
+  <div class="wrap">
+    <div class="sophos-grid">
+      <div class="sophos-visual rv">
+        <div class="sophos-logo-wrap">
+          <div class="sophos-orbit"></div>
+          <div class="sophos-orbit"></div>
+          <img src="assets/img/sophos-academy-logo.png" alt="Sophos Academy">
+        </div>
+      </div>
+      <div class="sophos-content">
+        <div class="rv">
+          <div class="tag"><span class="bar"></span> Nosso Empreendimento</div>
+          <h2 class="hdg">Sophos <em>Academy</em></h2>
+          <div class="line"></div>
+        </div>
+        <p class="desc rv d1">
+          A mentoria que conecta inteligencia artificial ao estudo da medicina.
+          Trilhas personalizadas, revisao espacada inteligente e acompanhamento
+          de performance para transformar sua jornada academica.
+        </p>
+        <div class="sophos-features rv d2">
+          <div class="sophos-feat"><i class="bi bi-cpu"></i> IA Personalizada</div>
+          <div class="sophos-feat"><i class="bi bi-graph-up-arrow"></i> Trilhas Adaptativas</div>
+          <div class="sophos-feat"><i class="bi bi-calendar2-check"></i> Revisao Espacada</div>
+          <div class="sophos-feat"><i class="bi bi-people"></i> Mentoria ao Vivo</div>
+          <div class="sophos-feat"><i class="bi bi-clipboard2-data"></i> Analise de Performance</div>
+        </div>
+        <div class="sophos-cta-area rv d3">
+          <a href="https://sophosacademy-167276830647.southamerica-east1.run.app/" target="_blank" rel="noopener" class="sophos-btn">
+            Conhecer a Mentoria <i class="bi bi-arrow-right"></i>
+          </a>
+          <a href="https://sophosacademy-167276830647.southamerica-east1.run.app/" target="_blank" rel="noopener" class="sophos-btn-outline">
+            <i class="bi bi-box-arrow-up-right"></i> Acessar Plataforma
+          </a>
+        </div>
+        <div class="sophos-stats rv d4">
+          <div>
+            <div class="sophos-stat-num">500+</div>
+            <div class="sophos-stat-label">Alunos mentorados</div>
+          </div>
+          <div>
+            <div class="sophos-stat-num">95%</div>
+            <div class="sophos-stat-label">Aprovacao</div>
+          </div>
+          <div>
+            <div class="sophos-stat-num">24/7</div>
+            <div class="sophos-stat-label">Acesso a plataforma</div>
           </div>
         </div>
       </div>
