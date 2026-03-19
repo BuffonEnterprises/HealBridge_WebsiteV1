@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HealBridge — Aplicacoes Web de Alto Rendimento com IA para Ensino e Medicina</title>
-  <meta name="description" content="HealBridge — Desenvolvedora de aplicacoes web de alto rendimento com inteligencia artificial inovadora para educacao e medicina. Criadora da Sophos Academy.">
+  <title>HealBridge — Engenharia de Software de Alto Rendimento com IA para Educacao e Medicina</title>
+  <meta name="description" content="HealBridge — Engenharia de software de alto rendimento com inteligencia artificial de ponta. Construimos plataformas que transformam a educacao e a medicina, devolvendo as pessoas o poder sobre o proprio futuro.">
   <meta name="author" content="HealBridge">
-  <meta property="og:title" content="HealBridge — Tecnologia que muda o desfecho das pessoas">
-  <meta property="og:description" content="Desenvolvemos aplicacoes web de alto rendimento com IA inovadora nas areas de ensino e medicina. Proposito genuino de transformar realidades.">
+  <meta property="og:title" content="HealBridge — Onde codigo encontra proposito">
+  <meta property="og:description" content="Engenharia de software de alto rendimento com IA de ponta. Cada plataforma que construimos existe para mudar o desfecho de uma historia real — na educacao e na medicina.">
   <meta property="og:type" content="website">
   <link href="assets/img/favicon.png" rel="icon">
 
@@ -205,8 +205,8 @@ button{font-family:inherit}
 .brand img{width:32px;height:32px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen}
 .brand-name{
   font-family:var(--display);
-  font-size:.8rem;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;color:var(--t0);
+  font-size:1.15rem;font-weight:700;
+  letter-spacing:-.02em;color:var(--t0);
 }
 .brand-name .g{color:var(--green)}
 
@@ -1043,7 +1043,44 @@ button{font-family:inherit}
    =========================================================== */
 .footer-unified{
   position:relative;overflow:hidden;
-  background:#000;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%,rgba(29,185,84,.03),transparent 70%),
+    radial-gradient(ellipse 50% 50% at 20% 80%,rgba(29,185,84,.02),transparent),
+    radial-gradient(ellipse 40% 40% at 80% 60%,rgba(0,204,106,.015),transparent),
+    #000;
+  border-top:1px solid rgba(29,185,84,.06);
+}
+
+/* Zona 0: Footer hero / transition */
+.footer-hero{
+  position:relative;z-index:1;
+  padding:5rem 0 3rem;text-align:center;
+}
+.footer-hero .container{max-width:720px;margin:0 auto;padding:0 2.5rem}
+.footer-hero-line{
+  width:60px;height:1.5px;margin:0 auto 2rem;
+  background:linear-gradient(90deg,transparent,var(--green),transparent);
+  border-radius:1px;
+}
+.footer-hero-lead{
+  font-size:1.05rem;color:var(--t2);line-height:1.85;
+  letter-spacing:-.01em;margin-bottom:1.5rem;
+}
+.footer-hero-title{
+  font-family:var(--display);font-size:clamp(1.8rem,4vw,2.8rem);
+  font-weight:700;color:var(--t0);letter-spacing:-.035em;line-height:1.15;
+  margin-bottom:2rem;
+}
+.footer-hero-title em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--green),var(--green-hi));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* Section header inside footer */
+.footer-section-header{
+  text-align:center;margin-bottom:3rem;
 }
 
 /* Background orbs */
@@ -1076,7 +1113,7 @@ button{font-family:inherit}
 /* Zona 1: Contact */
 .footer-contact{
   position:relative;z-index:1;
-  padding:6rem 0 4rem;
+  padding:0 0 4rem;
 }
 .footer-contact .container{
   max-width:1200px;margin:0 auto;padding:0 2.5rem;
@@ -1594,7 +1631,7 @@ button{font-family:inherit}
   <div class="nav-wrap">
     <a href="#" class="brand">
       <img src="assets/img/portfolio/LOGO HEALBRIGE PRIME.jpg" alt="HealBridge">
-      <div class="brand-name">HEAL<span class="g">BRIDGE</span></div>
+      <div class="brand-name"><span class="g">Heal</span>Bridge</div>
     </a>
     <div class="nav-links" id="nLinks">
       <a href="#about">Sobre</a>
@@ -1624,13 +1661,12 @@ button{font-family:inherit}
   </div>
 
   <div class="hero-body">
-    <div class="hero-badge"><span class="pulse-dot"></span> Iniciativa HealBrigde   &middot; Acreditando e Apostando em pessoas </div>
+    <div class="hero-badge"><span class="pulse-dot"></span> HealBridge &middot; Engenharia com Proposito</div>
     <h1 class="hero-h">
       <span class="ln">Desenvolvemos <span class="hl">tecnologia</span></span>
-      <span class="ln">que muda o <span class="hl">desfecho</span></span>
-      <span class="ln">das pessoas</span>
+      <span class="ln">que muda <span class="hl">desfecho</span></span>
     </h1>
-    <p class="hero-p">Somos uma desenvolvedora de aplicacoes web de alto rendimento nas areas de ensino e medicina. Usamos inteligencia artificial inovadora com um proposito: transformar realidades e devolver as pessoas o poder sobre o proprio futuro.</p>
+    <p class="hero-p">Arquitetamos plataformas de alto rendimento onde inteligencia artificial de ponta encontra a urgencia real da educacao e da medicina. Nao criamos software para existir — criamos para mudar desfechos, acelerar descobertas e devolver as pessoas o poder sobre o proprio futuro.</p>
     <div class="hero-btns">
       <div class="mag"><a href="#products" class="btn btn-fill"><span class="shine"></span>Conhecer Nossas Solucoes <i class="bi bi-arrow-right"></i></a></div>
       <div class="mag"><a href="#about" class="btn btn-ghost">Nosso Proposito</a></div>
@@ -1658,14 +1694,14 @@ button{font-family:inherit}
   <div class="wrap">
     <div class="rv" style="text-align:center;margin-bottom:1rem">
       <div class="tag" style="justify-content:center"><span class="bar"></span> Nosso Proposito <span class="bar"></span></div>
-      <h2 class="hdg">Tecnologia com <em>alma</em> e <em>proposito</em></h2>
+      <h2 class="hdg">Onde <em>codigo</em> encontra <em>proposito</em></h2>
       <div class="line c"></div>
     </div>
     <div class="bento">
       <div class="bento-main rv d1">
-        <h3>Aplicacoes que mudam <em>realidades</em></h3>
-        <p>A HealBridge e uma desenvolvedora de aplicacoes web de alto rendimento focada nas areas de ensino e medicina. Nascemos da convicao de que a tecnologia so faz sentido quando melhora a vida de alguem — quando transforma um diagnostico, abre uma porta para o conhecimento ou devolve esperanca a quem precisa.</p>
-        <p>Implementamos <strong>inteligencia artificial inovadora</strong> em cada solucao que criamos. Nao como diferencial de mercado, mas como instrumento de um plano maior: mudar o desfecho de historias reais. Da educacao medica a plataformas clinicas, cada linha de codigo carrega esse proposito.</p>
+        <h3>Engenharia que reescreve <em>desfechos</em></h3>
+        <p>A HealBridge nasceu de uma conviccao inegociavel: tecnologia so justifica sua existencia quando altera o curso de uma vida. Somos engenheiros de software de alto rendimento que escolheram os dois campos onde cada segundo de performance importa — <strong>educacao e medicina</strong>. Onde um milissegundo a menos pode significar um diagnostico mais rapido; onde uma experiencia mais fluida pode ser a diferenca entre um aluno que desiste e um que conquista sua vaga.</p>
+        <p>Integramos <strong>inteligencia artificial de ponta</strong> nao como ornamento, mas como motor silencioso de cada plataforma que construimos. Cada algoritmo serve a um unico fim: devolver as pessoas a autonomia sobre o proprio futuro. Da sala de aula ao leito do paciente, nosso codigo carrega esse compromisso em cada linha.</p>
       </div>
       <div class="bento-cell rv d2">
         <div class="bento-num" data-count="2024">0</div>
@@ -1673,7 +1709,7 @@ button{font-family:inherit}
       </div>
       <div class="bento-cell rv d3">
         <div class="bento-num">100%</div>
-        <div class="bento-lbl">Proposito genuino</div>
+        <div class="bento-lbl">Orientados por impacto</div>
       </div>
     </div>
   </div>
@@ -1688,9 +1724,9 @@ button{font-family:inherit}
   <div class="wrap">
     <div style="text-align:center" class="rv">
       <div class="tag" style="justify-content:center"><span class="bar"></span> Nossas Aplicacoes <span class="bar"></span></div>
-      <h2 class="hdg">Aplicacoes de <em>alto rendimento</em></h2>
+      <h2 class="hdg">Plataformas de <em>alto rendimento</em></h2>
       <div class="line c"></div>
-      <p class="desc" style="margin:0 auto">Cada produto que construimos existe para resolver um problema real na vida de alguem.</p>
+      <p class="desc" style="margin:0 auto">Cada plataforma que construimos nasce de um problema urgente e existe para transformar a realidade de quem mais precisa.</p>
     </div>
     <div class="p-grid">
       <div class="pc tilt glow-border rv d1">
@@ -1718,12 +1754,12 @@ button{font-family:inherit}
 <!-- ============ MARQUEE ============ -->
 <div class="marquee">
   <div class="marquee-track">
-    <span>Web Apps</span><span>Alto Rendimento</span><span>IA Inovadora</span>
-    <span>Educacao</span><span>Medicina</span><span>Proposito</span>
-    <span>Sophos Academy</span><span>Impacto Real</span>
-    <span>Web Apps</span><span>Alto Rendimento</span><span>IA Inovadora</span>
-    <span>Educacao</span><span>Medicina</span><span>Proposito</span>
-    <span>Sophos Academy</span><span>Impacto Real</span>
+    <span>Engenharia de Software</span><span>Alto Rendimento</span><span>IA de Ponta</span>
+    <span>Educacao</span><span>Medicina</span><span>Impacto Mensuravel</span>
+    <span>Sophos Academy</span><span>Codigo com Proposito</span>
+    <span>Engenharia de Software</span><span>Alto Rendimento</span><span>IA de Ponta</span>
+    <span>Educacao</span><span>Medicina</span><span>Impacto Mensuravel</span>
+    <span>Sophos Academy</span><span>Codigo com Proposito</span>
   </div>
 </div>
 
@@ -1872,7 +1908,7 @@ button{font-family:inherit}
   <div class="wrap">
     <div style="text-align:center" class="rv">
       <div class="tag" style="justify-content:center"><span class="bar"></span> Quem Constroi <span class="bar"></span></div>
-      <h2 class="hdg">As pessoas por tras do <em>proposito</em></h2>
+      <h2 class="hdg"> Fundadores da iniciativa <em>HealBridge</em></h2>
       <div class="line c"></div>
     </div>
     <div class="t-grid">
@@ -1900,8 +1936,6 @@ button{font-family:inherit}
   </div>
 </section>
 
-<div class="div"></div>
-
 <!-- ============================================================
      FOOTER UNIFICADO PREMIUM
 ============================================================ -->
@@ -1917,6 +1951,12 @@ button{font-family:inherit}
   <!-- Zona 1: Contato -->
   <div id="contact" class="footer-contact">
     <div class="container">
+      <!-- Section header centralizado -->
+      <div class="footer-section-header rv" style="padding-top:5rem">
+        <div class="tag" style="justify-content:center"><span class="bar"></span> Fale Conosco <span class="bar"></span></div>
+        <h3 class="hdg" style="text-align:center;font-size:clamp(1.6rem,3.5vw,2.2rem)">Entre em <em>contato</em></h3>
+        <div class="line c"></div>
+      </div>
       <div class="row">
 
         <!-- Coluna Esquerda — Info de Contato -->
