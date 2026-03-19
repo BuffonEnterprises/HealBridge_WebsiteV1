@@ -13,7 +13,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 
 <style>
@@ -49,9 +49,9 @@
   --t3: #4d5567;
   --t4: #333b4d;
 
-  --sans: 'DM Sans', system-ui, sans-serif;
-  --display: 'DM Serif Display', Georgia, serif;
-  --mono: var(--sans);
+  --sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --display: 'Space Grotesk', 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
 
   --expo: cubic-bezier(.25,.46,.45,.94);
   --spring: cubic-bezier(.23,1,.32,1);
@@ -68,12 +68,15 @@
    1. RESET & BASE
    =========================================================== */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
 body{
   font-family:var(--sans);font-weight:400;
+  font-feature-settings:'cv02','cv03','cv04','cv11';
+  font-optical-sizing:auto;
   background:var(--s0);color:var(--t1);
   overflow-x:hidden;cursor:none;
-  letter-spacing:-.01em;line-height:1.7;
+  letter-spacing:-.012em;line-height:1.7;
+  font-size:16px;
 }
 ::selection{background:var(--green);color:#fff}
 ::-webkit-scrollbar{width:3px}
@@ -201,14 +204,15 @@ button{font-family:inherit}
 .brand{display:flex;align-items:center;gap:.65rem}
 .brand img{width:32px;height:32px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen}
 .brand-name{
-  font-size:.75rem;font-weight:700;
-  letter-spacing:3.5px;text-transform:uppercase;color:var(--t0);
+  font-family:var(--display);
+  font-size:.8rem;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--t0);
 }
 .brand-name .g{color:var(--green)}
 
 .nav-links{display:flex;align-items:center;gap:.1rem}
 .nav-links a{
-  font-size:.65rem;font-weight:600;letter-spacing:1.5px;
+  font-size:.65rem;font-weight:500;letter-spacing:1.2px;
   text-transform:uppercase;color:var(--t3);
   padding:.5rem .9rem;position:relative;
   transition:color .3s var(--smooth);
@@ -326,7 +330,7 @@ button{font-family:inherit}
 .hero-badge{
   display:inline-flex;align-items:center;gap:10px;
   font-family:var(--mono);
-  font-size:.52rem;font-weight:500;letter-spacing:3.5px;text-transform:uppercase;
+  font-size:.5rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;
   color:var(--green);
   border:1px solid rgba(29,185,84,.15);
   background:rgba(29,185,84,.03);
@@ -346,11 +350,11 @@ button{font-family:inherit}
 
 .hero-h{
   font-family:var(--display);
-  font-size:clamp(3rem,7.5vw,6rem);
-  font-weight:800;line-height:1.05;
+  font-size:clamp(3rem,7.5vw,5.5rem);
+  font-weight:700;line-height:1.05;
   color:var(--t0);
   margin-bottom:2rem;
-  letter-spacing:-.03em;
+  letter-spacing:-.04em;
 }
 .hero-h .ln{
   display:block;opacity:0;transform:translateY(28px);
@@ -360,8 +364,12 @@ button{font-family:inherit}
 .hero-h .ln:nth-child(2){animation-delay:2.35s}
 .hero-h .ln:nth-child(3){animation-delay:2.5s}
 .hero-h .hl{
-  font-style:italic;
+  font-style:normal;
   color:var(--green);
+  background:linear-gradient(135deg,var(--green),var(--green-hi));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
   position:relative;
 }
 .hero-h .hl::after{
@@ -377,8 +385,8 @@ button{font-family:inherit}
   font-family:var(--sans);
   font-size:clamp(.9rem,1.2vw,1.05rem);
   font-weight:400;color:var(--t2);
-  line-height:1.95;max-width:530px;margin:0 auto 3.2rem;
-  letter-spacing:.01em;
+  line-height:1.85;max-width:530px;margin:0 auto 3.2rem;
+  letter-spacing:-.01em;
   opacity:0;animation:fadeSlideUp 1s var(--circ) 2.65s forwards;
 }
 
@@ -476,7 +484,7 @@ button{font-family:inherit}
 
 .tag{
   font-family:var(--mono);
-  font-size:.52rem;font-weight:600;letter-spacing:4px;text-transform:uppercase;
+  font-size:.5rem;font-weight:500;letter-spacing:3.5px;text-transform:uppercase;
   color:var(--green);
   display:inline-flex;align-items:center;gap:.8rem;
   margin-bottom:1rem;
@@ -486,15 +494,19 @@ button{font-family:inherit}
 .hdg{
   font-family:var(--display);
   font-size:clamp(2.2rem,5vw,3.5rem);
-  font-weight:800;line-height:1.1;letter-spacing:-.03em;
+  font-weight:700;line-height:1.1;letter-spacing:-.035em;
   color:var(--t0);margin-bottom:1rem;
 }
 .hdg em{
-  font-style:italic;
+  font-style:normal;
   color:var(--green);
+  background:linear-gradient(135deg,var(--green),var(--green-hi));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
 }
 
-.desc{font-weight:400;font-size:.88rem;color:var(--t2);line-height:1.9;max-width:480px;letter-spacing:.01em}
+.desc{font-weight:400;font-size:.9rem;color:var(--t2);line-height:1.85;max-width:480px;letter-spacing:-.005em}
 
 .line{width:44px;height:2px;background:var(--green);border-radius:1px;margin:1.4rem 0}
 .line.c{margin:1.4rem auto}
@@ -556,7 +568,7 @@ button{font-family:inherit}
 .bento-main:hover::before{transform:scaleX(1)}
 .bento-main:hover{border-color:rgba(29,185,84,.12)}
 .bento-main h3{
-  font-family:var(--display);font-size:1.7rem;font-weight:800;
+  font-family:var(--display);font-size:1.7rem;font-weight:700;
   color:var(--t0);margin-bottom:1.2rem;letter-spacing:-.02em;line-height:1.25;
 }
 .bento-main h3 em{
@@ -581,7 +593,7 @@ button{font-family:inherit}
   box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 .bento-num{
-  font-family:var(--display);font-size:3rem;font-weight:800;
+  font-family:var(--display);font-size:3rem;font-weight:700;
   color:var(--green);
   line-height:1;margin-bottom:.4rem;letter-spacing:-.03em;
 }
@@ -733,7 +745,7 @@ button{font-family:inherit}
 }
 
 .srv-n{
-  font-family:var(--display);font-size:2.4rem;font-weight:800;
+  font-family:var(--display);font-size:2.4rem;font-weight:700;
   line-height:1;min-width:58px;
   color:var(--t4);opacity:.12;
   transition:all .6s var(--circ);
@@ -821,7 +833,7 @@ button{font-family:inherit}
 .sophos-stats{display:flex;gap:2.5rem;margin-top:.5rem}
 .sophos-stat{text-align:left}
 .sophos-stat-num{
-  font-family:var(--display);font-size:2.2rem;font-weight:800;
+  font-family:var(--display);font-size:2.2rem;font-weight:700;
   color:var(--green);
   line-height:1;letter-spacing:-.02em;
 }
@@ -1026,103 +1038,162 @@ button{font-family:inherit}
 /* ===========================================================
    16. CONTACT — PROFESSIONAL ENTERPRISE
    =========================================================== */
-.contact{
-  background:
-    radial-gradient(ellipse 45% 38% at 28% 58%,rgba(29,185,84,.015),transparent),
-    radial-gradient(ellipse 35% 30% at 85% 15%,rgba(0,204,106,.01),transparent),
-    #000;
-  padding-bottom:6rem;
+/* ===========================================================
+   UNIFIED FOOTER (Contact + Footer)
+   =========================================================== */
+.footer-unified{
+  position:relative;overflow:hidden;
+  background:#000;
 }
 
-/* Header centered */
-.ct-header{text-align:center;margin-bottom:4rem}
-.ct-header .desc{margin:0 auto}
-
-/* Contact cards row */
-.ct-cards{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
-  margin-bottom:4rem;
+/* Background orbs */
+.footer-bg-effects{position:absolute;inset:0;pointer-events:none;z-index:0}
+.footer-orb{
+  position:absolute;border-radius:50%;filter:blur(120px);opacity:.08;
 }
-@media(max-width:768px){.ct-cards{grid-template-columns:1fr;gap:.8rem}}
+.footer-orb-1{
+  width:500px;height:500px;
+  background:var(--green);
+  top:-150px;left:-100px;
+  animation:orbFloat1 12s ease-in-out infinite;
+}
+.footer-orb-2{
+  width:400px;height:400px;
+  background:rgba(0,204,106,.6);
+  bottom:-100px;right:-80px;
+  animation:orbFloat2 15s ease-in-out infinite;
+}
+.footer-orb-3{
+  width:300px;height:300px;
+  background:rgba(29,185,84,.4);
+  top:40%;left:50%;
+  animation:orbFloat3 10s ease-in-out infinite;
+}
+@keyframes orbFloat1{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,30px)}}
+@keyframes orbFloat2{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,-40px)}}
+@keyframes orbFloat3{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,25px)}}
 
-.ct-card{
+/* Zona 1: Contact */
+.footer-contact{
+  position:relative;z-index:1;
+  padding:6rem 0 4rem;
+}
+.footer-contact .container{
+  max-width:1200px;margin:0 auto;padding:0 2.5rem;
+}
+.footer-contact .row{
+  display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:start;
+}
+@media(max-width:991px){
+  .footer-contact .row{grid-template-columns:1fr;gap:2rem}
+}
+
+/* Contact info cards (left column) */
+.contact-info-cards{display:flex;flex-direction:column;gap:1rem}
+
+.info-item{
   display:flex;align-items:center;gap:1.2rem;
-  padding:1.6rem 1.8rem;
+  padding:1.4rem 1.6rem;
   background:rgba(29,185,84,.015);
   border:1px solid rgba(29,185,84,.04);
   border-radius:var(--radius);
-  transition:all .6s var(--circ);
+  text-decoration:none;color:inherit;
+  transition:all .5s var(--circ);
   position:relative;overflow:hidden;
 }
-.ct-card::before{
+.info-item::before{
   content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
   background:var(--green);opacity:0;
   transition:opacity .4s var(--expo);
 }
-.ct-card:hover{
-  border-color:rgba(29,185,84,.1);
-  background:rgba(29,185,84,.025);
-  transform:translateY(-4px);
-  box-shadow:0 12px 40px rgba(0,0,0,.4);
+.info-item:hover{
+  border-color:rgba(29,185,84,.12);
+  background:rgba(29,185,84,.03);
+  transform:translateY(-3px);
+  box-shadow:0 10px 35px rgba(0,0,0,.4);
 }
-.ct-card:hover::before{opacity:1}
+.info-item:hover::before{opacity:1}
 
-.ct-card-ico{
-  width:48px;height:48px;border-radius:12px;
+.info-icon-wrap{
+  width:46px;height:46px;border-radius:12px;
   background:rgba(29,185,84,.04);
   border:1px solid rgba(29,185,84,.06);
   display:flex;align-items:center;justify-content:center;
   font-size:1.05rem;color:var(--green);flex-shrink:0;
   transition:all .5s var(--elastic);
 }
-.ct-card:hover .ct-card-ico{
+.info-item:hover .info-icon-wrap{
   background:var(--green);color:#000;
   transform:scale(1.05);
   box-shadow:0 4px 16px rgba(29,185,84,.15);
   border-color:var(--green);
 }
-.ct-card-lbl{
+
+.info-content h3{
   font-family:var(--mono);font-size:.45rem;font-weight:500;
   letter-spacing:3px;text-transform:uppercase;
-  color:var(--t4);margin-bottom:.2rem;
+  color:var(--t4);margin:0 0 .15rem;
 }
-.ct-card-val{font-size:.85rem;font-weight:500;color:var(--t1)}
+.info-content p{
+  font-size:.82rem;font-weight:500;color:var(--t1);margin:0;
+}
 
-/* Form container */
-.ct-form-wrap{
-  max-width:800px;margin:0 auto;
+.info-arrow{
+  margin-left:auto;color:var(--t4);font-size:.85rem;
+  transition:all .4s var(--elastic);opacity:.3;
+}
+.info-item:hover .info-arrow{
+  opacity:1;color:var(--green);transform:translateX(4px);
+}
+
+/* WhatsApp card accent */
+.info-item-whatsapp:hover .info-icon-wrap{
+  background:#25D366;border-color:#25D366;
+  box-shadow:0 4px 16px rgba(37,211,102,.2);
+}
+
+/* QR Code card */
+.qr-card{
+  flex-direction:column;text-align:center;
+  padding:1.8rem 1.6rem;cursor:default;
+}
+.qr-card img{
+  width:160px;height:160px;border-radius:12px;
+  margin-bottom:.8rem;
+  transition:transform .5s var(--elastic);
+}
+.qr-card:hover img{transform:scale(1.05)}
+.qr-card p{
+  font-family:var(--mono);font-size:.45rem;font-weight:500;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--t4);margin:0;
+}
+
+/* Contact form wrap (right column) */
+.contact-form-wrap{
   background:rgba(29,185,84,.01);
   border:1px solid rgba(29,185,84,.04);
   border-radius:var(--radius-lg);
-  padding:3rem 3.5rem 2.5rem;
+  padding:2.5rem 3rem 2rem;
   position:relative;overflow:hidden;
 }
-.ct-form-wrap::before{
+.contact-form-wrap::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,rgba(29,185,84,.1) 30%,rgba(29,185,84,.1) 70%,transparent);
 }
-@media(max-width:768px){.ct-form-wrap{padding:2rem 1.5rem}}
+@media(max-width:768px){.contact-form-wrap{padding:2rem 1.5rem}}
 
-/* Form header */
-.ct-form-header{
+.contact-form-header{
   display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:2.5rem;padding-bottom:1.5rem;
+  margin-bottom:2rem;padding-bottom:1.2rem;
   border-bottom:1px solid rgba(29,185,84,.04);
 }
-.ct-form-title{
-  font-family:var(--display);font-size:1.2rem;font-weight:700;
-  color:var(--t0);letter-spacing:-.01em;
+.contact-form-header h3{
+  font-family:var(--display);font-size:1.15rem;font-weight:700;
+  color:var(--t0);letter-spacing:-.01em;margin:0;
 }
-.ct-form-status{
-  display:flex;align-items:center;gap:.5rem;
-  font-family:var(--mono);font-size:.48rem;font-weight:500;
-  letter-spacing:2px;text-transform:uppercase;color:var(--t3);
-}
-.ct-form-status .status-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--green);
-  animation:pulse 2s ease-in-out infinite;
-  box-shadow:0 2px 8px rgba(29,185,84,.1);
+.contact-form-header h3 i{
+  color:var(--green);margin-right:.5rem;font-size:.95rem;
 }
 
 /* Floating label field */
@@ -1284,36 +1355,92 @@ button{font-family:inherit}
 }
 .ct-footer-note p i{color:var(--green);margin:0 .2rem}
 
-/* ===========================================================
-   17. FOOTER
-   =========================================================== */
-.ft{
-  background:#000;
+/* Footer divider */
+.footer-divider{
+  position:relative;z-index:1;
+  padding:0 2.5rem;max-width:1200px;margin:0 auto;
+}
+.footer-divider-line{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(29,185,84,.12) 30%,rgba(29,185,84,.12) 70%,transparent);
+}
+
+/* Zona 2: Brand + Newsletter */
+.footer-grid{
+  position:relative;z-index:1;
+  padding:3rem 0 2.5rem;
+}
+.footer-grid .container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
+
+.footer-compact{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:2rem;
+}
+
+.footer-compact-brand{display:flex;flex-direction:column;gap:.5rem}
+.footer-logo{
+  font-family:var(--display);font-size:1.3rem;font-weight:700;
+  color:var(--t0);text-decoration:none;letter-spacing:-.02em;
+}
+.footer-logo span{color:var(--green)}
+.footer-tagline{
+  font-size:.8rem;color:var(--t3);max-width:380px;line-height:1.6;
+}
+
+/* Newsletter */
+.footer-compact-newsletter{max-width:380px;width:100%}
+.newsletter-input-group{
+  display:flex;
+  background:rgba(29,185,84,.015);
+  border:1px solid rgba(29,185,84,.06);
+  border-radius:12px;overflow:hidden;
+  transition:border-color .4s var(--smooth);
+}
+.newsletter-input-group:focus-within{
+  border-color:rgba(29,185,84,.2);
+  box-shadow:0 0 0 3px rgba(29,185,84,.04);
+}
+.newsletter-input-group input{
+  flex:1;background:transparent;border:none;outline:none;
+  padding:.9rem 1.2rem;color:var(--t0);
+  font-family:var(--sans);font-size:.82rem;
+}
+.newsletter-input-group input::placeholder{color:var(--t4)}
+.newsletter-input-group button{
+  background:var(--green);border:none;
+  padding:0 1.2rem;color:#000;font-size:1rem;
+  cursor:pointer;transition:all .4s var(--elastic);
+}
+.newsletter-input-group button:hover{
+  background:#22c55e;padding:0 1.4rem;
+}
+
+.footer-compact-newsletter .loading,
+.footer-compact-newsletter .error-message,
+.footer-compact-newsletter .sent-message{
+  font-family:var(--mono);font-size:.5rem;letter-spacing:1px;
+  margin-top:.5rem;display:none;
+}
+.footer-compact-newsletter .sent-message{color:var(--green)}
+.footer-compact-newsletter .error-message{color:#ef4444}
+
+/* Zona 3: Copyright */
+.footer-bottom{
+  position:relative;z-index:1;
   border-top:1px solid rgba(29,185,84,.04);
-  padding:4rem 0 2.5rem;
+  padding:1.5rem 0;
 }
-.ft-inner{max-width:1200px;margin:0 auto;padding:0 2.5rem}
-.ft-grid{
-  display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem;
-  padding-bottom:3rem;border-bottom:1px solid rgba(29,185,84,.04);margin-bottom:2rem;
+.footer-bottom .container{max-width:1200px;margin:0 auto;padding:0 2.5rem}
+.footer-bottom-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:.5rem;
 }
-@media(max-width:768px){.ft-grid{grid-template-columns:1fr 1fr;gap:2rem}}
-@media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
-
-.ft-brand-col .brand-name{font-size:.75rem;margin-bottom:1rem}
-.ft-brand-col p{font-size:.8rem;color:var(--t3);line-height:1.7;max-width:280px}
-
-.ft-col h5{
-  font-family:var(--mono);
-  font-size:.48rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;
-  color:var(--green);margin-bottom:1rem;
-  opacity:.7;
+.footer-bottom-inner p{
+  font-family:var(--mono);font-size:.6rem;color:var(--t4);
+  letter-spacing:.5px;margin:0;
 }
-.ft-col a{
-  display:block;font-size:.82rem;color:var(--t2);
-  padding:.35rem 0;transition:all .4s var(--smooth);
-}
-.ft-col a:hover{color:var(--green);transform:translateX(4px)}
+.footer-credits a{color:var(--green);text-decoration:none;transition:opacity .3s}
+.footer-credits a:hover{opacity:.7}
 
 .ft-social{display:flex;gap:.7rem;margin-top:1.2rem}
 .ft-social a{
@@ -1330,17 +1457,10 @@ button{font-family:inherit}
   box-shadow:0 8px 24px var(--green-glow);
 }
 
-.ft-bot{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:1rem;
-}
-.ft-copy{font-family:var(--mono);font-size:.6rem;color:var(--t4);letter-spacing:.5px}
-.ft-legal{display:flex;gap:1.5rem}
-.ft-legal a{font-size:.7rem;color:var(--t4);transition:color .3s}
-.ft-legal a:hover{color:var(--green)}
-
-@media(max-width:576px){
-  .ft-bot{flex-direction:column;text-align:center}
+@media(max-width:768px){
+  .footer-compact{flex-direction:column;align-items:flex-start}
+  .footer-compact-newsletter{max-width:100%}
+  .footer-bottom-inner{flex-direction:column;text-align:center}
 }
 
 /* ===========================================================
@@ -1504,9 +1624,9 @@ button{font-family:inherit}
   </div>
 
   <div class="hero-body">
-    <div class="hero-badge"><span class="pulse-dot"></span> Web Apps de Alto Rendimento &middot; IA &middot; Educacao &amp; Medicina</div>
+    <div class="hero-badge"><span class="pulse-dot"></span> Iniciativa HealBrigde   &middot; Acreditando e Apostando em pessoas </div>
     <h1 class="hero-h">
-      <span class="ln">Construimos <span class="hl">tecnologia</span></span>
+      <span class="ln">Desenvolvemos <span class="hl">tecnologia</span></span>
       <span class="ln">que muda o <span class="hl">desfecho</span></span>
       <span class="ln">das pessoas</span>
     </h1>
@@ -1783,155 +1903,183 @@ button{font-family:inherit}
 <div class="div"></div>
 
 <!-- ============================================================
-     CONTACT — PROFESSIONAL
+     FOOTER UNIFICADO PREMIUM
 ============================================================ -->
-<section class="sec contact" id="contact">
-  <div class="wrap">
+<footer id="footer" class="footer-unified">
 
-    <!-- Header -->
-    <div class="ct-header rv">
-      <div class="tag" style="justify-content:center"><span class="bar"></span> Fale Conosco <span class="bar"></span></div>
-      <h2 class="hdg">Vamos construir algo que <em>importa</em></h2>
-      <div class="line c"></div>
-      <p class="desc">Tem uma ideia que pode mudar a realidade de alguem? Precisa de uma aplicacao web de alto rendimento? Queremos ouvir voce.</p>
-    </div>
-
-    <!-- Contact cards -->
-    <div class="ct-cards">
-      <div class="ct-card rv d1">
-        <div class="ct-card-ico"><i class="bi bi-envelope"></i></div>
-        <div>
-          <div class="ct-card-lbl">Email</div>
-          <div class="ct-card-val">contato@healbridge.com.br</div>
-        </div>
-      </div>
-      <div class="ct-card rv d2">
-        <div class="ct-card-ico"><i class="bi bi-geo-alt"></i></div>
-        <div>
-          <div class="ct-card-lbl">Localizacao</div>
-          <div class="ct-card-val">Brasil</div>
-        </div>
-      </div>
-      <div class="ct-card rv d3">
-        <div class="ct-card-ico"><i class="bi bi-instagram"></i></div>
-        <div>
-          <div class="ct-card-lbl">Instagram</div>
-          <div class="ct-card-val">@healbridge</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Form -->
-    <div class="ct-form-wrap rv d2">
-      <div class="ct-form-header">
-        <div class="ct-form-title">Envie sua mensagem</div>
-        <div class="ct-form-status"><span class="status-dot"></span> Online</div>
-      </div>
-
-      <form id="contactForm">
-        <div class="fl-row">
-          <div class="fl-field">
-            <input type="text" class="fl-input" id="cf-name" placeholder="Nome" required autocomplete="name">
-            <label class="fl-label" for="cf-name">Nome completo</label>
-          </div>
-          <div class="fl-field">
-            <input type="email" class="fl-input" id="cf-email" placeholder="Email" required autocomplete="email">
-            <label class="fl-label" for="cf-email">Email profissional</label>
-          </div>
-        </div>
-
-        <div class="fl-row">
-          <div class="fl-field">
-            <input type="tel" class="fl-input" id="cf-phone" placeholder="Telefone" autocomplete="tel">
-            <label class="fl-label" for="cf-phone">Telefone (opcional)</label>
-          </div>
-          <div class="fl-field">
-            <select class="fl-input" id="cf-subject" required>
-              <option value="" disabled selected hidden>Selecione</option>
-              <option value="sophos">Sophos Academy</option>
-              <option value="webapp">Desenvolvimento Web App</option>
-              <option value="partnership">Parceria</option>
-              <option value="careers">Trabalhe Conosco</option>
-              <option value="other">Outro</option>
-            </select>
-            <label class="fl-label" for="cf-subject" style="top:.45rem;font-family:var(--mono);font-size:.48rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--green)">Assunto</label>
-          </div>
-        </div>
-
-        <div class="fl-field">
-          <textarea class="fl-input" id="cf-msg" placeholder="Mensagem" required rows="5"></textarea>
-          <label class="fl-label" for="cf-msg">Sua mensagem</label>
-        </div>
-
-        <div class="ct-consent">
-          <div class="ct-check">
-            <input type="checkbox" id="cf-consent" required>
-            <div class="ct-check-box"><i class="bi bi-check-lg"></i></div>
-          </div>
-          <label class="ct-consent-text" for="cf-consent">
-            Concordo com a <a href="#">Politica de Privacidade</a> e autorizo o uso dos meus dados para contato.
-          </label>
-        </div>
-
-        <button type="submit" class="ct-submit" id="ctSubmitBtn">
-          <span>Enviar Mensagem</span>
-          <i class="bi bi-arrow-right"></i>
-        </button>
-      </form>
-
-      <div class="ct-success" id="ctSuccess">
-        <div class="ct-success-ico"><i class="bi bi-check-lg"></i></div>
-        <h3>Mensagem enviada!</h3>
-        <p>Obrigado pelo contato. Retornaremos em ate 24 horas uteis.</p>
-      </div>
-
-      <div class="ct-footer-note">
-        <p><i class="bi bi-shield-lock"></i> Seus dados estao protegidos e nao serao compartilhados com terceiros.</p>
-      </div>
-    </div>
-
+  <!-- Background Orbs decorativos -->
+  <div class="footer-bg-effects">
+    <div class="footer-orb footer-orb-1"></div>
+    <div class="footer-orb footer-orb-2"></div>
+    <div class="footer-orb footer-orb-3"></div>
   </div>
-</section>
 
-<!-- ============================================================
-     FOOTER
-============================================================ -->
-<footer class="ft">
-  <div class="ft-inner">
-    <div class="ft-grid">
-      <div class="ft-brand-col">
-        <div class="brand-name">HEAL<span class="g">BRIDGE</span></div>
-        <p>Desenvolvedora de aplicacoes web de alto rendimento com IA. Educacao e medicina com proposito genuino de mudar realidades.</p>
-        <div class="ft-social">
-          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-          <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+  <!-- Zona 1: Contato -->
+  <div id="contact" class="footer-contact">
+    <div class="container">
+      <div class="row">
+
+        <!-- Coluna Esquerda — Info de Contato -->
+        <div class="contact-info-cards rv">
+
+          <a href="mailto:healbridge2026@gmail.com" class="info-item">
+            <div class="info-icon-wrap">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
+            <div class="info-content">
+              <h3>Email</h3>
+              <p>healbridge2026@gmail.com</p>
+            </div>
+            <i class="bi bi-arrow-right info-arrow"></i>
+          </a>
+
+          <a href="https://www.instagram.com/healbridgetec/" target="_blank" rel="noopener" class="info-item">
+            <div class="info-icon-wrap">
+              <i class="bi bi-instagram"></i>
+            </div>
+            <div class="info-content">
+              <h3>Instagram</h3>
+              <p>@healbridgetec</p>
+            </div>
+            <i class="bi bi-arrow-right info-arrow"></i>
+          </a>
+
+          <a href="https://wa.me/5551999999999" target="_blank" rel="noopener" class="info-item info-item-whatsapp">
+            <div class="info-icon-wrap">
+              <i class="bi bi-whatsapp"></i>
+            </div>
+            <div class="info-content">
+              <h3>WhatsApp</h3>
+              <p>Resposta rapida</p>
+            </div>
+            <i class="bi bi-arrow-right info-arrow"></i>
+          </a>
+
+          <div class="info-item qr-card">
+            <img src="assets/img/healbridgetec-qr.png" alt="QR Code Instagram @healbridgetec">
+            <p>Escaneie e siga-nos</p>
+          </div>
+
         </div>
+
+        <!-- Coluna Direita — Formulario -->
+        <div class="contact-form-wrap rv d2">
+          <div class="contact-form-header">
+            <h3><i class="bi bi-pencil-square"></i> Envie sua mensagem</h3>
+          </div>
+
+          <form id="contactForm">
+            <div class="fl-row">
+              <div class="fl-field">
+                <input type="text" class="fl-input" id="cf-name" placeholder="Nome" required autocomplete="name">
+                <label class="fl-label" for="cf-name">Nome completo</label>
+              </div>
+              <div class="fl-field">
+                <input type="email" class="fl-input" id="cf-email" placeholder="Email" required autocomplete="email">
+                <label class="fl-label" for="cf-email">Email profissional</label>
+              </div>
+            </div>
+
+            <div class="fl-row">
+              <div class="fl-field">
+                <input type="tel" class="fl-input" id="cf-phone" placeholder="Telefone" autocomplete="tel">
+                <label class="fl-label" for="cf-phone">Telefone (opcional)</label>
+              </div>
+              <div class="fl-field">
+                <select class="fl-input" id="cf-subject" required>
+                  <option value="" disabled selected hidden>Selecione</option>
+                  <option value="sophos">Sophos Academy</option>
+                  <option value="webapp">Desenvolvimento Web App</option>
+                  <option value="partnership">Parceria</option>
+                  <option value="careers">Trabalhe Conosco</option>
+                  <option value="other">Outro</option>
+                </select>
+                <label class="fl-label" for="cf-subject" style="top:.45rem;font-family:var(--mono);font-size:.48rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--green)">Assunto</label>
+              </div>
+            </div>
+
+            <div class="fl-field">
+              <textarea class="fl-input" id="cf-msg" placeholder="Mensagem" required rows="5"></textarea>
+              <label class="fl-label" for="cf-msg">Sua mensagem</label>
+            </div>
+
+            <div class="ct-consent">
+              <div class="ct-check">
+                <input type="checkbox" id="cf-consent" required>
+                <div class="ct-check-box"><i class="bi bi-check-lg"></i></div>
+              </div>
+              <label class="ct-consent-text" for="cf-consent">
+                Concordo com a <a href="#">Politica de Privacidade</a> e autorizo o uso dos meus dados para contato.
+              </label>
+            </div>
+
+            <button type="submit" class="ct-submit" id="ctSubmitBtn">
+              <span>Enviar Mensagem</span>
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </form>
+
+          <div class="ct-success" id="ctSuccess">
+            <div class="ct-success-ico"><i class="bi bi-check-lg"></i></div>
+            <h3>Mensagem enviada!</h3>
+            <p>Obrigado pelo contato. Retornaremos em ate 24 horas uteis.</p>
+          </div>
+
+          <div class="ct-footer-note">
+            <p><i class="bi bi-shield-lock"></i> Seus dados estao protegidos e nao serao compartilhados com terceiros.</p>
+          </div>
+        </div>
+
       </div>
-      <div class="ft-col">
-        <h5>Aplicacoes</h5>
-        <a href="#sophos">Sophos Academy</a>
-        <a href="#products">Plataforma Clinica</a>
-        <a href="#products">Ecossistema Educacional</a>
-      </div>
-      <div class="ft-col">
-        <h5>Empresa</h5>
-        <a href="#about">Nosso Proposito</a>
-        <a href="#team">Equipe</a>
-        <a href="#services">Como Atuamos</a>
-      </div>
-      <div class="ft-col">
-        <h5>Contato</h5>
-        <a href="mailto:contato@healbridge.com.br">contato@healbridge.com.br</a>
-        <a href="#contact">Formulario</a>
-        <a href="#">Instagram</a>
-      </div>
-    </div>
-    <div class="ft-bot">
-      <div class="ft-copy">&copy; 2025 HealBridge &mdash; Todos os direitos reservados.</div>
-      <div class="ft-legal"><a href="#">Termos</a><a href="#">Privacidade</a></div>
     </div>
   </div>
+
+  <!-- Separador animado -->
+  <div class="footer-divider">
+    <div class="footer-divider-line"></div>
+  </div>
+
+  <!-- Zona 2: Marca + Newsletter -->
+  <div class="footer-grid">
+    <div class="container">
+      <div class="footer-compact">
+
+        <div class="footer-compact-brand">
+          <a href="#" class="footer-logo">
+            <span>Heal</span>Bridge
+          </a>
+          <span class="footer-tagline">Desenvolvedora de aplicacoes web de alto rendimento com IA. Educacao e medicina com proposito genuino de mudar realidades.</span>
+          <div class="ft-social">
+            <a href="https://www.instagram.com/healbridgetec/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+
+        <form id="newsletterForm" class="footer-compact-newsletter">
+          <div class="newsletter-input-group">
+            <input type="email" name="email" placeholder="Receba novidades no seu email" required>
+            <button type="submit"><i class="bi bi-arrow-right"></i></button>
+          </div>
+          <div class="loading" style="display:none">Carregando</div>
+          <div class="error-message" style="display:none"></div>
+          <div class="sent-message" style="display:none">Inscrito com sucesso!</div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Zona 3: Copyright -->
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bottom-inner">
+        <p>&copy; 2026 <strong>HealBridge</strong> &mdash; Todos os direitos reservados.</p>
+        <p class="footer-credits"><a href="#">Termos</a> &middot; <a href="#">Privacidade</a></p>
+      </div>
+    </div>
+  </div>
+
 </footer>
 
 <!-- ============================================================
