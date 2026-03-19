@@ -137,9 +137,13 @@ button{font-family:inherit}
 }
 .preloader.hide{opacity:0;visibility:hidden;pointer-events:none}
 .preloader .pl-logo{
-  width:72px;height:72px;object-fit:contain;
+  width:180px;height:180px;object-fit:cover;
   margin-bottom:2rem;
-  mix-blend-mode:screen;
+  border-radius:22px;
+  box-shadow:
+    0 0 60px 30px var(--s0),
+    0 0 100px 60px rgba(10,12,16,.8),
+    0 4px 30px rgba(29,185,84,.08);
   opacity:0;animation:plFade 1s var(--expo) .3s forwards;
 }
 @keyframes plFade{to{opacity:1}}
@@ -202,7 +206,22 @@ button{font-family:inherit}
 }
 
 .brand{display:flex;align-items:center;gap:.65rem}
-.brand img{width:32px;height:32px;object-fit:contain;flex-shrink:0;mix-blend-mode:screen}
+.brand img{
+  width:48px;height:48px;object-fit:cover;flex-shrink:0;
+  border-radius:10px;
+  box-shadow:
+    0 0 20px 10px var(--s0),
+    0 0 40px 20px rgba(10,12,16,.6),
+    0 2px 12px rgba(29,185,84,.06);
+  transition:box-shadow .4s var(--expo),transform .4s var(--expo);
+}
+.brand img:hover{
+  transform:scale(1.08);
+  box-shadow:
+    0 0 20px 10px var(--s0),
+    0 0 40px 20px rgba(10,12,16,.6),
+    0 2px 20px rgba(29,185,84,.15);
+}
 .brand-name{
   font-family:var(--display);
   font-size:1.15rem;font-weight:700;
@@ -1611,7 +1630,7 @@ button{font-family:inherit}
 
 <!-- ============ PRELOADER ============ -->
 <div class="preloader" id="pre">
-  <img class="pl-logo" src="assets/img/portfolio/LOGO HEALBRIGE PRIME.jpg" alt="HealBridge">
+  <img class="pl-logo" src="assets/img/portfolio/HealBridge Logo Oficial.jpg" alt="HealBridge">
   <div class="pl-text">HealBridge</div>
   <div class="pl-bar-bg"><div class="pl-bar"></div></div>
 </div>
@@ -1630,7 +1649,7 @@ button{font-family:inherit}
 <nav class="nav" id="nav">
   <div class="nav-wrap">
     <a href="#" class="brand">
-      <img src="assets/img/portfolio/LOGO HEALBRIGE PRIME.jpg" alt="HealBridge">
+      <img src="assets/img/portfolio/HealBridge Logo Oficial.jpg" alt="HealBridge">
       <div class="brand-name"><span class="g">Heal</span>Bridge</div>
     </a>
     <div class="nav-links" id="nLinks">
@@ -1664,15 +1683,15 @@ button{font-family:inherit}
     <div class="hero-badge"><span class="pulse-dot"></span> HealBridge &middot; Apostando e investindo em pessoas</div>
     <h1 class="hero-h">
       <span class="ln">Desenvolvemos <span class="hl">tecnologia</span></span>
-      <span class="ln">que muda <span class="hl">desfecho</span></span>
+      <span class="ln">que muda <span class="hl">desfechos</span></span>
     </h1>
-    <p class="hero-p">Arquitetamos plataformas de alto rendimento onde aplicações de software de ponta encontram soluções para a urgência real da educacao e da medicina. Nao criamos softwares para complementar o mercado — criamos para mudar desfechos, acelerar descobertas e oferecer às pessoas ferramentas que escolenem suas próprias virtudes.</p>
+    <p class="hero-p">Arquitetamos plataformas de alto rendimento onde software de ponta encontra soluções para a urgência real da educação e da medicina. Não criamos sistemas para complementar o mercado — criamos para mudar desfechos, acelerar descobertas e oferecer às pessoas ferramentas que revelam suas próprias virtudes.</p>
     <div class="hero-btns">
-      <div class="mag"><a href="#products" class="btn btn-fill"><span class="shine"></span>Conhecer Nossas Solucoes <i class="bi bi-arrow-right"></i></a></div>
-      <div class="mag"><a href="#about" class="btn btn-ghost">Nosso Proposito</a></div>
+      <div class="mag"><a href="#products" class="btn btn-fill"><span class="shine"></span>Conhecer Nossas Soluções <i class="bi bi-arrow-right"></i></a></div>
+      <div class="mag"><a href="#about" class="btn btn-ghost">Nosso Propósito</a></div>
     </div>
     <div class="hero-trust">
-      <span class="label">Nossas aplicacoes</span>
+      <span class="label">Nossas aplicações</span>
       <div class="logos">
         <span>Sophos Academy</span>
         <span>Plataformas Web</span>
@@ -1693,15 +1712,15 @@ button{font-family:inherit}
 <section class="sec about" id="about">
   <div class="wrap">
     <div class="rv" style="text-align:center;margin-bottom:1rem">
-      <div class="tag" style="justify-content:center"><span class="bar"></span> Nosso Proposito <span class="bar"></span></div>
-      <h2 class="hdg">Onde <em>codigo</em> encontra <em>proposito</em></h2>
+      <div class="tag" style="justify-content:center"><span class="bar"></span> Nosso Propósito <span class="bar"></span></div>
+      <h2 class="hdg">Onde <em>código</em> encontra <em>propósito</em></h2>
       <div class="line c"></div>
     </div>
     <div class="bento">
       <div class="bento-main rv d1">
         <h3>Engenharia que reescreve <em>desfechos</em></h3>
-        <p>A HealBridge nasceu de uma conviccao inegociavel: tecnologia so justifica sua existencia quando altera o curso de uma vida. Somos engenheiros de software de alto rendimento que escolheram os dois campos onde cada segundo de performance importa — <strong>educacao e medicina</strong>. Onde um milissegundo a menos pode significar um diagnostico mais rapido; onde uma experiencia mais fluida pode ser a diferenca entre um aluno que desiste e um que conquista sua vaga.</p>
-        <p>Integramos <strong>inteligencia artificial de ponta</strong> nao como ornamento, mas como motor silencioso de cada plataforma que construimos. Cada algoritmo serve a um unico fim: devolver as pessoas a autonomia sobre o proprio futuro. Da sala de aula ao leito do paciente, nosso codigo carrega esse compromisso em cada linha.</p>
+        <p>A HealBridge nasceu de uma convicção inegociável: tecnologia só justifica sua existência quando altera o curso de uma vida. Somos engenheiros de software de alto rendimento que escolheram os dois campos onde cada segundo de performance importa — <strong>educação e medicina</strong>. Onde um milissegundo a menos pode significar um diagnóstico mais rápido; onde uma experiência mais fluida pode ser a diferença entre um aluno que desiste e um que conquista sua vaga.</p>
+        <p>Integramos <strong>inteligência artificial de ponta</strong> não como ornamento, mas como motor silencioso de cada plataforma que construímos. Cada algoritmo serve a um único fim: devolver às pessoas a autonomia sobre o próprio futuro. Da sala de aula ao leito do paciente, nosso código carrega esse compromisso em cada linha.</p>
       </div>
       <div class="bento-cell rv d2">
         <div class="bento-num" data-count="2024">0</div>
@@ -1723,28 +1742,28 @@ button{font-family:inherit}
 <section class="sec products" id="products">
   <div class="wrap">
     <div style="text-align:center" class="rv">
-      <div class="tag" style="justify-content:center"><span class="bar"></span> Nossas Aplicacoes <span class="bar"></span></div>
+      <div class="tag" style="justify-content:center"><span class="bar"></span> Nossas Aplicações <span class="bar"></span></div>
       <h2 class="hdg">Plataformas de <em>alto rendimento</em></h2>
       <div class="line c"></div>
-      <p class="desc" style="margin:0 auto">Cada plataforma que construimos nasce de um problema urgente e existe para transformar a realidade de quem mais precisa.</p>
+      <p class="desc" style="margin:0 auto">Cada plataforma que construímos nasce de um problema urgente e existe para transformar a realidade de quem mais precisa.</p>
     </div>
     <div class="p-grid">
       <div class="pc tilt glow-border rv d1">
         <div class="pc-icon"><i class="bi bi-mortarboard-fill"></i></div>
         <h3>Sophos Academy</h3>
-        <p>Aplicacao web completa de mentoria medica com IA. Revisao espacada, trilhas adaptativas e acompanhamento inteligente que ja transformou a jornada de centenas de futuros medicos.</p>
-        <div class="pc-tag ok"><span class="d"></span> Em producao</div>
+        <p>Aplicação web completa de mentoria médica com IA. Revisão espaçada, trilhas adaptativas e acompanhamento inteligente que já transformou a jornada de centenas de futuros médicos.</p>
+        <div class="pc-tag ok"><span class="d"></span> Em produção</div>
       </div>
       <div class="pc tilt glow-border rv d2">
         <div class="pc-icon"><i class="bi bi-heart-pulse"></i></div>
-        <h3>Plataforma Clinica IA</h3>
-        <p>Web app de apoio a decisao clinica que cruza dados do paciente com evidencias atualizadas. Projetada para dar ao medico mais seguranca e ao paciente mais chances.</p>
+        <h3>Plataforma Clínica IA</h3>
+        <p>Web app de apoio à decisão clínica que cruza dados do paciente com evidências atualizadas. Projetada para dar ao médico mais segurança e ao paciente mais chances.</p>
         <div class="pc-tag wip"><span class="d"></span> Em desenvolvimento</div>
       </div>
       <div class="pc tilt glow-border rv d3">
         <div class="pc-icon"><i class="bi bi-globe2"></i></div>
         <h3>Ecossistema Educacional</h3>
-        <p>Suite de aplicacoes web para instituicoes de ensino em saude. Dashboards, gestao academica e inteligencia de dados — tudo integrado e construido para escalar.</p>
+        <p>Suíte de aplicações web para instituições de ensino em saúde. Dashboards, gestão acadêmica e inteligência de dados — tudo integrado e construído para escalar.</p>
         <div class="pc-tag plan"><span class="d"></span> Em planejamento</div>
       </div>
     </div>
@@ -1755,11 +1774,11 @@ button{font-family:inherit}
 <div class="marquee">
   <div class="marquee-track">
     <span>Engenharia de Software</span><span>Alto Rendimento</span><span>IA de Ponta</span>
-    <span>Educacao</span><span>Medicina</span><span>Impacto Mensuravel</span>
-    <span>Sophos Academy</span><span>Codigo com Proposito</span>
+    <span>Educação</span><span>Medicina</span><span>Impacto Mensurável</span>
+    <span>Sophos Academy</span><span>Código com Propósito</span>
     <span>Engenharia de Software</span><span>Alto Rendimento</span><span>IA de Ponta</span>
-    <span>Educacao</span><span>Medicina</span><span>Impacto Mensuravel</span>
-    <span>Sophos Academy</span><span>Codigo com Proposito</span>
+    <span>Educação</span><span>Medicina</span><span>Impacto Mensurável</span>
+    <span>Sophos Academy</span><span>Código com Propósito</span>
   </div>
 </div>
 
@@ -1772,38 +1791,38 @@ button{font-family:inherit}
       <div>
         <div class="rv">
           <div class="tag"><span class="bar"></span> Como Atuamos</div>
-          <h2 class="hdg">Do <em>codigo</em> ao impacto</h2>
+          <h2 class="hdg">Do <em>código</em> ao impacto</h2>
           <div class="line"></div>
-          <p class="desc">Desenvolvemos aplicacoes web de alto rendimento com IA integrada — cada projeto nasce de um problema real e existe para mudar um desfecho.</p>
+          <p class="desc">Desenvolvemos aplicações web de alto rendimento com IA integrada — cada projeto nasce de um problema real e existe para mudar um desfecho.</p>
         </div>
       </div>
       <div>
         <div class="srv rv">
           <div class="srv-n">01</div>
           <div class="srv-bd">
-            <h3>Aplicacoes Web de Alta Performance</h3>
-            <p>Arquitetamos e construimos plataformas web robustas, rapidas e escalaveis. Do backend a interface, cada decisao tecnica serve a experiencia do usuario final — seja um estudante, um medico ou uma instituicao.</p>
+            <h3>Aplicações Web de Alta Performance</h3>
+            <p>Arquitetamos e construímos plataformas web robustas, rápidas e escaláveis. Do backend à interface, cada decisão técnica serve à experiência do usuário final — seja um estudante, um médico ou uma instituição.</p>
           </div>
         </div>
         <div class="srv rv d1">
           <div class="srv-n">02</div>
           <div class="srv-bd">
-            <h3>Inteligencia Artificial Aplicada</h3>
-            <p>Implementamos IA de forma inovadora dentro das nossas aplicacoes. Nao como buzzword, mas como ferramenta concreta: algoritmos que personalizam trilhas de aprendizado, analisam dados clinicos e antecipam necessidades.</p>
+            <h3>Inteligência Artificial Aplicada</h3>
+            <p>Implementamos IA de forma inovadora dentro das nossas aplicações. Não como buzzword, mas como ferramenta concreta: algoritmos que personalizam trilhas de aprendizado, analisam dados clínicos e antecipam necessidades.</p>
           </div>
         </div>
         <div class="srv rv d2">
           <div class="srv-n">03</div>
           <div class="srv-bd">
-            <h3>Solucoes para Ensino e Medicina</h3>
-            <p>Nosso foco e claro: educacao e saude. Criamos ferramentas que ajudam estudantes a conquistar suas vagas, medicos a tomarem decisoes melhores e instituicoes a formarem profissionais mais preparados.</p>
+            <h3>Soluções para Ensino e Medicina</h3>
+            <p>Nosso foco é claro: educação e saúde. Criamos ferramentas que ajudam estudantes a conquistar suas vagas, médicos a tomarem decisões melhores e instituições a formarem profissionais mais preparados.</p>
           </div>
         </div>
         <div class="srv rv d3">
           <div class="srv-n">04</div>
           <div class="srv-bd">
-            <h3>Proposito e Impacto Genuino</h3>
-            <p>Acreditamos que tecnologia e um meio, nao um fim. Cada aplicacao que entregamos carrega a ambicao de mudar a realidade de pessoas reais — transformar acesso, conhecimento e oportunidades em algo mais justo e universal.</p>
+            <h3>Propósito e Impacto Genuíno</h3>
+            <p>Acreditamos que tecnologia é um meio, não um fim. Cada aplicação que entregamos carrega a ambição de mudar a realidade de pessoas reais — transformar acesso, conhecimento e oportunidades em algo mais justo e universal.</p>
           </div>
         </div>
       </div>
@@ -1821,19 +1840,19 @@ button{font-family:inherit}
     <div class="sophos-inner">
       <div class="sophos-content">
         <div class="rv">
-          <div class="tag"><span class="bar"></span> Nossa Primeira Aplicacao</div>
+          <div class="tag"><span class="bar"></span> Nossa Primeira Aplicação</div>
           <h2 class="hdg">Sophos <em>Academy</em></h2>
           <div class="line"></div>
         </div>
         <p class="desc rv d1">
-          A prova de que tecnologia pode mudar desfechos. A Sophos Academy e uma
-          aplicacao web de alto rendimento que usa IA para transformar a forma como
+          A prova de que tecnologia pode mudar desfechos. A Sophos Academy é uma
+          aplicação web de alto rendimento que usa IA para transformar a forma como
           estudantes de medicina aprendem, estudam e conquistam seus sonhos.
         </p>
         <div class="sophos-features rv d2">
           <div class="sophos-feat"><i class="bi bi-cpu"></i> IA Personalizada</div>
           <div class="sophos-feat"><i class="bi bi-graph-up-arrow"></i> Trilhas Adaptativas</div>
-          <div class="sophos-feat"><i class="bi bi-calendar2-check"></i> Revisao Espacada</div>
+          <div class="sophos-feat"><i class="bi bi-calendar2-check"></i> Revisão Espaçada</div>
           <div class="sophos-feat"><i class="bi bi-people"></i> Mentoria ao Vivo</div>
           <div class="sophos-feat"><i class="bi bi-clipboard2-data"></i> Performance em Tempo Real</div>
         </div>
@@ -1852,7 +1871,7 @@ button{font-family:inherit}
           </div>
           <div class="sophos-stat">
             <div class="sophos-stat-num">95%</div>
-            <div class="sophos-stat-label">Taxa de aprovacao</div>
+            <div class="sophos-stat-label">Taxa de aprovação</div>
           </div>
           <div class="sophos-stat">
             <div class="sophos-stat-num">24/7</div>
@@ -1888,7 +1907,7 @@ button{font-family:inherit}
             <i class="bi bi-stars"></i> IA Adaptativa
           </div>
           <div class="sophos-float-card bottom-right">
-            <i class="bi bi-shield-check"></i> 95% Aprovacao
+            <i class="bi bi-shield-check"></i> 95% Aprovação
           </div>
         </div>
         <div class="sophos-float-logo">
@@ -1907,7 +1926,7 @@ button{font-family:inherit}
 <section class="sec team" id="team">
   <div class="wrap">
     <div style="text-align:center" class="rv">
-      <div class="tag" style="justify-content:center"><span class="bar"></span> Quem Constroi <span class="bar"></span></div>
+      <div class="tag" style="justify-content:center"><span class="bar"></span> Quem Constrói <span class="bar"></span></div>
       <h2 class="hdg"> Fundadores da iniciativa <em>HealBridge</em></h2>
       <div class="line c"></div>
     </div>
@@ -1990,7 +2009,7 @@ button{font-family:inherit}
             </div>
             <div class="info-content">
               <h3>WhatsApp</h3>
-              <p>Resposta rapida</p>
+              <p>Resposta rápida</p>
             </div>
             <i class="bi bi-arrow-right info-arrow"></i>
           </a>
@@ -2049,7 +2068,7 @@ button{font-family:inherit}
                 <div class="ct-check-box"><i class="bi bi-check-lg"></i></div>
               </div>
               <label class="ct-consent-text" for="cf-consent">
-                Concordo com a <a href="#">Politica de Privacidade</a> e autorizo o uso dos meus dados para contato.
+                Concordo com a <a href="#">Política de Privacidade</a> e autorizo o uso dos meus dados para contato.
               </label>
             </div>
 
@@ -2062,11 +2081,11 @@ button{font-family:inherit}
           <div class="ct-success" id="ctSuccess">
             <div class="ct-success-ico"><i class="bi bi-check-lg"></i></div>
             <h3>Mensagem enviada!</h3>
-            <p>Obrigado pelo contato. Retornaremos em ate 24 horas uteis.</p>
+            <p>Obrigado pelo contato. Retornaremos em até 24 horas úteis.</p>
           </div>
 
           <div class="ct-footer-note">
-            <p><i class="bi bi-shield-lock"></i> Seus dados estao protegidos e nao serao compartilhados com terceiros.</p>
+            <p><i class="bi bi-shield-lock"></i> Seus dados estão protegidos e não serão compartilhados com terceiros.</p>
           </div>
         </div>
 
@@ -2088,7 +2107,7 @@ button{font-family:inherit}
           <a href="#" class="footer-logo">
             <span>Heal</span>Bridge
           </a>
-          <span class="footer-tagline">Desenvolvedora de aplicacoes web de alto rendimento com IA. Educacao e medicina com proposito genuino de mudar realidades.</span>
+          <span class="footer-tagline">Desenvolvedora de aplicações web de alto rendimento com IA. Educação e medicina com propósito genuíno de mudar realidades.</span>
           <div class="ft-social">
             <a href="https://www.instagram.com/healbridgetec/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
